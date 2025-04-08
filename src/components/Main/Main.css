@@ -1,0 +1,31 @@
+/* Asegurar espacio para el header fijo */
+.main-content {
+  padding-top: 150px; /* Igual a --header-full-height */
+  transition: padding-top 0.4s ease;
+}
+
+/* Cuando el header está comprimido */
+.header-comprimido ~ .main-content {
+  padding-top: 80px; /* Igual a --header-compressed-height */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 180px;
+  }
+  
+  .header-comprimido ~ .main-content {
+    padding-top: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding-top: 160px;
+  }
+  
+  .header-comprimido ~ .main-content {
+    padding-top: 60px;
+  }
+}

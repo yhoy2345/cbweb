@@ -1,0 +1,432 @@
+/* ===== FUENTES Y COLORES ===== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Variables de color */
+  --negro: #000000;
+  --azul-premium: #005fae;
+  --verde-premium: #00a859;
+  --verde-whatsapp: #25d366;
+  --blanco: #ffffff;
+  --gris-borde: rgba(0, 0, 0, 0.1);
+  
+  /* Dimensiones del header */
+  --header-full-height: 150px;
+  --header-compressed-height: 80px;
+  
+  /* Efectos de transición */
+  --easing-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --easing-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  --scroll-adjustment: 7px;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fade-slide-up {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+@keyframes fade-slide-down {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+@keyframes header-compress {
+  0% { height: var(--header-full-height); }
+  100% { height: var(--header-compressed-height); }
+}
+
+@keyframes menu-slide-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(calc(-1 * (var(--header-full-height) - var(--header-compressed-height) - var(--scroll-adjustment)))); }
+}
+
+@keyframes icon-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(5deg); }
+}
+
+@keyframes icon-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes icon-glow {
+  0% { filter: drop-shadow(0 0 0 rgba(0, 95, 174, 0.7)); }
+  50% { filter: drop-shadow(0 0 6px rgba(0, 95, 174, 0.9)); }
+  100% { filter: drop-shadow(0 0 0 rgba(0, 95, 174, 0.7)); }
+}
+
+/* ===== ESTRUCTURA PRINCIPAL DEL HEADER ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--blanco);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  font-family: 'Montserrat', sans-serif;
+  height: var(--header-full-height);
+  transition: all 0.4s var(--easing-smooth);
+  overflow: hidden;
+}
+
+/* Header comprimido al hacer scroll */
+header.comprimido {
+  animation: header-compress 0.4s var(--easing-smooth) forwards;
+  height: 100px;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* ===== LOGO ===== */
+.logo-container {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 90%;
+  display: flex;
+  align-items: center;
+  z-index: 1001;
+  transition: all 0.4s var(--easing-smooth);
+}
+
+.logo-img {
+  height: 100%;
+  width: auto;
+  max-width: 250px;
+  transition: all 0.4s var(--easing-smooth);
+}
+
+/* Logo en estado comprimido */
+header.comprimido .logo-container {
+  animation: logo-scroll-up 0.5s var(--easing-smooth) forwards;
+  z-index: 1002;
+}
+
+@keyframes logo-scroll-up {
+  0% { transform: translateY(-50%) scale(1); left: 20px; }
+  100% { transform: translateY(-50%) scale(1.3); left: 11%; margin-left: -55px; }
+}
+
+header.comprimido .logo-img {
+  max-width: 200px;
+}
+
+/* ===== SECCIÓN DE CONTACTO Y REDES SOCIALES ===== */
+.header-contact-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0 10px 420px;
+  border-bottom: 1px solid var(--gris-borde);
+  transition: all 0.3s var(--easing-smooth);
+  position: relative;
+}
+
+/* Contenedor de redes sociales - POSICIONADO AL LADO DEL CONTACTO */
+.social-icons-container {
+  position: absolute;
+  left: 280px; /* Posición horizontal (no modificar) */
+  top: calc(50% - 50px); /* Movido 15px arriba (original: top: 50%) */
+  transform: translateY(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 1001;
+  transition: all 0.3s var(--easing-smooth); /* Añade transición */
+}
+
+
+/* Oculta los iconos al hacer scroll (igual que .header-contact-section.hidden) */
+header.comprimido .social-icons-container {
+  opacity: 0;
+  transform: translateY(-50%) scale(0.9);
+  pointer-events: none; /* Desactiva interacción */
+  animation: fade-slide-up 0.3s var(--easing-smooth) forwards;
+}
+
+/* Vuelve a mostrar los iconos al subir */
+header:not(.comprimido) .social-icons-container {
+  animation: fade-slide-down 0.4s var(--easing-bounce) forwards;
+}
+
+.header-contact-section.hidden {
+  animation: fade-slide-up 0.3s var(--easing-smooth) forwards;
+  pointer-events: none;
+}
+
+.header-contact-section:not(.hidden) {
+  animation: fade-slide-down 0.4s var(--easing-bounce) forwards;
+}
+
+.header-info {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-contact, .header-address {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--negro);
+  font-weight: 500;
+  transition: all 0.3s var(--easing-smooth);
+  font-size: 0.95rem;
+}
+
+.header-contact:hover, .header-address:hover {
+  color: var(--azul-premium);
+}
+
+/* ===== ICONOS DE CONTACTO ===== */
+.phone-icon, .address-icon {
+  font-size: 1.2rem;
+  color: var(--azul-premium);
+  transition: all 0.4s var(--easing-smooth);
+  animation: icon-float 4s ease-in-out infinite;
+}
+
+.phone-icon { perspective: 1000px; transform-style: preserve-3d; }
+.address-icon { perspective: 1000px; transform-style: preserve-3d; }
+
+.header-contact:hover .phone-icon {
+  transform: rotateX(180deg);
+  transition: transform 0.8s var(--easing-smooth);
+}
+
+.header-address:hover .address-icon {
+  animation: icon-pulse 1.5s ease infinite, icon-glow 2s ease infinite;
+  color: var(--verde-premium);
+}
+
+/* Separador */
+.header-separator {
+  width: 1px;
+  height: 24px;
+  background: var(--negro);
+  opacity: 0.2;
+  transition: all 0.3s var(--easing-smooth);
+}
+
+.header-separator:hover {
+  height: 28px;
+  background: linear-gradient(to bottom, var(--azul-premium), var(--verde-premium));
+}
+
+/* ===== BOTÓN WHATSAPP ===== */
+.btn-whatsapp {
+  background: var(--verde-whatsapp);
+  color: var(--blanco);
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s var(--easing-smooth);
+  box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+  animation: pulse-soft 1.5s var(--easing-smooth) infinite;
+}
+
+/* ===== MENÚ DE NAVEGACIÓN ===== */
+.header-bottom {
+  position: relative;
+  padding: 8px 0 35px 270px;
+  transition: all 0.4s var(--easing-smooth);
+  will-change: transform;
+  display: flex;
+  justify-content: center;
+}
+
+/* Menú comprimido al hacer scroll */
+header.comprimido .header-bottom {
+  animation: menu-slide-up 0.4s var(--easing-smooth) forwards;
+  position: relative;
+  padding: 8px 0 20px 270px;
+  transition: all 0.4s var(--easing-smooth);
+  will-change: transform;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  color: var(--negro);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 3px 0;
+  position: relative;
+  transition: all 0.3s var(--easing-smooth);
+}
+
+nav ul li a:hover {
+  color: var(--azul-premium);
+}
+
+/* Efecto subrayado en enlaces */
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, var(--azul-premium), var(--verde-premium));
+  transition: width 0.3s var(--easing-smooth);
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* ===== ICONOS DE REDES SOCIALES ===== */
+.social-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 15px;
+  transition: all 0.3s var(--easing-smooth);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+}
+
+.social-icon.facebook { background: #1877f2; }
+.social-icon.tiktok { background: #000000; }
+.social-icon.instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+/* ===== ELEMENTOS ADICIONALES ===== */
+.address-spinner {
+  position: absolute;
+  left: -25px;
+  color: var(--verde-premium);
+}
+
+.geo-error-tooltip {
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  background: #ffebee;
+  color: #c62828;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ===== DISEÑO RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .header-contact-section,
+  .header-bottom {
+    padding-left: 180px;
+  }
+  .social-icons-container {
+    left: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-full-height: 140px;
+    --header-compressed-height: 70px;
+  }
+  
+  .header-contact-section,
+  .header-bottom {
+    padding-left: 150px;
+  }
+  
+  .social-icons-container {
+    left: 120px;
+    gap: 8px;
+  }
+  
+  .logo-img { max-width: 160px; }
+  header.comprimido .logo-img { max-width: 120px; }
+  
+  .header-info {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  
+  .header-separator { display: none; }
+  nav ul { gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --header-full-height: 130px;
+    --header-compressed-height: 60px;
+  }
+  
+  .header-contact-section,
+  .header-bottom {
+    padding-left: 120px;
+  }
+  
+  .social-icons-container {
+    left: 90px;
+    flex-direction: column;
+  }
+  
+  .logo-img { max-width: 120px; }
+  header.comprimido .logo-img { max-width: 100px; }
+  
+  .header-contact, .header-address { font-size: 0.8rem; }
+  .btn-whatsapp { padding: 8px 15px; font-size: 0.8rem; }
+  nav ul { gap: 8px; }
+}
+
+/* Efectos para estado comprimido */
+header.comprimido .social-icons-container {
+  transform: translateY(-50%) scale(0.9);
+  left: 170px;
+}

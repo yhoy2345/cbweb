@@ -1,10 +1,34 @@
+/* App.css - Versión Combinada y Mejorada */
+
+/* Estructura principal */
 .App {
   text-align: center;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  min-height: 100vh;
 }
 
+/* Header (logo y barra superior) */
+.App-header {
+  background-color: #282c34;
+  grid-row: 1;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  min-height: auto; /* Override del 100vh original */
+}
+
+/* Logo animado (manteniendo tu animación) */
 .App-logo {
-  height: 40vmin;
+  height: 10vmin; /* Reducido para header */
   pointer-events: none;
+  margin-bottom: 0.5rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,17 +37,25 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Barra de navegación scrollable */
+.ScrollMenu {
+  grid-row: 2;
+  position: sticky;
+  top: calc(10vmin + 2rem); /* Ajuste según altura del header */
+  z-index: 999;
+  background-color: #1a1e24;
+  padding: 0.5rem 0;
 }
 
+/* Contenido principal */
+.Main {
+  grid-row: 3;
+  margin-top: calc(10vmin + 3rem); /* Ajuste automático */
+  position: relative;
+  z-index: 1;
+}
+
+/* Efectos y animaciones (manteniendo tus estilos) */
 .App-link {
   color: #61dafb;
 }
@@ -34,5 +66,20 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .App-logo {
+    height: 15vmin;
+  }
+  
+  .ScrollMenu {
+    top: calc(15vmin + 1.5rem);
+  }
+  
+  .Main {
+    margin-top: calc(15vmin + 2.5rem);
   }
 }
