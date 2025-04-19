@@ -6,11 +6,7 @@ import {
   faAmbulance, 
   faProcedures,
   faChevronRight,
-  faPlus,
-  faAtom,
-  faShapes,
-  faWaveSquare,
-  faCircle
+  faPlus
 } from '@fortawesome/free-solid-svg-icons';
 import './Servicios.css';
 
@@ -70,41 +66,17 @@ const Servicios = () => {
 
   return (
     <section className="servicios-section" id="servicios" ref={sectionRef}>
-      {/* Fondo premium con múltiples elementos */}
-      <div className="background-elements">
-        <div className="floating-circles">
-          {[...Array(8)].map((_, i) => (
-            <div key={i} className="floating-circle" style={{
-              '--size': `${Math.random() * 10 + 5}px`,
-              '--delay': `${i * 3}s`,
-              '--duration': `${Math.random() * 20 + 20}s`,
-              '--opacity': Math.random() * 0.2 + 0.05,
-              '--x-start': `${Math.random() * 100}%`,
-              '--y-start': `${Math.random() * 100}%`
-            }}>
-              <FontAwesomeIcon icon={faCircle} />
-            </div>
-          ))}
-        </div>
-        <div className="animated-grid"></div>
-        <div className="floating-shapes">
-          <div className="shape triangle"></div>
-          <div className="shape square"></div>
-          <div className="shape circle"></div>
-        </div>
-      </div>
-
-      {/* Contenido principal */}
-      <div className="content-container">
+      {/* Contenido principal - Ya no lleva fondo propio */}
+      <div className="servicios-container">
         {/* Título con línea animada */}
-        <div className="title-wrapper">
-          <h2 className="section-title" ref={titleRef}>NUESTROS SERVICIOS</h2>
-          <div className="title-underline">
-            <div className="underline-animation"></div>
+        <div className="servicios-title-wrapper">
+          <h2 className="servicios-title" ref={titleRef}>NUESTROS SERVICIOS</h2>
+          <div className="servicios-title-underline">
+            <div className="servicios-underline-animation"></div>
           </div>
         </div>
         
-        <p className="section-subtitle">
+        <p className="servicios-subtitle">
           Excelencia médica a tu alcance con los <span>mejores servicios</span>
         </p>
         
@@ -112,46 +84,45 @@ const Servicios = () => {
         <div className="servicios-grid">
           {servicios.map((servicio, index) => (
             <div 
-              className="servicio-card" 
+              className="servicios-card" 
               key={servicio.id}
               ref={el => cardsRef.current[index] = el}
-              style={{ '--card-color': servicio.color }}
+              style={{ '--servicios-card-color': servicio.color }}
             >
-              <div className="card-inner">
-                <div className="icon-animation-container">
-                  <div className="icon-orb">
-                    <div className="icon-pulse"></div>
-                    <div className="icon-rings">
-                      <div className="ring"></div>
-                      <div className="ring"></div>
+              <div className="servicios-card-inner">
+                <div className="servicios-icon-container">
+                  <div className="servicios-icon-orb">
+                    <div className="servicios-icon-pulse"></div>
+                    <div className="servicios-icon-rings">
+                      <div className="servicios-icon-ring"></div>
+                      <div className="servicios-icon-ring"></div>
                     </div>
-                    <div className="servicio-icon">
+                    <div className="servicios-icon">
                       <FontAwesomeIcon icon={servicio.icono} />
                     </div>
                   </div>
                 </div>
                 <h3>{servicio.nombre}</h3>
                 <p>{servicio.descripcion}</p>
-                <div className="btn-wrapper">
-                  <a href="#" className="btn-ver-mas">
+                <div className="servicios-btn-wrapper">
+                  <a href="<button onClick={() => scrollToSection()}>Ver más</button>" className="servicios-btn">
                     <span>Ver más</span>
                     <FontAwesomeIcon icon={faChevronRight} />
-                    <div className="btn-hover-effect"></div>
+                    <div className="servicios-btn-hover-effect"></div>
                   </a>
                 </div>
               </div>
-              <div className="card-glow"></div>
-              <div className="card-particles"></div>
+              <div className="servicios-card-glow"></div>
             </div>
           ))}
         </div>
 
         {/* Botón ver todos */}
-        <div className="btn-todos-container" ref={buttonRef}>
-          <a href="#" className="btn-ver-todos">
+        <div className="servicios-btn-todos-container" ref={buttonRef}>
+          <a href="<button onClick={() => scrollToSection()}>Ver más</button>" className="servicios-btn-todos">
             <span>Ver todos nuestros servicios</span>
-            <FontAwesomeIcon icon={faPlus} className="plus-icon" />
-            <div className="btn-todos-glow"></div>
+            <FontAwesomeIcon icon={faPlus} className="servicios-plus-icon" />
+            <div className="servicios-btn-glow"></div>
           </a>
         </div>
       </div>

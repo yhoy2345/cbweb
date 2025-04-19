@@ -1,31 +1,32 @@
-/* Asegurar espacio para el header fijo */
+/* src/components/Main/Main.css */
 .main-content {
-  padding-top: 150px; /* Igual a --header-full-height */
-  transition: padding-top 0.4s ease;
+  padding-top: 150px; /* Ajusta según altura de tu header */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Cuando el header está comprimido */
-.header-comprimido ~ .main-content {
-  padding-top: 80px; /* Igual a --header-compressed-height */
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Espacio entre secciones */
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .main-content {
-    padding-top: 180px;
-  }
-  
-  .header-comprimido ~ .main-content {
-    padding-top: 70px;
+    padding-top: 100px;
   }
 }
+/* Elimina cualquier estilo de fondo existente */
+main {
+  position: relative;
+  z-index: 10; /* Asegura que el contenido esté sobre el fondo */
+}
 
-@media (max-width: 480px) {
-  .main-content {
-    padding-top: 160px;
-  }
-  
-  .header-comprimido ~ .main-content {
-    padding-top: 60px;
-  }
+/* Opcional: ajustes de espaciado entre secciones */
+section {
+  padding: 80px 0;
+  position: relative;
 }

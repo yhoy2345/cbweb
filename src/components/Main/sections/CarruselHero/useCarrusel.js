@@ -1,53 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from "react";
 
-export const useCarrusel = (totalSlides, autoPlay = true, interval = 3000) => {
-  const [currentIndex, setCurrentIndex] = useState(1);
-  const [transitionEnabled, setTransitionEnabled] = useState(true);
+export const useCarrusel = (totalSlides, autoPlay = true, interval = 5000) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => {
-    if (currentIndex < totalSlides - 1) {
-      setCurrentIndex(prev => prev + 1);
-    } else {
-      resetToFirst();
-    }
-  };
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) =>
+      prev === totalSlides - 1 ? 0 : prev + 1
+    );
+  }, [totalSlides]);
 
-  const prevSlide = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(prev => prev - 1);
-    } else {
-      resetToLast();
-    }
-  };
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? totalSlides - 1 : prev - 1
+    );
+  }, [totalSlides]);
 
-  const resetToFirst = () => {
-    setTransitionEnabled(false);
-    setCurrentIndex(1);
-    setTimeout(() => setTransitionEnabled(true), 10);
-  };
-
-  const resetToLast = () => {
-    setTransitionEnabled(false);
-    setCurrentIndex(totalSlides - 2);
-    setTimeout(() => setTransitionEnabled(true), 10);
-  };
-
-  const goToSlide = (index) => {
-    setCurrentIndex(index + 1);
-  };
+  const goToSlide = useCallback((index) => {
+    setCurrentIndex(index);
+  }, []);
 
   useEffect(() => {
     if (!autoPlay) return;
-    
-    const intervalId = setInterval(nextSlide, interval);
-    return () => clearInterval(intervalId);
-  }, [currentIndex]);
+    const id = setInterval(nextSlide, interval);
+    return () => clearInterval(id);
+  }, [nextSlide, interval, autoPlay]);
 
-  return {
-    currentIndex,
-    nextSlide,
-    prevSlide,
-    goToSlide,
-    transitionEnabled
-  };
+  return { currentIndex, nextSlide, prevSlide, goToSlide };
 };

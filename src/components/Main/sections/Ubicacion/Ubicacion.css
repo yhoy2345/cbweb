@@ -1,0 +1,439 @@
+/* Elegirnos.css - Versión Premium */
+/* ================================================== */
+/* Variables y estilos base */
+/* ================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary-blue: #0066cc;
+  --primary-green: #00cc99;
+  --white: #ffffff;
+  --dark-gray: #2d3748;
+  --medium-gray: #4a4a4a;
+  --light-gray: #f5f7fa;
+  --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.16);
+  --border-radius: 12px;
+}
+
+/* Reset y estilos generales */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  color: var(--medium-gray);
+}
+
+/* ================================================== */
+/* Sección "Por qué elegirnos" */
+/* ================================================== */
+
+.por-que-elegirnos {
+  position: relative;
+  padding: 8rem 0;
+  overflow: hidden;
+}
+
+.elegirnos-contenedor {
+  position: relative;
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Título y subrayado */
+.elegirnos-title-wrapper {
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+.elegirnos-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--medium-gray);
+  margin: 0;
+  padding-bottom: 15px;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: fadeInSlide 0.8s forwards 0.3s;
+}
+@keyframes fadeInSlide {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.elegirnos-title-underline {
+  width: 603px;
+  height: 4px;
+  background: rgba(0, 120, 215, 0.1);
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.elegirnos-underline-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-green));
+}
+
+.por-que-elegirnos.animate-in .elegirnos-underline-animation {
+  width: 100%;
+}
+
+/* Subtítulo */
+.elegirnos-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  color: #4a5568;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 80px;
+  line-height: 1.6;
+}
+
+.elegirnos-subtitle span {
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Layout flexible */
+.elegirnos-flex {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ================================================== */
+/* Carrusel de imágenes - Parte izquierda */
+/* ================================================== */
+
+.carrusel-razones {
+  
+  flex: 1;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 800px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(0);
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+.carrusel-container-razones {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.carrusel-slide-razones {
+  min-width: 100%;
+  flex: 0 0 100%;
+  height: 100%;
+  position: relative;
+  opacity: 0;
+}
+
+.carrusel-slide-razones.active {
+  opacity: 1;
+}
+
+.carrusel-slide-razones::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+  z-index: 1;
+}
+
+.imagen-carrusel {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Botones de navegación */
+.carrusel-btn-razones {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  color: var(--primary-blue);
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  opacity: 0;
+  transition: transform 0.3s ease;
+}
+
+.carrusel-razones:hover .carrusel-btn-razones {
+  opacity: 1;
+}
+
+.carrusel-btn-razones:hover {
+  background-color: var(--primary-blue);
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carrusel-btn-razones:active {
+  transform: scale(0.95);
+}
+.prev-btn-razones {
+  left: 1.5rem;
+}
+
+.next-btn-razones {
+  right: 1.5rem;
+}
+
+/* Indicadores modernos */
+.carrusel-indicadores-razones {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.8rem;
+  z-index: 5;
+}
+
+.indicador-razones {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 0;
+  appearance: none;
+  outline: none;
+}
+
+.indicador-razones.active {
+  background: var(--white);
+  border-color: var(--white);
+  transform: scale(1.2);
+}
+
+.indicador-razones:hover {
+  background: var(--white);
+}
+
+/* ================================================== */
+/* Razones para elegirnos - Parte derecha */
+/* ================================================== */
+
+.razones {
+  flex: 1;
+  width: 100%;
+  max-width: 500px;
+}
+
+.razones-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.razon-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 1.8rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.razon-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--primary-blue), var(--primary-green));
+  transition: var(--transition);
+}
+
+.razon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.razon-card:hover::before {
+  width: 100%;
+  opacity: 0.1;
+}
+
+.razon-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  color: white;
+  font-size: 1.2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.razon-icon {
+  transition: transform 0.3s ease;
+}
+
+.razon-card:hover .razon-icon {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.razon-card h3 {
+  font-size: 1.3rem;
+  color: var(--dark-gray);
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+
+.razon-card p {
+  font-size: 1rem;
+  color: var(--medium-gray);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Botón "Conoce más" */
+.elegirnos-btn-conoce-mas {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  background: transparent;
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  position: relative;
+  z-index: 2;
+  border: none;
+  cursor: pointer;
+}
+
+.elegirnos-btn-underline {
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-green));
+  transition: width 0.4s ease;
+}
+
+.elegirnos-btn-conoce-mas:hover .elegirnos-btn-underline {
+  width: 100%;
+}
+
+/* ================================================== */
+/* Responsive Design */
+/* ================================================== */
+
+@media (max-width: 1024px) {
+  .por-que-elegirnos {
+    padding: 6rem 0;
+  }
+  
+  .elegirnos-flex {
+    flex-direction: column;
+  }
+  
+  .carrusel-razones {
+    max-width: 100%;
+    height: 350px;
+  }
+  
+  .razones {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .elegirnos-title-wrapper {
+    margin-bottom: 2.5rem;
+  }
+  
+  .elegirnos-subtitle {
+    margin-bottom: 3rem;
+  }
+  
+  .carrusel-razones {
+    height: 300px;
+  }
+  
+  .carrusel-btn-razones {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .por-que-elegirnos {
+    padding: 4rem 0;
+  }
+  
+  .elegirnos-title {
+    font-size: 2rem;
+  }
+  
+  .elegirnos-title-underline {
+    height: 3px;
+  }
+  
+  .carrusel-razones {
+    height: 250px;
+  }
+  
+  .razon-card {
+    padding: 1.5rem;
+  }
+}

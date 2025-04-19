@@ -1,0 +1,569 @@
+/* Especialidades.css */
+/* Variables CSS para consistencia */
+:root {
+  --primary-color: #0078d7;
+  --secondary-color: #48c774;
+  --accent-color: #6a11cb;
+  --dark-text: #1a365d;
+  --light-text: #4a5568;
+  --white: #ffffff;
+  --light-bg: #f8fafc;
+  --card-shadow: 0 15px 50px rgba(0, 120, 215, 0.15);
+  --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Estructura principal */
+.especialidades-premium {
+  position: relative;
+  padding: 120px 0;
+  z-index: 10; /* Asegura que esté sobre el fondo global */
+}
+/* Especialidades.css */
+
+.especialidades-section {
+  position: relative;
+  padding: 120px 0;
+  z-index: 10; /* Asegura que esté sobre el fondo global */
+}
+
+.especialidades-container {
+  position: relative;
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+
+/* Resto de tus estilos... (mantén los mismos estilos para los demás elementos) */
+/* Contenedor principal */
+.es-container {
+  position: relative;
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Encabezado */
+.header-section {
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+/* Estilo para el título */
+.titulo-especialidades {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--servicios-gray-dark);
+  margin: 0;
+  padding-bottom: 15px;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.especialidades-premium.animate-in .titulo-especialidades {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.title-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--dark-text);
+  margin: 0 0 1rem 0;
+  padding-bottom: 15px;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.especialidades-premium.animate-in .section-title {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.highlight {
+  color: var(--primary-color);
+  position: relative;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: currentColor;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.section-title:hover .highlight::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.title-underline {
+  width: 732px;
+  height: 4px;
+  background: rgba(0, 120, 215, 0.1);
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.underline-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--servicios-blue), var(--servicios-green));
+  transition: width 1.2s ease 0.3s;
+}
+
+.especialidades-premium.animate-in .underline-animation {
+  width: 100%;
+}
+
+.section-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  color: #4a5568;
+  text-align: center;
+  max-width: 700px;
+  margin: 60px auto 65px;
+  line-height: 1.6;
+}
+
+.section-subtitle span {
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--servicios-blue), var(--servicios-green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Grid de especialidades */
+.especialidades-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+/* Tarjetas de especialidades */
+.especialidad-card {
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  opacity: 0;
+  padding: 70px 40px;
+  transform: translateY(40px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.especialidades-premium.animate-in .especialidad-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.especialidad-card:nth-child(1) { transition-delay: 0.2s; }
+.especialidad-card:nth-child(2) { transition-delay: 0.3s; }
+.especialidad-card:nth-child(3) { transition-delay: 0.4s; }
+.especialidad-card:nth-child(4) { transition-delay: 0.5s; }
+
+.card-inner {
+  padding: 40px 30px;
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--white);
+}
+
+/* Animación de icono */
+.icon-animation-container {
+  margin-bottom: 30px;
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.icon-orb {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.icon-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  opacity: 0.1;
+  animation: pulse 3s infinite ease-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.8); opacity: 0.1; }
+  50% { transform: scale(1.2); opacity: 0.05; }
+  100% { transform: scale(0.8); opacity: 0.1; }
+}
+
+.icon-rings {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  opacity: 0;
+  animation: ring-expand 3s infinite linear;
+}
+
+.ring:nth-child(1) {
+  width: 100%;
+  height: 100%;
+  animation-delay: 0s;
+}
+
+.ring:nth-child(2) {
+  width: 120%;
+  height: 120%;
+  animation-delay: 1s;
+}
+
+@keyframes ring-expand {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+.especialidad-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: var(--transition);
+  z-index: 3;
+}
+
+.especialidad-card:hover .especialidad-icon {
+  transform: translate(-50%, -50%) rotate(15deg) scale(1.1);
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Texto de la tarjeta */
+.especialidad-card h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.especialidad-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  animation: 
+    linePulse 3s ease infinite,
+    gradientFlow 6s ease infinite;
+}
+
+@keyframes linePulse {
+  0%, 100% { width: 80px; }
+  50% { width: 100px; }
+}
+
+.especialidad-card p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+  text-align: center;
+  line-height: 1.7;
+  flex-grow: 1;
+}
+
+/* Botón Ver más */
+.btn-wrapper {
+  width: 100%;
+  margin-top: -50px;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border-radius: 50px;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: var(--transition);
+  z-index: 1;
+}
+
+.card-link:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.card-link svg {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.card-link:hover svg {
+  transform: translateX(5px);
+}
+
+.btn-hover-effect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.3), 
+    transparent
+  );
+  transition: 0.6s;
+}
+
+.card-link:hover .btn-hover-effect {
+  left: 100%;
+}
+
+/* Efectos de tarjeta */
+.card-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, var(--primary-color) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 1;
+}
+
+.especialidad-card:hover .card-glow {
+  opacity: 0.1;
+}
+
+.card-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='1' fill='%23ffffff' fill-opacity='0.1'/%3E%3C/svg%3E");
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.especialidad-card:hover .card-particles {
+  opacity: 0.3;
+}
+
+/* Botón CTA */
+.cta-section {
+  text-align: center;
+  margin-top: 60px!important;
+  position: relative;
+  z-index: 10;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 45px;
+  background: linear-gradient(
+    135deg, 
+    var(--primary-color) 0%, 
+    var(--secondary-color) 100%
+  );
+  background-size: 200% 100%;
+  border-radius: 50px;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.1rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 5px 15px rgba(0, 120, 215, 0.4),
+    0 10px 30px rgba(72, 199, 116, 0.3);
+  border: none;
+  z-index: 2;
+  text-decoration: none;
+  animation: 
+    float-btn 3s ease-in-out infinite,
+    gradientFlow 7s ease infinite;
+  transition: var(--transition);
+}
+
+@keyframes float-btn {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 8px 20px rgba(0, 120, 215, 0.6),
+    0 15px 40px rgba(72, 199, 116, 0.5);
+  background-position: 100% 0;
+}
+
+.plus-icon {
+  margin-left: 12px;
+  animation: 
+    pulse-icon 1.8s ease infinite,
+    rotate-icon 8s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes pulse-icon {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+@keyframes rotate-icon {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.btn-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.25), 
+    transparent
+  );
+  animation: slide 2.5s infinite linear;
+  z-index: 1;
+}
+
+@keyframes slide {
+  100% { left: 100%; }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .especialidades-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+    margin: 0 auto 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .especialidades-premium {
+    padding: 100px 0;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+  }
+  
+  .icon-animation-container {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .especialidad-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+  
+  .cta-button {
+    padding: 16px 35px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .especialidades-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
