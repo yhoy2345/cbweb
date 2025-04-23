@@ -90,464 +90,786 @@
   color: transparent;
 }
 
-/* ===== Mapa Premium ===== */
+/* ===== Estilos Premium para Ubicación ===== */
 .ubicacion-contenido {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
-  margin-bottom: 80px;
+  margin-top: 40px;
 }
 
-/* ===== Mapa Premium Final (Grid + iframe full) ===== */
+/* Contenedor del Mapa - Estilo Premium */
 .mapa-container {
   position: relative;
-  display: grid;
-  grid-template-rows: 1fr auto;        /* 1fr → mapa, auto → controles */
-  border-radius: var(--border-radius-lg);
+  width: 100%;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  transition: var(--transition);
-  height: 800px;                       /* tu alto original */
-  background: var(--light-gray);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mapa-container:hover {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
 .mapa {
   position: relative;
   width: 100%;
-  height: 100%;
-  /* quitamos opacity/transform para que siempre sea visible */
-  opacity: 1 !important;
-  transform: none !important;
-}
-
-.mapa iframe {
-  position: absolute;                  /* ocupa TODO el .mapa */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  transition: transform 0.6s ease, filter 0.6s ease;
-  filter: brightness(0.95);
-}
-
-/* efecto premium al hover */
-.mapa-container:hover iframe {
-  transform: scale(1.02);
-  filter: brightness(1);
-}
-
-/* Marcador premium con tooltip */
-.mapa-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.mapa-marker {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  cursor: pointer;
-  pointer-events: auto;
-}
-
-.marker-pin {
-  width: 32px;
-  height: 32px;
-  position: relative;
-  animation: float 3s ease-in-out infinite;
-}
-
-.pin-core {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background: var(--primary-blue);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.pin-pulse {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 102, 204, 0.3);
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-  top: 0;
-  left: 0;
-}
-
-.marker-tooltip {
-  position: absolute;
-  bottom: calc(100% + 15px);
-  left: 50%;
-  transform: translateX(-50%);
+  height: 0;
+  padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+  background: #f5f7fa;
+  overflow: hidden;
   opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  min-width: 200px;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.mapa-marker:hover .marker-tooltip,
-.marker-tooltip.visible {
+.mapa.loaded {
   opacity: 1;
-  visibility: visible;
-  bottom: calc(100% + 20px);
-}
-
-.tooltip-content {
-  background: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  position: relative;
-  transform: translateY(10px);
-  transition: transform 0.3s ease;
-}
-
-.mapa-marker:hover .tooltip-content,
-.tooltip-content.visible {
   transform: translateY(0);
 }
 
-.tooltip-content h4 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--dark-gray);
-  margin: 0 0 5px 0;
-}
-
-.tooltip-content p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.85rem;
-  color: var(--medium-gray);
-  margin: 0;
-}
-
-.tooltip-arrow {
+.mapa iframe {
   position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid white;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
-/* Animaciones */
-@keyframes pulse {
-  0% {
-    transform: scale(0.6);
-    opacity: 0.6;
-  }
-  70% {
-    transform: scale(1.2);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1.2);
-    opacity: 0;
-  }
+/* Efecto hover para el mapa */
+.mapa:hover iframe {
+  filter: grayscale(0%) contrast(1) saturate(1.1);
 }
 
-@keyframes float {
-  0% {
-    transform: translate(-50%, -50%);
-  }
-  50% {
-    transform: translate(-50%, -55%);
-  }
-  100% {
-    transform: translate(-50%, -50%);
-  }
+/* Estilo para el estado de carga */
+.mapa-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 10;
 }
 
-/* Para mostrar el tooltip al cargar */
-.mapa.loaded .marker-tooltip {
-  transition-delay: 1s;
-  opacity: 1;
-  visibility: visible;
-  bottom: calc(100% + 20px);
-}
-
-
-/* controles tal cual los tenías */
-.mapa-controls {
-  background: var(--white);
-  padding: 20px;
-  border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-
-.mapa-markers h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.1rem;
-  color: var(--dark-gray);
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 102, 204, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--primary-blue);
+  animation: spin 1s ease-in-out infinite;
   margin-bottom: 15px;
-  font-weight: 600;
 }
 
-.mapa-markers ul {
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.mapa-loading p {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--dark-gray);
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mapa {
+    padding-bottom: 75%; /* Relación más alta en móviles */
+  }
+  
+  .mapa-container {
+    border-radius: 12px;
+  }
+}
+
+/* Controles del Mapa - Estilo Premium */
+.mapa-controls {
+  padding: 25px;
+  background: var(--white);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos para la lista de marcadores */
+/* Sección de marcadores - Estilo Premium */
+.mapa-markers {
+  padding: 30px;
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.mapa-markers::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(0, 102, 204, 0.03) 0%, transparent 40%);
+  z-index: 0;
+}
+
+.markers-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
-.mapa-markers li {
+/* Items con efectos premium */
+.marker-item {
   display: flex;
   align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 12px 16px;
+  margin-bottom: 8px;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  background: var(--light-gray);
 }
 
-.mapa-markers li:hover {
-  background: rgba(0, 102, 204, 0.03);
+.marker-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg, 
+    rgba(0, 102, 204, 0.03) 0%, 
+    rgba(0, 204, 153, 0.02) 100%
+  );
+  z-index: -1;
 }
 
-.mapa-markers li.active {
+.marker-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(
+    to right, 
+    var(--primary-blue), 
+    var(--primary-green)
+  );
+  transition: width 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.marker-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 10px 20px -10px rgba(0, 102, 204, 0.15),
+    0 5px 10px -5px rgba(0, 204, 153, 0.1);
+  border-color: rgba(0, 102, 204, 0.1);
+}
+
+.marker-item:hover::after {
+  width: 100%;
+}
+
+.marker-item.active {
   background: rgba(0, 102, 204, 0.05);
+  border-color: rgba(0, 102, 204, 0.15);
 }
 
-.mapa-markers li:last-child {
-  border-bottom: none;
-}
-
+/* Icono premium */
 .marker-icon {
-  color: var(--primary-blue);
-  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 12px;
-  flex-shrink: 0;
+  font-size: 0.9rem;
 }
 
-.mapa-markers li div {
-  flex: 1;
+.marker-item:hover .marker-icon {
+  transform: rotate(5deg) scale(1.1);
+  box-shadow: 
+    0 8px 20px -5px rgba(0, 102, 204, 0.4),
+    0 5px 12px -4px rgba(0, 204, 153, 0.3);
 }
 
-.mapa-markers li strong {
-  display: block;
+/* Contenido del marcador */
+.marker-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.marker-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--dark-gray);
-  margin-bottom: 2px;
 }
 
-.mapa-markers li p {
-  font-family: 'Montserrat', sans-serif;
+.marker-item:hover .marker-title {
+  color: var(--primary-blue-dark);
+}
+
+.marker-description {
+  font-family: 'Open Sans', sans-serif;
   font-size: 0.85rem;
   color: var(--medium-gray);
-  margin: 0;
+  margin-left: 4px;
 }
 
+.marker-item:hover .marker-description {
+  color: var(--primary-blue);
+}
+
+.marker-item:hover .marker-description {
+  color: var(--dark-gray);
+}
+
+
+/* Animación highlight igual que facilities */
+.marker-highlight {
+  animation: highlight 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+/* Título de sección premium */
+.mapa-markers h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--dark-gray);
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 15px;
+}
+
+.mapa-markers h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(
+    to bottom, 
+    var(--primary-blue), 
+    var(--primary-green)
+  );
+  border-radius: 2px;
+}
+
+/* Botones del Mapa - Estilo Premium */
 .mapa-actions {
   display: flex;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 .mapa-button {
-  flex: 1;
-  padding: 12px 0;
-  border: none;
-  border-radius: var(--border-radius);
-  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: var(--transition);
-  text-align: center;
+  font-size: 1rem;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #48c774 0%, #0078d7 100%);
+  background-size: 200% 200%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  
+  /* GPU hint + smooth transitions */
+  will-change: transform, background-position;
+  transition:
+    transform 0.3s ease,
+    background-position 0.5s ease;
 }
 
-.mapa-button a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  width: 100%;
+/* subtle shine layer */
+.mapa-button::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  transform: skewX(-25deg);
+  transition: transform 0.7s ease;
+}
+
+/* hover effects */
+.mapa-button:hover {
+  transform: scale(1.05);
+  background-position: 100% 50%;
+}
+
+.mapa-button:hover::before {
+  transform: translateX(275%) skewX(-25deg);
+}
+
+/* focus + active states for accessibility */
+.mapa-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(72,199,116,0.5);
+}
+
+.mapa-button:active {
+  transform: scale(1.02);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+/* ===== Ultra Premium Clinic Card Styles ===== */
+.imagen-clinica-container {
+  perspective: 1200px;
   height: 100%;
 }
 
-.mapa-button:first-child {
-  background: var(--primary-blue);
-}
-
-.mapa-button:first-child:hover {
-  background: var(--primary-blue-dark);
-}
-
-.mapa-button:last-child {
-  background: var(--primary-green);
-}
-
-.mapa-button:last-child:hover {
-  background: var(--primary-green-dark);
-}
-
-/* ===== Imagen de la Clínica ===== */
-.imagen-clinica-container {
-  position: relative;
+.clinica-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--white);
   border-radius: var(--border-radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  height: 100%;
+  box-shadow: 
+    0 12px 24px -12px rgba(0, 102, 204, 0.2),
+    0 24px 48px -24px rgba(0, 204, 153, 0.15);
+  transform-style: preserve-3d;
+  transition: 
+    transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1),
+    box-shadow 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
+.clinica-card:hover {
+  transform: translateY(-8px) scale(1.005);
+  box-shadow: 
+    0 16px 32px -12px rgba(0, 102, 204, 0.25),
+    0 32px 64px -24px rgba(0, 204, 153, 0.2);
+}
+
+/* Premium Image Section with Parallax Effect */
 .imagen-clinica {
   position: relative;
-  height: 450px;
+  height: 400px;
   overflow: hidden;
+  transform: translateZ(40px);
+}
+
+.imagen-clinica::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg, 
+    rgba(0, 102, 204, 0.15) 0%, 
+    rgba(0, 204, 153, 0.1) 100%
+  );
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.imagen-clinica:hover::before {
+  opacity: 1;
 }
 
 .imagen-clinica img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  object-position: center;
+  transform: scale(1.02);
+  transition: 
+    transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1),
+    filter 0.8s ease;
+  filter: brightness(0.98) contrast(1.05);
+  will-change: transform;
 }
 
 .imagen-clinica:hover img {
-  transform: scale(1.03);
+  transform: scale(1.05);
+  filter: brightness(1) contrast(1);
 }
 
+/* Luxury Image Overlay */
 .imagen-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 25px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-  color: white;
+  padding: 40px;
+  background: linear-gradient(
+    to top, 
+    rgba(0, 0, 0, 0.85) 0%, 
+    transparent 120%
+  );
+  color: var(--white);
+  z-index: 2;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: 
+    transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1),
+    opacity 0.8s ease;
+}
+
+.imagen-clinica:hover .imagen-overlay {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .imagen-overlay h3 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transform: translateY(30px);
+  transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s;
 }
 
 .imagen-overlay p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
   margin: 0;
   opacity: 0.9;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  transform: translateY(30px);
+  transition: 
+    transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s,
+    opacity 0.8s ease 0.15s;
 }
 
-/* ===== Sección de Referencias ===== */
-.seccion-referencias {
+.imagen-clinica:hover .imagen-overlay h3,
+.imagen-clinica:hover .imagen-overlay p {
+  transform: translateY(0);
+}
+
+/* Sección compacta de facilidades - Estilo lineal */
+.facilities-container {
+  padding: 20px;
   background: var(--white);
-  padding: 60px 40px;
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-md);
-  margin-top: 40px;
 }
 
-.referencias-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--dark-gray);
-  text-align: center;
-  margin-bottom: 40px;
-  position: relative;
+.facilities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.referencias-title::after {
+/* Items en línea compactos */
+.facility-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  background: var(--light-gray);
+}
+
+.facility-item::before {
   content: '';
-  display: block;
-  width: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg, 
+    rgba(0, 102, 204, 0.03) 0%, 
+    rgba(0, 204, 153, 0.02) 100%
+  );
+  z-index: -1;
+}
+
+.facility-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
   height: 3px;
-  background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
-  margin: 15px auto 0;
+  background: linear-gradient(
+    to right, 
+    var(--primary-blue), 
+    var(--primary-green)
+  );
+  transition: width 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.referencias-contenedor {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 25px;
-  margin-bottom: 40px;
-}
-
-.cuadro-referencia {
-  background: var(--off-white);
-  border-radius: var(--border-radius);
-  padding: 25px 20px;
-  text-align: center;
-  transition: var(--transition);
-  box-shadow: var(--shadow-sm);
-}
-
-.cuadro-referencia:hover {
+.facility-item:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 
+    0 10px 20px -10px rgba(0, 102, 204, 0.15),
+    0 5px 10px -5px rgba(0, 204, 153, 0.1);
+  border-color: rgba(0, 102, 204, 0.1);
 }
 
-.icono-container {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 15px;
+.facility-item:hover::after {
+  width: 100%;
+}
+
+.facility-item.active {
+  background: rgba(0, 102, 204, 0.05);
+  border-color: rgba(0, 102, 204, 0.15);
+}
+
+/* Icono más pequeño */
+.facility-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  font-size: 0.9rem;
+}
+
+.facility-item:hover .facility-icon {
+  transform: rotate(5deg) scale(1.1);
+  box-shadow: 
+    0 8px 20px -5px rgba(0, 102, 204, 0.4),
+    0 5px 12px -4px rgba(0, 204, 153, 0.3);
+}
+
+/* Texto compacto en línea */
+.facility-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.facility-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+
+.facility-item:hover .facility-title {
+  color: var(--primary-blue-dark);
+}
+
+.facility-description {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--medium-gray);
+  margin-left: 4px;
+}
+
+/* Efecto hover para el texto */
+.facility-item:hover .facility-title {
+  color: var(--primary-blue);
+}
+
+.facility-item:hover .facility-description {
+  color: var(--dark-gray);
+}
+
+.facility-item:hover .facility-comment {
+  color: var(--dark-gray);
+}
+
+.facility-highlight {
+  animation: highlight 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+
+/* 50px de separación y centrado automático */
+.facilities-container + .mensaje-final-contenedor {
+  margin-top: 50px;
+}
+
+/* Contenedor con glass + gradient overlay animado */
+.mensaje-final-contenedor {
+  position: relative;
+  width: fit-content;
+  margin: 50px auto 0;
+  padding: 2rem 2.5rem;
+  background: linear-gradient(135deg, rgba(72,199,116,0.25), rgba(0,120,215,0.25));
+  backdrop-filter: blur(14px);
+  border-radius: 1rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Halo difuso y animado */
+.blob {
+  position: absolute;
+  top: -30px; left: 50%;
+  transform: translateX(-50%);
+  width: 140px; height: 140px;
+  background: radial-gradient(circle at center, rgba(72,199,116,0.6), rgba(0,120,215,0.6));
+  filter: blur(60px);
+  animation: blobMove 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes blobMove {
+  0%,100% {
+    transform: translateX(-50%) scale(1) rotate(0deg);
+    background-position: 0% 50%;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.15) rotate(45deg);
+    background-position: 100% 50%;
+  }
+}
+
+/* Icono sobre fondo degradado */
+.icono-container {
+  position: relative;
+  z-index: 1;
+  width: 64px; height: 64px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #48c774, #0078d7);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: var(--transition);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
-.cuadro-referencia:hover .icono-container {
-  transform: rotate(10deg) scale(1.1);
-}
-
-.icono-animado {
-  color: white;
-  font-size: 1.5rem;
-}
-
-.cuadro-referencia p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.95rem;
-  color: var(--medium-gray);
-  line-height: 1.5;
-  margin: 0;
-}
-
-.mensaje-final-contenedor {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  background: linear-gradient(to right, rgba(0, 102, 204, 0.1), rgba(0, 204, 153, 0.1));
-  padding: 25px;
-  border-radius: var(--border-radius);
-  border-left: 4px solid var(--primary-blue);
-}
-
+/* Ícono blanco, tamaño equilibrado */
 .icono-mensaje {
-  color: var(--primary-green);
-  font-size: 2rem;
-  flex-shrink: 0;
+  font-size: 1.75rem;
+  color: #ffffff;
 }
 
+/* Texto con degradado y gradient-clip */
 .mensaje-final {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--dark-gray);
-  margin: 0;
+  position: relative;
+  z-index: 1;
+  margin: 1rem 0 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  background: linear-gradient(135deg, #48c774, #0078d7);
+  /* tu degradado */
+  background: linear-gradient(135deg, #48c774, #0078d7);
+
+  /* para WebKit/Blink */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* estándar (hoy por hoy lo ignoran casi todos menos Firefox) */
+  background-clip: text;  
+  color: transparent;
+}
+
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .imagen-clinica {
+    height: 360px;
+  }
+  
+  .facilities-container {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .imagen-clinica {
+    height: 300px;
+  }
+  
+  .facilities-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .facility-item {
+    padding: 20px;
+  }
+  
+  .facility-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .imagen-overlay {
+    padding: 24px;
+  }
+  
+  .imagen-overlay h3 {
+    font-size: 1.6rem;
+  }
+  
+  .imagen-overlay p {
+    font-size: 1rem;
+  }
+  
+  .facilities-container {
+    padding: 24px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .ubicacion-contenido {
+    grid-template-columns: 1fr;
+  }
+  
+  .mapa-container, .imagen-clinica-container {
+    height: auto;
+  }
+  
+  .mapa, .imagen-clinica {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mapa-actions {
+    flex-direction: column;
+  }
+  
+  .mapa-button {
+    width: 100%;
+  }
+  
+  .facility-item {
+    padding: 12px;
+  }
+  
+  .facility-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
 }
 
 /* ===== Responsive Design ===== */
