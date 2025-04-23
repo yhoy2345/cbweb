@@ -1,100 +1,78 @@
-/* Elegirnos.css - Versión Premium */
-/* ================================================== */
-/* Variables y estilos base */
-/* ================================================== */
+/* Ubicacion.css - Versión Premium */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
-
+/* ===== Variables y Configuraciones Globales ===== */
 :root {
   --primary-blue: #0066cc;
+  --primary-blue-dark: #0052a3;
   --primary-green: #00cc99;
+  --primary-green-dark: #00aa80;
   --white: #ffffff;
+  --off-white: #f9fafc;
   --dark-gray: #2d3748;
   --medium-gray: #4a4a4a;
   --light-gray: #f5f7fa;
-  --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.16);
+  --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
   --border-radius: 12px;
+  --border-radius-lg: 16px;
 }
 
-/* Reset y estilos generales */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.6;
-  color: var(--medium-gray);
-}
-
-/* ================================================== */
-/* Sección "Por qué elegirnos" */
-/* ================================================== */
-
-.por-que-elegirnos {
+/* ===== Estructura Principal ===== */
+.ubicacion {
   position: relative;
-  padding: 8rem 0;
+  padding: 120px 0;
+  z-index: 10;
   overflow: hidden;
 }
 
-.elegirnos-contenedor {
+.ubi-contenedor {
   position: relative;
   width: 90%;
   max-width: 1400px;
   margin: 0 auto;
 }
 
-/* Título y subrayado */
-.elegirnos-title-wrapper {
+/* ===== Título y Subtítulo (Manteniendo el estilo original) ===== */
+.ubi-title-wrapper {
   text-align: left;
   margin-bottom: 60px;
 }
 
-.elegirnos-title {
+.ubi-title {
   font-family: 'Montserrat', sans-serif;
   font-size: 3rem;
   font-weight: 800;
-  color: var(--medium-gray);
+  color: var(--dark-gray);
+  position: relative;
+  padding-bottom: 14px;
+  display: inline-block;
   margin: 0;
-  padding-bottom: 15px;
-  opacity: 0;
-  transform: translateX(-20px);
-  animation: fadeInSlide 0.8s forwards 0.3s;
 }
-@keyframes fadeInSlide {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-.elegirnos-title-underline {
-  width: 603px;
+
+.ubi-title-underline {
+  width: 380px;
   height: 4px;
   background: rgba(0, 120, 215, 0.1);
   position: relative;
   overflow: hidden;
   border-radius: 3px;
+  margin-bottom: 60px;
+  margin-top: 0; /* Aseguramos que no hay espacio adicional arriba */
+
 }
 
-.elegirnos-underline-animation {
+.ubi-underline-animation {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
+  width: 100%;
   background: linear-gradient(90deg, var(--primary-blue), var(--primary-green));
 }
 
-.por-que-elegirnos.animate-in .elegirnos-underline-animation {
-  width: 100%;
-}
-
-/* Subtítulo */
-.elegirnos-subtitle {
+.ubi-subtitle {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.3rem;
   color: #4a5568;
@@ -104,7 +82,7 @@ body {
   line-height: 1.6;
 }
 
-.elegirnos-subtitle span {
+.ubi-subtitle span {
   font-weight: 700;
   background: linear-gradient(90deg, var(--primary-blue), var(--primary-green));
   -webkit-background-clip: text;
@@ -112,328 +90,512 @@ body {
   color: transparent;
 }
 
-/* Layout flexible */
-.elegirnos-flex {
-  display: flex;
-  gap: 3rem;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+/* ===== Mapa Premium ===== */
+.ubicacion-contenido {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 80px;
 }
 
-/* ================================================== */
-/* Carrusel de imágenes - Parte izquierda */
-/* ================================================== */
-
-.carrusel-razones {
-  
-  flex: 1;
+/* ===== Mapa Premium Final (Grid + iframe full) ===== */
+.mapa-container {
   position: relative;
-  width: 100%;
-  max-width: 600px;
-  height: 800px;
-  border-radius: var(--border-radius);
+  display: grid;
+  grid-template-rows: 1fr auto;        /* 1fr → mapa, auto → controles */
+  border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
-  transform: translateY(0);
-  transition: transform 0.4s ease;
-  will-change: transform;
+  transition: var(--transition);
+  height: 800px;                       /* tu alto original */
+  background: var(--light-gray);
 }
 
-.carrusel-container-razones {
-  display: flex;
-  height: 100%;
-  width: 100%;
-}
-
-.carrusel-slide-razones {
-  min-width: 100%;
-  flex: 0 0 100%;
-  height: 100%;
+.mapa {
   position: relative;
-  opacity: 0;
+  width: 100%;
+  height: 100%;
+  /* quitamos opacity/transform para que siempre sea visible */
+  opacity: 1 !important;
+  transform: none !important;
 }
 
-.carrusel-slide-razones.active {
-  opacity: 1;
-}
-
-.carrusel-slide-razones::before {
-  content: '';
-  position: absolute;
+.mapa iframe {
+  position: absolute;                  /* ocupa TODO el .mapa */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+  border: none;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: brightness(0.95);
+}
+
+/* efecto premium al hover */
+.mapa-container:hover iframe {
+  transform: scale(1.02);
+  filter: brightness(1);
+}
+
+/* Marcador premium con tooltip */
+.mapa-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
   z-index: 1;
 }
 
-.imagen-carrusel {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-/* Botones de navegación */
-.carrusel-btn-razones {
+.mapa-marker {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border: none;
-  border-radius: 50%;
-  color: var(--primary-blue);
-  font-size: 1.2rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
   cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
+  pointer-events: auto;
+}
+
+.marker-pin {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+.pin-core {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--primary-blue);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.pin-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 102, 204, 0.3);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  top: 0;
+  left: 0;
+}
+
+.marker-tooltip {
+  position: absolute;
+  bottom: calc(100% + 15px);
+  left: 50%;
+  transform: translateX(-50%);
   opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.mapa-marker:hover .marker-tooltip,
+.marker-tooltip.visible {
+  opacity: 1;
+  visibility: visible;
+  bottom: calc(100% + 20px);
+}
+
+.tooltip-content {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+  transform: translateY(10px);
   transition: transform 0.3s ease;
 }
 
-.carrusel-razones:hover .carrusel-btn-razones {
-  opacity: 1;
+.mapa-marker:hover .tooltip-content,
+.tooltip-content.visible {
+  transform: translateY(0);
 }
 
-.carrusel-btn-razones:hover {
-  background-color: var(--primary-blue);
-  color: white;
-  transform: translateY(-50%) scale(1.1);
+.tooltip-content h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark-gray);
+  margin: 0 0 5px 0;
 }
 
-.carrusel-btn-razones:active {
-  transform: scale(0.95);
-}
-.prev-btn-razones {
-  left: 1.5rem;
-}
-
-.next-btn-razones {
-  right: 1.5rem;
+.tooltip-content p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  color: var(--medium-gray);
+  margin: 0;
 }
 
-/* Indicadores modernos */
-.carrusel-indicadores-razones {
+.tooltip-arrow {
   position: absolute;
-  bottom: 1.5rem;
+  bottom: -8px;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  gap: 0.8rem;
-  z-index: 5;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
 }
 
-.indicador-razones {
-  width: 12px;
-  height: 12px;
-  background: rgba(255, 255, 255, 0.5);
-  border: 2px solid rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
+/* Animaciones */
+@keyframes pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -55%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Para mostrar el tooltip al cargar */
+.mapa.loaded .marker-tooltip {
+  transition-delay: 1s;
+  opacity: 1;
+  visibility: visible;
+  bottom: calc(100% + 20px);
+}
+
+
+/* controles tal cual los tenías */
+.mapa-controls {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+
+.mapa-markers h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  color: var(--dark-gray);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.mapa-markers ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mapa-markers li {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   cursor: pointer;
   transition: var(--transition);
-  padding: 0;
-  appearance: none;
-  outline: none;
 }
 
-.indicador-razones.active {
-  background: var(--white);
-  border-color: var(--white);
-  transform: scale(1.2);
+.mapa-markers li:hover {
+  background: rgba(0, 102, 204, 0.03);
 }
 
-.indicador-razones:hover {
-  background: var(--white);
+.mapa-markers li.active {
+  background: rgba(0, 102, 204, 0.05);
 }
 
-/* ================================================== */
-/* Razones para elegirnos - Parte derecha */
-/* ================================================== */
+.mapa-markers li:last-child {
+  border-bottom: none;
+}
 
-.razones {
+.marker-icon {
+  color: var(--primary-blue);
+  font-size: 1.2rem;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.mapa-markers li div {
   flex: 1;
-  width: 100%;
-  max-width: 500px;
 }
 
-.razones-container {
+.mapa-markers li strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  color: var(--dark-gray);
+  margin-bottom: 2px;
+}
+
+.mapa-markers li p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  color: var(--medium-gray);
+  margin: 0;
+}
+
+.mapa-actions {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-.razon-card {
-  background-color: var(--white);
+.mapa-button {
+  flex: 1;
+  padding: 12px 0;
+  border: none;
   border-radius: var(--border-radius);
-  padding: 1.8rem;
-  box-shadow: var(--shadow-sm);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
   transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+  text-align: center;
 }
 
-.razon-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
+.mapa-button a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, var(--primary-blue), var(--primary-green));
-  transition: var(--transition);
 }
 
-.razon-card:hover {
+.mapa-button:first-child {
+  background: var(--primary-blue);
+}
+
+.mapa-button:first-child:hover {
+  background: var(--primary-blue-dark);
+}
+
+.mapa-button:last-child {
+  background: var(--primary-green);
+}
+
+.mapa-button:last-child:hover {
+  background: var(--primary-green-dark);
+}
+
+/* ===== Imagen de la Clínica ===== */
+.imagen-clinica-container {
+  position: relative;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  height: 100%;
+}
+
+.imagen-clinica {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+}
+
+.imagen-clinica img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.imagen-clinica:hover img {
+  transform: scale(1.03);
+}
+
+.imagen-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: white;
+}
+
+.imagen-overlay h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.imagen-overlay p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* ===== Sección de Referencias ===== */
+.seccion-referencias {
+  background: var(--white);
+  padding: 60px 40px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-top: 40px;
+}
+
+.referencias-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--dark-gray);
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.referencias-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+  margin: 15px auto 0;
+}
+
+.referencias-contenedor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.cuadro-referencia {
+  background: var(--off-white);
+  border-radius: var(--border-radius);
+  padding: 25px 20px;
+  text-align: center;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.cuadro-referencia:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-md);
 }
 
-.razon-card:hover::before {
-  width: 100%;
-  opacity: 0.1;
-}
-
-.razon-icon-wrapper {
-  width: 50px;
-  height: 50px;
+.icono-container {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 15px;
   background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.2rem;
-  color: white;
-  font-size: 1.2rem;
-  position: relative;
-  z-index: 2;
+  transition: var(--transition);
 }
 
-.razon-icon {
-  transition: transform 0.3s ease;
-}
-
-.razon-card:hover .razon-icon {
+.cuadro-referencia:hover .icono-container {
   transform: rotate(10deg) scale(1.1);
 }
 
-.razon-card h3 {
-  font-size: 1.3rem;
-  color: var(--dark-gray);
-  margin-bottom: 0.8rem;
-  font-weight: 700;
-  position: relative;
-  z-index: 2;
+.icono-animado {
+  color: white;
+  font-size: 1.5rem;
 }
 
-.razon-card p {
-  font-size: 1rem;
+.cuadro-referencia p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
   color: var(--medium-gray);
-  margin-bottom: 1.5rem;
-  position: relative;
-  z-index: 2;
+  line-height: 1.5;
+  margin: 0;
 }
 
-/* Botón "Conoce más" */
-.elegirnos-btn-conoce-mas {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0;
-  background: transparent;
-  color: var(--primary-blue);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: var(--transition);
-  position: relative;
-  z-index: 2;
-  border: none;
-  cursor: pointer;
+.mensaje-final-contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: linear-gradient(to right, rgba(0, 102, 204, 0.1), rgba(0, 204, 153, 0.1));
+  padding: 25px;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--primary-blue);
 }
 
-.elegirnos-btn-underline {
-  height: 2px;
-  width: 0;
-  background: linear-gradient(90deg, var(--primary-blue), var(--primary-green));
-  transition: width 0.4s ease;
+.icono-mensaje {
+  color: var(--primary-green);
+  font-size: 2rem;
+  flex-shrink: 0;
 }
 
-.elegirnos-btn-conoce-mas:hover .elegirnos-btn-underline {
-  width: 100%;
+.mensaje-final {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--dark-gray);
+  margin: 0;
 }
 
-/* ================================================== */
-/* Responsive Design */
-/* ================================================== */
-
+/* ===== Responsive Design ===== */
 @media (max-width: 1024px) {
-  .por-que-elegirnos {
-    padding: 6rem 0;
+  .ubicacion-contenido {
+    grid-template-columns: 1fr;
   }
   
-  .elegirnos-flex {
-    flex-direction: column;
-  }
-  
-  .carrusel-razones {
-    max-width: 100%;
-    height: 350px;
-  }
-  
-  .razones {
-    max-width: 100%;
+  .mapa-container,
+  .imagen-clinica-container {
+    height: 400px;
   }
 }
 
 @media (max-width: 768px) {
-  .elegirnos-title-wrapper {
-    margin-bottom: 2.5rem;
+  .ubi-title {
+    font-size: 2.5rem;
   }
   
-  .elegirnos-subtitle {
-    margin-bottom: 3rem;
+  .ubi-subtitle {
+    font-size: 1.1rem;
   }
   
-  .carrusel-razones {
-    height: 300px;
+  .referencias-contenedor {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
   }
   
-  .carrusel-btn-razones {
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
-    opacity: 1;
+  .mensaje-final-contenedor {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
 @media (max-width: 480px) {
-  .por-que-elegirnos {
-    padding: 4rem 0;
+  .ubicacion {
+    padding: 80px 0;
   }
   
-  .elegirnos-title {
+  .ubi-title {
     font-size: 2rem;
   }
   
-  .elegirnos-title-underline {
-    height: 3px;
+  .ubi-title-underline {
+    width: 250px;
   }
   
-  .carrusel-razones {
-    height: 250px;
-  }
-  
-  .razon-card {
-    padding: 1.5rem;
+  .referencias-contenedor {
+    grid-template-columns: 1fr;
   }
 }

@@ -3,7 +3,8 @@ import BackgroundHome from '../Background/BackgroundHome';
 import CarruselHero from './sections/CarruselHero/CarruselHero';
 import Servicios from './sections/Servicios/Servicios';
 import Especialidades from './sections/Especialidades/Especialidades';
-import Elegirnos from './sections/Elegirnos/Elegirnos'
+import Elegirnos from './sections/Elegirnos/Elegirnos';
+import Ubicacion from './sections/Ubicacion/Ubicacion';
 import './Main.css';
 
 const Main = () => {
@@ -14,6 +15,7 @@ const Main = () => {
         <Servicios />
         <Especialidades />
         <Elegirnos/>
+        <Ubicacion/>
       </main>
     </BackgroundHome>
   );

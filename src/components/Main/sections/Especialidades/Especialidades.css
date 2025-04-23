@@ -56,7 +56,9 @@
   font-weight: 800;
   color: var(--servicios-gray-dark);
   margin: 0;
-  padding-bottom: 15px;
+  position: relative;
+  padding-bottom: 14px;
+  display: inline-block;
   opacity: 0;
   transform: translateX(-20px);
   transition: transform 0.8s ease, opacity 0.8s ease;
@@ -110,7 +112,7 @@
 }
 
 .title-underline {
-  width: 732px;
+  width: 738px;
   height: 4px;
   background: rgba(0, 120, 215, 0.1);
   position: relative;
