@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faMapMarkerAlt, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp, faFacebookF, faTiktok, faInstagram } from '@fortawesome/free-brands-svg-icons';
@@ -128,8 +129,8 @@ const Header = () => {
     <div className="header-bottom">
       <nav>
         <ul>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/especialidades">Especialidades</a></li>
+          <li><Link to="/src/components/Main">Inicio</Link></li>
+          <li><Link to="/especialidades">Especialidades</Link></li>
           <li><a href="/servicios">Servicios</a></li>
           <li><a href="/nosotros">Nosotros</a></li>
           <li><a href="/staff">Staff Médico</a></li>

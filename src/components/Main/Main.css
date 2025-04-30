@@ -1,6 +1,6 @@
 /* src/components/Main/Main.css */
 .main-content {
-  padding-top: 150px; /* Ajusta según altura de tu header */
+  padding-top: 75px; /* Ajusta según altura de tu header */
   min-height: 100vh;
   display: flex;
   flex-direction: column;

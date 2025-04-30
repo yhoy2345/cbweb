@@ -16,13 +16,13 @@ const BackgroundHome = ({ children }) => {
   
   // Configuración de elementos médicos
   const medicalElements = [
-    { icon: FaPills, color: '#48c774', size: 24, type: 'pill' },
-    { icon: FaHeartbeat, color: '#0078d7', size: 28, type: 'heart' },
-    { icon: FaSyringe, color: '#20c4f4', size: 26, type: 'syringe' },
-    { icon: FaStethoscope, color: '#00b4a0', size: 32, type: 'stethoscope' },
-    { icon: FaNotesMedical, color: '#ff6f91', size: 26, type: 'note' },
-    { icon: FaXRay, color: '#a67ee5', size: 30, type: 'xray' },
-    { icon: FaAmbulance, color: '#ef476f', size: 28, type: 'ambulance' }
+    { icon: FaPills, color: '#48c774', size: 2, type: 'pill' },
+    { icon: FaHeartbeat, color: '#0078d7', size: 2, type: 'heart' },
+    { icon: FaSyringe, color: '#20c4f4', size: 2, type: 'syringe' },
+    { icon: FaStethoscope, color: '#00b4a0', size: 3, type: 'stethoscope' },
+    { icon: FaNotesMedical, color: '#ff6f91', size: 2, type: 'note' },
+    { icon: FaXRay, color: '#a67ee5', size: 3, type: 'xray' },
+    { icon: FaAmbulance, color: '#ef476f', size: 2, type: 'ambulance' }
   ];
 
   useEffect(() => {
