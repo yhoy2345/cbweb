@@ -1,6 +1,7 @@
 :root {
   --primary-color: #0078d7;
   --secondary-color: #48c774;
+  --accent-color: #ffd700;
   --accent-color: #6a11cb;
   --dark-text: #1a365d;
   --light-text: #4a5568;
@@ -336,7 +337,7 @@
   }
 }
 
-/* ===== SUBTÍTULO CLÍNICA BOLÍVAR PREMIUM ===== */
+/* ===== SUBTÍTULO CLÍNICA ===== */
 .clinic-subtitle {
   max-width: 800px;
   margin: 2rem auto;
@@ -851,4 +852,368 @@
     }
 }
 
+/* ================================================== */
+/* ============== BUSCADOR DE ESPECIALIDADES ======== */
+/* ================================================== */
+
+/* Fuente principal */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Contenedor principal del buscador */
+.specialty-search {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, rgba(168, 240, 198, 0.6), rgba(179, 217, 249, 0.6)),
+              radial-gradient(circle at top left, rgba(168, 240, 198, 0.4), transparent 70%),
+              radial-gradient(circle at bottom right, rgba(179, 217, 249, 0.4), transparent 70%);
+  max-width: 1200px;
+  margin: 40px auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 102, 204, 0.12);
+  border: 1px solid rgba(0, 102, 204, 0.1);
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  overflow: hidden;
+  z-index: 999;
+}
+
+
+/* Fondo decorativo con formas geométricas */
+.specialty-search::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><path d='M0,0 C25,40 75,60 100,0 L100,100 L0,100 Z' fill='%2348c774' opacity='0.05'/><path d='M0,0 C20,45 80,55 100,0 L100,100 L0,100 Z' fill='%230078d7' opacity='0.04'/><path d='M0,0 C15,50 85,50 100,0 L100,100 L0,100 Z' fill='%236a11cb' opacity='0.03'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 100% 60%;
+  background-position: center top;
+  z-index: 0;
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+
+/* Encabezado del buscador */
+.search-header {
+  position: relative;
+  margin-bottom: 3.5rem;
+  text-align: center;
+  z-index: 2;
+  animation: fadeInUp 1s var(--transition);
+  transition: var(--transition);
+  padding: 0 1rem;
+  color: var(--dark-text);
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* ===== TITULO ===== */
+.search-title {
+  font-size: 2.8rem;
+  font-weight: 300;
+  margin: 0 auto 1rem;
+  line-height: 1.3;
+  color: #2c3e50;
+  max-width: 800px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+/* ===== titulo ===== */
+.title-text {
+  display: block;
+  font-weight: 390;
+  font-size: 2.75rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  transition: var(--transition);
+}
+
+/* ===== titulo decorado ===== */
+.title-highlight {
+  font-weight: 700;
+  background: linear-gradient(135deg, #48c774 0%, #0078d7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  display: inline-block;
+  transition: var(--transition);
+}
+
+/* ===== título contenedor ===== */
+.search-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.75rem;
+}
+
+/* ===== Línea decorativa ===== */
+.search-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #48c774, #0078d7);
+  border-radius: 2px;
+  transition: width 0.4s ease-in-out;
+  animation: lineShrink 0.5s ease-out forwards;
+}
+
+/* ===== Hover efecto con animación ===== */
+.search-title:hover::after {
+  animation: lineExpand 0.6s ease-out forwards;
+  box-shadow: 0 0 12px rgba(0, 120, 215, 0.3);
+}
+
+/* ===== Animaciones con keyframes ===== */
+@keyframes lineExpand {
+  0% {
+    width: 80px;
+  }
+  100% {
+    width: 140px;
+  }
+}
+
+@keyframes lineShrink {
+  0% {
+    width: 140px;
+  }
+  100% {
+    width: 80px;
+  }
+}
+
+/* Contenedor del subtítulo */
+.search-subtitle-wrapper {
+  text-align: center;
+  position: relative;
+  padding: 1.5rem 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* ===== Contenedor subtitulo ===== */
+.search-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--dark-text);
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+}
+
+/* Efecto de entrada al llegar a la sección (con scroll) */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Caja del buscador ===== */
+.search-box {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  position: relative;
+  border-radius: 50px;
+  background: white;
+  box-shadow: 0 15px 40px rgba(0, 120, 215, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  height: 80px;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  z-index: 1;
+  overflow: hidden;
+  border: 2px solid rgba(0, 120, 215, 0.2);
+}
+
+/* Fondo degradado de la caja de búsqueda */
+.search-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(72,199,116,0.1) 0%, rgba(0,120,215,0.05) 100%);
+  z-index: -1;
+}
+
+/* Estado activo de la caja de búsqueda */
+.search-box.active {
+  border-color: rgba(72,199,116,0.5);
+  box-shadow: 0 20px 50px rgba(0, 120, 215, 0.2);
+}
+
+/* Icono de búsqueda */
+.search-icon {
+  margin-right: 20px;
+  color: #48c774;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Efectos hover */
+.search-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 120, 215, 0.2);
+}
+
+.search-box:hover .search-icon {
+  color: #0078d7;
+  transform: scale(1.2);
+}
+
+/* Input de búsqueda */
+.search-box input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 1.3rem;
+  color: #2c3e50;
+  font-family: 'Montserrat', sans-serif;
+  height: 100%;
+  outline: none;
+  padding: 0;
+  min-width: 0;
+}
+
+/* Placeholder del input */
+.search-box input::placeholder {
+  color: #a8b5c1;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus::placeholder {
+  opacity: 0.5;
+  transform: translateX(10px);
+}
+
+/* Botón para limpiar búsqueda */
+.search-clear {
+  background: none;
+  border: none;
+  color: #7f8c8d;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 15px;
+  transition: all 0.3s ease;
+}
+
+.search-clear:hover {
+  color: #ff4757;
+  transform: scale(1.2);
+}
+
+/* Línea decorativa inferior */
+.search-decoration {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #48c774, #0078d7);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 2px;
+}
+
+.search-box.active .search-decoration {
+  width: 100%;
+}
+
+/* Grid de especialidades */
+.specialties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* Mensaje cuando no hay resultados */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  color: #7f8c8d;
+}
+
+.no-results i {
+  font-size: 3rem;
+  color: #a8b5c1;
+  margin-bottom: 1rem;
+}
+
+.no-results p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Botón para resetear búsqueda */
+.reset-search {
+  background: linear-gradient(135deg, #48c774, #0078d7);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 120, 215, 0.2);
+}
+
+.reset-search:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 120, 215, 0.3);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes waveAnimation {
+  0%, 100% { transform: scaleX(0.95); opacity: 0.7; }
+  50% { transform: scaleX(1.05); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .specialty-search {
+    padding: 3rem 1.5rem;
+  }
   
+  .search-title {
+    font-size: 2rem;
+  }
+  
+  .search-box {
+    height: 60px;
+    padding: 0 20px;
+  }
+  
+  .specialties-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
