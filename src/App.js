@@ -5,6 +5,7 @@ import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
 import FloatingButton from './components/FloatingButton/FloatingButton';
 import Especialidades from './components/Especialidades/Especialidades';
+import Servicios from './components/Servicios/Servicios'; 
 
 import './App.css';
 
@@ -23,6 +24,9 @@ function App() {
 
             {/* Ruta de especialidades */}
             <Route path="/especialidades" element={<Especialidades />} />
+
+            {/* Ruta de servicios */}
+            <Route path="/servicios" element={<Servicios />} />
 
             {/* Redirección por defecto si no se encuentra la ruta */}
             <Route path="*" element={<Navigate to="/" replace />} />

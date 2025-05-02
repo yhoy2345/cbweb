@@ -1,13 +1,13 @@
-// src/components/Especialidades/Especialidades.jsx
+// src/components/Servicios/Servicios.jsx
 import React, { useState, useEffect, useMemo } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import Fuse from 'fuse.js';
 import BackgroundHome from '../Background/BackgroundHome';
 import useScrollAnimation from './scroll';
-import { specialties, searchSectionData } from '../Especialidades/Especialidades.data';
-import './Especialidades.css';
+import { specialties, searchSectionData } from '../Servicios/Servicios.data';
+import './Servicios.css';
 
-const Especialidades = () => {
+const Servicios = () => {
   useScrollAnimation();
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState([]);
@@ -252,4 +252,4 @@ const Especialidades = () => {
   );
 };
 
-export default Especialidades;
+export default Servicios;
