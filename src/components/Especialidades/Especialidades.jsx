@@ -140,6 +140,10 @@ const Especialidades = () => {
               </div>
               <h3>Cuerpo Médico Especializado</h3>
               <p>Contamos con profesionales altamente calificados en cada área médica, con certificaciones nacionales e internacionales.</p>
+              <a href="#especialistas" class="medical-btn medical-btn--primary medical-btn--doctors">
+                <span class="medical-btn__text">Ver Médicos</span>
+                <i class="medical-btn__icon fas fa-arrow-right"></i>
+              </a>
             </div>
             <div class="esp-highlight-card">
               <div class="esp-highlight-icon">
@@ -147,6 +151,10 @@ const Especialidades = () => {
               </div>
               <h3>Infraestructura de Vanguardia</h3>
               <p>Instalaciones diseñadas para tu comodidad y seguridad, equipadas con tecnología médica de última generación.</p>
+              <a href="#especialistas" class="medical-btn medical-btn--primary medical-btn--facility">
+                <span class="medical-btn__text">Ver Instalación</span>
+                <i class="medical-btn__icon fas fa-arrow-right"></i>
+              </a>
             </div> 
             <div class="esp-highlight-card">
               <div class="esp-highlight-icon">
@@ -154,6 +162,10 @@ const Especialidades = () => {
               </div>
               <h3>Tecnología de Diagnóstico</h3>
               <p>Equipos de precisión para diagnósticos oportunos y tratamientos efectivos en todas nuestras especialidades.</p>
+              <a href="#especialistas" class="medical-btn medical-btn--primary medical-btn--tech">
+                <span class="medical-btn__text">Ver Tecnología</span>
+                <i class="medical-btn__icon fas fa-arrow-right"></i>
+              </a>
             </div>   
           </div>    
           <div className="medical-specialties-premium">

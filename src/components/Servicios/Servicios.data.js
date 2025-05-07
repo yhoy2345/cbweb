@@ -137,8 +137,8 @@ export const specialties = [
 export const searchSectionData = {
     title: {
         text: "Conectamos tu salud",
-        highlight: "con los mejores especialistas"
+        highlight: "con los mejores servicios"
     },
-    subtitle: "Busca entre nuestras áreas de excelencia médica",
+    subtitle: "¿Problema de salud? Encuentra el servicio exacto que lo soluciona HOY",
     placeholder: "Ej: Cardiología, Pediatría..."
-}; 
+}

@@ -90,29 +90,18 @@ const Nosotros = () => {
                 </div>   
             </div> 
         </section>
-        {/* Vision y Mision */}
+        {/* Visión y Misión */}
         <section className="vision-mision-section">
-            {/* Efectos decorativos de fondo */}
-            <div className="decorativos-fondo">
-                <div className="decorativo-circulo circulo-uno"></div>
-                <div className="decorativo-circulo circulo-dos"></div>
-            </div>
-
             {/* Contenido principal */}
             <div className="contenido-flex">
-                {/* Imagen con marco y decoraciones */}
+                {/* Imagen */}
                 <div className="columna-imagen">
-                <div className="marco-imagen">
                     <img
-                    src="/images/hero/fondo1.jpg"
-                    alt="Profesionales médicos"
-                    className="imagen-principal"
-                    loading="lazy"
+                        src="/images/hero/fondo1.jpg"
+                        alt="Profesionales médicos"
+                        className="imagen-principal"
+                        loading="lazy"
                     />
-                    <div className="overlay-gradiente"></div>
-                    <div className="decoracion-puntos decoracion-izquierda"></div>
-                    <div className="decoracion-puntos decoracion-derecha"></div>
-                </div>
                 </div>
 
                 {/* Tarjetas de visión y misión */}
@@ -122,18 +111,12 @@ const Nosotros = () => {
                             <FontAwesomeIcon 
                                 icon={faChartLine} 
                                 className="icono" 
-                                style={{ fontSize: '1.8rem' }}
                             />
-                        <h2 className="titulo-seccion">
-                            Visión
-                            <span className="subrayado"></span>
-                        </h2>
+                            <h2 className="titulo-seccion">Visión</h2>
                         </div>
                         <p className="contenido-texto">
-                        Ser la institución líder en salud humana del país, con altos estándares de calidad y a la vanguardia de la tecnología médica.
+                            Ser la institución líder en salud humana del país, con altos estándares de calidad y a la vanguardia de la tecnología médica.
                         </p>
-                        <div className="efecto-hover"></div>
-                        <div className="efecto-brillo"></div>
                     </div>
 
                     <div className="tarjeta-info tarjeta-mision">
@@ -141,25 +124,15 @@ const Nosotros = () => {
                             <FontAwesomeIcon 
                                 icon={faHandHoldingMedical} 
                                 className="icono" 
-                                style={{ fontSize: '1.8rem' }}
                             />
-                        <h2 className="titulo-seccion">
-                            Misión
-                            <span className="subrayado"></span>
-                        </h2>
+                            <h2 className="titulo-seccion">Misión</h2>
                         </div>
                         <p className="contenido-texto">
-                        Somos una institución que brinda servicios especializados en salud humana, garantizando atención de calidad gracias a nuestros colaboradores altamente capacitados.
+                            Somos una institución que brinda servicios especializados en salud humana, garantizando atención de calidad gracias a nuestros colaboradores altamente capacitados.
                         </p>
-                        <div className="efecto-hover"></div>
-                        <div className="efecto-brillo"></div>
                     </div>
                 </div>
             </div>
-
-            {/* Líneas decorativas animadas */}
-            <div className="linea-animada linea-superior"></div>
-            <div className="linea-animada linea-inferior"></div>
         </section>
 
         

@@ -1,17 +1,15 @@
 :root {
     --primary-color: #0078d7;
     --secondary-color: #48c774;
-    --accent-color: #ffd700;
-    --accent-color: #6a11cb;
     --dark-text: #1a365d;
     --light-text: #4a5568;
     --white: #ffffff;
     --light-bg: #f8fafc;
     --card-shadow: 0 15px 50px rgba(0, 120, 215, 0.15);
     --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  }
+}
   /* ========================
-     Imagen estática 
+    Imagen estática 
   ======================== */
   
   .especialidades-imagen-estatica {
@@ -594,6 +592,117 @@
       color: #5a6a7a;
   }
   
+  /* ---- ESTILOS PREMIUM PARA BOTONES ---- */
+.medical-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem 2.2rem;
+  border-radius: 0.6rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  z-index: 1;
+  transition: var(--transition);
+  color: var(--white);
+  box-shadow: var(--card-shadow);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  background-size: 200% auto;
+}
+
+/* Efecto hover premium */
+.medical-btn:hover {
+  background-position: right center;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 120, 215, 0.25);
+  color: var(--white);
+}
+
+/* Brillos sutiles */
+.medical-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  transform: rotate(30deg);
+  z-index: -1;
+  transition: var(--transition);
+}
+
+.medical-btn:hover::before {
+  transform: rotate(30deg) translate(20%, 20%);
+}
+
+/* Borde sutil animado */
+.medical-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1.5px;
+  border-radius: 0.6rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -2;
+  transition: var(--transition);
+  opacity: 0.8;
+}
+
+.medical-btn:hover::after {
+  opacity: 1;
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+}
+
+/* Estilos específicos para cada botón */
+.medical-btn--doctors {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #005aab 100%);
+}
+
+.medical-btn--facility {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #3aa8ff 100%);
+}
+
+.medical-btn--tech {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #36a269 100%);
+}
+
+/* Icono con efecto premium */
+.medical-btn__icon {
+  font-size: 0.9rem;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+}
+
+.medical-btn:hover .medical-btn__icon {
+  transform: translateX(5px) rotate(-5deg);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Texto con sombra sutil */
+.medical-btn__text {
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.medical-btn:hover .medical-btn__text {
+  transform: scale(1.02);
+}
+
   /* ===== ESPECIALIDADES MÉDICAS ULTRA PREMIUM ===== */
   .medical-specialties-premium {
     max-width: 900px;

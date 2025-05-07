@@ -102,14 +102,14 @@ const Servicios = () => {
             <h1 class="medical-trust-title">
               <span class="medical-trust__linee medical-trust__line--1">
                 <span class="medical-trust__phrase">Donde la</span>
-                <span class="medical-trust__word medical-trust__word--excelence">Excelencia</span>
+                <span class="medical-trust__word medical-trust__word--excelence"> Atención</span>
               </span>
               <span class="medical-trust__line medical-trust__line--2">
-                <span class="medical-trust__word medical-trust__word--medical">Médica</span>
-                <span class="medical-trust__phrase">Se Convierte en</span>
+                <span class="medical-trust__word medical-trust__word--medical"> Especializada</span>
+                <span class="medical-trust__phrase"> Garantiza</span>
               </span>
               <span class="medical-trust__line medical-trust__line--3">
-                <span class="medical-trust__word medical-trust__word--trust">Confianza</span>
+                <span class="medical-trust__word medical-trust__word--trust">Resultados</span>
               </span>
             </h1>
             <div class="esp-title-divider">
@@ -123,11 +123,11 @@ const Servicios = () => {
             </div>
             <div className="clinic-subtitle">
               <p className="clinic-subtitle__content">
-                <span className="clinic-subtitle__prefix">En</span>
-                <span className="clinic-subtitle__highlight clinic-subtitle__highlight--name">Clínica Bolívar</span>
+                <span className="clinic-subtitle__prefix">En </span>
+                <span className="clinic-subtitle__highlight clinic-subtitle__highlight--name"> Clínica Bolívar</span>
                 <span className="clinic-subtitle__text">, brindamos</span>
-                <span className="clinic-subtitle__highlight clinic-subtitle__highlight--specialty">atención médica especializada</span>
-                <span className="clinic-subtitle__text">con los más altos</span>
+                <span className="clinic-subtitle__highlight clinic-subtitle__highlight--specialty"> atención médica especializada</span>
+                <span className="clinic-subtitle__text">con los más altos </span>
                 <span className="clinic-subtitle__highlight clinic-subtitle__highlight--quality">estándares de calidad</span>
               </p>
               <div className="clinic-subtitle__divider"></div>
@@ -140,6 +140,10 @@ const Servicios = () => {
               </div>
               <h3>Cuerpo Médico Especializado</h3>
               <p>Contamos con profesionales altamente calificados en cada área médica, con certificaciones nacionales e internacionales.</p>
+              <a href="#especialistas" class="medical-btn medical-btn--primary medical-btn--doctors">
+                <span class="medical-btn__text">Ver Médicos</span>
+                <i class="medical-btn__icon fas fa-arrow-right"></i>
+              </a>
             </div>
             <div class="esp-highlight-card">
               <div class="esp-highlight-icon">
@@ -147,6 +151,10 @@ const Servicios = () => {
               </div>
               <h3>Infraestructura de Vanguardia</h3>
               <p>Instalaciones diseñadas para tu comodidad y seguridad, equipadas con tecnología médica de última generación.</p>
+              <a href="#especialistas" class="medical-btn medical-btn--primary medical-btn--facility">
+                <span class="medical-btn__text">Ver Instalación</span>
+                <i class="medical-btn__icon fas fa-arrow-right"></i>
+              </a>
             </div> 
             <div class="esp-highlight-card">
               <div class="esp-highlight-icon">
@@ -154,12 +162,16 @@ const Servicios = () => {
               </div>
               <h3>Tecnología de Diagnóstico</h3>
               <p>Equipos de precisión para diagnósticos oportunos y tratamientos efectivos en todas nuestras especialidades.</p>
+              <a href="#especialistas" class="medical-btn medical-btn--primary medical-btn--tech">
+                <span class="medical-btn__text">Ver Tecnología</span>
+                <i class="medical-btn__icon fas fa-arrow-right"></i>
+              </a>
             </div>   
           </div>    
           <div className="medical-specialties-premium">
             <div className="medical-specialties__header">
               <h2 className="medical-specialties__title">
-                <span className="title__main">Nuestras Especialidades Médicas</span>
+                <span className="title__main">Nuestros Servicios Médicos</span>
                 <span className="title__underline"></span>
               </h2>
               <div className="medical-specialties__divider">
@@ -172,10 +184,11 @@ const Servicios = () => {
             </div>
             
             <p className="medical-specialties__description">
-              <span className="description__text">Ofrecemos un portafolio completo de especialidades médicas para cubrir </span>
-              <span className="description__highlight">todas tus necesidades de salud. </span>
-              <span className="description__text">Desde prevención hasta tratamientos avanzados, </span>
-              <span className="description__highlight">nuestro equipo certificado garantiza tu bienestar integral.</span>
+              <span className="description__text">Contamos con un amplio portafolio, diseñado para brindarte </span>
+              <span className="description__highlight">atención personalizada y de alta calidad. </span>
+              <span className="description__text">Desde consultas preventivas y diagnósticos precisos hasta </span>
+              <span className="description__highlight">tratamientos especializados y seguimiento continuo, </span>
+              <span className="description__text">nuestro equipo de profesionales certificados está comprometido con tu salud y recuperación.</span>
             </p>
           </div>
       </section>
