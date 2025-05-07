@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Fuse from 'fuse.js';
 import BackgroundHome from '../Background/BackgroundHome';
-import useScrollAnimation from './scroll';
+import useScrollAnimation from './Scroll';
 import { specialties, searchSectionData } from '../Servicios/Servicios.data';
 import './Servicios.css';
 
