@@ -100,7 +100,7 @@ const Servicios = () => {
       <section class="esp-intro"> 
         <div class="esp-intro-content">
             <h1 class="medical-trust-title">
-              <span class="medical-trust__line medical-trust__line--1">
+              <span class="medical-trust__linee medical-trust__line--1">
                 <span class="medical-trust__phrase">Donde la</span>
                 <span class="medical-trust__word medical-trust__word--excelence">Excelencia</span>
               </span>

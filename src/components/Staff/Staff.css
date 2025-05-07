@@ -1,0 +1,850 @@
+/* ============= ESTILO UNICO PARA TITULO MÉDICO ============= */
+.medical-excellence-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  text-align: center;
+  color: var(--dark-text);
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.3;
+}
+
+.medical-line {
+  display: block;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  padding: 0.2rem 0;
+}
+
+.medical-text {
+  font-weight: 400;
+  color: var(--light-text);
+  transition: inherit;
+  letter-spacing: 0.5px;
+}
+
+.medical-highlight {
+  display: inline-block;
+  position: relative;
+  transition: inherit;
+  padding: 0 0.3rem;
+  margin: 0 0.5rem;
+}
+
+.medical-highlight--excellence {
+  color: var(--primary-color);
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.medical-highlight--medical {
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.medical-highlight--trust {
+  color: var(--dark-text);
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* Efectos hover mejorados */
+.medical-excellence-title:hover .medical-line--1 {
+  transform: translateX(-8px) rotate(-1deg);
+}
+
+.medical-excellence-title:hover .medical-line--2 {
+  transform: translateX(8px) rotate(1deg);
+}
+
+.medical-excellence-title:hover .medical-line--3 {
+  transform: scale(1.03);
+}
+
+.medical-excellence-title:hover .medical-highlight--excellence {
+  color: var(--primary-color);
+  background: rgba(0, 123, 255, 0.1);
+  border-radius: 4px;
+}
+
+.medical-excellence-title:hover .medical-highlight--medical {
+  color: var(--secondary-color);
+  background: rgba(40, 167, 69, 0.1);
+  border-radius: 4px;
+}
+
+.medical-excellence-title:hover .medical-text {
+  color: var(--dark-text);
+  letter-spacing: 0.7px;
+}
+
+/* Efecto de subrayado animado */
+.medical-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.medical-excellence-title:hover .medical-highlight::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Efecto especial para "Confianza" */
+.medical-highlight--trust::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  transition: all 0.4s ease;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .medical-excellence-title {
+    font-size: 2.2rem;
+    margin: 2rem 0;
+  }
+  
+  .medical-line {
+    display: inline;
+    white-space: nowrap;
+  }
+  
+  .medical-highlight {
+    margin: 0 0.3rem;
+    padding: 0 0.2rem;
+  }
+}
+
+
+
+
+.staff-section {
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .staff-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* HERO SECTION */
+  .medical-hero {
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .medical-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,95,174,0.03) 0%, rgba(0,168,89,0.03) 100%);
+    z-index: -1;
+  }
+  
+  /* EXCELLENCE GRID */
+  .medical-excellence {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 4rem 0;
+  }
+  
+  .excellence-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.4s var(--easing-smooth);
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.03);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s var(--easing-smooth);
+    z-index: 1;
+  }
+  
+  .excellence-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,95,174,0.1);
+  }
+  
+  .excellence-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--azul-premium), var(--verde-premium));
+    border-radius: 50%;
+    color: white;
+  }
+  
+  .excellence-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke-width: 2;
+  }
+  
+  .excellence-title {
+    font-size: 1.2rem;
+    color: var(--azul-premium);
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  
+  .excellence-desc {
+    font-size: 1rem;
+      color: #7f8c8d;
+      line-height: 1.7;
+      transition: all 0.3s ease;
+  }
+  /* Efecto de borde animado */
+  
+  
+  .excellence-card:hover::before {
+    border-color: var(--azul-premium);
+    animation: borderPulse 2s infinite;
+  }
+  
+  @keyframes borderPulse {
+    0% { border-color: var(--azul-premium); opacity: 1; }
+    50% { border-color: var(--verde-premium); opacity: 0.7; }
+    100% { border-color: var(--azul-premium); opacity: 1; }
+  }
+  
+  /* Animación del icono */
+  .excellence-icon {
+    transition: all 0.5s var(--easing-bounce);
+  }
+  
+  .excellence-card:hover .excellence-icon {
+    transform: rotate(15deg) scale(1.1);
+    animation: iconGlow 1.5s infinite alternate;
+  }
+  
+  @keyframes iconGlow {
+    0% { filter: drop-shadow(0 0 0 rgba(0, 95, 174, 0.5)); }
+    100% { filter: drop-shadow(0 0 8px var(--verde-premium)); }
+  }
+  
+  /* Animación del título */
+  .excellence-title {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .excellence-card:hover .excellence-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--azul-premium), var(--verde-premium));
+    animation: underlineExpand 0.6s var(--easing-smooth) forwards;
+  }
+  
+  @keyframes underlineExpand {
+    0% { width: 0; opacity: 0; }
+    100% { width: 100%; opacity: 1; }
+  }
+  
+  /* Efecto de fondo flotante */
+  .excellence-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,95,174,0.05) 0%, rgba(0,168,89,0.05) 100%);
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.4s var(--easing-smooth);
+  }
+  
+  .excellence-card:hover::after {
+    opacity: 1;
+  }
+  
+  /* Animación de levitación */
+  .excellence-card:hover {
+    transform: translateY(-8px) perspective(500px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(0, 95, 174, 0.15);
+  }
+  
+  /* Efecto de partículas (opcional) */
+  .excellence-card:hover .excellence-icon svg {
+    stroke-dasharray: 80;
+    stroke-dashoffset: 80;
+    animation: drawIcon 1s var(--easing-smooth) forwards;
+  }
+  
+  @keyframes drawIcon {
+    to { stroke-dashoffset: 0; }
+  }
+  
+  /* Animación de texto descriptivo */
+  .excellence-desc {
+    transition: all 0.4s var(--easing-smooth);
+    transform-origin: left;
+  }
+  
+  .excellence-card:hover .excellence-desc {
+    color: var(--azul-premium);
+    transform: scale(1.03);
+  }
+  /* STATS SECTION */
+  .medical-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 5rem 0;
+    padding: 2rem;
+    background: linear-gradient(to right, var(--azul-premium), var(--verde-premium));
+    border-radius: 16px;
+    color: white;
+  }
+  
+  .stat-item {
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+  }
+  
+  /* ANIMATIONS */
+  @keyframes countUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .excellence-card {
+    animation: fadeInUp 0.6s var(--easing-smooth) both;
+  }
+  
+  .excellence-card:nth-child(1) { animation-delay: 0.1s; }
+  .excellence-card:nth-child(2) { animation-delay: 0.3s; }
+  .excellence-card:nth-child(3) { animation-delay: 0.5s; }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* ===== SEARCH CONTAINER ===== */
+  .search-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    --search-height: 60px;
+    --search-radius: 30px;
+    --search-icon-size: 20px;
+    --search-border-width: 2px;
+  }
+  
+  .search-input-wrapper {
+    position: relative;
+    height: var(--search-height);
+    border-radius: var(--search-radius);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* ===== INPUT STYLES ===== */
+  .search-input {
+    width: 100%;
+    height: 100%;
+    padding: 0 3rem 0 4rem;
+    font-size: 1.05rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: var(--azul-premium);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: var(--search-radius);
+    outline: none;
+    box-shadow: 0 5px 25px rgba(0, 95, 174, 0.1);
+    transition: all 0.4s var(--easing-smooth);
+    z-index: 2;
+    position: relative;
+    box-sizing: border-box;
+  }
+  
+  .search-input::placeholder {
+    color: rgba(0, 95, 174, 0.5);
+    font-weight: 500;
+  }
+  
+  .search-input:focus {
+    box-shadow: 0 8px 30px rgba(0, 95, 174, 0.15);
+    background-color: rgba(255, 255, 255, 1);
+  }
+  
+  /* ===== ICON STYLES ===== */
+  .search-icon {
+    position: absolute;
+    left: 1.8rem;
+    top: 43%;
+    transform: translateY(-50%);
+    width: var(--search-icon-size);
+    height: var(--search-icon-size);
+    color: var(--azul-premium);
+    z-index: 3;
+    transition: all 0.5s var(--easing-smooth);
+    transform-style: preserve-3d;
+  }
+  
+  .search-icon svg {
+    stroke: currentColor;
+    width: 100%;
+    height: 100%;
+    transform: translateZ(10px);
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+  }
+  
+  .search-container:hover .search-icon {
+    color: var(--verde-premium);
+    animation: iconFloat  2s ease-in-out infinite;
+  }
+  
+  @keyframes iconFloat {
+    0%, 100% { transform: translateY(-50%) translateY(0) rotate(0deg); }
+    50% { transform: translateY(-50%) translateY(-5px) rotate(5deg); }
+  }
+  
+  .search-input:focus ~ .search-icon {
+    animation: iconPulse 1.5s ease infinite;
+  }
+  
+  @keyframes iconPulse {
+    0%, 100% { transform: translateY(-50%) scale(1); }
+    50% { transform: translateY(-50%) scale(1.2); }
+  }
+  
+  .search-input:not(:placeholder-shown) ~ .search-icon {
+    animation: iconTilt 0.8s var(--easing-bounce) forwards;
+  }
+  
+  @keyframes iconTilt {
+    0% { transform: translateY(-50%) rotateY(0deg); }
+    50% { transform: translateY(-50%) rotateY(20deg); }
+    100% { transform: translateY(-50%) rotateY(0deg); }
+  }
+  .search-container[data-is-searching="true"] .search-icon {
+    animation: iconVibrate 0.3s linear infinite alternate;
+  }
+  
+  @keyframes iconVibrate {
+    0% { transform: translateY(-50%) translateX(0); }
+    100% { transform: translateY(-50%) translateX(2px); }
+  }
+  
+  .search-icon svg {
+    transition: all 0.4s var(--easing-smooth);
+  }
+  
+  .search-container:hover .search-icon svg {
+    animation: iconWobble 1.5s ease infinite;
+  }
+  
+  @keyframes iconWobble {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1) rotate(5deg); }
+    75% { transform: scale(0.9) rotate(-5deg); }
+  }
+  
+  /* 6. Efecto de dibujado al aparecer */
+  .search-icon svg path {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: drawIcon 1s var(--easing-smooth) forwards;
+  }
+  
+  @keyframes drawIcon {
+    to { stroke-dashoffset: 0; }
+  }
+  
+  /* 7. Efecto de brillo dinámico */
+  .search-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(0,168,89,0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: all 0.6s var(--easing-smooth);
+    z-index: -1;
+  }
+  
+  .search-container:hover .search-icon::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    animation: iconGlow 2s ease infinite;
+  }
+  
+  @keyframes iconGlow {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+  
+  /* ===== BORDER EFFECT ===== */
+  .search-input-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--search-radius);
+    background: linear-gradient(135deg, var(--azul-premium), var(--verde-premium));
+    z-index: 1;
+    opacity: 0.7;
+    transition: all 0.4s var(--easing-smooth);
+  }
+  
+  .search-input:focus ~ .search-input-border {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  
+  /* ===== FOCUS EFFECT ===== */
+  .search-focus-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--search-radius);
+    background: radial-gradient(circle at center, rgba(0, 168, 89, 0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0;
+    z-index: 0;
+    transition: all 0.6s var(--easing-smooth);
+  }
+  
+  .search-input:focus ~ .search-focus-effect {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  /* ===== LOADING INDICATOR ===== */
+  .search-loading-indicator {
+    position: absolute;
+    right: 1.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+  }
+  
+  .search-spinner {
+    width: 22px;
+    height: 22px;
+    position: relative;
+  }
+  
+  .spinner-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(0, 95, 174, 0.1);
+    border-radius: 50%;
+  }
+  
+  .spinner-thumb {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-top-color: var(--verde-premium);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* ===== ANIMATIONS ===== */
+  @keyframes iconGlow {
+    0% { filter: drop-shadow(0 0 0 rgba(0, 168, 89, 0.3)); }
+    100% { filter: drop-shadow(0 0 6px rgba(0, 168, 89, 0.5)); }
+  }
+  
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .search-container {
+      --search-height: 55px;
+      --search-radius: 25px;
+      max-width: 100%;
+    }
+    
+    .search-input {
+      padding: 0 2.8rem 0 3.5rem;
+    }
+    
+    .search-icon {
+      left: 1.5rem;
+    }
+    
+    .search-loading-indicator {
+      right: 1.5rem;
+    }
+  }
+  
+  /* ===== BTN CANCELAR ===== */
+  /* ===== BOTÓN CANCELAR PREMIUM ===== */
+  .search-cancel-btn {
+    position: absolute;
+    right: 1.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 12;
+    transition: all 0.4s var(--easing-smooth);
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .search-container:hover .search-cancel-btn,
+  .search-input:focus ~ .search-cancel-btn,
+  .search-cancel-btn.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .search-cancel-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--azul-premium);
+    stroke-width: 2.5;
+    transition: all 0.3s var(--easing-smooth);
+  }
+  
+  /* Efecto hover premium */
+  .search-cancel-btn:hover {
+    background: var(--azul-premium);
+    transform: translateY(-50%) scale(1.1) rotate(90deg);
+    box-shadow: 0 4px 15px rgba(0, 95, 174, 0.3);
+  }
+  
+  .search-cancel-btn:hover svg {
+    stroke: white;
+    transform: scale(1.2);
+  }
+  
+  /* Efecto de pulso al aparecer */
+  .search-cancel-btn {
+    animation: cancelAppear 0.6s var(--easing-bounce) forwards;
+  }
+  
+  @keyframes cancelAppear {
+    0% { transform: translateY(-50%) scale(0); opacity: 0; }
+    80% { transform: translateY(-50%) scale(1.1); opacity: 1; }
+    100% { transform: translateY(-50%) scale(1); opacity: 1; }
+  }
+  
+  /* Efecto de "rebote" al hacer click */
+  .search-cancel-btn:active {
+    transform: translateY(-50%) scale(0.9);
+  }
+  
+  /* Efecto de partículas al cancelar */
+  .search-cancel-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--verde-premium) 0%, transparent 70%);
+    opacity: 0;
+    transition: all 0.6s var(--easing-smooth);
+  }
+  
+  .search-cancel-btn:hover::after {
+    opacity: 0.3;
+    transform: scale(1.5);
+  }
+  
+  /* Ajuste para cuando está activa la búsqueda */
+  .search-container[data-is-searching="true"] .search-cancel-btn {
+    right: 3.5rem; /* Para no solaparse con el spinner */
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    animation: fade-slide-down 0.5s var(--easing-smooth);
+  }
+  
+  .staff-card {
+    background: var(--blanco);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s var(--easing-smooth);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .staff-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  }
+  
+  .staff-image-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+  }
+  
+  .staff-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s var(--easing-smooth);
+  }
+  
+  .staff-card:hover .staff-image {
+    transform: scale(1.05);
+  }
+  
+  .staff-specialty-badge {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background-color: var(--verde-premium);
+    color: var(--blanco);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .staff-info {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .staff-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--azul-premium);
+    margin-bottom: 0.5rem;
+  }
+  
+  .staff-summary {
+    color: var(--negro);
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-top: auto;
+  }
+  
+  .no-results {
+    text-align: center;
+    padding: 3rem;
+    color: var(--negro);
+    opacity: 0.7;
+    font-size: 1.1rem;
+  }
+  
+  /* Efectos premium adicionales */
+  .staff-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 95, 174, 0.03) 0%, rgba(0, 168, 89, 0.03) 100%);
+    z-index: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .staff-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .search-results {
+      grid-template-columns: 1fr;
+    }
+    
+    .staff-title {
+      font-size: 2rem;
+    }
+} 
