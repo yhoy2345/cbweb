@@ -89,7 +89,7 @@ const Staff = () => {
       </section>
       <section className="staff-section">
         <div className="staff-container"> 
-          <h1 class="medical-excellence-title">
+          <h1 className="medical-excellence-title">
             <span class="medical-line medical-line--1">
               <span class="medical-text">Donde la</span>
               <span class="medical-highlight medical-highlight--excellence">Excelencia</span>
@@ -150,7 +150,7 @@ const Staff = () => {
               <div className="stat-label">Especialidades</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number" data-count="98">null</div>
+              <div className="stat-number" data-count="98">98</div>
               <div className="stat-label">% Satisfacción</div>
             </div>
           </div>

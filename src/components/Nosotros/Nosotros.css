@@ -1,0 +1,1182 @@
+/* ==================== VARIABLES GLOBALES MEJORADAS ==================== */
+:root {
+    --primary-color: #0078d7;
+    --primary-light: rgba(0, 120, 215, 0.1);
+    --secondary-color: #48c774;
+    --secondary-light: rgba(72, 199, 116, 0.1);
+    --text-color: #2e2e2e;
+    --text-light: #555;
+    --card-bg: #ffffff;
+    --gradient-overlay: linear-gradient(135deg, #0078d7cc, #48c774cc);
+    --gradient-diagonal: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    --brillo-color: rgba(255, 255, 255, 0.3);
+    --puntos-color: rgba(0, 120, 215, 0.15);
+    --transition-fast: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 10px 30px rgba(0, 120, 215, 0.15);
+    --shadow-lg: 0 20px 40px rgba(0, 120, 215, 0.25);
+    --border-radius-sm: 0.5rem;
+    --border-radius-md: 1.5rem;
+    --border-radius-lg: 2rem;
+}
+  
+  /* ============= TÍTULO PREMIUM ============= */
+.health-passion-title {
+font-family: 'Montserrat', sans-serif;
+font-weight: 600;
+font-size: clamp(2.5rem, 5vw, 3.5rem);
+text-align: center;
+color: var(--dark-text);
+margin: 3rem 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+line-height: 1.3;
+}
+
+.health-line {
+display: block;
+position: relative;
+transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+padding: 0.2rem 0;
+}
+
+.health-text {
+font-weight: 400;
+color: var(--light-text);
+transition: inherit;
+letter-spacing: 0.5px;
+}
+
+.health-highlight {
+display: inline-block;
+position: relative;
+transition: inherit;
+padding: 0 0.3rem;
+margin: 0 0.5rem;
+}
+
+.health-highlight--care {
+color: var(--primary-color);
+font-weight: 700;
+text-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+}
+
+.health-highlight--responsibility {
+color: var(--secondary-color);
+font-weight: 700;
+letter-spacing: 0.5px;
+}
+
+.health-highlight--trust {
+color: var(--dark-text);
+font-weight: 800;
+letter-spacing: 1px;
+}
+
+/* Efectos hover premium */
+.health-passion-title:hover .health-line--1 {
+transform: translateX(-8px) rotate(-1deg);
+}
+
+.health-passion-title:hover .health-line--2 {
+transform: translateX(8px) rotate(1deg);
+}
+
+.health-passion-title:hover .health-line--3 {
+transform: scale(1.03);
+}
+
+.health-passion-title:hover .health-highlight--care {
+background: rgba(0, 123, 255, 0.1);
+border-radius: 4px;
+}
+
+.health-passion-title:hover .health-highlight--responsibility {
+background: rgba(40, 167, 69, 0.1);
+border-radius: 4px;
+}
+
+.health-passion-title:hover .health-text {
+color: var(--dark-text);
+letter-spacing: 0.7px;
+}
+
+/* Efecto de subrayado animado premium */
+.health-highlight::after {
+content: '';
+position: absolute;
+bottom: -2px;
+left: 0;
+width: 100%;
+height: 2px;
+background: currentColor;
+transform: scaleX(0);
+transform-origin: right;
+transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.health-passion-title:hover .health-highlight::after {
+transform: scaleX(1);
+transform-origin: left;
+}
+
+/* Efecto especial para "Confianza" */
+.health-highlight--trust::before {
+content: '';
+position: absolute;
+top: -3px;
+left: 0;
+width: 100%;
+height: 100%;
+border: 2px solid transparent;
+border-radius: 6px;
+transition: all 0.4s ease;
+}
+
+.health-passion-title:hover .health-highlight--trust::before {
+transform: scale(1.05);
+}
+
+/* Efecto de sombra en hover */
+.health-highlight--care:hover {
+text-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.health-highlight--responsibility:hover {
+text-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+/* Responsive premium */
+@media (max-width: 768px) {
+.health-passion-title {
+    font-size: 2.2rem;
+    margin: 2rem 0;
+}
+
+.health-line {
+    display: inline;
+    white-space: nowrap;
+}
+
+.health-highlight {
+    margin: 0 0.3rem;
+    padding: 0 0.2rem;
+}
+
+.health-passion-title:hover .health-line--1,
+.health-passion-title:hover .health-line--2 {
+    transform: none;
+}
+}
+
+@media (max-width: 480px) {
+.health-passion-title {
+    font-size: 1.8rem;
+}
+
+.health-text, .health-highlight {
+    display: inline;
+}
+}
+
+/* ============= DIVISOR PREMIUM ============= */
+.health-divider {
+--divider-line-height: 3px;
+--divider-heart-size: 28px;
+--divider-gap: 2rem;
+--divider-max-width: 600px;
+--divider-primary: var(--primary-color, #0078d7);
+--divider-secondary: var(--secondary-color, #48c774);
+
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 3.5rem auto;
+width: 100%;
+max-width: var(--divider-max-width);
+gap: var(--divider-gap);
+position: relative;
+}
+
+.health-divider__line {
+flex: 1;
+height: var(--divider-line-height);
+background: linear-gradient(
+    to right,
+    transparent,
+    var(--divider-primary),
+    var(--divider-primary)
+);
+opacity: 0.8;
+transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+position: relative;
+border-radius: 100px;
+}
+
+.health-divider__line--left {
+background: linear-gradient(
+    to left,
+    transparent,
+    var(--divider-primary),
+    var(--divider-primary)
+);
+}
+
+.health-divider__heart {
+width: var(--divider-heart-size);
+height: var(--divider-heart-size);
+display: grid;
+place-items: center;
+flex-shrink: 0;
+color: var(--divider-secondary);
+position: relative;
+z-index: 1;
+transition: all 0.4s ease;
+}
+
+.health-divider__icon {
+width: 100%;
+height: 100%;
+transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+fill: currentColor;
+stroke: currentColor;
+stroke-width: 0.5px;
+transform-origin: center;
+}
+
+/* Efecto de pulso al cargar */
+@keyframes pulse-in {
+0% { transform: scale(0.8); opacity: 0; }
+100% { transform: scale(1); opacity: 1; }
+}
+
+.health-divider__heart {
+animation: pulse-in 0.6s ease-out forwards;
+}
+
+/* Efectos hover premium */
+.health-divider:hover .health-divider__line {
+height: calc(var(--divider-line-height) + 1px);
+opacity: 1;
+background: linear-gradient(
+    to right,
+    transparent,
+    var(--divider-secondary),
+    var(--divider-primary)
+);
+}
+
+.health-divider:hover .health-divider__line--left {
+background: linear-gradient(
+    to left,
+    transparent,
+    var(--divider-primary),
+    var(--divider-secondary)
+);
+}
+
+.health-divider:hover .health-divider__heart {
+color: var(--divider-primary);
+transform: scale(1.15);
+}
+
+.health-divider:hover .health-divider__icon {
+animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+/* Efecto de latido mejorado */
+@keyframes heartbeat {
+0% { transform: scale(1); }
+15% { transform: scale(1.1); }
+30% { transform: scale(0.95); }
+45% { transform: scale(1.15); }
+60% { transform: scale(1); }
+100% { transform: scale(1); }
+}
+
+/* Efecto de brillo en las líneas */
+.health-divider__line::after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.8),
+    transparent
+);
+opacity: 0;
+transition: opacity 0.3s ease;
+border-radius: inherit;
+}
+
+.health-divider:hover .health-divider__line::after {
+opacity: 0.3;
+}
+
+/* Efecto de sombra en el corazón */
+.health-divider__heart::before {
+content: '';
+position: absolute;
+width: 100%;
+height: 100%;
+border-radius: 50%;
+background: currentColor;
+filter: blur(8px);
+opacity: 0;
+z-index: -1;
+transition: opacity 0.3s ease;
+}
+
+.health-divider:hover .health-divider__heart::before {
+opacity: 0.2;
+}
+
+/* Responsive premium */
+@media (max-width: 768px) {
+.health-divider {
+    --divider-gap: 1.5rem;
+    --divider-max-width: 85%;
+    --divider-heart-size: 24px;
+    --divider-line-height: 2.5px;
+    margin: 2.5rem auto;
+}
+}
+
+@media (max-width: 480px) {
+.health-divider {
+    --divider-gap: 1rem;
+    --divider-heart-size: 20px;
+    --divider-line-height: 2px;
+}
+
+.health-divider:hover .health-divider__heart {
+    transform: scale(1.1);
+}
+}
+
+/* ============= SUBTÍTULO PREMIUM SIN HOVER ============= */
+.medical-premium-subtitle {
+    --subtitle-max-width: 880px;
+    --subtitle-font-size: 1.6rem;
+    --subtitle-line-height: 1.8;
+    
+    max-width: var(--subtitle-max-width);
+    margin: 4rem auto;
+    text-align: center;
+    position: relative;
+    padding: 0 2.5rem;
+  }
+  
+  .medical-premium-subtitle__content {
+    font-family: 'Montserrat', sans-serif;
+    font-size: var(--subtitle-font-size);
+    font-weight: 400;
+    line-height: var(--subtitle-line-height);
+    color: var(--text-light);
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.3px;
+  }
+  
+  .medical-premium-subtitle__intro {
+    font-weight: 300;
+    margin-right: 0.3rem;
+  }
+  
+  .medical-premium-subtitle__highlight {
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    padding: 0 0.3rem;
+    margin: 0 0.2rem;
+  }
+  
+  .medical-premium-subtitle__highlight--clinic {
+    color: var(--primary-color);
+  }
+  
+  .medical-premium-subtitle__highlight--care {
+    color: var(--secondary-color);
+  }
+  
+  .medical-premium-subtitle__highlight--legacy {
+    color: var(--primary-color);
+  }
+  
+  .medical-premium-subtitle__text {
+    font-weight: 300;
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .medical-premium-subtitle {
+      --subtitle-font-size: 1.4rem;
+      padding: 0 2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .medical-premium-subtitle {
+      --subtitle-font-size: 1.2rem;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    
+    .medical-premium-subtitle__divider span {
+      width: 20px;
+      height: 20px;
+      top: -10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .medical-premium-subtitle {
+      --subtitle-font-size: 1.1rem;
+      margin: 2.5rem auto;
+      padding: 0 1rem;
+    }
+  }
+
+  /* Contenedor principal */
+.medical-highlights-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 80px auto;
+    max-width: 1200px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Estilos base para todas las tarjetas */
+  .medical-card {
+    background: white;
+    border-radius: 16px;
+    padding: 45px 30px;
+    width: 300px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 120, 215, 0.08);
+  }
+  
+  .medical-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 120, 215, 0.03) 0%, rgba(72, 199, 116, 0.03) 100%);
+    z-index: -1;
+  }
+  
+  .medical-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #48c774, #0078d7);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+  }
+  
+  .medical-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(0, 120, 215, 0.12);
+  }
+  
+  .medical-card:hover::after {
+    transform: scaleX(1);
+  }
+  
+  /* Iconos */
+  .medical-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 2rem;
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .medical-icon::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #48c774 0%, #0078d7 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .medical-feature-icon {
+    position: relative;
+    transition: all 0.4s ease;
+  }
+  
+  /* Estilos específicos para cada tarjeta */
+  .medical-card-specialists .medical-icon-doctors {
+    background: linear-gradient(135deg, rgba(72,199,116,0.08) 0%, rgba(0,120,215,0.08) 100%);
+    color: #0078d7;
+  }
+  
+  .medical-card-infrastructure .medical-icon-facility {
+    background: linear-gradient(135deg, rgba(72,199,116,0.08) 0%, rgba(0,120,215,0.08) 100%);
+    color: #48c774;
+  }
+  
+  .medical-card-technology .medical-icon-tech {
+    background: linear-gradient(135deg, rgba(72,199,116,0.08) 0%, rgba(0,120,215,0.08) 100%);
+    color: #226fc7;
+  }
+  
+  /* Efectos hover */
+  .medical-card:hover .medical-icon {
+    transform: rotateY(360deg);
+    color: white;
+  }
+  
+  .medical-card:hover .medical-icon::before {
+    opacity: 1;
+  }
+  
+  /* Títulos */
+  .medical-card h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .medical-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: #0078d7;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .medical-card:hover h3 {
+    color: #0078d7;
+  }
+  
+  .medical-card:hover h3::after {
+    opacity: 1;
+    width: 80px;
+  }
+  
+  /* Párrafos */
+  .medical-card p {
+    font-size: 1rem;
+    color: #7f8c8d;
+    line-height: 1.7;
+    transition: all 0.3s ease;
+  }
+  
+  .medical-card:hover p {
+    color: #5a6a7a;
+  }
+  
+  /* Botones */
+  .medical-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+  }
+  
+  .medical-button-doctors {
+    color: #0078d7;
+    background: rgba(0, 120, 215, 0.1);
+  }
+  
+  .medical-button-facility {
+    color: #48c774;
+    background: rgba(72, 199, 116, 0.1);
+  }
+  
+  .medical-button-tech {
+    color: #226fc7;
+    background: rgba(0, 120, 215, 0.1);
+  }
+  
+  .medical-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .medical-button-icon {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .medical-button:hover .medical-button-icon {
+    transform: translateX(5px);
+  }
+
+  
+
+
+
+
+
+
+
+
+
+
+  /* ==================== SECCIÓN PRINCIPAL MEJORADA ==================== */
+  .vision-mision-section {
+    position: relative;
+    padding: 6rem 2rem;
+    overflow: hidden;
+    z-index: 0;
+    background-color: #f9fbfd;
+    background-image: 
+      radial-gradient(circle at 10% 20%, var(--primary-light) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, var(--secondary-light) 0%, transparent 20%);
+  }
+  
+  /* ==================== FONDOS DECORATIVOS MEJORADOS ==================== */
+  .decorativos-fondo {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .decorativo-circulo {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+    filter: blur(20px);
+    animation: flotar 12s ease-in-out infinite;
+    background: var(--gradient-diagonal);
+  }
+  
+  .circulo-uno {
+    width: 400px;
+    height: 400px;
+    top: 10%;
+    left: -150px;
+    animation-delay: 0.5s;
+  }
+  
+  .circulo-dos {
+    width: 350px;
+    height: 350px;
+    bottom: -100px;
+    right: -100px;
+    animation-delay: 1s;
+  }
+  
+  /* Nuevo elemento decorativo: Líneas diagonales */
+  .decorativo-lineas {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: -25%;
+    left: -25%;
+    background-image: 
+      linear-gradient(45deg, transparent 65%, var(--primary-light) 65%, var(--primary-light) 70%, transparent 70%),
+      linear-gradient(-45deg, transparent 65%, var(--secondary-light) 65%, var(--secondary-light) 70%, transparent 70%);
+    background-size: 60px 60px;
+    opacity: 0.3;
+    animation: desplazamiento-lineas 40s linear infinite;
+  }
+  
+  /* ==================== CONTENIDO FLEX MEJORADO ==================== */
+  .contenido-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  /* ==================== IMAGEN PRINCIPAL MEJORADA ==================== */
+  .columna-imagen {
+    flex: 1 1 400px;
+    position: relative;
+  }
+  
+  .marco-imagen {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform var(--transition-slow);
+  }
+
+  .marco-imagen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    border-radius: var(--border-radius-lg);
+    background: var(--gradient-diagonal) border-box;
+    
+    /* Solo versión estándar (soporte moderno) */
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    will-change: opacity;
+  }
+  
+
+  
+  .marco-imagen:hover::before {
+    opacity: 1;
+  }
+  
+  .imagen-principal {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius-lg);
+    transition: transform var(--transition-slow);
+    transform: translateZ(0);
+  }
+  
+  .marco-imagen:hover {
+    transform: translateY(-5px) rotateX(2deg) rotateY(2deg);
+  }
+  
+  .marco-imagen:hover .imagen-principal {
+    transform: scale(1.08);
+  }
+  
+  /* Overlay degradado mejorado */
+  .overlay-gradiente {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-overlay);
+    mix-blend-mode: multiply;
+    z-index: 1;
+    opacity: 0.7;
+    transition: opacity var(--transition-fast);
+  }
+  
+  .marco-imagen:hover .overlay-gradiente {
+    opacity: 0.9;
+  }
+  
+  /* Decoraciones tipo puntos mejoradas */
+  .decoracion-puntos {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, var(--puntos-color) 30%, transparent 60%);
+    background-size: 15px 15px;
+    z-index: 2;
+    animation: parpadeo 5s infinite alternate;
+    filter: drop-shadow(0 0 5px rgba(0, 120, 215, 0.3));
+  }
+  
+  .decoracion-izquierda {
+    top: 20px;
+    left: 20px;
+    animation-delay: 0.3s;
+  }
+  
+  .decoracion-derecha {
+    bottom: 20px;
+    right: 20px;
+    animation-delay: 0.7s;
+  }
+  
+  /* Nuevo elemento: Esquina decorativa */
+  .esquina-decorativa {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--primary-color);
+    z-index: 3;
+    opacity: 0.5;
+    transition: all var(--transition-fast);
+  }
+  
+  .esquina-top-left {
+    top: 15px;
+    left: 15px;
+    border-right: none;
+    border-bottom: none;
+  }
+  
+  .esquina-bottom-right {
+    bottom: 15px;
+    right: 15px;
+    border-left: none;
+    border-top: none;
+    border-color: var(--secondary-color);
+  }
+  
+  .marco-imagen:hover .esquina-decorativa {
+    width: 60px;
+    height: 60px;
+    opacity: 0.8;
+  }
+  
+  /* ==================== TARJETAS DE INFORMACIÓN MEJORADAS ==================== */
+  .columna-tarjetas {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  
+  .tarjeta-info {
+    position: relative;
+    padding: 2.5rem;
+    border-radius: var(--border-radius-md);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-slow);
+    overflow: hidden;
+    z-index: 0;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+  }
+  
+  .tarjeta-info:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Ícono y título mejorados */
+  .icono-titulo {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .icono {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    transition: transform var(--transition-fast);
+  }
+  
+  .tarjeta-info:hover .icono {
+    transform: scale(1.1) rotate(5deg);
+  }
+  
+  .titulo-seccion {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+    position: relative;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: all var(--transition-fast);
+  }
+  
+  .tarjeta-info:hover .titulo-seccion {
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+  }
+  
+  .subrayado {
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: var(--gradient-diagonal);
+    border-radius: 2px;
+    margin-top: 0.5rem;
+    transition: all var(--transition-fast);
+  }
+  
+  .tarjeta-info:hover .subrayado {
+    width: 60px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+  }
+  
+  /* Texto de contenido mejorado */
+  .contenido-texto {
+    margin-top: 1.5rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 2;
+    transition: all var(--transition-fast);
+  }
+  
+  .tarjeta-info:hover .contenido-texto {
+    color: var(--text-color);
+  }
+  
+  /* Brillo al pasar mouse mejorado */
+  .efecto-brillo {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, var(--brillo-color), transparent);
+    transform: rotate(25deg);
+    animation: brillo 6s linear infinite;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity var(--transition-slow);
+  }
+  
+  .tarjeta-info:hover .efecto-brillo {
+    opacity: 0.4;
+  }
+  
+  /* Efecto hover mejorado */
+  .efecto-hover {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(72, 199, 116, 0.2), transparent 60%);
+    z-index: 0;
+    transition: all var(--transition-slow);
+    opacity: 0;
+  }
+  
+  .tarjeta-info:hover .efecto-hover {
+    opacity: 1;
+  }
+  
+  /* Nuevo efecto: Partículas flotantes */
+  .particulas-flotantes {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+  }
+  
+  .particula {
+    position: absolute;
+    background: var(--gradient-diagonal);
+    opacity: 0.1;
+    border-radius: 50%;
+    animation: flotar-particula 15s linear infinite;
+  }
+  
+  /* ==================== LÍNEAS ANIMADAS MEJORADAS ==================== */
+  .linea-animada {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-diagonal);
+    background-size: 200% 100%;
+    animation: desplazamiento 4s linear infinite;
+    z-index: 1;
+  }
+  
+  .linea-superior {
+    top: 0;
+  }
+  
+  .linea-inferior {
+    bottom: 0;
+  }
+  
+  /* Nueva línea vertical animada */
+  .linea-vertical {
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-diagonal);
+    background-size: 100% 200%;
+    animation: desplazamiento-vertical 6s linear infinite;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+  }
+  
+  .linea-izquierda {
+    left: 0;
+    top: 0;
+  }
+  
+  .linea-derecha {
+    right: 0;
+    top: 0;
+  }
+  
+  .tarjeta-info:hover .linea-vertical {
+    opacity: 1;
+  }
+  
+  /* ==================== ANIMACIONES MEJORADAS ==================== */
+  @keyframes flotar {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-20px) rotate(2deg);
+    }
+    50% {
+      transform: translateY(0) rotate(0deg);
+    }
+    75% {
+      transform: translateY(20px) rotate(-2deg);
+    }
+  }
+  
+  @keyframes flotar-particula {
+    0% {
+      transform: translateY(100%) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.1;
+    }
+    90% {
+      opacity: 0.1;
+    }
+    100% {
+      transform: translateY(-100%) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes parpadeo {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(0.95);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.05);
+    }
+  }
+  
+  @keyframes brillo {
+    0% {
+      transform: translateX(-100%) rotate(25deg);
+    }
+    100% {
+      transform: translateX(100%) rotate(25deg);
+    }
+  }
+  
+  @keyframes desplazamiento {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 200% 0%;
+    }
+  }
+  
+  @keyframes desplazamiento-vertical {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 0% 200%;
+    }
+  }
+  
+  @keyframes desplazamiento-lineas {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-60px);
+    }
+  }
+  
+  /* ==================== RESPONSIVE MEJORADO ==================== */
+  @media (max-width: 1200px) {
+    .vision-mision-section {
+      padding: 5rem 2rem;
+    }
+    
+    .contenido-flex {
+      gap: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .vision-mision-section {
+      padding: 4rem 1.5rem;
+    }
+    
+    .columna-imagen, .columna-tarjetas {
+      flex: 1 1 100%;
+    }
+    
+    .tarjeta-info {
+      padding: 2rem;
+    }
+    
+    .titulo-seccion {
+      font-size: 1.6rem;
+    }
+    
+    .circulo-uno, .circulo-dos {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .vision-mision-section {
+      padding: 3rem 1rem;
+    }
+    
+    .tarjeta-info {
+      padding: 1.5rem;
+    }
+    
+    .icono-titulo {
+      gap: 1rem;
+    }
+    
+    .icono {
+      font-size: 1.8rem;
+    }
+    
+    .titulo-seccion {
+      font-size: 1.4rem;
+    }
+    
+    .contenido-texto {
+      font-size: 1rem;
+    }
+  }
