@@ -1,0 +1,1118 @@
+/* Fuente importada - Poppins es una excelente opción moderna */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+/* Variables */
+:root {
+  --derma-primary: #0078d7;
+  --derma-primary-light: rgba(0, 120, 215, 0.1);
+  --derma-secondary: #48c774;
+  --derma-secondary-light: rgba(72, 199, 116, 0.1);
+  --derma-dark: #383a3d;
+  --derma-light: #f8f9fa;
+  --derma-bg: linear-gradient(145deg, #f5f9fc 0%, #e8f4ff 100%);
+  --derma-border: rgba(226, 232, 240, 0.8);
+  --derma-shadow: 0 12px 40px -15px rgba(0, 0, 0, 0.12);
+  --derma-glass: rgba(255, 255, 255, 0.85);
+  --derma-transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --derma-text-gradient: linear-gradient(135deg, #0078d7 0%, #48c774 100%);
+
+}
+
+/* Base Styles */
+.derma-container {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--derma-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.derma-hero {
+  position: relative;
+  height: 65vh;
+  min-height: 500px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.derma-hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1);
+  transition: transform 8s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+}
+
+.derma-hero:hover .derma-hero__image {
+  transform: scale(1.05);
+}
+
+.derma-hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(0, 120, 215, 0.85) 0%, 
+    rgba(72, 199, 116, 0.75) 100%);
+}
+
+.derma-hero__title {
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  color: white;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  max-width: 80%;
+  line-height: 1.2;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeInUp 1s 0.3s forwards;
+}
+
+/* Main Content */
+.derma-main {
+  max-width: 1200px;
+  margin: -5rem auto 0;
+  padding: 0 2rem 5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/*******************************************************
+ ***************** DESCRIPCION **************
+ *******************************************************/
+.derma-intro {
+  padding: 6rem 2rem;
+  background: var(--derma-bg);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.derma-intro::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(circle at 30% 30%, 
+    var(--derma-primary-light) 0%, 
+    transparent 65%);
+  opacity: 0.4;
+  animation: float 18s infinite alternate;
+  z-index: -1;
+}
+
+.derma-intro::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  right: -20%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle at 70% 70%, 
+    var(--derma-secondary-light) 0%, 
+    transparent 65%);
+  opacity: 0.4;
+  animation: float 22s infinite alternate-reverse;
+  z-index: -1;
+}
+
+.derma-intro__content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding: 2rem;
+  background: var(--derma-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 28px;
+  border: 1px solid var(--derma-border);
+  box-shadow: var(--derma-shadow);
+  transition: var(--derma-transition);
+  z-index: 2;
+  overflow: hidden;
+  --mouse-x: 0px;
+  --mouse-y: 0px;
+}
+
+.derma-intro__content:hover {
+  transform: translateY(-6px) scale(1.005);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.18);
+  border-color: rgba(0, 120, 215, 0.4);
+}
+
+.derma-intro__text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.9;
+  color: var(--derma-darker);
+  position: relative;
+  z-index: 3;
+  transition: var(--derma-transition);
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: var(--derma-text-gradient);
+  color: transparent;
+  background-size: 200% auto;
+}
+
+.derma-intro__content:hover .derma-intro__text {
+  background-position: 100% center;
+  letter-spacing: 0.35px;
+}
+
+.derma-intro__hover-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--derma-primary-light) 0%,
+    var(--derma-secondary-light) 100%
+  );
+  opacity: 0;
+  z-index: 1;
+  transition: var(--derma-transition);
+  mix-blend-mode: soft-light;
+}
+
+.derma-intro__content:hover .derma-intro__hover-effect {
+  opacity: 0.9;
+}
+
+/* Efecto de borde dinámico mejorado */
+.derma-intro__content::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 30px;
+
+  background-size: 200% auto;
+  z-index: -1;
+  opacity: 0;
+  transition: var(--derma-transition);
+  filter: blur(4px);
+}
+
+.derma-intro__content:hover::before {
+  opacity: 0.5;
+  background-position: 100% center;
+}
+
+/* Efecto de brillo al texto */
+.derma-intro__text::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(
+    135deg,
+    var(--derma-primary) 0%,
+    var(--derma-secondary) 50%,
+    var(--derma-primary) 100%
+  );
+  background-size: 200% auto;
+  z-index: -1;
+  opacity: 0;
+  filter: blur(15px);
+  transition: var(--derma-transition);
+  border-radius: 20px;
+}
+
+.derma-intro__content:hover .derma-intro__text::after {
+  opacity: 0.15;
+  background-position: 100% center;
+}
+
+.derma-particle {
+  position: absolute;
+  top: var(--startY);
+  left: var(--startX);
+  width: var(--size);
+  height: var(--size);
+  background: var(--color);
+  border-radius: 50%;
+  opacity: var(--opacity);
+  filter: blur(var(--blur));
+  transform-origin: center;
+  animation: float var(--duration) var(--delay) infinite alternate ease-in-out;
+  will-change: transform;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  100% {
+    transform: 
+      translate(var(--moveX), var(--moveY)) 
+      rotate(var(--rotate)) 
+      scale(var(--scale-end));
+  }
+}
+
+/* Mouse interaction effects */
+.derma-particle {
+  transition: transform 0.3s ease-out;
+}
+
+.derma-particle:hover {
+  transform: scale(1.5) !important;
+  opacity: 0.8 !important;
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+/* Particle response to mouse movement */
+.derma-particle {
+  transform: 
+    translate(
+      calc(var(--moveX) * var(--distance-factor) + var(--mouse-x) * var(--mouse-influence-x))),
+      calc(var(--moveY) * var(--distance-factor) + var(--mouse-y) * var(--mouse-influence-y))
+    rotate(var(--rotate))
+    scale(var(--scale-end));
+}
+
+
+/* Responsive mejorado */
+@media (max-width: 1200px) {
+  .derma-intro {
+    padding: 5rem 2rem;
+  }
+  
+  .derma-intro__content {
+    padding: 3.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .derma-intro {
+    padding: 4rem 1.5rem;
+  }
+  
+  .derma-intro__content {
+    padding: 3rem;
+    border-radius: 24px;
+  }
+  
+  .derma-intro__text {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .derma-intro {
+    padding: 3.5rem 1rem;
+  }
+  
+  .derma-intro__content {
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+  }
+  
+  .derma-intro__text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+}
+/*******************************************************
+ *****************  QUE ES?  **************
+ *******************************************************/
+.dermatologia-contenedor {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 25px;
+  align-items: center;
+}
+
+.dermatologia-texto {
+  flex: 1;
+  padding: 3rem;
+  backdrop-filter: blur(30px) saturate(200%) brightness(1.1);
+  -webkit-backdrop-filter: blur(30px) saturate(200%) brightness(1.1);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 0 20px rgba(255, 255, 255, 0.1),
+    0 8px 40px rgba(0, 0, 0, 0.08);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Efecto de "vidrio líquido" con gradiente animado */
+.dermatologia-texto::before {
+  content: '';
+  position: absolute;
+  top: -200%;
+  left: -200%;
+  width: 480%;
+  height: 450%;
+  background: 
+    radial-gradient(circle at 70% 20%, 
+      rgba(0, 120, 215, 0.15) 0%, 
+      transparent 40%),
+    radial-gradient(circle at 30% 80%, 
+      rgba(72, 199, 116, 0.15) 0%, 
+      transparent 45%);
+  z-index: -1;
+  animation: floatEffect 18s infinite alternate ease-in-out;
+}
+
+@keyframes floatEffect {
+  0%, 100% { transform: translate(0%, 0%); }
+  50% { transform: translate(20%, 15%); }
+}
+
+/* Borde neón sutil al pasar mouse */
+.dermatologia-texto::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 22px;
+  border: 1px solid transparent;
+  pointer-events: none;
+  transition: all 0.8s ease;
+  box-shadow: 
+    inset 0 0 12px rgba(255, 255, 255, 0),
+    0 0 20px rgba(0, 120, 215, 0);
+}
+
+/* --- Efecto HOVER PREMIUM --- */
+.dermatologia-texto:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  transform: translateY(-4px);
+  box-shadow:
+    inset 0 0 30px rgba(255, 255, 255, 0.2),
+    0 12px 60px rgba(0, 120, 215, 0.2);
+}
+
+.dermatologia-texto:hover::after {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    inset 0 0 12px rgba(255, 255, 255, 0.3),
+    0 0 30px rgba(0, 120, 215, 0.3);
+}
+
+
+.dermatologia-texto h2 {
+  font-size: 2.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.8rem;
+  line-height: 1.2;
+  background: var(--derma-text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  position: relative;
+  text-transform: uppercase;
+  transition: var(--derma-transition);
+  transform-origin: left center;
+}
+
+
+.dermatologia-texto:hover h2::after {
+  transform: translateX(200%) skewX(-20deg);
+}
+
+.dermatologia-destacado {
+  position: relative;
+  display: inline-block;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--derma-primary) 30%, var(--derma-secondary) 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: var(--derma-transition);
+  transform-origin: center;
+  z-index: 1;
+  
+  /* Efecto base (antes de hover) */
+  text-shadow: 0 2px 8px var(--derma-primary-light);
+  opacity: 0.9;
+}
+
+.dermatologia-destacado::before {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--derma-primary), var(--derma-secondary));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+  z-index: -1;
+}
+
+.dermatologia-destacado:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.05) translateY(-3px);
+  }
+}
+
+/* Efecto de destello ocasional */
+@keyframes flash {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  95% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.dermatologia-destacado:hover::after {
+  content: '✧';
+  position: absolute;
+  right: -18px;
+  top: -8px;
+  font-size: 1.2rem;
+  color: var(--derma-secondary);
+  animation: flash 3s ease infinite;
+}
+
+.dermatologia-texto p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: var(--derma-dark);
+  line-height: 1.9;
+  font-size: 1.15rem;
+  margin-bottom: 1.8rem;
+  opacity: 0.92;
+  letter-spacing: 0.02rem;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0 8px 8px 0;
+  background: transparent;
+  z-index: 1;
+  overflow: hidden;
+  transform-origin: left center;
+  border-left: 1px solid transparent;
+}
+
+/* Fondo de gradiente dinámico premium */
+.dermatologia-texto p::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(95deg, 
+              var(--derma-primary-light) 0%, 
+              var(--derma-secondary-light) 50%, 
+              var(--derma-primary-light) 100%);
+  transform: translateX(-105%) skewX(-10deg);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+  opacity: 0.15;
+  filter: brightness(1.1);
+}
+
+/* Borde degradado premium */
+.dermatologia-texto p::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-left: 2px solid;
+  border-image: linear-gradient(
+    to bottom,
+    var(--derma-primary),
+    var(--derma-secondary),
+    var(--derma-primary)
+  ) 1;
+  border-radius: inherit;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: -1;
+}
+
+/* Efecto hover ULTRA PREMIUM */
+.dermatologia-texto p:hover {
+  opacity: 1;
+  transform: translateX(8px);
+  color: var(--derma-dark);
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+  border-left-color: var(--derma-primary-light);
+}
+
+.dermatologia-texto p:hover::before {
+  transform: translateX(0) skewX(-10deg);
+  opacity: 0.18;
+  background: linear-gradient(95deg, 
+              var(--derma-primary-light) 0%, 
+              var(--derma-secondary) 45%, 
+              var(--derma-primary-light) 100%);
+}
+
+.dermatologia-texto p:hover::after {
+  transform: scaleX(1);
+}
+
+/* Sombra premium combinada */
+.dermatologia-texto p:hover {
+  box-shadow: 4px 6px 24px -6px rgba(var(--derma-primary-rgb), 0.12),
+              2px 3px 12px -4px rgba(var(--derma-secondary-rgb), 0.1),
+              inset 1px 0 0 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Efecto de partículas premium */
+.dermatologia-texto p:hover .particle {
+  position: absolute;
+  display: block;
+  width: 2px;
+  height: 2px;
+  background: linear-gradient(45deg, var(--derma-primary), var(--derma-secondary));
+  opacity: 0;
+  border-radius: 50%;
+  animation: particleFly 2s ease-out infinite;
+}
+
+@keyframes particleFly {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.4;
+    background: var(--derma-secondary);
+  }
+  100% {
+    transform: translate(var(--random-x, 15px), var(--random-y, -20px));
+    opacity: 0;
+    background: var(--derma-primary);
+  }
+}
+
+/* Efecto de texto premium */
+.dermatologia-texto p span {
+  display: inline-block;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dermatologia-texto p:hover span {
+  transform: translateY(-1px);
+  text-shadow: 0 1px 3px rgba(var(--derma-secondary-rgb), 0.2);
+}
+
+/* Efecto de brillo sutil */
+.dermatologia-texto p:hover {
+  filter: drop-shadow(0 0 1px rgba(var(--derma-primary-rgb), 0.3));
+}
+
+/* Transición de color premium */
+.dermatologia-texto p {
+  background: linear-gradient(to right, 
+              transparent 0%, 
+              rgba(var(--derma-primary-rgb), 0.03) 50%, 
+              transparent 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  transition: background-position 0.8s ease;
+}
+
+.dermatologia-texto p:hover {
+  background-position: 0 0;
+}
+
+/* Efecto de aparición suave */
+.dermatologia-texto h2,
+.dermatologia-texto p {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .dermatologia-texto {
+    padding: 1.5rem;
+  }
+  
+  .dermatologia-texto h2 {
+    font-size: 2rem;
+  }
+  
+  .dermatologia-texto p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dermatologia-texto {
+    text-align: center;
+    padding: 1.2rem;
+  }
+  
+  .dermatologia-texto h2 {
+    font-size: 1.8rem;
+  }
+  
+  .dermatologia-destacado::after {
+    bottom: -3px;
+    height: 2px;
+  }
+}
+
+
+.dermatologia-galeria {
+  flex: 1;
+  position: relative;
+  height: 380px;
+  left: 60px;
+}
+
+.dermatologia-imagen {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  object-fit: cover;
+}
+
+.dermatologia-imagen:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.imagen1 {
+  width: 230px;
+  height: 180px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.imagen2 {
+  width: 210px;
+  height: 210px;
+  top: 70px;
+  left: 200px;
+  z-index: 2;
+}
+
+.imagen3 {
+  width: 250px;
+  height: 190px;
+  top: 220px;
+  left: 10px;
+  z-index: 3;
+}
+
+.imagen4 {
+  width: 220px;
+  height: 220px;
+  top: 200px;
+  left: 350px;
+  z-index: 1;
+}
+
+.imagen5 {
+  width: 210px;
+  height: 180px;
+  top: -40px;
+  left: 360px;
+  z-index: 3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dermatologia-contenedor {
+    flex-direction: column;
+  }
+  
+  .dermatologia-galeria {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+
+/*******************************************************
+ ***************** SERVICIOS **************
+ *******************************************************/
+
+/* Services Section */
+.derma-services {
+  margin: 6rem 0;
+}
+
+.derma-services__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.derma-services__title {
+  font-size: 2.5rem;
+  color: transparent;
+  background: var(--derma-text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  padding: 0 0.5rem;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation-delay: 0.3s;
+  transition: var(--derma-transition);
+}
+
+.derma-services__title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 300px;
+  height: 4px;
+  background: var(--derma-secondary);
+  border-radius: 2px;
+  transition: var(--derma-transition);
+  transform-origin: center;
+  animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation-delay: 0.8s;
+}
+
+.derma-services__title:hover {
+  transform: translateY(-3px);
+  text-shadow: 0 5px 15px rgba(0, 120, 215, 0.2);
+}
+
+.derma-services__title:hover::after {
+  transform: translateX(-50%) scaleX(1.2);
+  background: var(--derma-primary);
+  box-shadow: 0 2px 10px rgba(0, 120, 215, 0.3);
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: translateX(-50%) scaleX(0);
+  }
+  to {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+
+.derma-services__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.derma-service-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--derma-shadow);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.derma-service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--derma-primary), var(--derma-secondary));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.derma-service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15);
+  color: white;
+}
+
+.derma-service-card:hover::before {
+  opacity: 1;
+}
+
+.derma-service-card:hover .derma-service-card__icon {
+  color: white;
+}
+
+.derma-service-card:hover .derma-service-card__text {
+  color: white;
+}
+
+.derma-service-card__icon {
+  margin-right: 1.5rem;
+  color: var(--derma-secondary);
+  min-width: 28px;
+  transition: all 0.4s ease;
+}
+
+.derma-service-card__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.derma-service-card__text {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 500;
+  transition: all 0.4s ease;
+  color: var(--derma-dark);
+}
+
+.derma-service-card__hover-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at center, 
+    rgba(255, 255, 255, 0.3) 0%, 
+    rgba(255, 255, 255, 0) 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.derma-service-card:hover .derma-service-card__hover-effect {
+  opacity: 1;
+}
+
+
+
+/* ============================================= */
+/* ESTILOS GENERALES DE LA SECCIÓN PRINCIPAL */
+/* ============================================= */
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .derma-content-wrapper {
+    flex-direction: column;
+  }
+  
+  .derma-specialists-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .derma-tools-section {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .derma-specialists-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .derma-tools-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .derma-tools-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+
+
+/*******************************************************
+ ***************** CITA **************
+ *******************************************************/
+.derma-cta {
+  text-align: center;
+  margin-top: 8rem;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, var(--derma-primary), var(--derma-secondary));
+  border-radius: 16px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.derma-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0) 70%);
+  transform: rotate(30deg);
+  transition: transform 0.8s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+}
+
+.derma-cta:hover::before {
+  transform: rotate(30deg) translateX(50px);
+}
+
+.derma-cta__title {
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.derma-cta__button {
+  position: relative;
+  background: white;
+  color: var(--derma-primary);
+  border: none;
+  padding: 1.2rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.derma-cta__button-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, 
+    rgba(0, 120, 215, 0.1) 0%, 
+    rgba(72, 199, 116, 0.1) 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: -1;
+}
+
+.derma-cta__button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.derma-cta__button:hover .derma-cta__button-effect {
+  transform: translateX(0);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .derma-hero {
+    height: 55vh;
+    min-height: 400px;
+  }
+  
+  .derma-main {
+    padding: 0 1.5rem 4rem;
+  }
+  
+  .derma-intro {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .derma-hero {
+    height: 45vh;
+    min-height: 350px;
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  }
+  
+  .derma-hero__title {
+    bottom: 20%;
+    left: 5%;
+    max-width: 90%;
+  }
+  
+  .derma-services__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .derma-cta {
+    padding: 3rem 1.5rem;
+    margin-top: 5rem;
+  }
+  
+  .derma-cta__title {
+    font-size: 1.8rem;
+  }
+}

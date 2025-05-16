@@ -8,6 +8,8 @@ import Especialidades from './components/Especialidades/Especialidades';
 import Servicios from './components/Servicios/Servicios'; 
 import Staff from './components/Staff/Staff';
 import Nosotros from './components/Nosotros/Nosotros';
+import Dermatologia from './components/Especialidades/Especialidades/Dermatologia';
+import Cardiologia from './components/Especialidades/Especialidades/Cardiologia';
 
 import './App.css';
 
@@ -26,6 +28,9 @@ function App() {
 
             {/* Ruta de especialidades */}
             <Route path="/especialidades" element={<Especialidades />} />
+            <Route path="/especialidades/dermatologia" element={<Dermatologia />} />
+            <Route path="/especialidades/cardiologia" element={<Cardiologia />} />
+
 
             {/* Ruta de servicios */}
             <Route path="/servicios" element={<Servicios />} />
