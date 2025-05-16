@@ -60,6 +60,12 @@
     padding-bottom: 0.75rem;
   }
   
+  #search-section {
+    scroll-margin-top: 100px; /* Ajusta según altura de tu header */
+  }
+
+  
+
   /* Breadcrumbs alineados a la izquierda */
   .breadcrumbs {
     padding: 1.25rem 0;
@@ -74,12 +80,16 @@
   .bc-link {
     font-family: 'Poppins', sans-serif;
     color: var(--derma-primary);
+    background: none;
+    border: none;
     text-decoration: none;
     font-weight: 500;
     position: relative;
     padding: 0.5rem;
     border-radius: 6px;
     transition: var(--derma-transition);
+    font-size: 1rem; /* Tamaño base aumentado */
+    line-height: 1.3;
   }
   
   .bc-link:hover {
@@ -227,6 +237,106 @@
     
 }
 
+.especialidad-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin: 60px 0;
+  transform: translateY(-4rem);
+}
+
+.texto-especialidad {
+  flex: 1;
+  min-width: 0;
+}
+
+
+.texto-especialidad p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1.3; /* Ajustado para mejor legibilidad */
+    color: var(--derma-gray);
+    text-align: left; /* Propiedad CSS correcta (no textAlign) */
+    margin: 0;
+    padding: 0 0 2 8px; /* Solo margen izquierdo */
+    text-transform: none;
+    display: block;
+    width: fit-content;
+    -webkit-font-smoothing: antialiased;
+    transform: translateY(-1rem);
+}
+
+.collage-profesionales {
+  flex: 1;
+  position: relative;
+  height: 380px;
+  left: 0px;
+}
+
+
+.foto-profesional {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  object-fit: cover;
+}
+
+.foto-profesional:hover {
+  transform: scale(1.05);
+  z-index: 10;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.foto-1 {
+  width: 210px;
+  height: 150px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.foto-2 {
+  width: 190px;
+  height: 190px;
+  top: 70px;
+  left: 200px;
+  z-index: 2;
+}
+
+.foto-3 {
+  width: 220px;
+  height: 150px;
+  top: 180px;
+  left: 10px;
+  z-index: 1;
+}
+
+.procedimientos-container {
+  transform: translateY(-130px);
+}
+
+.procedimientos-container p {
+  transform: translateY(-10px);
+}
+
+.atencion-container {
+  transform: translateY(-100px);
+}
+
+.atencion-container p {
+  transform: translateY(-10px);
+}
+
+.staff-container {
+  transform: translateY(-80px);
+}
+
+.staff-container p {
+  transform: translateY(-10px);
+}
   
   /* Lista de procedimientos premium */
   .list-tag {

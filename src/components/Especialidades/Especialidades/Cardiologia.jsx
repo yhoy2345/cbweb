@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'; // Añade useEffect al import
+import { useNavigate } from 'react-router-dom';
 import { specialties } from '../Especialidades.data';
 import Background from '../../Background/Background';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,11 +8,33 @@ import './EspecialidadDetalle.css';
 import './car.css';
 
 const Dermatologia = () => {
+    const navigate = useNavigate();
     const dermatologiaData = specialties.find(
         esp => esp.url === "/especialidades/cardiologia"
     );
 
-    
+    const handleClick = () => {
+        // 1. Navegar a la ruta con estado
+        navigate('/especialidades', { 
+          state: { scrollTo: 'search-section' },
+          replace: true // Evita crear nueva entrada en el historial
+        });
+        
+        // 2. Scroll manual con offset para header fijo
+        setTimeout(() => {
+          const section = document.getElementById('search-section');
+          if (section) {
+            const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+            const sectionPosition = section.getBoundingClientRect().top;
+            const offsetPosition = sectionPosition + window.pageYOffset - headerHeight;
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'auto' // Sin animación
+            });
+          }
+        }, 50); // Pequeño delay para asegurar renderizado
+    };
 
     useEffect(() => {
         const container = document.querySelector('.derma-intro__content');
@@ -89,96 +112,118 @@ const Dermatologia = () => {
                         <div className="derma-intro__hover-effect"></div>
                     </div>
                 
-                {/* breadcrumbs */}
-                <section className="">
-                    <div className="container">
-                        <div className="d-flex breadcrumbs">
-                            <a href="./" className="bc-link">Nuestras Especialidades</a>
-                            <span>
-                                &gt; Cardiología
-                            </span>
-                        </div>
-                    </div>
-                </section>
-                {/* fin breadcrumbs */}
-
-                {/* breadcrumbs */}
-                <section className="">
-                    <div className="container container-tags inner-service">
-                        <aside className="d-flex tags">
-                            <ul className="list-tags">
-                                <li><a href="#nuestra-especialidad" className="">Nuestra Especialidad</a></li>
-                                <li><a href="#nuestros-profesionales" className="">Nuestros Profesionales</a></li>
-                                <li><a href="#procedimientos-frecuentes" className="">Procedimientos </a></li>
-                                <li><a href="#presta-atencion" className="">Presta Atención</a></li>
-                                <li><a href="#nuestro-staff" className="">Nuestro Staff</a></li>
-                            </ul>
-                        </aside>
-                        <div className="d-flex contenido-servicio bg-white">
-                            <h4 id="nuestra-especialidad"><span>Nuestra Especialidad</span></h4>
-                            <p>Estamos especializados en el tratamiento de las enfermedades relacionadas a la piel y sus estructuras anexas.</p>
-
-                            <h4 id="nuestros-profesionales"><span>Nuestros Profesionales</span></h4>
-                            <p>Se centran en el diagnóstico, tratamiento y prevención de las enfermedades de la piel, el cabello y las uñas. Se interesan en el estudio, diagnóstico, tratamiento y prevención de las enfermedades de la piel y mucosas periorificales.</p>
-
-                            <h4 id="procedimientos-frecuentes"><span>Procedimientos Frecuentes</span></h4>
-                            <ul className="list-tag">
-                                <li>
-                                    <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
-                                    <span>Biopsias.</span>
-                                </li>
-                                <li>
-                                    <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
-                                    <span>Crioterapia.</span>
-                                </li>
-                                <li>
-                                    <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
-                                    <span>Extirpación por afeitado o shaving.</span>
-                                </li>
-                                <li>
-                                    <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
-                                    <span>Dermoabrasión.</span>
-                                </li>
-                                <li>
-                                    <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
-                                    <span>Exfoliación o peeling químico.</span>
-                                </li>
-                            </ul>
-                            <p>Nuestros médicos dermatólogos están a disposición de los pacientes en la consulta ambulatoria.</p>
-
-                            <h4 id="presta-atencion"><span> Presta Atención</span></h4>
-                            <p>Las enfermedades más frecuentes que requieren atención del dermatólogo son: Hongos o micosis en la piel y uñas, caída del cabello, cicatriz queloide, lunares, cáncer de piel, melanomas, entre otros. Nuestra Tecnología nos permite realizar estudios anatomopatológicos, así como cultivos para hongos.</p>
-
-                            <h4 id="nuestro-staff"><span>Nuestro Staff</span></h4>
-                            <p>Contamos con los mejores profesionales para cuidar de ti y tu familia. ¡Agenda una cita hoy mismo!</p>
-
-                            <div className="d-flex lista-resultado">
-                                <div className="d-flex lista">
-                                    <div className="d-flex gap-3">
-                                        <div className="d-flex avatar">
-                                            <img src="https://citaweb.clinicasanfelipe.com/Files/M3dicosX/Dr.Galvez.jpg" alt="ALDO DANIEL GALVEZ CANSECO" />
-                                        </div>
-                                        <div className="d-flex flex-column descripcion">
-                                            <span className="area">Dermatologia</span>
-                                            <div className="nombre">ALDO DANIEL GALVEZ CANSECO</div>
-                                            <span className="badge">CMD:</span>
-                                        </div>
-                                    </div>
-                                    <div className="d-flex ctas">
-                                        <a href="../medicos/aldo-daniel-galvez-canseco" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
-                                        <a href="https://citaweb.clinicasanfelipe.com/CSF_CITAS/" target="_blank" rel="noopener noreferrer" className="btn btn-primary px-4 py-2">Haz una cita</a>
-                                    </div>
-                                </div>
+                    {/* breadcrumbs */}
+                    <section className="">
+                        <div className="container">
+                            <div className="d-flex breadcrumbs">
+                                <button onClick={handleClick} className="bc-link">
+                                    Nuestras Especialidades
+                                </button>
+                                <span>
+                                    &gt; Cardiología
+                                </span>
                             </div>
                         </div>
-                    </div>
-                </section>
-            
+                    </section>
+                    {/* fin breadcrumbs */}
 
-            
-
-
-
+                    {/* breadcrumbs */}
+                    <section className="">
+                        <div className="container container-tags inner-service">
+                            <aside className="d-flex tags">
+                                <ul className="list-tags">
+                                    <li><a href="#nuestra-especialidad" className="">Nuestra Especialidad</a></li>
+                                    <li><a href="#nuestros-profesionales" className="">Nuestros Profesionales</a></li>
+                                    <li><a href="#procedimientos-frecuentes" className="">Procedimientos </a></li>
+                                    <li><a href="#presta-atencion" className="">Presta Atención</a></li>
+                                    <li><a href="#nuestro-staff" className="">Nuestro Staff</a></li>
+                                </ul>
+                            </aside>
+                            <div className="d-flex contenido-servicio bg-white">
+                                <div class="especialidad-container">
+                                    <div class="texto-especialidad">
+                                        <h4 id="nuestra-especialidad"><span>Nuestra Especialidad</span></h4>
+                                        <p>Estamos Especializados en diagnóstico, tratamiento y prevención de enfermedades cardiovasculares: cardiopatía isquémica, arritmias e insuficiencia cardíaca.</p>
+                                        <h4 id="nuestros-profesionales"><span>Nuestros Profesionales</span></h4>
+                                        <p>Se centran  en el diagnóstico, tratamiento y prevención de enfermedades cardiovasculares, con enfoque en cardiopatía isquémica, arritmias e insuficiencia cardíaca. </p>
+                                    </div>
+                                    
+                                    <div className="collage-profesionales">
+                                        <img 
+                                            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=200" 
+                                            alt="Dermatología 1" 
+                                            className="foto-profesional foto-1" 
+                                        />
+                                        <img 
+                                            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=180" 
+                                            alt="Dermatología 2" 
+                                            className="foto-profesional foto-2" 
+                                        />
+                                        <img 
+                                            src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=220" 
+                                            alt="Dermatología 3" 
+                                            className="foto-profesional foto-3" 
+                                        />
+                                    </div>
+                                </div>
+                                <div class="procedimientos-container">
+                                    <h4 id="procedimientos-frecuentes"><span>Procedimientos Frecuentes</span></h4>
+                                    <ul className="list-tag">
+                                        <li>
+                                            <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
+                                            <span>Cateterismo cardíaco.</span>
+                                        </li>
+                                        <li>
+                                            <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
+                                            <span>Angioplastia coronaria + stent.</span>
+                                        </li>
+                                        <li>
+                                            <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
+                                            <span>Ecocardiograma transtorácico (ETT).</span>
+                                        </li>
+                                        <li>
+                                            <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
+                                            <span>Holter de 24 horas.</span>
+                                        </li>
+                                        <li>
+                                            <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
+                                            <span>Implante de marcapasos definitivo.</span>
+                                        </li>
+                                        <li>
+                                            <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
+                                            <span>Estudio electrofisiológico + ablación.</span>
+                                        </li>
+                                    </ul>
+                                    <p>Nuestros cardiólogos clínicos e intervencionistas están disponibles para evaluación y manejo integral en consulta ambulatoria.</p>
+                                </div>
+                                <div class="atencion-container">
+                                    <h4 id="presta-atencion"><span> Presta Atención</span></h4>
+                                    <p>Las enfermedades cardiovasculares más frecuentes que requieren atención del cardiólogo son: cardiopatía isquémica (infarto, angina), arritmias, insuficiencia cardíaca, hipertensión arterial y valvulopatías. Contamos con tecnología avanzada para realizar ecocardiogramas, pruebas de esfuerzo, monitorización Holter y estudios hemodinámicos.</p>
+                                </div>
+                                <div class="staff-container">
+                                    <h4 id="nuestro-staff"><span>Nuestro Staff</span></h4>
+                                    <p>Contamos con los mejores profesionales para cuidar de ti y tu familia. ¡Agenda una cita hoy mismo!</p>
+                                    <div className="d-flex lista-resultado">
+                                        <div className="d-flex lista">
+                                            <div className="d-flex gap-3">
+                                                <div className="d-flex avatar">
+                                                    <img src="https://citaweb.clinicasanfelipe.com/Files/M3dicosX/Dr.Galvez.jpg" alt="ALDO DANIEL GALVEZ CANSECO" />
+                                                </div>
+                                                <div className="d-flex flex-column descripcion">
+                                                    <span className="area">Cardiologo</span>
+                                                    <div className="nombre">ALDO DANIEL GALVEZ CANSECO</div>
+                                                    <span className="badge">CMD:</span>
+                                                </div>
+                                            </div>
+                                            <div className="d-flex ctas">
+                                                <a href="../medicos/aldo-daniel-galvez-canseco" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+                    </section>
 
                     <section className="derma-cta">
                         <h3 className="derma-cta__title">¿Necesitas una evaluación dermatológica?</h3>

@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import BackgroundHome from '../Background/BackgroundHome';
 import './Nosotros.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

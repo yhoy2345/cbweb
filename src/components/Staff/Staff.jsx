@@ -2,56 +2,56 @@ import { useState, useEffect } from 'react';
 import BackgroundHome from '../Background/BackgroundHome';
 import './Staff.css';
 
+// Datos de ejemplo del staff médico
+const medicalStaff = [
+  {
+    id: 1,
+    name: 'Dra. Ana López',
+    specialty: 'Cardiología',
+    summary: 'Especialista en enfermedades cardiovasculares y rehabilitación cardíaca con más de 15 años de experiencia.',
+    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+  },
+  {
+    id: 2,
+    name: 'Dr. Carlos Mendez',
+    specialty: 'Neurología',
+    summary: 'Experto en trastornos del sistema nervioso y tratamiento de enfermedades neurodegenerativas.',
+    image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+  },
+  {
+    id: 3,
+    name: 'Dra. Sofía Ramírez',
+    specialty: 'Pediatría',
+    summary: 'Pediatra especializada en atención neonatal y seguimiento del desarrollo infantil.',
+    image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+  },
+  {
+    id: 4,
+    name: 'Dr. Javier Torres',
+    specialty: 'Ortopedia',
+    summary: 'Cirujano ortopédico con enfoque en traumatología deportiva y reemplazos articulares.',
+    image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+  },
+  {
+    id: 5,
+    name: 'Dra. Patricia Gómez',
+    specialty: 'Dermatología',
+    summary: 'Dermatóloga cosmética y clínica, especialista en cáncer de piel y trastornos cutáneos complejos.',
+    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+  },
+  {
+    id: 6,
+    name: 'Dr. Luis Herrera',
+    specialty: 'Oncología',
+    summary: 'Oncólogo médico con experiencia en terapias dirigidas y tratamiento multidisciplinario del cáncer.',
+    image: 'https://images.unsplash.com/photo-1651008376811-b90baee60c1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+  }
+];
+
 const Staff = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredStaff, setFilteredStaff] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
-
-  // Datos de ejemplo del staff médico
-  const medicalStaff = [
-    {
-      id: 1,
-      name: 'Dra. Ana López',
-      specialty: 'Cardiología',
-      summary: 'Especialista en enfermedades cardiovasculares y rehabilitación cardíaca con más de 15 años de experiencia.',
-      image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-    },
-    {
-      id: 2,
-      name: 'Dr. Carlos Mendez',
-      specialty: 'Neurología',
-      summary: 'Experto en trastornos del sistema nervioso y tratamiento de enfermedades neurodegenerativas.',
-      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-    },
-    {
-      id: 3,
-      name: 'Dra. Sofía Ramírez',
-      specialty: 'Pediatría',
-      summary: 'Pediatra especializada en atención neonatal y seguimiento del desarrollo infantil.',
-      image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-    },
-    {
-      id: 4,
-      name: 'Dr. Javier Torres',
-      specialty: 'Ortopedia',
-      summary: 'Cirujano ortopédico con enfoque en traumatología deportiva y reemplazos articulares.',
-      image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-    },
-    {
-      id: 5,
-      name: 'Dra. Patricia Gómez',
-      specialty: 'Dermatología',
-      summary: 'Dermatóloga cosmética y clínica, especialista en cáncer de piel y trastornos cutáneos complejos.',
-      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-    },
-    {
-      id: 6,
-      name: 'Dr. Luis Herrera',
-      specialty: 'Oncología',
-      summary: 'Oncólogo médico con experiencia en terapias dirigidas y tratamiento multidisciplinario del cáncer.',
-      image: 'https://images.unsplash.com/photo-1651008376811-b90baee60c1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-    }
-  ];
 
   useEffect(() => {
     if (searchTerm.trim() === '') {

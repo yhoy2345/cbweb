@@ -33,7 +33,7 @@
         name: "Gastroenterología",
         description: "Tratamiento de enfermedades del sistema digestivo.",
         url: "/especialidades/gastroenterologia",
-        icon: "fas fa-user-md"
+        icon: "fas fa-stethoscope"
         },
         {
         name: "Ginecología y Obstetricia",
@@ -126,10 +126,10 @@
         icon: "fas fa-baby-carriage"
         },
         {
-        name: "Terapia del Dolor",
-        description: "Alivio y manejo del dolor crónico y agudo.",
-        url: "/especialidades/terapia-dolor",
-        icon: "fas fa-pills"
+        name: "Anatomía Patológica",
+        description: "Diagnóstico de enfermedades mediante el análisis de tejidos y células.",
+        url: "/especialidades/patologica",
+        icon: "fas fa-vials"
         }
     ];
     

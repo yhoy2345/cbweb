@@ -1,5 +1,6 @@
 // src/components/Especialidades/Especialidades.jsx
 import React, { useState, useEffect, useMemo } from 'react'; 
+import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Fuse from 'fuse.js';
 import BackgroundHome from '../Background/BackgroundHome';
@@ -11,6 +12,7 @@ const Especialidades = () => {
   useScrollAnimation();
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+  const location = useLocation();
   // const navigate = useNavigate(); // ← solo si lo vas a usar más adelante
   
   const fuse = useMemo(() => new Fuse(specialties, {
@@ -41,6 +43,12 @@ const Especialidades = () => {
   
   const SpecialtyCard = ({ specialty }) => {
     const navigate = useNavigate();
+
+    const handleClick = () => {
+      navigate(specialty.url);
+      // Scroll inmediato al inicio sin animación
+      window.scrollTo(0, 0);
+    };
   
     return (
       <div className="specialty-card animate-on-scroll">
@@ -55,7 +63,7 @@ const Especialidades = () => {
       </div>
       <button 
         className="card-button"
-        onClick={() => navigate(specialty.url)}
+        onClick={handleClick}
         aria-label={`Ver más sobre ${specialty.name}`}
       >
         <span>Ver más</span>
@@ -65,6 +73,27 @@ const Especialidades = () => {
       </div>
     );
   };
+
+  useEffect(() => {
+    if (location.state?.scrollTo === 'search-section') {
+      const handleScroll = () => {
+        const section = document.getElementById('search-section');
+        if (section) {
+          const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+          const offsetPosition = section.offsetTop - headerHeight;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'auto'
+          });
+        }
+      };
+
+      // Pequeño delay para asegurar que el DOM está listo
+      const timer = setTimeout(handleScroll, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [location.state]);
   
   useEffect(() => {
     const elements = document.querySelectorAll('.animate-on-scroll');
@@ -192,7 +221,8 @@ const Especialidades = () => {
           </div>
       </section>
       {/* Buscador */}
-      <section className="specialty-search">
+      <section 
+        id="search-section" className="specialty-search" style={{ scrollMarginTop: '100px' }}>
         <div className="search-header">
           <h2 className="search-title">
             <span className="title-text">{searchSectionData.title.text}</span>
