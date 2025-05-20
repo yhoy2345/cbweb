@@ -57,7 +57,7 @@ const Especialidades = () => {
           <i className={specialty.icon} />
         </div>
       </div>
-      <div className="card-content">
+      <div className="card-contentt">
         <h3 className="card-title">{specialty.name}</h3>
         <p className="card-description">{specialty.description}</p>
       </div>

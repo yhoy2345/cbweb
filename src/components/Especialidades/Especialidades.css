@@ -20,6 +20,8 @@
     height: 300px; /* Alto fijo de 300px */
     overflow: hidden;
     z-index: 10;
+    margin-top: -1px;
+    
   }
   
   .especialidades-imagen-container {
@@ -54,10 +56,7 @@
     z-index: 20;
   }
   
-  /* Efecto hover: Ligero zoom y brillo */
-  .especialidades-imagen-container:hover .especialidades-imagen {
-    transform: scale(1.02);
-  }
+
   
   .especialidades-imagen-container:hover::after {
     background: linear-gradient(
@@ -1431,7 +1430,7 @@
   transition: var(--transition);
 }
 
-.card-content {
+.card-contentt {
   margin-bottom: 1rem;
   flex-grow: 1;
   width: 100%; /* Ocupa todo el ancho disponible */

@@ -1,199 +1,113 @@
-/* BackgroundHome.css */
-.medical-premium-bg {
+/* Contenedor principal - Mejorado para scroll */
+.hexagonal-background-container {
   position: relative;
+  width: 100%;
+  min-height: 100vh; /* Cambiado a min-height para contenido largo */
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  isolation: isolate; /* Crea nuevo contexto de apilamiento */
+}
+
+/* Canvas para el patrón hexagonal - Versión mejorada */
+.hexagonal-pattern-canvas {
+  position: fixed; /* Fijo para que no se mueva con el scroll */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Detrás de todo */
+  opacity: 0.6;
+  pointer-events: none; /* Permite interacción con el contenido */
+  transform: translateZ(0); /* Aceleración hardware */
+  will-change: transform; /* Optimización para animaciones */
+}
+
+/* Contenedor de contenido - Scroll mejorado */
+.content-overlay {
+  position: relative;
+  z-index: 1;
   width: 100%;
   min-height: 100vh;
-  overflow: hidden;
-  background: linear-gradient(135deg, #aed3ec 0%, #a7e0aa 100%);
+  display: flex;
+  flex-direction: column;
+  padding-top: 1px; /* Soluciona márgenes colapsantes */
 }
 
-/* Hexágonos degradados */
-.hexagonal-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Efectos de scroll y hover mejorados */
+.content-overlay > * {
+  transition: 
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.3s ease,
+    opacity 0.4s ease;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Efecto sutil al hacer hover */
+.content-overlay > *:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Efecto de aparición al hacer scroll */
+.content-overlay > *.scroll-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Secciones de contenido - Scroll suave */
+.content-section {
+  scroll-margin-top: 80px; /* Espacio para fixed headers */
+  padding: 4rem 0;
+  margin: 0 auto;
   width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0.5;
-  mix-blend-mode: overlay;
+  max-width: 1200px;
 }
 
-/* Efecto UV */
-.uv-light-effect {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    ellipse at 70% 30%,
-    rgba(138, 43, 226, 0.08) 0%,
-    transparent 50%
-  );
-  z-index: 2;
-  animation: uv-sweep 25s infinite alternate;
+/* Efecto parallax sutil para algunas secciones */
+.parallax-section {
+  transform-style: preserve-3d;
 }
 
-/* Elementos médicos premium */
-.premium-medical-elements {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 3;
+.parallax-section > * {
+  transform: translateZ(0.5px); /* Efecto parallax mínimo */
 }
 
-.premium-medical-element {
-  position: absolute;
-  width: var(--size);
-  height: var(--size);
-  left: var(--x-start);
-  top: var(--y-start);
-  opacity: var(--opacity);
-  animation: 
-    medical-float var(--duration) ease-in-out infinite var(--delay),
-    medical-rotate var(--duration) linear infinite var(--delay);
-  transform: 
-    translate(0, 0)
-    rotate(var(--rotate-start));
-  will-change: transform, opacity;
-}
-
-.premium-medical-icon {
-  width: 100%;
-  height: 100%;
-  color: var(--color);
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
-  transition: all 0.8s ease;
-}
-
-/* Efectos especiales para elementos */
-.element-halo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at center,
-    var(--color) 0%,
-    transparent 70%
-  );
-  opacity: 0.15;
-  animation: halo-pulse calc(var(--duration) / 3) ease-in-out infinite;
-}
-
-.pill {
-  border-radius: 50px;
-}
-
-.pill-stripe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 70%;
-  height: 15%;
-  background: rgba(255, 255, 255, 0.9);
-  transform: translate(-50%, -50%);
-  border-radius: 10px;
-}
-
-/* Animaciones */
-@keyframes uv-sweep {
-  0% { transform: translate(-20%, -20%); opacity: 0.8; }
-  50% { transform: translate(20%, 20%); opacity: 0.3; }
-  100% { transform: translate(-20%, -20%); opacity: 0.8; }
-}
-
-@keyframes medical-float {
-  0%, 100% { 
-    transform: 
-      translate(0, 0)
-      rotate(var(--rotate-start));
-  }
-  25% { 
-    transform: 
-      translate(calc(var(--movement-range) * 0.5), calc(var(--movement-range) * -0.3))
-      rotate(var(--rotate-start));
-  }
-  50% { 
-    transform: 
-      translate(calc(var(--movement-range) * -0.7), calc(var(--movement-range) * 0.2))
-      rotate(var(--rotate-start));
-  }
-  75% { 
-    transform: 
-      translate(calc(var(--movement-range) * 0.3), calc(var(--movement-range) * 0.5))
-      rotate(var(--rotate-start));
+/* Media queries mejoradas */
+@media (max-width: 1200px) {
+  .content-section {
+    padding: 3rem 2rem;
   }
 }
 
-@keyframes medical-rotate {
-  0% { transform: rotate(var(--rotate-start)); }
-  100% { transform: rotate(var(--rotate-end)); }
-}
-
-@keyframes halo-pulse {
-  0%, 100% { transform: scale(1); opacity: 0.1; }
-  50% { transform: scale(1.5); opacity: 0.3; }
-}
-
-.left-corner-pattern {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 300px;
-  height: 100vh;
-  z-index: 1;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.cross-shape {
-  position: absolute;
-  background: linear-gradient(135deg, #1fd1f9, #00c2cb);
-  clip-path: polygon(
-    30% 0%, 70% 0%, 70% 30%, 100% 30%, 100% 70%, 70% 70%,
-    70% 100%, 30% 100%, 30% 70%, 0% 70%, 0% 30%, 30% 30%
-  );
-  animation: slowFloat 4s ease-in-out infinite alternate;
-  border-radius: 8px;
-}
-
-@keyframes slowFloat {
-  from {
-    transform: translateY(18px) scale(1.1);
-  }
-  to {
-    transform: translateY(-20px) scale(0.9);
-  }
-}
-
-
-.premium-medical-icon:hover {
-  transform: scale(1.3);
-  filter: drop-shadow(0 0 10px var(--color));
-  opacity: 1 !important;
-}
-
-
-/* Contenido principal */
-.premium-content-wrapper {
-  position: relative;
-  z-index: 10;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-  .premium-medical-elements {
-    opacity: 0.7;
+  .hexagonal-pattern-canvas {
+    opacity: 0.4;
   }
   
-  .hexagonal-canvas {
+  .content-section {
+    padding: 3rem 1.5rem;
+    scroll-margin-top: 60px;
+  }
+  
+  .content-overlay > *:hover {
+    transform: none; /* Desactiva hover en móviles */
+  }
+}
+
+@media (max-width: 480px) {
+  .hexagonal-pattern-canvas {
     opacity: 0.3;
+  }
+  
+  .content-section {
+    padding: 2.5rem 1rem;
+  }
+}
+
+/* Animación de scroll suave para toda la página */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }

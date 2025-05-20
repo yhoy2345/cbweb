@@ -25,12 +25,7 @@
   min-height: auto; /* Override del 100vh original */
 }
 
-/* Logo animado (manteniendo tu animación) */
-.App-logo {
-  height: 10vmin; /* Reducido para header */
-  pointer-events: none;
-  margin-bottom: 0.5rem;
-}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -54,6 +49,7 @@
   margin-top: calc(10vmin + 3rem); /* Ajuste automático */
   position: relative;
   z-index: 1;
+  
 }
 
 /* Efectos y animaciones (manteniendo tus estilos) */

@@ -4,11 +4,21 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faMapMarkerAlt, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp, faFacebookF, faTiktok, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { 
+  faHome,
+  faUserDoctor,
+  faStarOfLife,
+  faStethoscope,
+  faUsers,
+  faPaperPlane,
+  faAmbulance,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [geoError, setGeoError] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +31,10 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrolled]);
+
+  const toggleMenu = () => {
+    setMenuOpen(prev => !prev);
+  };
 
   const handleAddressClick = async () => {
     setIsLoading(true);
@@ -62,85 +76,187 @@ const Header = () => {
     }
   };
 
+  const navLinks = [
+    { 
+      href: '/', 
+      icon: faHome,
+      text: 'Inicio',
+      badge: null
+    },
+    { 
+      href: '/especialidades', 
+      icon: faStarOfLife,
+      text: 'Especialidades',
+      badge: null
+    },
+    { 
+      href: '/servicios', 
+      icon: faStethoscope,
+      text: 'Servicios',
+      badge: null
+    },
+    { 
+      href: '/staff', 
+      icon: faUserDoctor,
+      text: 'Staff Médico',
+      badge: null
+    },
+    { 
+      href: '/nosotros', 
+      icon: faUsers,
+      text: 'Nosotros',
+      badge: null
+    },
+    { 
+      href: '/contacto', 
+      icon: faPaperPlane,
+      text: 'Contacto',
+      badge: null
+    },
+  ];
+
   return (
-    <header className={scrolled ? 'comprimido' : ''}>
-  <div className="header-container">
-    {/* Logo */}
-    <div className="logo-container">
-      <img 
-        src="/images/logo.png" 
-        alt="Logo Clínica Bolívar"
-        className="logo-img"
-      />
-    </div>
+    <header className={`perfil-header ${scrolled ? 'comprimido' : ''}`}>
+      <div className="header-container">
+        <nav className="navbar" aria-label="Menú principal">
+          <div className="navbar-container">
+            <Link to="/" className="urbat-logo" aria-label="Inicio - Clínica Bolívar">
+              <span className="urbat-logo__icon-container">
+                <span className="urbat-logo__icon">
+                  <img 
+                    src="/images/logo.png" 
+                    alt="Logo Clínica Bolívar" 
+                    className="urbat-logo__brain-icon" 
+                  />
+                </span>
+                <span className="urbat-logo__icon-glow"></span>
+                <span className="urbat-logo__icon-particles"></span>
+              </span>
+              
+              <span className="urbat-logo__hover-effect"></span>
+              <span className="urbat-logo__active-glow"></span>
+            </Link>
 
-    {/* Iconos sociales primero */}
-    <div className="social-icons-container">
-      <a href="https://www.facebook.com/share/12KZfceMzjP/" className="social-icon facebook" target="_blank" rel="noopener noreferrer">
-        <FontAwesomeIcon icon={faFacebookF} />
-      </a>
-      <a href="https://tiktok.com" className="social-icon tiktok" target="_blank" rel="noopener noreferrer">
-        <FontAwesomeIcon icon={faTiktok} />
-      </a>
-      <a href="https://instagram.com" className="social-icon instagram" target="_blank" rel="noopener noreferrer">
-        <FontAwesomeIcon icon={faInstagram} />
-      </a>
-    </div>
+            <div className="nav-right">
+              {/* Sección de contacto sobre los navlinks */}
+              <div className="header-contact-container">
+                <div className="header-nav-combined">
+                  {/* Sección de contacto */}
+                  <div className="header-contact-top">
+                    {/* Contenedor de iconos sociales */}
+                    <div className="social-icons-container">
+                      <a href="https://www.facebook.com/share/12KZfceMzjP/" className="social-icon facebook" target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faFacebookF} />
+                      </a>
+                      <a href="https://tiktok.com" className="social-icon tiktok" target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faTiktok} />
+                      </a>
+                      <a href="https://instagram.com" className="social-icon instagram" target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faInstagram} />
+                      </a>
+                    </div>
+                    <div className="contact-info-container"></div>
+                      <div className="header-contact">
+                        <FontAwesomeIcon icon={faPhone} className="phone-icon" />
+                        <p>(111) 111-1111 / (111) 111-1111</p>
+                      </div>
+                      <div className="header-separator">
+                      <div 
+                        className="header-address"
+                        onClick={handleAddressClick}
+                        aria-busy={isLoading}
+                      >
+                        {isLoading && (
+                          <FontAwesomeIcon icon={faSpinner} className="address-spinner" spin />
+                        )}
+                        <FontAwesomeIcon icon={faMapMarkerAlt} className="address-icon" />
+                        <p>Jirón Progreso 351, Huánuco 10001 - Perú</p>
+                        {geoError && <span className="geo-error-tooltip">{geoError}</span>}
+                      </div>
+                    </div>
+                  </div>
 
-    {/* Sección de contacto */}
-    <div className={`header-contact-section ${scrolled ? 'hidden' : ''}`}>
-      <div className="header-info">
-        <div className="header-contact">
-          <FontAwesomeIcon icon={faPhone} className="phone-icon" />
-          <p>(111) 111-1111 / (111) 111-1111</p>
-        </div>
-        <div className="header-separator"></div>
-        <div 
-          className="header-address"
-          onClick={handleAddressClick}
-          style={{ cursor: 'pointer', position: 'relative' }}
-          aria-busy={isLoading}
-        >
-          {isLoading && (
-            <FontAwesomeIcon 
-              icon={faSpinner} 
-              className="address-spinner"
-              spin
-            />
-          )}
-          <FontAwesomeIcon icon={faMapMarkerAlt} className="address-icon" />
-          <p>Jirón Progreso 351, Huánuco 10001 - Perú</p>
-          {geoError && <span className="geo-error-tooltip">{geoError}</span>}
-        </div>
+                  <ul className="urbat-nav__horizontal">
+                    {navLinks.map(({ href, icon, text, badge }) => (
+                      <li className="urbat-nav__item" key={text}>
+                        <Link 
+                          to={href}
+                          className="urbat-nav__link"
+                        >
+                          <span className="urbat-nav__icon-wrapper">
+                            <FontAwesomeIcon icon={icon} className="urbat-nav__icon" />
+                            <span className="urbat-nav__icon-aura"></span>
+                          </span>
+                          <span className="urbat-nav__text-wrapper">
+                            <span className="urbat-nav__text">{text}</span>
+                            {badge && <span className="urbat-nav__badge">{badge}</span>}
+                          </span>
+                          <span className="urbat-nav__gold-bar"></span>
+                          <span className="urbat-nav__diamond-effect"></span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              
+              <div className="header-buttons-vertical">
+                <a 
+                  href="tel:116" 
+                  className="emergency-btn"
+                  aria-label="Emergencias médicas"
+                >
+                  <FontAwesomeIcon icon={faAmbulance} className="btn-icon" />
+                  <span>Emergencias</span>
+                  <div className="btn-overlay"></div>
+                </a>
+                
+                <a 
+                  href="https://wa.me/949806989" 
+                  className="whatsapp-btn"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label="Agendar cita por WhatsApp"
+                >
+                  <FontAwesomeIcon icon={faWhatsapp} className="btn-icon" />
+                  <span>Agendar Cita</span>
+                  <div className="btn-overlay"></div>
+                </a>
+              </div>
+
+              <button 
+                className={`nav-hamburger-btn ${menuOpen ? 'nav-hamburger-btn--active' : ''}`} 
+                aria-label="Menú móvil"
+                aria-expanded={menuOpen}
+                onClick={toggleMenu}
+              >
+                <span className="nav-hamburger-box">
+                  <span className="nav-hamburger-line nav-hamburger-line--top"></span>
+                  <span className="nav-hamburger-line nav-hamburger-line--middle"></span>
+                  <span className="nav-hamburger-line nav-hamburger-line--bottom"></span>
+                </span>
+              </button>
+
+              <div className={`nav-mobile-menu ${menuOpen ? 'nav-mobile-menu--visible' : ''}`}>
+                <ul className="nav-mobile-list">
+                  {navLinks.map(({ href, icon, text, badge }) => (
+                    <li key={text} className="nav-mobile-item" onClick={() => setMenuOpen(false)}>
+                      <Link to={href.toLowerCase()} className="nav-mobile-link">
+                        <FontAwesomeIcon icon={icon} className="nav-mobile-icon" />
+                        <span className="nav-mobile-text">{text}</span>
+                        {badge && <span className="nav-mobile-badge">{badge}</span>}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="navbar-background"></div>
+          <div className="navbar-highlight"></div>
+        </nav>
       </div>
-
-      <a 
-        href="https://wa.me/949806989" 
-        className="btn-whatsapp" 
-        target="_blank" 
-        rel="noopener noreferrer"
-      >
-        <FontAwesomeIcon icon={faWhatsapp} />
-        Agendar cita
-      </a>
-    </div>
-
-    {/* Menú de navegación */}
-    <div className="header-bottom">
-      <nav>
-        <ul>
-          <li><Link to="/src/components/Main">Inicio</Link></li>
-          <li><Link to="/especialidades">Especialidades</Link></li>
-          <li><a href="/servicios">Servicios</a></li>
-          <li><a href="/nosotros">Nosotros</a></li>
-          <li><a href="/staff">Staff Médico</a></li>
-          <li><a href="/calidad">Calidad</a></li>
-          <li><a href="/contacto">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</header>
+    </header>
   );
 };
 

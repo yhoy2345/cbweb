@@ -1,324 +1,586 @@
-/* ===== FUENTES Y COLORES ===== */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
-:root {
-  /* Variables de color */
-  --negro: #000000;
-  --azul-premium: #005fae;
-  --verde-premium: #00a859;
-  --verde-whatsapp: #25d366;
-  --blanco: #ffffff;
-  --gris-borde: rgba(0, 0, 0, 0.1);
-  
-  /* Dimensiones del header */
-  --header-full-height: 150px;
-  --header-compressed-height: 80px;
-  
-  /* Efectos de transición */
-  --easing-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --easing-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  --scroll-adjustment: 7px;
-}
-
-/* ===== ANIMACIONES ===== */
-@keyframes fade-slide-up {
-  0% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(-20px); }
-}
-
-@keyframes fade-slide-down {
-  0% { opacity: 0; transform: translateY(-20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulse-soft {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
-}
-
-@keyframes header-compress {
-  0% { height: var(--header-full-height); }
-  100% { height: var(--header-compressed-height); }
-}
-
-@keyframes menu-slide-up {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(calc(-1 * (var(--header-full-height) - var(--header-compressed-height) - var(--scroll-adjustment)))); }
-}
-
-@keyframes icon-float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-5px) rotate(5deg); }
-}
-
-@keyframes icon-pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.8; }
-}
-
-@keyframes icon-glow {
-  0% { filter: drop-shadow(0 0 0 rgba(0, 95, 174, 0.7)); }
-  50% { filter: drop-shadow(0 0 6px rgba(0, 95, 174, 0.9)); }
-  100% { filter: drop-shadow(0 0 0 rgba(0, 95, 174, 0.7)); }
-}
-
-/* ===== ESTRUCTURA PRINCIPAL DEL HEADER ===== */
-header {
-  position: fixed;
+/* ===========================
+  Header
+=========================== */
+.header {
+  position: fixed; /* Fija el header en la parte superior */
   top: 0;
   left: 0;
   width: 100%;
-  background: var(--blanco);
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-  z-index: 1000;
-  font-family: 'Montserrat', sans-serif;
-  height: var(--header-full-height);
-  transition: all 0.4s var(--easing-smooth);
+  background: white; /* Fondo sólido para evitar transparencias */
+  z-index: 1000; /* Asegura que esté por encima de todo */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Opcional: sombra para diferenciarlo */
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Contenedor interno para el contenido */
+.header-container {
+width: 100%;
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+/* Efecto de partículas (opcional) */
+.particles-container {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1; /* Detrás del contenido */
+pointer-events: none; /* Permite interacción con elementos debajo */
+}
+
+/* Sección de perfil (si es necesaria) */
+.perfil-header {
+position: relative;
+background: var(--darker);
+z-index: 2;
+}
+/* ===========================
+ Navbar
+=========================== */
+.navbar {
+  position: fixed;
+  top: 30px; /* 30px del tope */
+  left: 50%;
+  transform: translateX(-50%); /* centrado */
+  width: 85%;
+  z-index: 9999;
+  background: rgba(140, 141, 144, 0.4); /* si quieres fondo */
+  backdrop-filter: blur(10px); /* opcional, glassmorphism */
+  border-radius: 20px; /* opcional, bordes redondeados */
+  padding: 10px 20px; /* opcional, separación interna */
+  box-shadow: 0 40px 300px rgba(208, 15, 15, 0.1); /* opcional, sombrita */
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  transition: all 0.3s ease; /* Suaviza los cambios */
+  box-sizing: border-box;
+}
+
+.navbar-container {
+  position: relative;
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  max-width: 1600px;
+
+}
+
+.navbar-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: -1;
+  border-radius: 12px;
+}
+
+.navbar-highlight {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 99.5%;
+  height: 3px; 
+  background: linear-gradient(
+      90deg, 
+      rgba(var(--primary-dark-rgb), 0) 0%, 
+      var(--primary-dark) 25%, 
+      var(--secondary) 50%, 
+      var(--primary-light) 75%, 
+      rgba(var(--primary-light-rgb), 0) 100%
+  );
+  border-radius: 999px;
+  opacity: 0.9;
+  z-index: 1;
+  animation: gradient-flow 8s ease infinite;
+  transition: all 0.5s var(--ease-out-quint);
   overflow: hidden;
 }
 
-/* Header comprimido al hacer scroll */
-header.comprimido {
-  animation: header-compress 0.4s var(--easing-smooth) forwards;
-  height: 100px;
-}
-
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-}
-
-/* ===== LOGO ===== */
-.logo-container {
+/* Efecto sutil de onda luminosa */
+.navbar-highlight::after {
+  content: '';
   position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 90%;
+  top: 0;
+  left: -20%;
+  width: 20%;
+  height: 100%;
+  background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.15),
+      transparent
+  );
+  animation: wave 6s linear infinite;
+  transform: skewX(-20deg);
+}
+
+/* Animaciones mejoradas */
+@keyframes gradient-flow {
+  0%, 100% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+}
+
+@keyframes wave {
+  0% {
+      left: -20%;
+      opacity: 0.8;
+  }
+  50% {
+      opacity: 1;
+  }
+  100% {
+      left: 120%;
+      opacity: 0.8;
+  }
+}
+
+/* =========================================
+UR BAT  Logo 
+ ========================================= */
+
+/* Variables de color */
+:root {
+  --primary-color: #0078d7;
+  --secondary-color: #48c774;
+  --logo-glow: rgba(0, 120, 215, 0.4);
+  --particle-color: rgba(72, 199, 116, 0.6);
+  --hover-glow: rgba(0, 120, 215, 0.7);
+}
+
+/* Base Logo Container */
+.urbat-logo {
+  --urbat-glow-intensity: 0.6;
+  
   display: flex;
   align-items: center;
-  z-index: 1001;
-  transition: all 0.4s var(--easing-smooth);
-}
-
-.logo-img {
-  height: 100%;
-  width: auto;
-  max-width: 250px;
-  transition: all 0.4s var(--easing-smooth);
-}
-
-/* Logo en estado comprimido */
-header.comprimido .logo-container {
-  animation: logo-scroll-up 0.5s var(--easing-smooth) forwards;
-  z-index: 1002;
-}
-
-@keyframes logo-scroll-up {
-  0% { transform: translateY(-50%) scale(1); left: 20px; }
-  100% { transform: translateY(-50%) scale(1.3); left: 11%; margin-left: -55px; }
-}
-
-header.comprimido .logo-img {
-  max-width: 200px;
-}
-
-/* ===== SECCIÓN DE CONTACTO Y REDES SOCIALES ===== */
-.header-contact-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 0 10px 420px;
-  border-bottom: 1px solid var(--gris-borde);
-  transition: all 0.3s var(--easing-smooth);
-  position: relative;
-}
-
-/* Contenedor de redes sociales - POSICIONADO AL LADO DEL CONTACTO */
-.social-icons-container {
-  position: absolute;
-  left: 280px; /* Posición horizontal (no modificar) */
-  top: calc(50% - 50px); /* Movido 15px arriba (original: top: 50%) */
-  transform: translateY(-50%);
-  display: flex;
+  width: 189px;
+  height: 119px;
   gap: 12px;
-  z-index: 1001;
-  transition: all 0.3s var(--easing-smooth); /* Añade transición */
-}
-
-
-/* Oculta los iconos al hacer scroll (igual que .header-contact-section.hidden) */
-header.comprimido .social-icons-container {
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  position: relative;
+  padding: 10px 16px;
+  border-radius: 33px;
+  overflow: hidden;
   opacity: 0;
-  transform: translateY(-50%) scale(0.9);
-  pointer-events: none; /* Desactiva interacción */
-  animation: fade-slide-up 0.3s var(--easing-smooth) forwards;
+  animation: urbat-logo-entrance 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 120, 215, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  width: max-content;
 }
 
-/* Vuelve a mostrar los iconos al subir */
-header:not(.comprimido) .social-icons-container {
-  animation: fade-slide-down 0.4s var(--easing-bounce) forwards;
+/* Animación de entrada */
+@keyframes urbat-logo-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.header-contact-section.hidden {
-  animation: fade-slide-up 0.3s var(--easing-smooth) forwards;
-  pointer-events: none;
+
+
+/* Icono principal - Ocupa todo el contenedor */
+.urbat-logo__icon {
+  position: relative;
+  z-index: 4;
+  width: 189px;
+  height: 119px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.header-contact-section:not(.hidden) {
-  animation: fade-slide-down 0.4s var(--easing-bounce) forwards;
+.urbat-logo__brain-icon {
+  width: 130%; /* Aumenta el tamaño más allá del contenedor */
+  height: 130%;
+  object-fit: contain;
+  transform: scale(1.15); /* Escala adicional para más tamaño */
+  transition: transform 0.3s ease; /* Suaviza el efecto al interactuar */
 }
 
-.header-info {
-  margin-right: auto;
+/* Versión alternativa con márgenes negativos (más control) */
+.urbat-logo__brain-icon--alt {
+  width: auto;
+  height: auto;
+  min-width: 140%;
+  min-height: 140%;
+  margin: -15%; /* Empuja los bordes hacia fuera */
+  object-fit: contain;
+}
+
+/* Efecto de resplandor */
+.urbat-logo__icon-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 80%;
+  opacity: 0.3;
+  filter: blur(10px);
+  z-index: 1;
+  animation: pulse-glow 3s infinite alternate;
+}
+
+/* Partículas animadas */
+.urbat-logo__icon-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, 
+    var(--particle-color) 0%, 
+    transparent 70%);
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+  animation: particles-float 6s infinite linear;
+}
+
+/* Efecto hover */
+.urbat-logo__hover-effect {
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+/* Efecto activo */
+.urbat-logo__active-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, 
+    var(--secondary-color) 0%, 
+    transparent 70%);
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Animaciones */
+@keyframes pulse-glow {
+  0% { transform: scale(0.9); opacity: 0.2; }
+  50% { opacity: 0.4; }
+  100% { transform: scale(1.1); opacity: 0.2; }
+}
+
+@keyframes particles-float {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Efectos al pasar el mouse */
+.urbat-logo:hover {
+  border-color: rgba(0, 120, 215, 0.5);
+  box-shadow: 0 10 20px rgba(0, 120, 215, 0.3);
+  
+  .urbat-logo__icon-container {
+    transform: scale(1.05);
+  }
+  
+
+  
+  .urbat-logo__icon-particles {
+    opacity: 0.4;
+  }
+  
+  .urbat-logo__hover-effect {
+    width: 200%;
+    height: 200%;
+  }
+}
+
+.urbat-logo:active {
+  .urbat-logo__active-glow {
+    opacity: 0.4;
+    animation: active-pulse 0.5s ease-out;
+  }
+}
+
+@keyframes active-pulse {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { opacity: 0.6; }
+  100% { transform: scale(1.2); opacity: 0; }
+}
+
+/* ======================
+  Animations
+   ====================== */
+
+@keyframes urbat-logo-entrance {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes urbat-typing {
+  0% { width: 0; }
+  50% { width: 100%; }
+  100% { width: 100%; }
+}
+
+@keyframes urbat-shine {
+  0% { 
+    background-position: 0% 50%;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  }
+  100% { 
+    background-position: 100% 50%;
+    text-shadow: 0 0 20px rgba(51, 122, 215, 0.7);
+  }
+}
+
+@keyframes urbat-pulse-appear {
+  0% { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes urbat-pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.7); }
+  70% { transform: scale(1.2); box-shadow: 0 0 0 12px rgba(0, 200, 83, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); }
+}
+
+@keyframes urbat-particle-float {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-20px) rotate(360deg); }
+}
+
+/* ======================
+  Professional Hover Effects
+   ====================== */
+
+  .urbat-logo:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-out;
+  }
+  
+  
+  .urbat-logo:hover .urbat-logo__icon-glow {
+    opacity: 0.2;
+    transform: scale(1.1);
+    transition: all 0.5s ease-out;
+  }
+  
+  .urbat-logo:hover .urbat-logo__icon-particles {
+    opacity: 0.1;
+    transition: opacity 0.6s ease;
+  }
+  
+  .urbat-logo:hover .urbat-logo__hover-effect {
+    opacity: 0.05;
+    transition: opacity 0.7s ease-out;
+  }
+  
+  .urbat-logo:hover .urbat-logo__active-glow {
+    opacity: 0.1;
+    transition: opacity 0.5s ease;
+  }
+  
+  .urbat-logo:hover .urbat-logo__status-indicator {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-out;
+  }
+
+  
+  /* Minimal keyframes for ultra-subtle animations */
+  @keyframes urbat-icon-float {
+    0%, 100% { transform: scale(1.05) translateY(0); }
+    50% { transform: scale(1.05) translateY(-1px); }
+  }
+
+/* ===============================
+Navegación Links
+================================== */
+
+.nav-right {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.header-contact, .header-address {
+.nav-links-container {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--negro);
-  font-weight: 500;
-  transition: all 0.3s var(--easing-smooth);
-  font-size: 0.95rem;
 }
 
-.header-contact:hover, .header-address:hover {
-  color: var(--azul-premium);
-}
-
-/* ===== ICONOS DE CONTACTO ===== */
-.phone-icon, .address-icon {
-  font-size: 1.2rem;
-  color: var(--azul-premium);
-  transition: all 0.4s var(--easing-smooth);
-  animation: icon-float 4s ease-in-out infinite;
-}
-
-.phone-icon { perspective: 1000px; transform-style: preserve-3d; }
-.address-icon { perspective: 1000px; transform-style: preserve-3d; }
-
-.header-contact:hover .phone-icon {
-  transform: rotateX(180deg);
-  transition: transform 0.8s var(--easing-smooth);
-}
-
-.header-address:hover .address-icon {
-  animation: icon-pulse 1.5s ease infinite, icon-glow 2s ease infinite;
-  color: var(--verde-premium);
-}
-
-/* Separador */
-.header-separator {
-  width: 1px;
-  height: 24px;
-  background: var(--negro);
-  opacity: 0.2;
-  transition: all 0.3s var(--easing-smooth);
-}
-
-.header-separator:hover {
-  height: 28px;
-  background: linear-gradient(to bottom, var(--azul-premium), var(--verde-premium));
-}
-
-/* ===== BOTÓN WHATSAPP ===== */
-.btn-whatsapp {
-  background: var(--verde-whatsapp);
-  color: var(--blanco);
-  padding: 10px 20px;
-  border-radius: 30px;
-  font-weight: 600;
+.nav-links {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.3s var(--easing-smooth);
-  box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
-}
-
-.btn-whatsapp:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-  animation: pulse-soft 1.5s var(--easing-smooth) infinite;
-}
-
-/* ===== MENÚ DE NAVEGACIÓN ===== */
-.header-bottom {
-  position: relative;
-  padding: 8px 0 35px 270px;
-  transition: all 0.4s var(--easing-smooth);
-  will-change: transform;
-  display: flex;
-  justify-content: center;
-}
-
-/* Menú comprimido al hacer scroll */
-header.comprimido .header-bottom {
-  animation: menu-slide-up 0.4s var(--easing-smooth) forwards;
-  position: relative;
-  padding: 8px 0 20px 270px;
-  transition: all 0.4s var(--easing-smooth);
-  will-change: transform;
-  display: flex;
-  justify-content: center;
-}
-
-nav ul {
-  display: flex;
-  align-items: center;
-  gap: 35px;
+  gap: 1.5rem;
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
-nav ul li {
+.nav-item {
+  position: relative;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.6s var(--ease-out-quint) forwards;
+}
+
+.nav-item:nth-child(1) { animation-delay: 0.1s; }
+.nav-item:nth-child(2) { animation-delay: 0.2s; }
+.nav-item:nth-child(3) { animation-delay: 0.3s; }
+.nav-item:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+/* ========================
+HEADER CONTACT STYLES
+======================== */
+.header-contact-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   position: relative;
 }
 
-nav ul li a {
-  color: var(--negro);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  padding: 3px 0;
+.header-nav-combined {
+  background: 
+    linear-gradient(
+      135deg, 
+      rgba(0, 120, 215, 0.9) 0%, 
+      rgba(72, 199, 116, 0.9) 100%
+    ),
+    radial-gradient(
+      circle at 75% 25%,
+      rgba(0, 120, 215, 0.6) 0%,
+      transparent 60%
+    );
+  backdrop-filter: blur(16px);
+  border-radius: 30px;
+
+  border-image: 
+    linear-gradient(
+      135deg, 
+      rgba(0, 120, 215, 0.8) 0%, 
+      rgba(72, 199, 116, 0.8) 100%
+    ) 1;
+  
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   position: relative;
-  transition: all 0.3s var(--easing-smooth);
 }
 
-nav ul li a:hover {
-  color: var(--azul-premium);
+/* Efecto hover sutil */
+.header-nav-combined:hover {
+  background: 
+    linear-gradient(
+      135deg, 
+      rgba(0, 120, 215, 0.95) 0%, 
+      rgba(72, 199, 116, 0.95) 100%
+    );
+  border-image: 
+    linear-gradient(
+      135deg, 
+      rgba(0, 120, 215, 1) 0%, 
+      rgba(72, 199, 116, 1) 100%
+    ) 1;
+  box-shadow: 
+    0 12px 45px rgba(0, 0, 0, 0.5),
+    inset 0 0 25px rgba(255, 255, 255, 0.15);
 }
 
-/* Efecto subrayado en enlaces */
-nav ul li a::after {
+/* Opcional: Pseudoelemento para mejorar el efecto de borde */
+.header-nav-combined::before {
   content: '';
   position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(90deg, var(--azul-premium), var(--verde-premium));
-  transition: width 0.3s var(--easing-smooth);
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 34px; /* 30px + 4px del borde */
+  background: linear-gradient(
+    135deg, 
+    rgba(0, 120, 215, 0.4) 0%, 
+    rgba(72, 199, 116, 0.4) 100%
+  );
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0.7;
+  transition: all 0.4s ease;
 }
 
-nav ul li a:hover::after {
+.header-nav-combined:hover::before {
+  opacity: 0.9;
+  filter: blur(10px);
+}
+
+/* Estructura principal */
+.header-contact-top {
+  display: flex;
   width: 100%;
+  max-width: 100%; /* Asegura que no exceda el ancho */
+  box-sizing: border-box; /* Incluye padding en el ancho total */
+  align-items: center;
+  padding: 6px 10px; /* Padding reducido en los lados */
+  background: rgba(232, 232, 234, 0.7);
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-/* ===== ICONOS DE REDES SOCIALES ===== */
+/* Contenedor de iconos sociales (20%) */
+.social-icons-container {
+  position: absolute;
+  left: 80px; /* Posición horizontal (no modificar) */
+  top: calc(48% - 30px); /* Movido 15px arriba (original: top: 50%) */
+  transform: translateY(-50%);
+  display: flex;
+  gap: 15px;
+  z-index: 1001;
+}
+
 .social-icon {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -339,94 +601,968 @@ nav ul li a:hover::after {
 .social-icon.instagram {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
-
-/* ===== ELEMENTOS ADICIONALES ===== */
-.address-spinner {
-  position: absolute;
-  left: -25px;
-  color: var(--verde-premium);
+/* Contenedor de información de contacto - Versión Premium */
+.contact-info-container {
+  width: 32%;
+  display: flex;
+  align-items: center;
+  gap: 18px; /* Espacio entre elementos aumentado */
+  padding: 0 12px;
 }
 
+/* Estilos comunes para contactos - Versión Premium */
+.header-contact, 
+.header-address {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 0.95rem;
+  font-weight: 600; /* Texto más grueso */
+  color: rgba(0, 0, 0, 0.85);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 8px 15px;
+  border-radius: 35px;
+  white-space: nowrap;
+}
+
+/* Contenedor del separador y dirección - Versión Premium */
+.header-separator {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Separador vertical mejorado */
+.header-separator::before {
+  content: "";
+  display: inline-block;
+  height: 35px;
+  width: 1.5px;
+  background: linear-gradient(transparent, rgba(72, 199, 116, 0.5), transparent);
+  margin: 0 18px;
+}
+
+/* Efectos hover premium */
+.header-contact:hover, 
+.header-address:hover {
+  background: linear-gradient(135deg, rgba(72, 199, 116, 0.1), rgba(0, 120, 215, 0.1));
+  color: #0078d7;
+  transform: translateY(-2px);
+}
+
+/* Animación de iconos al hover */
+.header-contact:hover .phone-icon,
+.header-address:hover .address-icon {
+  animation: iconPulse 0.6s ease;
+}
+
+@keyframes iconPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Iconos premium */
+.phone-icon, 
+.address-icon {
+  font-size: 1.1rem;
+  min-width: 20px;
+  transition: all 0.3s ease;
+}
+
+.phone-icon {
+  color: #48c774;
+  text-shadow: 0 0 5px rgba(72, 199, 116, 0.3);
+}
+
+.address-icon {
+  color: #48c774;
+  text-shadow: 0 0 5px rgba(0, 120, 215, 0.3);
+}
+
+/* Efecto de borde sutil al hover */
+.header-contact::after,
+.header-address::after {
+  content: '';
+  position: absolute;
+  width: calc(100% - 30px);
+  height: calc(100% - 20px);
+  border: 1px solid transparent;
+  border-radius: 30px;
+  transition: all 0.4s ease;
+}
+
+
+
+/* Spinner de carga */
+.address-spinner {
+  margin-right: 5px;
+  color: #0078d7;
+  animation: spin 1s linear infinite;
+}
+
+/* Tooltip de error */
 .geo-error-tooltip {
   position: absolute;
-  bottom: -30px;
-  left: 0;
-  background: #ffebee;
-  color: #c62828;
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-size: 0.8rem;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff6b6b;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.75rem;
   white-space: nowrap;
   z-index: 10;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-out;
 }
 
-/* ===== DISEÑO RESPONSIVE ===== */
-@media (max-width: 1024px) {
-  .header-contact-section,
-  .header-bottom {
-    padding-left: 180px;
-  }
-  .social-icons-container {
-    left: 180px;
-  }
-}
-
+/* Responsive */
 @media (max-width: 768px) {
-  :root {
-    --header-full-height: 140px;
-    --header-compressed-height: 70px;
-  }
-  
-  .header-contact-section,
-  .header-bottom {
-    padding-left: 150px;
-  }
-  
-  .social-icons-container {
-    left: 120px;
-    gap: 8px;
-  }
-  
-  .logo-img { max-width: 160px; }
-  header.comprimido .logo-img { max-width: 120px; }
-  
-  .header-info {
+  .contact-info-container {
     flex-direction: column;
-    gap: 8px;
-    align-items: flex-start;
+    gap: 5px;
+    width: 100%;
   }
   
-  .header-separator { display: none; }
-  nav ul { gap: 12px; }
+  .header-separator {
+    height: auto;
+    width: 100%;
+  }
+  
+  .header-separator::before {
+    display: none;
+  }
+  
+  .header-contact, 
+  .header-address {
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    justify-content: center;
+    width: 100%;
+  }
 }
 
-@media (max-width: 480px) {
-  :root {
-    --header-full-height: 130px;
-    --header-compressed-height: 60px;
-  }
-  
-  .header-contact-section,
-  .header-bottom {
-    padding-left: 120px;
-  }
-  
-  .social-icons-container {
-    left: 90px;
-    flex-direction: column;
-  }
-  
-  .logo-img { max-width: 120px; }
-  header.comprimido .logo-img { max-width: 100px; }
-  
-  .header-contact, .header-address { font-size: 0.8rem; }
-  .btn-whatsapp { padding: 8px 15px; font-size: 0.8rem; }
-  nav ul { gap: 8px; }
+/* ========================
+UR BAT NAV
+======================== */
+.urbat-nav__horizontal {
+display: flex;
+gap: 2px;
+font-size: 1rem;
+padding: 8px 20px;
+margin: 0;
+list-style: none;
+background: rgba(217, 217, 221, 0.7);
+backdrop-filter: blur(16px);
+box-shadow: 
+  0 10px 40px rgba(0, 0, 0, 0.4),
+  inset 0 0 20px rgba(2, 2, 2, 0.05);
 }
 
-/* Efectos para estado comprimido */
-header.comprimido .social-icons-container {
-  transform: translateY(-50%) scale(0.9);
-  left: 170px;
+.urbat-nav__item {
+position: relative;
+}
+
+.urbat-nav__text {
+  font-family: 'Poppins', sans-serif;
+  color: rgb(0, 0, 0);
+}
+
+.urbat-nav__link {
+--gold: #0078d7;
+--diamond: rgba(255, 255, 255, 0.8);
+
+display: flex;
+align-items: center;
+padding: 12px 24px;
+color: white;
+text-decoration: none;
+font-weight: 500;
+font-size: 0.95rem;
+letter-spacing: 0.5px;
+overflow: hidden;
+transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1.5);
+position: relative;
+}
+
+/* Efecto diamante premium */
+.urbat-nav__diamond-effect {
+position: absolute;
+width: 12px;
+height: 12px;
+background: var(--diamond);
+transform: rotate(45deg) scale(0);
+opacity: 0;
+transition: all 0.6s ease;
+filter: blur(1px);
+z-index: 2;
+}
+
+/* =========================================
+regla para ocultar cuando hay badge
+========================================= */
+.urbat-nav__text-wrapper:has(.urbat-nav__badge) ~ .urbat-nav__diamond-effect {
+display: none !important;
+}
+
+/* Alternativa si el selector :has no es compatible */
+.urbat-nav__badge ~ .urbat-nav__diamond-effect,
+.urbat-nav__badge + .urbat-nav__diamond-effect {
+display: none !important;
+}
+
+
+/* Icono con efecto lujo */
+.urbat-nav__icon-wrapper {
+position: relative;
+margin-right: 12px;
+width: 24px;
+height: 24px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.urbat-nav__icon {
+font-size: 1rem;
+color: var(--gold);
+z-index: 2;
+transition: all 0.4s ease;
+}
+
+.urbat-nav__icon-aura {
+position: absolute;
+width: 100%;
+height: 100%;
+background: var(--gold);
+border-radius: 50%;
+filter: blur(6px);
+opacity: 0;
+transition: all 0.5s ease;
+}
+
+/* Barra dorada animada */
+.urbat-nav__gold-bar {
+position: absolute;
+bottom: 0;
+left: 50%;
+width: 0;
+height: 2px;
+background: var(--gold);
+transform: translateX(-50%);
+transition: all 0.4s ease;
+}
+
+/* ========================
+ BADGE PREMIUM CENTRADO
+ ======================== */
+ .urbat-nav__icon-wrapper {
+  position: relative;
+  margin-right: 12px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.urbat-nav__badge {
+  position: absolute;
+  top: 1px;  /* Ajuste vertical */
+  right: 8px; /* Ajuste horizontal */
+  font-size: 0.6rem; /* Más pequeño */
+  padding: 2px 5px;
+  background: #0078d7;
+  color: #000;
+  border-radius: 50%;
+  font-weight: 900;
+  min-width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.8);
+  z-index: 3;
+  line-height: 1;
+}
+ 
+
+
+/* ================
+  EFECTOS HOVER
+  ================ */
+.urbat-nav__link:hover {
+color: var(--gold);
+transform: translateY(-3px);
+text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+.urbat-nav__link:hover .urbat-nav__icon {
+transform: scale(1.2) rotate(10deg);
+}
+
+.urbat-nav__link:hover .urbat-nav__icon-aura {
+opacity: 0.4;
+transform: scale(1.5);
+}
+
+.urbat-nav__link:hover .urbat-nav__gold-bar {
+width: 80%;
+}
+
+.urbat-nav__link:hover .urbat-nav__diamond-effect {
+opacity: 0.8;
+transform: rotate(45deg) scale(1) translateY(-4px);
+right: 6px;
+top: 6px;
+
+}
+
+/* Animación del badge */
+@keyframes badge-pulse {
+0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(255,215,0,0.4); }
+50% { transform: scale(1.1); box-shadow: 0 0 10px rgba(255,215,0,0.8); }
+}
+
+/* Efecto activo */
+.urbat-nav__link.active {
+background: rgba(255, 215, 0, 0.1);
+border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.urbat-nav__link.active .urbat-nav__gold-bar {
+width: 100%;
+height: 3px;
+}
+
+/* ===============================
+ Botones 
+================================== */
+/* Contenedor vertical */
+.header-buttons-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Mayor separación entre botones */
+  margin-left: 10px;
+}
+
+/* Estilos base mejorados para botones  */
+.header-buttons-vertical a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 16px; /* Más padding para mayor presencia */
+  border-radius: 26px; /* Bordes más redondeados */
+  font-weight: 700;
+  font-size: 18px; /* Texto más grande */
+  text-decoration: none;
+  color: white;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición más suave */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 
+              0 2px 4px rgba(0, 0, 0, 0.12); /* Sombra más sofisticada */
+  z-index: 1;
+  min-width: 160px; /* Ancho mínimo mayor */
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.5px; /* Mejor espaciado de letras */
+}
+
+/* Iconos más grandes y mejor espaciados */
+.header-buttons-vertical a i {
+  font-size: 24px; /* Iconos más grandes */
+  transition: transform 0.3s ease;
+}
+
+/* Efectos hover mejorados */
+.header-buttons-vertical a:hover {
+  transform: translateY(-4px); /* Mayor elevación */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 
+              0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.header-buttons-vertical a:hover i {
+  transform: scale(1.1); /* Efecto de escala en iconos */
+}
+
+/* Efecto active más pronunciado */
+.header-buttons-vertical a:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto de brillo al pasar el mouse */
+.header-buttons-vertical a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.7s ease;
+  z-index: -1;
+}
+
+.header-buttons-vertical a:hover::after {
+  left: 100%;
+}
+
+/* Botón de emergencia mejorado */
+.emergency-btn {
+  background: linear-gradient(135deg, #ff3a3a, #c91e1e);
+  gap: 15px; /* Más espacio entre icono y texto */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Sombra de texto */
+}
+
+
+/* Botón de WhatsApp mejorado */
+.whatsapp-btn {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  gap: 13px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 54px;
+}
+
+.whatsapp-btn .btn-icon {
+  font-size: 26px; /* Tamaño del icono de WhatsApp */
+}
+
+/* Efecto de onda para WhatsApp */
+.whatsapp-btn:hover {
+  animation: wave 1.5s ease infinite;
+}
+
+@keyframes wave {
+  0% { transform: translateY(-4px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(-4px); }
+}
+
+/* ===============================
+ Mobile Navigation Styles 
+================================== */
+:root {
+  --color-accent: #FFD700;
+  --color-highlight: #7EC8FF;
+  --color-light: rgba(255, 255, 255, 0.95);
+  --color-dark: rgba(10, 10, 20, 0.8);
+}
+
+/* Hamburger Button */
+.nav-hamburger-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.nav-hamburger-box {
+  width: 2rem;
+  height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-hamburger-line {
+  width: 100%;
+  height: 0.2rem;
+  background: var(--color-accent);
+  border-radius: 2px;
+  transition: transform 0.4s ease, opacity 0.2s ease;
+}
+
+/* Hamburger Animation */
+.nav-hamburger-btn--active .nav-hamburger-line--top {
+  transform: translateY(0.65rem) rotate(45deg);
+}
+.nav-hamburger-btn--active .nav-hamburger-line--middle {
+  opacity: 0;
+}
+.nav-hamburger-btn--active .nav-hamburger-line--bottom {
+  transform: translateY(-0.65rem) rotate(-45deg);
+}
+
+/* Mobile Menu */
+.nav-mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 50%;
+  height: 100%;
+  background: var(--color-dark);
+  backdrop-filter: blur(10px);
+  transition: right 0.5s ease;
+  z-index: 90;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.nav-mobile-menu--visible {
+  right: 0;
+  opacity: 1;
+visibility: visible;
+}
+
+.nav-mobile-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.nav-mobile-item {
+  margin: 20px 0;
+}
+
+.nav-mobile-link {
+  display: flex;
+  align-items: center;
+  color: var(--color-light);
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  gap: 12px;
+  justify-content: left;
+}
+
+.nav-mobile-icon {
+  color: var(--color-highlight);
+  margin-right: 0.5rem;
+  font-size: 1.4em;
+}
+
+.nav-mobile-text {
+  margin-left: 0.5rem;
+}
+
+.nav-mobile-badge {
+  margin-left: auto;
+  background: var(--color-accent);
+  color: var(--color-dark);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+}
+
+/* ---------------------------------- */
+/* 🔄 CAMBIO EN 1260px */
+/* ---------------------------------- */
+@media (max-width: 1260px) {
+/* Oculta el menú horizontal */
+.urbat-nav__horizontal {
+  display: none !important;
+}
+
+/* Muestra el botón hamburguesa */
+.nav-hamburger-btn {
+  display: block;
+}
+
+/* Ajustes adicionales para el navbar */
+.navbar-content {
+  justify-content: space-between; /* Logo a la izquierda, hamburguesa a la derecha */
+}
+
+/* Reduce más los botones si es necesario */
+.urbat-buttons-container {
+  margin-left: auto; /* Empuja los botones a la derecha */
+  margin-right: 15px; /* Espacio antes del hamburguesa */
+}
+}
+
+/* ---------------------------------- */
+/* 📱 AJUSTES PARA MÓVIL (≤ 768px) */
+/* ---------------------------------- */
+@media (max-width: 768px) {
+.nav-mobile-link {
+  font-size: 1rem;
+}
+
+.nav-hamburger-box {
+  width: 24px;
+}
+}
+
+/*═══════════════════════════════════════════════╗
+✨  RESPONSIVE DESIGN — ICON ONLY ≤ 1800px   ✨
+═══════════════════════════════════════════════*/
+@media screen and (max-width: 1799px) {
+.urbat-logo__text-container {
+  display: none;
+}
+}
+/*═══════════════════════════════════════════════╗
+✨  RESPONSIVE DESIGN  ≤ 1650px   ✨
+═══════════════════════════════════════════════*/
+
+
+/* 📱 Media Queries para RESPONSIVE */
+/* Escalado SUAVE (1600px → 1500px) */
+@media (max-width: 1650px) {
+.urbat-buttons-container {
+  gap: 15px;
+  transform: scale(0.95); /* Reducción del 5% */
+  transform-origin: left center;
+}
+.urbat-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+.urbat-btn__icon svg {
+  width: 16px;
+  height: 16px;
+}
+}
+
+/* Escalado NOTORIO (< 1500px) */
+@media (max-width: 1500px) {
+.urbat-buttons-container {
+  gap: 10px;
+  transform: scale(0.85); /* Reducción del 15% */
+}
+.urbat-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+.urbat-btn__icon svg {
+  width: 14px;
+  height: 14px;
+}
+}
+
+
+@media (max-width: 1650px) {
+.navbar {
+    width: 90%;
+    height: auto; /* Altura flexible */
+    min-height: 80px; /* Altura mínima */
+    padding: 15px 20px; /* Más padding para móviles */
+}
+
+.navbar-content {
+    flex-direction: column; /* Apila logo y botones */
+    gap: 15px;
+}
+}
+
+/* Pantallas medianas (≤ 1200px) */
+@media (max-width: 1200px) {
+.navbar {
+    width: 95%;
+    top: 20px; /* Más cerca del borde superior */
+}
+}
+
+/* Tablets (≤ 992px) */
+@media (max-width: 992px) {
+.navbar {
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
+}
+}
+
+/* Móviles (≤ 768px) */
+@media (max-width: 768px) {
+.navbar {
+    width: 98%;
+    top: 10px;
+    min-height: 70px;
+    padding: 10px 15px;
+}
+}
+
+/* Móviles pequeños (≤ 576px) */
+@media (max-width: 576px) {
+.navbar {
+    border-radius: 12px;
+}
+}
+/*═══════════════════════════════════════════════╗
+✨  RESPONSIVE DESIGN  ≤ 1500px   ✨
+═══════════════════════════════════════════════*/
+@media (max-width: 1500px) {
+.urbat-logo {
+    font-size: 1.2rem !important; /* Texto más pequeño */
+    padding: 8px 12px !important;
+}
+
+.urbat-logo__icon-container {
+    width: 28px !important; /* Icono más compacto */
+    height: 28px !important;
+}
+
+.urbat-logo__text {
+    transform: scale(0.9); /* Opcional: suaviza reducción */
+}
+}
+
+/* Móviles (≤ 768px) */
+@media (max-width: 768px) {
+.urbat-logo {
+    font-size: 1rem !important;
+    padding: 6px 10px !important;
+}
+
+.urbat-logo__icon-container {
+    width: 24px !important;
+    height: 24px !important;
+}
+}
+
+/* Ajustes para ≤ 1500px */
+@media (max-width: 1500px) {
+.urbat-nav__horizontal {
+    gap: 12px !important; /* Menor espacio entre ítems */
+}
+
+.urbat-nav__link {
+    padding: 8px 12px !important;
+}
+
+.urbat-nav__icon {
+    font-size: 1em !important; /* Íconos más pequeños */
+}
+
+.urbat-nav__text {
+    font-size: 0.85rem !important;
+}
+}
+
+/* Móviles (≤ 768px) - Menú ultracompacto */
+@media (max-width: 768px) {
+.urbat-nav__horizontal {
+    gap: 8px !important;
+}
+
+.urbat-nav__link {
+    padding: 6px 8px !important;
+}
+
+.urbat-nav__text {
+    display: none !important; /* Oculta texto en móviles */
+}
+
+.urbat-nav__icon {
+    font-size: 1.1em !important; /* Íconos ligeramente más grandes para táctil */
+}
+}
+/*═══════════════════════════════════════════════╗
+✨  RESPONSIVE DESIGN  ≤ 1350px   ✨
+═══════════════════════════════════════════════*/
+@media (max-width: 1350px) {
+/* 🔹 LOGO (Más pequeño) */
+.urbat-logo {
+    font-size: 1.1rem !important;
+    padding: 6px 10px !important;
+}
+.urbat-logo__icon-container {
+    width: 24px !important;
+    height: 24px !important;
+}
+.urbat-logo__text {
+    transform: scale(0.85);
+}
+
+/* 🔹 MENÚ HORIZONTAL (Compacto) */
+.urbat-nav__horizontal {
+    gap: 10px !important;
+}
+.urbat-nav__link {
+    padding: 6px 10px !important;
+    font-size: 0.8rem !important;
+}
+.urbat-nav__icon {
+    font-size: 0.9em !important;
+}
+.urbat-nav__badge {
+    transform: scale(0.8);
+}
+
+/* 🔹 BOTONES (Reducción proporcional) */
+.urbat-buttons-container {
+    gap: 10px !important;
+}
+.urbat-btn {
+    padding: 8px 14px !important;
+    font-size: 0.85rem !important;
+}
+.urbat-btn__icon svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+}
+
+/* ---------------------------------- */
+/* 📱 AJUSTES PARA MÓVIL (≤ 768px) */
+/* ---------------------------------- */
+@media (max-width: 768px) {
+.navbar {
+    width: 95%;
+    top: 15px;
+    padding: 8px 12px;
+}
+
+/* Logo: Versión mini */
+.urbat-logo__text-container {
+    display: none !important; /* Oculta texto */
+}
+.urbat-logo {
+    padding: 5px 8px !important;
+}
+
+/* Menú: Solo íconos */
+.urbat-nav__text {
+    display: none !important;
+}
+.urbat-nav__link {
+    padding: 8px !important; /* Cuadrados perfectos */
+}
+
+/* Botones: Más compactos */
+.urbat-btn__text {
+    font-size: 0.75rem !important;
+}
+}
+/*═══════════════════════════════════════════════╗
+✨  RESPONSIVE DESIGN  ≤ 600px   ✨
+═══════════════════════════════════════════════*/
+@media (max-width: 600px) {
+.urbat-buttons-container {
+  gap: 8px; /* Reduce espacio entre botones */
+}
+
+.urbat-btn {
+  width: 40px !important;
+  min-width: 40px !important;
+  padding: 0 !important;
+}
+
+.urbat-btn__text {
+  display: none !important; /* Oculta texto */
+}
+
+.urbat-btn__icon {
+  margin: 0 !important;
+  font-size: 1rem !important;
+}
+
+.nav-hamburger-btn {
+  margin-left: -45px !important;
+}
+}
+/*═══════════════════════════════════════════════╗
+✨  RESPONSIVE DESIGN  ≤ 450px   ✨
+═══════════════════════════════════════════════*/
+@media (max-width: 450px) {
+.nav-mobile-menu {
+  padding: 4rem 1rem 1rem; /* Reduce padding */
+}
+
+.nav-mobile-list {
+  gap: 0.5rem; /* Menor espacio entre ítems */
+}
+
+.nav-mobile-item {
+  margin: 0.5rem 0; /* Reduce margen vertical */
+}
+
+.nav-mobile-link {
+  padding: 0.6rem 0.8rem; /* Más compacto */
+  font-size: 0.95rem; /* Texto más pequeño */
+  border-radius: 6px; /* Bordes menos redondeados */
+}
+
+.nav-mobile-icon {
+  font-size: 1rem !important; /* Íconos más pequeños */
+  min-width: 1.4rem; /* Espacio reducido */
+}
+
+.nav-mobile-badge {
+  font-size: 0.6rem !important;
+  padding: 0.15rem 0.4rem !important;
+  margin-left: 0.3rem !important;
+}
+
+/* Efecto hover ajustado */
+.nav-mobile-link:hover {
+  transform: translateX(3px) !important; /* Movimiento más sutil */
+}
+}
+@media (max-width: 500px) {
+.nav-mobile-badge {
+  transform: scale(0.8);
+  margin-left: 0.2rem !important;
+}
+}
+
+@media (max-width: 450px) {
+.nav-mobile-badge {
+  display: none !important;
+}
+}
+
+
+/*═══════════════════════════════════════════════╗
+DEL LOGEO INICIO SESSION
+═══════════════════════════════════════════════*/
+/* Estilos para el usuario logueado */
+.user-logged-container {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.user-greeting {
+display: flex;
+align-items: center;
+gap: 8px;
+padding: 0 12px;
+}
+
+.user-icon {
+color: #4fc3f7;
+font-size: 1.2rem;
+}
+
+.welcome-message {
+color: #e0e0e0;
+font-size: 0.95rem;
+font-weight: 500;
+}
+
+.user-name {
+color: #4fc3f7;
+font-weight: 600;
+}
+
+.urbat-btn--logout {
+background: linear-gradient(135deg, #ff5252, #d32f2f);
+min-width: 100px;
+padding: 0.5rem 1rem;
+}
+
+.urbat-btn--logout:hover {
+background: linear-gradient(135deg, #d32f2f, #b71c1c);
+}
+
+.urbat-btn--logout .urbat-btn__text {
+font-size: 0.9rem;
 }
