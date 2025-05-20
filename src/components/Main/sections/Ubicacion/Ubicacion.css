@@ -254,20 +254,6 @@
   z-index: -1;
 }
 
-.marker-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background: linear-gradient(
-    to right, 
-    var(--primary-blue), 
-    var(--primary-green)
-  );
-  transition: width 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
 
 .marker-item:hover {
   transform: translateY(-5px);
@@ -376,7 +362,7 @@
 /* Botones del Mapa - Estilo Premium */
 .mapa-actions {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   justify-content: center;
   margin-top: 2rem;
 }
@@ -384,8 +370,8 @@
 .mapa-button {
   position: relative;
   display: inline-block;
-  padding: 0.75rem 1.5rem;
-  font-family: "Montserrat", sans-serif;
+  padding: 0.75rem 3.5rem;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 1rem;
   color: #fff;
@@ -438,8 +424,10 @@
 
 /* ===== Ultra Premium Clinic Card Styles ===== */
 .imagen-clinica-container {
-  perspective: 1200px;
+  perspective: 1800px;
   height: 100%;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
 }
 
 .clinica-card {
@@ -566,6 +554,7 @@
   transform: translateY(0);
 }
 
+
 /* Sección compacta de facilidades - Estilo lineal */
 .facilities-container {
   padding: 20px;
@@ -590,35 +579,9 @@
   background: var(--light-gray);
 }
 
-.facility-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    135deg, 
-    rgba(0, 102, 204, 0.03) 0%, 
-    rgba(0, 204, 153, 0.02) 100%
-  );
-  z-index: -1;
-}
 
-.facility-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background: linear-gradient(
-    to right, 
-    var(--primary-blue), 
-    var(--primary-green)
-  );
-  transition: width 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
+
+
 
 .facility-item:hover {
   transform: translateY(-5px);
@@ -706,6 +669,8 @@
   margin-top: 50px;
 }
 
+
+
 /* Contenedor con glass + gradient overlay animado */
 .mensaje-final-contenedor {
   position: relative;
@@ -768,8 +733,8 @@
   position: relative;
   z-index: 1;
   margin: 1rem 0 0;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.25rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.35rem;
   font-weight: 600;
   line-height: 1.4;
   background: linear-gradient(135deg, #48c774, #0078d7);
