@@ -8,6 +8,7 @@ import Especialidades from './components/Especialidades/Especialidades';
 import Servicios from './components/Servicios/Servicios'; 
 import Staff from './components/Staff/Staff';
 import Nosotros from './components/Nosotros/Nosotros';
+import Convenios from './components/Convenios/Convenios';
 import Dermatologia from './components/Especialidades/Especialidades/Dermatologia';
 import Cardiologia from './components/Especialidades/Especialidades/Cardiologia';
 import ScrollToTop from './components/ScrollToTop';
@@ -42,6 +43,9 @@ function App() {
 
               {/* Ruta de NOSOTROS */}
               <Route path="/nosotros" element={<Nosotros />} />
+
+              {/* Ruta de CONVENIOS */}
+              <Route path="/convenios" element={<Convenios />} />
 
               {/* Redirección por defecto si no se encuentra la ruta */}
               <Route path="*" element={<Navigate to="/" replace />} />

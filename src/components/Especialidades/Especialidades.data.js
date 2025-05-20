@@ -42,16 +42,16 @@
         icon: "fas fa-female"
         },
         {
-        name: "Laboratorio Clínico y Anatomía Patológica",
-        description: "Análisis clínicos y estudios de tejidos.",
-        url: "/especialidades/laboratorio-clinico",
-        icon: "fas fa-vial"
-        },
-        {
         name: "Medicina General",
         description: "Atención primaria y prevención de enfermedades.",
         url: "/especialidades/medicina-general",
         icon: "fas fa-user-md"
+        },
+        {
+        name: "Laboratorio Clínico y Anatomía Patológica",
+        description: "Análisis clínicos y estudios de tejidos.",
+        url: "/especialidades/laboratorio-clinico",
+        icon: "fas fa-vial"
         },
         {
         name: "Medicina Interna",

@@ -10,8 +10,8 @@ import {
   faStarOfLife,
   faStethoscope,
   faUsers,
-  faPaperPlane,
   faAmbulance,
+  faHandshake
 } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
@@ -108,9 +108,9 @@ const Header = () => {
       badge: null
     },
     { 
-      href: '/contacto', 
-      icon: faPaperPlane,
-      text: 'Contacto',
+      href: '/convenios', 
+      icon: faHandshake,
+      text: 'Convenios',
       badge: null
     },
   ];

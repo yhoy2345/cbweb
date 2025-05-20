@@ -36,29 +36,29 @@ const Servicios = () => {
   const servicios = [
     {
       id: 1,
-      nombre: "Consulta Externa",
+      nombre: "Consultas Externas",
       descripcion: "Atención médica en consultorios externos",
       icono: faStethoscope,
       color: "#0078d7"
     },
     {
       id: 2,
-      nombre: "Cardiología",
-      descripcion: "Diagnóstico y tratamiento cardíaco",
+      nombre: "Emergencias las 24 horas",
+      descripcion: "Atención inmediata con equipo especializado",
       icono: faHeartbeat,
       color: "#0078d7"
     },
     {
       id: 3,
-      nombre: "Urgencias",
-      descripcion: "Atención médica de emergencia",
+      nombre: "Hospitalización",
+      descripcion: "Cuidados médicos con comodidad y calidad",
       icono: faAmbulance,
       color: "#0078d7"
     },
     {
       id: 4,
-      nombre: "Hospitalización",
-      descripcion: "Cuidado médico hospitalario",
+      nombre: "Centro Quirúrgico",
+      descripcion: "Salas equipadas con tecnología avanzada",
       icono: faProcedures,
       color: "#0078d7"
     }

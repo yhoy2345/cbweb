@@ -115,14 +115,53 @@ const Especialidades = () => {
   
   return (
     <BackgroundHome>
-      {/* Imagen estática  */}
-      <section className="especialidades-imagen-estatica">
-        <div className="especialidades-imagen-container">
-          <img
-            src="/images/hero/fondo1.jpg"
-            alt="Imagen principal"
-            className="especialidades-imagen"
-          />
+      <section>
+        {/* Premium Hero Section - Enhanced */}
+        <div className="premium-hero">
+            <div className="premium-hero__image-wrapper">
+                <img
+                src="/images/especialidades.jpg"
+                alt="Consulta de dermatología"
+                className="premium-hero__image"
+                loading="lazy"
+                />
+                <div className="premium-hero__gradient-overlay"></div>
+            </div>
+            
+            <div className="premium-hero__content">
+                <h1 className="premium-hero__title">
+                    <span className="premium-hero__title-main">Nuestras Especialidades</span>
+                </h1>
+            </div>
+        </div>
+        <div className="convenios-intro" style={{
+            fontFamily: "'Poppins', sans-serif",
+            background: "linear-gradient(135deg, #48c774 0%, #0078d7 100%)",
+            color: "white",
+            padding: "2rem",
+            borderTopLeftRadius: "0",        /* Esquina superior izquierda: sin curvatura */
+            borderTopRightRadius: "0",       /* Esquina superior derecha: sin curvatura */
+            borderBottomLeftRadius: "12px",  /* Esquina inferior izquierda: 12px */
+            borderBottomRightRadius: "12px",
+            boxShadow: "0 8px 24px rgba(0, 120, 215, 0.2)",
+            marginBottom: "2rem",
+            textAlign: "center"
+            }}>
+            <p style={{
+                fontSize: "1.1rem",
+                position: "relative",
+                fontWeight: "500",
+                lineHeight: "1.6",
+                margin: "0",
+                maxWidth: "800px",
+                marginLeft: "auto",
+                marginRight: "auto",
+                marginTop: "-15px",
+                zIndex: 0
+            }}>
+                En Clínica Bolívar, ofrecemos un portafolio completo de especialidades médicas para cubrir todas tus necesidades de salud. 
+                Desde prevenciónes hasta tratamientos avanzados, nuestro equipo certificado garantiza tu bienestar integral.
+            </p>
         </div>
       </section>
       {/* Descripcion */}
@@ -149,17 +188,6 @@ const Especialidades = () => {
                 </svg>
               </div>
               <div class="esp-divider-line right-line"></div>
-            </div>
-            <div className="clinic-subtitle">
-              <p className="clinic-subtitle__content">
-                <span className="clinic-subtitle__prefix">En</span>
-                <span className="clinic-subtitle__highlight clinic-subtitle__highlight--name">Clínica Bolívar</span>
-                <span className="clinic-subtitle__text">, brindamos</span>
-                <span className="clinic-subtitle__highlight clinic-subtitle__highlight--specialty">atención médica especializada</span>
-                <span className="clinic-subtitle__text">con los más altos</span>
-                <span className="clinic-subtitle__highlight clinic-subtitle__highlight--quality">estándares de calidad</span>
-              </p>
-              <div className="clinic-subtitle__divider"></div>
             </div>
         </div>
           <div class="esp-highlights"> 
@@ -197,28 +225,7 @@ const Especialidades = () => {
               </a>
             </div>   
           </div>    
-          <div className="medical-specialties-premium">
-            <div className="medical-specialties__header">
-              <h2 className="medical-specialties__title">
-                <span className="title__main">Nuestras Especialidades Médicas</span>
-                <span className="title__underline"></span>
-              </h2>
-              <div className="medical-specialties__divider">
-                <div className="divider__line"></div>
-                <div className="divider__icon">
-                  <i className="fas fa-plus"></i>
-                </div>
-                <div className="divider__line"></div>
-              </div>
-            </div>
-            
-            <p className="medical-specialties__description">
-              <span className="description__text">Ofrecemos un portafolio completo de especialidades médicas para cubrir </span>
-              <span className="description__highlight">todas tus necesidades de salud. </span>
-              <span className="description__text">Desde prevención hasta tratamientos avanzados, </span>
-              <span className="description__highlight">nuestro equipo certificado garantiza tu bienestar integral.</span>
-            </p>
-          </div>
+          
       </section>
       {/* Buscador */}
       <section 

@@ -77,14 +77,50 @@ const Staff = () => {
 
   return (
     <BackgroundHome>
-      {/* Imagen estática  */}
-      <section className="especialidades-imagen-estatica">
-        <div className="especialidades-imagen-container">
-          <img
-            src="/images/hero/fondo1.jpg"
-            alt="Imagen principal"
-            className="especialidades-imagen"
-          />
+      <section>
+        {/* Premium Hero Section - Enhanced */}
+        <div className="premium-hero">
+            <div className="premium-hero__image-wrapper">
+                <img
+                src="/images/convenios.jpg"
+                alt="Consulta de dermatología"
+                className="premium-hero__image"
+                loading="lazy"
+                />
+                <div className="premium-hero__gradient-overlay"></div>
+            </div>
+            
+            <div className="premium-hero__content">
+                <h1 className="premium-hero__title">
+                    <span className="premium-hero__title-main">Conoce al Equipo que Transforma Vidas</span>
+                </h1>
+                
+            </div>
+        </div>
+        <div className="convenios-intro" style={{
+            fontFamily: "'Poppins', sans-serif",
+            background: "linear-gradient(135deg, #48c774 0%, #0078d7 100%)",
+            color: "white",
+            padding: "2rem",
+            borderTopLeftRadius: "0",        /* Esquina superior izquierda: sin curvatura */
+            borderTopRightRadius: "0",       /* Esquina superior derecha: sin curvatura */
+            borderBottomLeftRadius: "12px",  /* Esquina inferior izquierda: 12px */
+            borderBottomRightRadius: "12px",
+            boxShadow: "0 8px 24px rgba(0, 120, 215, 0.2)",
+            marginBottom: "2rem",
+            textAlign: "center"
+            }}>
+            <p style={{
+                fontSize: "1.1rem",
+                fontWeight: "500",
+                lineHeight: "1.6",
+                margin: "0",
+                maxWidth: "800px",
+                marginLeft: "auto",
+                marginRight: "auto"
+            }}>
+                Contamos con un equipo multidisciplinario de profesionales de la salud altamente calificados, cuya experiencia y dedicación garantizan una atención médica integral y personalizada. Nuestro staff incluye médicos generales, especialistas, enfermeros y técnicos capacitados, todos comprometidos con los más altos estándares de calidad y calidez humana.
+            </p>
         </div>
       </section>
       <section className="staff-section">

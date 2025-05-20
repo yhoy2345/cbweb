@@ -86,14 +86,50 @@ const Servicios = () => {
   
   return (
     <BackgroundHome>
-      {/* Imagen estática  */}
-      <section className="especialidades-imagen-estatica">
-        <div className="especialidades-imagen-container">
-          <img
-            src="/images/hero/fondo1.jpg"
-            alt="Imagen principal"
-            className="especialidades-imagen"
-          />
+      <section>
+        {/* Premium Hero Section - Enhanced */}
+        <div className="premium-hero">
+            <div className="premium-hero__image-wrapper">
+                <img
+                src="/images/servicios.jpg"
+                alt="Consulta de dermatología"
+                className="premium-hero__image"
+                loading="lazy"
+                />
+                <div className="premium-hero__gradient-overlay"></div>
+            </div>
+            
+            <div className="premium-hero__content">
+                <h1 className="premium-hero__title">
+                    <span className="premium-hero__title-main">Nuestros Servicios</span>
+                </h1>
+                
+            </div>
+        </div>
+        <div className="convenios-intro" style={{
+            fontFamily: "'Poppins', sans-serif",
+            background: "linear-gradient(135deg, #48c774 0%, #0078d7 100%)",
+            color: "white",
+            padding: "2rem",
+            borderTopLeftRadius: "0",        /* Esquina superior izquierda: sin curvatura */
+            borderTopRightRadius: "0",       /* Esquina superior derecha: sin curvatura */
+            borderBottomLeftRadius: "12px",  /* Esquina inferior izquierda: 12px */
+            borderBottomRightRadius: "12px",
+            boxShadow: "0 8px 24px rgba(0, 120, 215, 0.2)",
+            marginBottom: "2rem",
+            textAlign: "center"
+            }}>
+            <p style={{
+                fontSize: "1.1rem",
+                fontWeight: "500",
+                lineHeight: "1.6",
+                margin: "0",
+                maxWidth: "800px",
+                marginLeft: "auto",
+                marginRight: "auto"
+            }}>
+                Contamos con un amplio portafolio, diseñado para brindarte atención personalizada y de alta calidad. Desde consultas preventivas y diagnósticos precisos hasta tratamientos especializados y seguimiento continuo, nuestro equipo de profesionales certificados está comprometido con tu salud y recuperación.
+            </p>
         </div>
       </section>
       {/* Descripcion */}
@@ -168,29 +204,7 @@ const Servicios = () => {
               </a>
             </div>   
           </div>    
-          <div className="medical-specialties-premium">
-            <div className="medical-specialties__header">
-              <h2 className="medical-specialties__title">
-                <span className="title__main">Nuestros Servicios Médicos</span>
-                <span className="title__underline"></span>
-              </h2>
-              <div className="medical-specialties__divider">
-                <div className="divider__line"></div>
-                <div className="divider__icon">
-                  <i className="fas fa-plus"></i>
-                </div>
-                <div className="divider__line"></div>
-              </div>
-            </div>
-            
-            <p className="medical-specialties__description">
-              <span className="description__text">Contamos con un amplio portafolio, diseñado para brindarte </span>
-              <span className="description__highlight">atención personalizada y de alta calidad. </span>
-              <span className="description__text">Desde consultas preventivas y diagnósticos precisos hasta </span>
-              <span className="description__highlight">tratamientos especializados y seguimiento continuo, </span>
-              <span className="description__text">nuestro equipo de profesionales certificados está comprometido con tu salud y recuperación.</span>
-            </p>
-          </div>
+
       </section>
       {/* Buscador */}
       <section className="specialty-search">

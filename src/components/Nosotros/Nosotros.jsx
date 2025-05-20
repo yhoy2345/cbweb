@@ -7,16 +7,50 @@ const Nosotros = () => {
   return (
     <BackgroundHome>
     <div>
-        {/* Imagen estática */}
-        <section className="especialidades-imagen-estatica">
-            <div className="especialidades-imagen-container">
-            <img
-                src="/images/hero/fondo1.jpg"
-                alt="Imagen principal"
-                className="especialidades-imagen"
-            />
-            </div>
-        </section>
+        {/* Premium Hero Section - Enhanced */}
+      <div className="premium-hero">
+          <div className="premium-hero__image-wrapper">
+              <img
+              src="/images/convenios.jpg"
+              alt="Consulta de dermatología"
+              className="premium-hero__image"
+              loading="lazy"
+              />
+              <div className="premium-hero__gradient-overlay"></div>
+          </div>
+          
+          <div className="premium-hero__content">
+              <h1 className="premium-hero__title">
+                  <span className="premium-hero__title-main">Conoce el ADN que Hace de Bolívar tu Mejor Opción en Salud</span>
+              </h1>
+              
+          </div>
+      </div>
+      <div className="convenios-intro" style={{
+          fontFamily: "'Poppins', sans-serif",
+          background: "linear-gradient(135deg, #48c774 0%, #0078d7 100%)",
+          color: "white",
+          padding: "2rem",
+          borderTopLeftRadius: "0",        /* Esquina superior izquierda: sin curvatura */
+          borderTopRightRadius: "0",       /* Esquina superior derecha: sin curvatura */
+          borderBottomLeftRadius: "12px",  /* Esquina inferior izquierda: 12px */
+          borderBottomRightRadius: "12px",
+          boxShadow: "0 8px 24px rgba(0, 120, 215, 0.2)",
+          marginBottom: "2rem",
+          textAlign: "center"
+          }}>
+          <p style={{
+              fontSize: "1.1rem",
+              fontWeight: "500",
+              lineHeight: "1.6",
+              margin: "0",
+              maxWidth: "800px",
+              marginLeft: "auto",
+              marginRight: "auto"
+          }}>
+            Somos Clínica Bolívar: médicos de alma que unen ciencia y calidez humana. Aquí, tu bienestar es nuestra mayor motivación y cada logro en tu salud, nuestro orgullo profesional. Porque creemos en una medicina cercana, rigurosa y profundamente humana.
+          </p>
+      </div>
         {/* Descripcion */}
         <section class="esp-intro"> 
             <div class="esp-intro-content">
@@ -155,8 +189,7 @@ const Nosotros = () => {
             <div className="contenedor-historia">
                 {/* Título con animación especial */}
                 <div className="titulo-historia-container">
-                    <h1 className="titulo-principal-historia">HISTORIA</h1>
-                    <h2 className="subtitulo-historia">Nuestra trayectoria</h2>
+                    <h1 className="titulo-principal-historia">Nuestra trayectoria</h1>
                     <div className="linea-decorativa-titulo"></div>
                 </div>
                 {/* Contenido de texto con animaciones */}

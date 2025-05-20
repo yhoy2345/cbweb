@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+
+/* Enhanced Premium Hero Styles */
+.premium-hero {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  max-height: 800px;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.premium-hero__image-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.premium-hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.9);
+  will-change: transform;
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.premium-hero:hover .premium-hero__image {
+  transform: scale(1.03) !important;
+  /* Resetea TODOS los posibles efectos de hover */
+  transition: transform 0.3s ease !important;
+  filter: none !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  animation: none !important;
+  text-decoration: none !important;
+  backdrop-filter: none !important;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap');
+
+.premium-hero__content {
+  position: relative;
+  z-index: 1;
+  width: 45%;
+  padding: 0 1%;
+  top: 27%;
+  color: white; /* Color base para contraste */
+}
+
+.premium-hero__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 3rem;
+  position: relative;
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  width: fit-content; /* Asegura que el contenedor se ajuste al texto */
+}
+
+.premium-hero__title-main {
+  position: relative;
+  display: inline-block;
+  color: white; /* Texto blanco sólido */
+  padding-bottom: 0.3em; /* Espacio para la línea */
+  z-index: 2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes titleUnderline {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .premium-hero__content {
+    width: 80%;
+    top: 20%;
+  }
+  
+  .premium-hero__title {
+    font-size: 3rem;
+  }
+  
+  .premium-hero__cta {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .premium-hero__title {
+    font-size: 2.2rem;
+  }
+  
+  .premium-hero__cta {
+    padding: 0.9rem 1.8rem;
+  }
+}
+
+
+
+.convenios-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  background: linear-gradient(90deg, #48c774 0%, #0078d7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.convenios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.convenio-item {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.convenio-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.convenio-figure {
+  margin: 0 auto 1rem;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.convenio-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.convenio-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.convenio-list li {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .convenios-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  
+  .convenios-title {
+    font-size: 2rem;
+  }
+}

@@ -1,8 +1,8 @@
 export const specialties = [
     {
-    name: "Anestesiología",
+    name: "Consultas Externas",
     description: "Manejo del dolor durante procedimientos médicos.",
-    url: "/especialidades/anestesiologia",
+    url: "/especialidades/consultas",
     icon: "fas fa-syringe"
     },
     {
