@@ -53,23 +53,23 @@ const Especialidades = () => {
     return (
       <div className="specialty-card animate-on-scroll">
         <div className="card-icon-container">
-        <div className="card-icon-bg">
-          <i className={specialty.icon} />
+          <div className="card-icon-bg">
+            <i className={specialty.icon} />
+          </div>
         </div>
-      </div>
-      <div className="card-contentt">
-        <h3 className="card-title">{specialty.name}</h3>
-        <p className="card-description">{specialty.description}</p>
-      </div>
-      <button 
-        className="card-button"
-        onClick={handleClick}
-        aria-label={`Ver más sobre ${specialty.name}`}
-      >
-        <span>Ver más</span>
-        <i className="fas fa-chevron-right button-icon" />
-      </button>
-      <div className="card-hover-effect"></div>
+        <div className="card-contentt">
+          <h3 className="card-title">{specialty.name}</h3>
+          <p className="card-description">{specialty.description}</p>
+        </div>
+        <button 
+          className="card-button"
+          onClick={handleClick}
+          aria-label={`Ver más sobre ${specialty.name}`}
+        >
+          <span>Ver más</span>
+          <i className="fas fa-chevron-right button-icon" />
+        </button>
+        <div className="card-hover-effect"></div>
       </div>
     );
   };

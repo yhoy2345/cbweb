@@ -167,6 +167,8 @@
     z-index: -1;
   }
   
+
+
   /* EXCELLENCE GRID */
   .medical-excellence {
     display: grid;
@@ -194,6 +196,13 @@
     box-shadow: 0 15px 40px rgba(0,95,174,0.1);
   }
   
+  :root {
+    --azul-premium: #005fae;
+    --verde-premium: #00a859;
+    --easing-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+    --easing-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+
   .excellence-icon {
     width: 60px;
     height: 60px;
@@ -321,6 +330,8 @@
     color: var(--azul-premium);
     transform: scale(1.03);
   }
+
+
   /* STATS SECTION */
   .medical-stats {
     display: grid;

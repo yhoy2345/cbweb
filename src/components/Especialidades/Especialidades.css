@@ -969,22 +969,6 @@
 /* Fuente principal */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-/* Contenedor principal del buscador */
-.specialty-search {
-  padding: 5rem 2rem;
-  background: linear-gradient(135deg, rgba(168, 240, 198, 0.6), rgba(179, 217, 249, 0.6)),
-              radial-gradient(circle at top left, rgba(168, 240, 198, 0.4), transparent 70%),
-              radial-gradient(circle at bottom right, rgba(179, 217, 249, 0.4), transparent 70%);
-  max-width: 1200px;
-  margin: 40px auto;
-  border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 102, 204, 0.12);
-  border: 1px solid rgba(0, 102, 204, 0.1);
-  font-family: 'Montserrat', sans-serif;
-  position: relative;
-  overflow: hidden;
-  z-index: 999;
-}
 
 
 /* Fondo decorativo con formas geométricas */
