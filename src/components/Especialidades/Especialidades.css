@@ -1237,9 +1237,11 @@
 /* Grid de especialidades */
 .specialties-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas en lugar de 2 */
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1400px; /* Aumentar el ancho máximo */
+  margin: 0 auto;
 }
 
 /* Mensaje cuando no hay resultados */
@@ -1339,6 +1341,8 @@
   text-align: center;
   border: var(--border-width) solid rgba(0, 120, 215, 0.15);
   box-sizing: border-box;
+  transition: all 0.3s ease;
+
   isolation: isolate; /* Para efectos de superposición */
 }
 

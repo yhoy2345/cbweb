@@ -144,38 +144,3 @@ export const searchSectionData = {
 }
 
 
-const services = {
-    "Servicios Generales": [
-        { name: "Consulta Externa", description: "Atención médica en consultorios externos.", icon: "fas fa-stethoscope" },
-        { name: "Hospitalización", description: "Atención médica en áreas de hospitalización.", icon: "fas fa-procedures" },
-        { name: "Emergencia", description: "Atención médica en casos de emergencia.", icon: "fas fa-ambulance" },
-        { name: "Centro Quirúrgico", description: "Intervenciones quirúrgicas programadas.", icon: "fas fa-scalpel" },
-        { name: "Patología Clínica", description: "Análisis clínicos y estudios de laboratorio.", icon: "fas fa-vial" },
-        { name: "Diagnóstico por Imágenes", description: "Estudios de radiología, ecografía, etc.", icon: "fas fa-x-ray" },
-        { name: "Farmacia", description: "Dispensación de medicamentos y productos sanitarios.", icon: "fas fa-pills" },
-        { name: "Nutrición y Dietética", description: "Asesoramiento en alimentación y dietas.", icon: "fas fa-utensils" }
-    ],
-    "Servicios Especializados": [
-        { name: "Cardiología", description: "Diagnóstico y tratamiento de enfermedades del corazón.", icon: "fas fa-heartbeat" },
-        { name: "Dermatología", description: "Cuidado y tratamiento de la piel.", icon: "fas fa-allergies" },
-        { name: "Ginecología y Obstetricia", description: "Cuidado integral para la mujer en todas las etapas de su vida.", icon: "fas fa-female" },
-        { name: "Neurología", description: "Diagnóstico y tratamiento de trastornos del sistema nervioso.", icon: "fas fa-brain" },
-        { name: "Otorrinolaringología", description: "Cuidado de oído, nariz y garganta.", icon: "fas fa-ear-listen" },
-        { name: "Traumatología y Ortopedia", description: "Tratamiento de lesiones y enfermedades del sistema musculoesquelético.", icon: "fas fa-bone" }
-    ],
-    "Atención y Urgencias": [
-        { name: "Consulta Ambulatoria", description: "Atención médica en consultorios externos.", icon: "fas fa-user-md" },
-        { name: "Urgencias", description: "Atención médica en casos de emergencia.", icon: "fas fa-ambulance" },
-        { name: "Sala de Observación", description: "Monitoreo de pacientes en observación.", icon: "fas fa-bed" }
-    ],
-    "Hospitalización y Quirúrgicos": [
-        { name: "Hospitalización de Adultos", description: "Atención médica en áreas de hospitalización para adultos.", icon: "fas fa-procedures" },
-        { name: "Hospitalización de Pediatría", description: "Atención médica en áreas de hospitalización para niños.", icon: "fas fa-child" },
-        { name: "Intervenciones Quirúrgicas", description: "Procedimientos quirúrgicos especializados.", icon: "fas fa-scalpel" }
-    ],
-    "Laboratorio y Diagnóstico": [
-        { name: "Laboratorio Clínico", description: "Análisis clínicos y estudios de tejidos.", icon: "fas fa-vial" },
-        { name: "Ecografía", description: "Diagnóstico por imágenes de ultrasonido.", icon: "fas fa-ultrasound" },
-        { name: "Banco de Sangre", description: "Provisión de unidades de sangre y hemoderivados.", icon: "fas fa-tint" }
-    ]
-};

@@ -98,7 +98,7 @@ const Header = () => {
     { 
       href: '/staff', 
       icon: faUserDoctor,
-      text: 'Staff Médico',
+      text: 'Staff',
       badge: null
     },
     { 
@@ -170,7 +170,7 @@ const Header = () => {
                           <FontAwesomeIcon icon={faSpinner} className="address-spinner" spin />
                         )}
                         <FontAwesomeIcon icon={faMapMarkerAlt} className="address-icon" />
-                        <p>Jirón Progreso 351, Huánuco 10001 - Perú</p>
+                        <p>Jirón Progreso 351, Huánuco - Perú</p>
                         {geoError && <span className="geo-error-tooltip">{geoError}</span>}
                       </div>
                     </div>

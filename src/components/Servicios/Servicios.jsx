@@ -42,7 +42,7 @@ const Servicios = () => {
   const SpecialtyCard = ({ specialty }) => {
     const navigate = useNavigate();
   
-    return (
+    return ( 
       <div className="specialty-card animate-on-scroll">
         <div className="card-icon-container">
         <div className="card-icon-bg">

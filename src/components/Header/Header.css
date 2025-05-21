@@ -176,7 +176,6 @@ UR BAT  Logo
   
   display: flex;
   align-items: center;
-  width: 189px;
   height: 119px;
   gap: 12px;
   background-color: white;
@@ -197,6 +196,10 @@ UR BAT  Logo
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   z-index: 1;
   width: max-content;
+  justify-content: center;
+  width: auto; /* No ocupa todo el ancho */
+  margin: 0 auto; /* Centrado horizontal */
+  flex-shrink: 0;
 }
 
 /* Animación de entrada */
@@ -211,22 +214,32 @@ UR BAT  Logo
   }
 }
 
-
+/* Contenedor del ícono (controla el tamaño máximo) */
+.urbat-logo__icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 200px; /* Tamaño por defecto (grande) */
+  height: auto;
+  transition: transform 0.3s ease; /* Suaviza el cambio de tamaño */
+  flex-shrink: 0; /* Evita compresión */
+}
 
 /* Icono principal - Ocupa todo el contenedor */
 .urbat-logo__icon {
   position: relative;
   z-index: 4;
-  width: 189px;
-  height: 119px;
+  width: 169px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .urbat-logo__brain-icon {
-  width: 130%; /* Aumenta el tamaño más allá del contenedor */
-  height: 130%;
+  width: 100%; /* Aumenta el tamaño más allá del contenedor */
+  height: auto;
+  max-width: 100%;
   object-fit: contain;
   transform: scale(1.15); /* Escala adicional para más tamaño */
   transition: transform 0.3s ease; /* Suaviza el efecto al interactuar */
@@ -569,8 +582,8 @@ HEADER CONTACT STYLES
 
 /* Contenedor de iconos sociales (20%) */
 .social-icons-container {
+  left: 80px;
   position: absolute;
-  left: 80px; /* Posición horizontal (no modificar) */
   top: calc(48% - 30px); /* Movido 15px arriba (original: top: 50%) */
   transform: translateY(-50%);
   display: flex;
@@ -942,14 +955,17 @@ height: 3px;
 ================================== */
 /* Contenedor vertical */
 .header-buttons-vertical {
+  margin-left: 10px;
   display: flex;
   flex-direction: column;
   gap: 12px; /* Mayor separación entre botones */
-  margin-left: 10px;
+  align-items: center;
+  
 }
 
 /* Estilos base mejorados para botones  */
 .header-buttons-vertical a {
+  font-size: 18px; 
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -957,7 +973,6 @@ height: 3px;
   padding: 16px 16px; /* Más padding para mayor presencia */
   border-radius: 26px; /* Bordes más redondeados */
   font-weight: 700;
-  font-size: 18px; /* Texto más grande */
   text-decoration: none;
   color: white;
   overflow: hidden;
@@ -1032,8 +1047,39 @@ height: 3px;
   font-size: 54px;
 }
 
+.emergency-btn, 
+.whatsapp-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 180px; /* Ancho inicial */
+  overflow: hidden;
+}
+
 .whatsapp-btn .btn-icon {
-  font-size: 26px; /* Tamaño del icono de WhatsApp */
+  font-size: 20px; /* Tamaño del icono de WhatsApp */
+}
+
+.btn-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.emergency-btn:hover .btn-overlay,
+.whatsapp-btn:hover .btn-overlay {
+  opacity: 1;
 }
 
 /* Efecto de onda para WhatsApp */
@@ -1209,6 +1255,162 @@ visibility: visible;
   display: none;
 }
 }
+
+@media (max-width: 1815px) {
+  .urbat-logo__icon-container {
+    width: 160px; /* Reducción desde 300px */
+  }
+}
+
+@media (max-width: 1710px) {
+  .urbat-logo__icon-container {
+    width: 100px;
+  }
+}
+
+@media (max-width: 1500px) {
+  .urbat-logo__icon-container {
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 1260px) {
+  .urbat-logo__icon-container {
+    min-width: 70px;
+  }
+}
+
+/* Tablets pequeñas / Móviles grandes (horizontal) */
+@media (max-width: 768px) {
+  .urbat-logo__icon-container {
+    width: 80px;
+    min-width: 80px;
+  }
+}
+
+/* Móviles medianos (ej: iPhone estándar) */
+@media (max-width: 576px) {
+  .urbat-logo__icon-container {
+    width: 70px;
+    min-width: 70px; /* Tamaño mínimo absoluto */
+  }
+}
+
+/* Móviles pequeños (opcional) */
+@media (max-width: 400px) {
+  .urbat-logo__icon-container {
+    width: 60px;
+    min-width: 60px; /* No se reduce más */
+  }
+}
+
+
+
+/* Reducción de tamaño cuando la pantalla es menor a 1560px */
+@media (max-width: 1565px) {
+  .header-buttons-vertical {
+    margin-left: 6px;}
+  .header-buttons-vertical a {
+    font-size: 15px; 
+  }
+  .emergency-btn, 
+  .whatsapp-btn {
+    width: 100px; /* Reducción del ancho */
+    padding: 1px 10px;
+    font-size: 1px;
+  }
+  
+  .btn-icon {
+    margin-right: 8px;
+  }
+  
+  .header-buttons-vertical {
+    gap: 8px; /* Reducción del espacio entre botones */
+  }
+}
+
+@media (max-width: 1525px) {
+  .header-buttons-vertical {
+    margin-left: 2px;}
+  .header-buttons-vertical a {
+    font-size: 14px; 
+  }
+  .emergency-btn, 
+  .whatsapp-btn {
+    width: 100px; /* Reducción del ancho */
+    padding: 1px 1px;
+    font-size: 1px;
+  }
+  
+  .btn-icon {
+    margin-right: 2px;
+  }
+  
+  .header-buttons-vertical {
+    gap: 8px; /* Reducción del espacio entre botones */
+  }
+}
+
+@media (max-width: 1500px) {
+  .social-icons-container {
+    left: 50px;}
+}
+
+
+@media (max-width: 1360px) {
+  .social-icons-container {
+    left: 40px;}
+  .header-buttons-vertical {
+    margin-left: -10px;}  
+}
+
+@media (max-width: 1300px) {
+  .header-buttons-vertical {
+    margin-left: -15px;
+    width: fit-content; /* Ancho reducido del contenedor */
+  } 
+  .header-buttons-vertical a {
+    font-size: 13px; 
+  }
+  .emergency-btn, 
+  .whatsapp-btn {
+    padding: 14px 2px !important;
+    font-size: 1px;
+  }
+  
+  .btn-icon {
+    margin-right: -4px;
+    margin-left: -28px;
+  }
+  
+  .header-buttons-vertical {
+    gap: 8px; /* Reducción del espacio entre botones */
+  }
+  /* Elimina espacio residual en el texto */
+  .header-buttons-vertical a span {
+    padding-left: 0;
+    letter-spacing: -0.5px;
+  }
+}
+
+/* Versión aún más compacta para móviles */
+@media (max-width: 768px) {
+  .emergency-btn, 
+  .whatsapp-btn {
+    width: 130px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .btn-icon {
+    font-size: 14px;
+  }
+}
+
+
+
+
+
 /*═══════════════════════════════════════════════╗
 ✨  RESPONSIVE DESIGN  ≤ 1650px   ✨
 ═══════════════════════════════════════════════*/

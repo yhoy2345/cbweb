@@ -12,8 +12,8 @@ import Convenios from './components/Convenios/Convenios';
 import Dermatologia from './components/Especialidades/Especialidades/Dermatologia';
 import Cardiologia from './components/Especialidades/Especialidades/Cardiologia';
 import Anestesiologia from './components/Especialidades/Especialidades/Anestesiologia';
-import Cirugiageneral from './components/Especialidades/Especialidades/Cirugiageneral';
-import cirugiaPediatrica from './components/Especialidades/Especialidades/CirugiaPediatrica';
+import Cirugiageneral from './components/Especialidades/Especialidades/CirugiaGeneral';
+import CirugiaPediatrica from './components/Especialidades/Especialidades/CirugiaPediatrica';
 import ScrollToTop from './components/ScrollToTop';
 
 import './App.css';
@@ -38,7 +38,7 @@ function App() {
               <Route path="/especialidades/cardiologia" element={<Cardiologia />} />
               <Route path="/especialidades/anestesiologia" element={<Anestesiologia />} />
               <Route path="/especialidades/cirugiageneral" element={<Cirugiageneral/>} />
-              <Route path="/especialidades/cirugiapediatrica" element={<cirugiaPediatrica/>} />
+              <Route path="/especialidades/cirugiapediatrica" element={<CirugiaPediatrica/>} />
 
               {/* Ruta de servicios */}
               <Route path="/servicios" element={<Servicios />} />
