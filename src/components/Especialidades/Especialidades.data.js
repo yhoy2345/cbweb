@@ -14,13 +14,13 @@
         {
         name: "Cirugía General",
         description: "Intervenciones quirúrgicas en diversas áreas.",
-        url: "/especialidades/cirugia-general",
+        url: "/especialidades/cirugiageneral",
         icon: "fas fa-procedures"
         },
         {
         name: "Cirugía Pediátrica",
         description: "Cirugías especializadas para niños.",
-        url: "/especialidades/cirugia-pediatrica",
+        url: "/especialidades/cirugiapediatrica",
         icon: "fas fa-baby"
         },
         {
