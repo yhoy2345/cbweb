@@ -50,7 +50,7 @@ z-index: 2;
 =========================== */
 .navbar {
   position: fixed;
-  top: 30px; /* 30px del tope */
+  top: 1.5%; 
   left: 50%;
   transform: translateX(-50%); /* centrado */
   width: 85%;
@@ -200,6 +200,7 @@ UR BAT  Logo
   width: auto; /* No ocupa todo el ancho */
   margin: 0 auto; /* Centrado horizontal */
   flex-shrink: 0;
+  
 }
 
 /* Animación de entrada */
@@ -224,6 +225,7 @@ UR BAT  Logo
   height: auto;
   transition: transform 0.3s ease; /* Suaviza el cambio de tamaño */
   flex-shrink: 0; /* Evita compresión */
+  margin-right: 10px;
 }
 
 /* Icono principal - Ocupa todo el contenedor */
@@ -447,6 +449,7 @@ Navegación Links
   display: flex;
   align-items: center;
   gap: 20px;
+  margin-left: 10px;
 }
 
 .nav-links-container {
@@ -1378,7 +1381,7 @@ visibility: visible;
     font-size: 1px;
   }
   
-  .btn-icon {
+  .btn-icon { 
     margin-right: -4px;
     margin-left: -28px;
   }

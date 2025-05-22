@@ -9,7 +9,10 @@ const medicalStaff = [
     name: 'Dra. Ana López',
     specialty: 'Cardiología',
     summary: 'Especialista en enfermedades cardiovasculares y rehabilitación cardíaca con más de 15 años de experiencia.',
-    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+    experience: 15,
+    cmp:  666,
+    rne:  666
   },
   {
     id: 2,
@@ -271,6 +274,15 @@ const Staff = () => {
                   <div className="staff-info">
                     <h3 className="staff-name">{staff.name}</h3>
                     <p className="staff-summary">{staff.summary}</p>
+                  </div>
+                  <div className="staff-credentials-container">
+                    <div className="staff-experience">
+                      <span className="credential-experience">Experiencia: {staff.experience}</span>
+                    </div>
+                    <div className="staff-badges">
+                      <span className="credential-badge cmp-badge">CMP: {staff.cmp}</span>
+                      <span className="credential-badge rne-badge">RNE: {staff.rne}</span>
+                    </div>
                   </div>
                 </div>
               ))}
