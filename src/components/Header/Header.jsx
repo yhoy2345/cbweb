@@ -155,23 +155,26 @@ const Header = () => {
                         <FontAwesomeIcon icon={faInstagram} />
                       </a>
                     </div>
-                    <div className="contact-info-container"></div>
-                      <div className="header-contact">
-                        <FontAwesomeIcon icon={faPhone} className="phone-icon" />
-                        <p>(111) 111-1111 / (111) 111-1111</p>
-                      </div>
-                      <div className="header-separator">
-                      <div 
-                        className="header-address"
-                        onClick={handleAddressClick}
-                        aria-busy={isLoading}
-                      >
-                        {isLoading && (
-                          <FontAwesomeIcon icon={faSpinner} className="address-spinner" spin />
-                        )}
-                        <FontAwesomeIcon icon={faMapMarkerAlt} className="address-icon" />
-                        <p>Jirón Progreso 351, Huánuco - Perú</p>
-                        {geoError && <span className="geo-error-tooltip">{geoError}</span>}
+                    <div className="contact-info-container" style={{ display: menuOpen ? 'none' : 'block' }}>
+                      <div className="contact-info-wrapper">
+                        <div className="header-contact">
+                          <FontAwesomeIcon icon={faPhone} className="phone-icon" />
+                          <p>(111) 111-1111 / (111) 111-1111</p>
+                        </div>
+                        <div className="header-separator">
+                          <div 
+                            className="header-address"
+                            onClick={handleAddressClick}
+                            aria-busy={isLoading}
+                          >
+                            {isLoading && (
+                              <FontAwesomeIcon icon={faSpinner} className="address-spinner" spin />
+                            )}
+                            <FontAwesomeIcon icon={faMapMarkerAlt} className="address-icon" />
+                            <p>Jirón Progreso 351, Huánuco - Perú</p>
+                            {geoError && <span className="geo-error-tooltip">{geoError}</span>}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -249,6 +252,21 @@ const Header = () => {
                     </li>
                   ))}
                 </ul>
+                {/* Sección de contacto en el menú móvil */}
+                <div className="mobile-contact-info">
+                  <div className="mobile-header-contact">
+                    <FontAwesomeIcon icon={faPhone} className="mobile-phone-icon" />
+                    <p>(111) 111-1111 / (111) 111-1111</p>
+                  </div>
+                  <div className="mobile-header-address" onClick={handleAddressClick}>
+                    {isLoading && (
+                      <FontAwesomeIcon icon={faSpinner} className="mobile-address-spinner" spin />
+                    )}
+                    <FontAwesomeIcon icon={faMapMarkerAlt} className="mobile-address-icon" />
+                    <p>Jirón Progreso 351, Huánuco - Perú</p>
+                    {geoError && <span className="mobile-geo-error-tooltip">{geoError}</span>}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

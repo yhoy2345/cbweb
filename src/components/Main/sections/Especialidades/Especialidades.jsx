@@ -8,7 +8,6 @@ import {
   faBaby, 
   faMicroscope, 
   faPills,
-  faChevronRight,
   faPlus,
   faSyringe,
   faHeartbeat,
@@ -73,12 +72,7 @@ const Especialidades = () => {
     return iconMap[iconName] || faHeart;
   };
 
-  const coloresDegradado = [
-    'linear-gradient(135deg, rgba(0, 120, 215, 0.9) 0%, rgba(72, 199, 116, 0.9) 100%)',
-    'linear-gradient(135deg, rgba(72, 199, 116, 0.9) 0%, rgba(0, 120, 215, 0.9) 100%)',
-    'linear-gradient(135deg, rgba(0, 120, 215, 0.9) 0%, rgba(72, 199, 116, 0.9) 100%)',
-    'linear-gradient(135deg, rgba(72, 199, 116, 0.9) 0%, rgba(0, 120, 215, 0.9) 100%)'
-  ];
+
 
   return (
     <section className="especialidades-premium" id="especialidades" ref={sectionRef}>
@@ -111,37 +105,47 @@ const Especialidades = () => {
           </motion.p>
         </div>
 
-        <div className="especialidades-grid">
-          {specialties.slice(0, 8).map((specialty, index) => (
-            <motion.div 
-              key={specialty.name} 
-              className="especialidad-card"
-              ref={el => cardsRef.current[index] = el}
-              style={{ background: coloresDegradado[index % coloresDegradado.length] }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 * index }}
-              whileHover={{ y: -5, scale: 1.02 }}
-            >
-              <div className="card-inner" style={{ padding: '1.5rem' }}>
-                <div className="icon-animation-container">
-                  <div className="icon-orb">
-                    <div className="icon-pulse"></div>
-                    <div className="icon-rings">
-                      <div className="ring"></div>
-                      <div className="ring"></div>
+        <div className="specialties-section">
+          <div className="specialties-container">
+            {/* Panel hexagonal a la izquierda */}
+            <div className="honeycomb-container">
+              {specialties.slice(0, 6).map((specialty, index) => (
+                <motion.div
+                  key={`specialty-${index}`}
+                  className={`honeycomb-cell honeycomb-cell-${index}`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ 
+                    duration: 0.5, 
+                    delay: index * 0.1,
+                    ease: "backOut"
+                  }}
+                  whileHover={{
+                    scale: 1.1,
+                    zIndex: 10,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <div className="honeycomb-content">
+                    <div className="honeycomb-icon">
+                      <FontAwesomeIcon icon={getIcon(specialty.icon)} size="lg" />
                     </div>
-                    <div className="especialidad-icon" style={{ marginBottom: '1rem' }}>
-                      <FontAwesomeIcon icon={getIcon(specialty.icon)} size="2x" />
-                    </div>
+                    <h3 className="honeycomb-title">{specialty.name}</h3>
                   </div>
-                </div>
-                <h3 style={{ margin: '0.5rem 0 0', textAlign: 'center' }}>{specialty.name}</h3>
-              </div>
-              <div className="card-glow"></div>
-              <div className="card-particles"></div>
-            </motion.div>
-          ))}
+                  <div className="honeycomb-hexagon"></div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Imagen a la derecha */}
+            <div className="specialties-image-right">
+              <img 
+                src="/images/hero/esp.webp" 
+                alt="Profesional médico" 
+                loading="lazy" 
+              />
+            </div>
+          </div>
         </div>
 
         <motion.div

@@ -1,21 +1,37 @@
 import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-  faStethoscope, 
-  faHeartbeat, 
-  faAmbulance, 
+  faPlus,
+  faSyringe,
   faProcedures,
-  faChevronRight,
-  faPlus
+  faHeartbeat,
+  faXRay,
+  faPills,
+  faMicroscope,
+  faStethoscope,
+  faBaby,
+  faAllergies,
+  faFemale,
+  faVial,
+  faUserMd,
+  faTooth,
+  faEye,
+  faBrain,
+  faLungs,
+  faHeart
 } from '@fortawesome/free-solid-svg-icons';
+import { specialties, searchSectionData } from '../../../Servicios/Servicios.data';
 import './Servicios.css';
 
 const Servicios = () => {
+  // Refs for animation triggers
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
   const cardsRef = useRef([]);
   const buttonRef = useRef(null);
 
+  // Intersection Observer setup
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -25,105 +41,167 @@ const Servicios = () => {
       });
     }, { threshold: 0.1 });
 
-    [sectionRef, titleRef, buttonRef].forEach(ref => {
-      if (ref.current) observer.observe(ref.current);
-    });
-    cardsRef.current.forEach(card => card && observer.observe(card));
+    const elementsToObserve = [
+      sectionRef.current,
+      titleRef.current,
+      buttonRef.current,
+      ...cardsRef.current.filter(Boolean)
+    ];
+
+    elementsToObserve.forEach(element => element && observer.observe(element));
 
     return () => observer.disconnect();
   }, []);
 
-  const servicios = [
-    {
-      id: 1,
-      nombre: "Consultas Externas",
-      descripcion: "Atención médica en consultorios externos",
-      icono: faStethoscope,
-      color: "#0078d7"
+  // Icon mapping utility
+  const iconMap = {
+    'fas fa-syringe': faSyringe,
+    'fas fa-heartbeat': faHeartbeat,
+    'fas fa-procedures': faProcedures,
+    'fas fa-baby': faBaby,
+    'fas fa-allergies': faAllergies,
+    'fas fa-stethoscope': faStethoscope,
+    'fas fa-female': faFemale,
+    'fas fa-vial': faVial,
+    'fas fa-user-md': faUserMd,
+    'fas fa-tooth': faTooth,
+    'fas fa-eye': faEye,
+    'fas fa-brain': faBrain,
+    'fas fa-lungs': faLungs,
+    'fas fa-x-ray': faXRay,
+    'faHeart': faHeart,
+    'faMicroscope': faMicroscope,
+    'faPills': faPills
+  };
+
+  const getIcon = (iconName) => iconMap[iconName] || faStethoscope;
+
+  // Animation variants for consistent motion
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { 
+        duration: 0.5, 
+        ease: "backOut" 
+      }
     },
-    {
-      id: 2,
-      nombre: "Emergencias las 24 horas",
-      descripcion: "Atención inmediata con equipo especializado",
-      icono: faHeartbeat,
-      color: "#0078d7"
-    },
-    {
-      id: 3,
-      nombre: "Hospitalización",
-      descripcion: "Cuidados médicos con comodidad y calidad",
-      icono: faAmbulance,
-      color: "#0078d7"
-    },
-    {
-      id: 4,
-      nombre: "Centro Quirúrgico",
-      descripcion: "Salas equipadas con tecnología avanzada",
-      icono: faProcedures,
-      color: "#0078d7"
+    hover: {
+      scale: 1.1,
+      zIndex: 10,
+      transition: { duration: 0.3 }
     }
-  ];
+  };
 
   return (
-    <section className="servicios-section" id="servicios" ref={sectionRef}>
-      {/* Contenido principal - Ya no lleva fondo propio */}
+    <section 
+      className="servicios-section" 
+      id="servicios" 
+      ref={sectionRef}
+    >
       <div className="servicios-container">
-        {/* Título con línea animada */}
-        <div className="servicios-title-wrapper">
-          <h2 className="servicios-title" ref={titleRef}>NUESTROS SERVICIOS</h2>
-          <div className="servicios-title-underline">
-            <div className="servicios-underline-animation"></div>
-          </div>
-        </div>
         
-        <p className="servicios-subtitle">
-          Excelencia médica a tu alcance con los <span>mejores servicios</span>
-        </p>
-        
-        {/* Tarjetas de servicios */}
-        <div className="servicios-grid">
-          {servicios.map((servicio, index) => (
-            <div 
-              className="servicios-card" 
-              key={servicio.id}
-              ref={el => cardsRef.current[index] = el}
-              style={{ '--servicios-card-color': servicio.color }}
-            >
-              <div className="servicios-card-inner">
-                <div className="servicios-icon-container">
-                  <div className="servicios-icon-orb">
-                    <div className="servicios-icon-pulse"></div>
-                    <div className="servicios-icon-rings">
-                      <div className="servicios-icon-ring"></div>
-                      <div className="servicios-icon-ring"></div>
-                    </div>
-                    <div className="servicios-icon">
-                      <FontAwesomeIcon icon={servicio.icono} />
-                    </div>
-                  </div>
-                </div>
-                <h3>{servicio.nombre}</h3>
-                <p>{servicio.descripcion}</p>
-                <div className="servicios-btn-wrapper">
-                  <a href="<button onClick={() => scrollToSection()}>Ver más</button>" className="servicios-btn">
-                    <span>Ver más</span>
-                    <FontAwesomeIcon icon={faChevronRight} />
-                    <div className="servicios-btn-hover-effect"></div>
-                  </a>
-                </div>
-              </div>
-              <div className="servicios-card-glow"></div>
+        {/* Header Section */}
+        <div className="servicios-header">
+          <div className="servicios-title-wrapper">
+            <h2 className="servicios-title" ref={titleRef}>
+              NUESTROS SERVICIOS
+            </h2>
+            <div className="servicios-title-underline">
+              <div className="servicios-underline-animation" />
             </div>
-          ))}
+          </div>
+          
+          <p className="servicios-subtitle">
+            {searchSectionData.title.text}{' '}
+            <span className="highlight-text">
+              {searchSectionData.title.highlight}
+            </span>
+          </p>
         </div>
 
-        {/* Botón ver todos */}
-        <div className="servicios-btn-todos-container" ref={buttonRef}>
-          <a href="<button onClick={() => scrollToSection()}>Ver más</button>" className="servicios-btn-todos">
+        <div className="molecule-premium-container">
+          {/* Imagen flotante a la izquierda con efecto de luz */}
+          <motion.div 
+            className="medical-image-container"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <img
+              src="/images/hero/esp.webp"
+              alt="Medical professional"
+              className="medical-image"
+              loading="lazy"
+            />
+            <div className="image-light-effect"></div>
+          </motion.div>
+
+          {/* Estructura molecular derecha con conexiones dinámicas */}
+          <div className="molecule-structure-wrapper">
+            <svg className="molecule-connectors" width="100%" height="100%" viewBox="0 0 500 500">
+              {/* Conexiones principales */}
+              <path className="bond" d="M250,100 L250,180" />
+              <path className="bond" d="M350,150 L290,200" />
+              <path className="bond" d="M350,350 L290,300" />
+              <path className="bond" d="M250,400 L250,320" />
+              <path className="bond" d="M150,350 L210,300" />
+              <path className="bond" d="M150,150 L210,200" />
+              {/* Conexiones secundarias */}
+              <path className="bond-secondary" d="M250,220 L280,250" />
+              <path className="bond-secondary" d="M250,280 L280,250" />
+              <path className="bond-secondary" d="M220,250 L210,200" />
+              <path className="bond-secondary" d="M220,250 L210,300" />
+            </svg>
+
+            {/* Nodos moleculares */}
+            {specialties.slice(0, 6).map((specialty, index) => (
+              <motion.div
+                key={`molecule-node-${index}`}
+                className={`molecule-node node-${index + 1}`}
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 120,
+                  damping: 12,
+                  delay: index * 0.15
+                }}
+                whileHover={{
+                  scale: 1.15,
+                  boxShadow: "0 15px 35px -10px rgba(0, 118, 215, 0.4)"
+                }}
+              >
+                <div className="node-core">
+                  <div className="node-icon">
+                    <FontAwesomeIcon 
+                      icon={getIcon(specialty.icon)} 
+                      className="node-icon-svg"
+                    />
+                  </div>
+                  <div className="node-label">{specialty.name}</div>
+                </div>
+                <div className="node-aura"></div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer CTA */}
+        <div className="cta-section" ref={buttonRef}>
+          <motion.a
+            href="/servicios"
+            className="cta-button"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             <span>Ver todos nuestros servicios</span>
-            <FontAwesomeIcon icon={faPlus} className="servicios-plus-icon" />
-            <div className="servicios-btn-glow"></div>
-          </a>
+            <FontAwesomeIcon 
+              icon={faPlus} 
+              className="plus-icon" 
+            />
+          </motion.a>
         </div>
       </div>
     </section>

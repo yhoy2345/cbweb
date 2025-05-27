@@ -53,13 +53,13 @@ z-index: 2;
   top: 1.5%; 
   left: 50%;
   transform: translateX(-50%); /* centrado */
-  width: 85%;
+  width: 76.5%;
   z-index: 9999;
-  background: rgba(140, 141, 144, 0.4); /* si quieres fondo */
+  background: rgba(224, 223, 223, 0.4); /* si quieres fondo */
   backdrop-filter: blur(10px); /* opcional, glassmorphism */
-  border-radius: 20px; /* opcional, bordes redondeados */
-  padding: 10px 20px; /* opcional, separación interna */
-  box-shadow: 0 40px 300px rgba(208, 15, 15, 0.1); /* opcional, sombrita */
+  border-radius: 25px; /* opcional, bordes redondeados */
+  padding: 10px -10px; /* opcional, separación interna */
+  box-shadow: 0 40px 300px rgba(188, 30, 30, 0.1); /* opcional, sombrita */
   display: flex;
   justify-content: center; /* Centra el contenido horizontalmente */
   align-items: center; /* Centra verticalmente */
@@ -70,7 +70,7 @@ z-index: 2;
 .navbar-container {
   position: relative;
   width: 100%;
-  padding: 10px 20px;
+  padding: 5px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -184,7 +184,7 @@ UR BAT  Logo
   font-weight: 700;
   text-decoration: none;
   position: relative;
-  padding: 10px 16px;
+  padding: 6.1px 14px;
   border-radius: 33px;
   overflow: hidden;
   opacity: 0;
@@ -573,11 +573,12 @@ HEADER CONTACT STYLES
 /* Estructura principal */
 .header-contact-top {
   display: flex;
+  justify-content: space-between;
   width: 100%;
   max-width: 100%; /* Asegura que no exceda el ancho */
   box-sizing: border-box; /* Incluye padding en el ancho total */
   align-items: center;
-  padding: 6px 10px; /* Padding reducido en los lados */
+  padding: -2px 10px; /* Padding reducido en los lados */
   background: rgba(232, 232, 234, 0.7);
   border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -587,7 +588,7 @@ HEADER CONTACT STYLES
 .social-icons-container {
   left: 80px;
   position: absolute;
-  top: calc(48% - 30px); /* Movido 15px arriba (original: top: 50%) */
+  top: calc(48% - 28px); /* Movido 15px arriba (original: top: 50%) */
   transform: translateY(-50%);
   display: flex;
   gap: 15px;
@@ -617,16 +618,26 @@ HEADER CONTACT STYLES
 .social-icon.instagram {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
-/* Contenedor de información de contacto - Versión Premium */
+/* Contenedor de información de contacto*/
 .contact-info-container {
-  width: 32%;
-  display: flex;
+  width: 2%;
+  display: block;
   align-items: center;
-  gap: 18px; /* Espacio entre elementos aumentado */
-  padding: 0 12px;
+  gap: 1px; /* Espacio entre elementos aumentado */
+  padding: -10px 12px;
+  margin-left: 30%;
 }
 
-/* Estilos comunes para contactos - Versión Premium */
+/* Contenedor interno para alinear contactos y dirección */
+.contact-info-wrapper {
+  display: flex;
+  align-items: center;
+  border-radius: 35px;
+  padding: 5px 10px;
+  backdrop-filter: blur(5px);
+}
+
+/* Estilos comunes para contactos */
 .header-contact, 
 .header-address {
   display: flex;
@@ -639,9 +650,10 @@ HEADER CONTACT STYLES
   padding: 8px 15px;
   border-radius: 35px;
   white-space: nowrap;
+  
 }
 
-/* Contenedor del separador y dirección - Versión Premium */
+/* Contenedor del separador y dirección  */
 .header-separator {
   display: flex;
   align-items: center;
@@ -661,7 +673,6 @@ HEADER CONTACT STYLES
 /* Efectos hover premium */
 .header-contact:hover, 
 .header-address:hover {
-  background: linear-gradient(135deg, rgba(72, 199, 116, 0.1), rgba(0, 120, 215, 0.1));
   color: #0078d7;
   transform: translateY(-2px);
 }
@@ -767,7 +778,7 @@ UR BAT NAV
 display: flex;
 gap: 2px;
 font-size: 1rem;
-padding: 8px 20px;
+padding: 6px 20px;
 margin: 0;
 list-style: none;
 background: rgba(217, 217, 221, 0.7);
@@ -958,7 +969,7 @@ height: 3px;
 ================================== */
 /* Contenedor vertical */
 .header-buttons-vertical {
-  margin-left: 10px;
+  margin-left: -3px;
   display: flex;
   flex-direction: column;
   gap: 12px; /* Mayor separación entre botones */
@@ -968,14 +979,14 @@ height: 3px;
 
 /* Estilos base mejorados para botones  */
 .header-buttons-vertical a {
-  font-size: 18px; 
+  font-size: 17px; 
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 16px; /* Más padding para mayor presencia */
+  padding: 16px 4px; /* Más padding para mayor presencia */
   border-radius: 26px; /* Bordes más redondeados */
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
   color: white;
   overflow: hidden;
@@ -1217,6 +1228,10 @@ visibility: visible;
 @media (max-width: 1260px) {
 /* Oculta el menú horizontal */
 .urbat-nav__horizontal {
+  display: none !important;
+}
+.header-contact,
+.header-separator,.header-address{
   display: none !important;
 }
 

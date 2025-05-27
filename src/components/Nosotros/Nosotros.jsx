@@ -11,38 +11,126 @@ const items = [
         id: 1,
         type: 'image',
         src: '/images/Galeria/ambulancia1.webp',
-        alt: 'Imagen 1',
-        description: 'Descripción imagen 1',
-        category: 'instalaciones',
-        loading: 'lazy',
-    },
-    {
-        id: 1,
-        type: 'image',
-        src: '/images/Galeria/ambulancia2.webp',
-        alt: 'Imagen 1',
-        description: 'Descripción imagen 1',
-        category: 'instalaciones',
-        loading: 'lazy',
-    },
-    {
-        id: 1,
-        type: 'image',
-        src: '/images/Galeria/ambulancia3.webp',
-        alt: 'Imagen 1',
-        description: 'Descripción imagen 1',
-        category: 'instalaciones',
-        loading: 'lazy',
+        alt: 'Ambulancia 1',
+        description: 'Nuestras unidades de emergencia',
+        category: 'Infraestructura',
+        loading: 'lazy'
     },
     {
         id: 2,
         type: 'image',
-        src: '/images/gallery/2.jpg',
-        alt: 'Imagen 2',
-        description: 'Descripción imagen 2',
-        category: 'equipos'
+        src: '/images/Galeria/ambulancia2.webp',
+        alt: 'Ambulancia 2',
+        description: 'Equipamiento de última generación',
+        category: 'Infraestructura',
+        loading: 'lazy'
     },
-    // Agrega más items según necesites...
+    {
+        id: 3,
+        type: 'image',
+        src: '/images/Galeria/ambulancia3.webp',
+        alt: 'Ambulancia 3',
+        description: 'Flota de vehículos médicos',
+        category: 'Infraestructura',
+        loading: 'lazy'
+    },
+    
+    // Equipos
+    {
+        id: 4,
+        type: 'image',
+        src: '/images/hua.jpg',
+        alt: 'Equipo médico 1',
+        description: 'Tecnología de diagnóstico',
+        category: 'Equipo Médico',
+        loading: 'lazy'
+    },
+    {
+        id: 5,
+        type: 'image',
+        src: '/images/hua.jpg',
+        alt: 'Equipo médico 1',
+        description: 'Tecnología de diagnóstico',
+        category: 'Equipo Médico',
+        loading: 'lazy'
+    },
+    {
+        id: 6,
+        type: 'image',
+        src: '/images/hua.jpg',
+        alt: 'Equipo médico 1',
+        description: 'Tecnología de diagnóstico',
+        category: 'Equipo Médico',
+        loading: 'lazy'
+    },
+    {
+        id: 7,
+        type: 'image',
+        src: '/images/hua.jpg',
+        alt: 'Equipo médico 2',
+        description: 'Instrumentos quirúrgicos',
+        category: 'Equipo Médico',
+        loading: 'lazy'
+    },
+    
+    // tecnologia
+    {
+        id: 8,
+        type: 'image',
+        src: '/images/staff1.jpg',
+        alt: 'Equipo médico',
+        description: 'Nuestros especialistas',
+        category: 'Tecnología',
+        loading: 'lazy'
+    },
+    {
+        id: 9,
+        type: 'image',
+        src: '/images/staff2.jpg',
+        alt: 'Cirujano',
+        description: 'Profesionales certificados',
+        category: 'Tecnología',
+        loading: 'lazy'
+    },
+    
+    // Álbum
+    {
+        id: 10,
+        type: 'image',
+        src: '/images/infra1.jpg',
+        alt: 'Hospital',
+        description: 'Nuestras instalaciones',
+        category: 'Instalaciones',
+        loading: 'Pacientes'
+    },
+    {
+        id: 11,
+        type: 'image',
+        src: '/images/infra2.jpg',
+        alt: 'Quirófano',
+        description: 'Salas de operaciones',
+        category: 'Instalaciones',
+        loading: 'Pacientes'
+    },
+    
+    {
+        id: 12,
+        type: 'image',
+        src: '/images/atencion1.jpg',
+        alt: 'Atención al paciente',
+        description: 'Cuidado personalizado',
+        category: 'Pacientes',
+        loading: 'lazy'
+    },
+    {
+        id: 13,
+        type: 'image',
+        src: '/images/atencion2.jpg',
+        alt: 'Consulta médica',
+        description: 'Atención especializada',
+        category: 'Pacientes',
+        loading: 'lazy'
+    }
 ];
 
 const Nosotros = () => {
@@ -436,8 +524,9 @@ const Nosotros = () => {
                 className={`gallery-section ${isVisible ? 'gallery-visible' : ''}`}
                 >
                 <div className="gallery-container">
-                    <h2 className="gallery-title">
-                    Nuestra <span className="gallery-title-accent">Galería</span>
+                    <h2 className="luxe-main-title">
+                        <span className="luxe-title-stroke">Nuestra</span>
+                        <span className="luxe-title-fill">Galeria</span>
                     </h2>
                     
                     {/* Filtros por categoría */}
@@ -460,80 +549,78 @@ const Nosotros = () => {
                     
                     {/* Carrusel principal */}
                     <div className="main-carousel">
-                    <div 
-                        className="carousel-track"
-                        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-                    >
-                        {filteredItems.map((item, index) => (
                         <div 
-                            key={item.id}
-                            className="carousel-slide"
+                            className="carousel-track"
+                            style={{ transform: `translateX(-${activeIndex * 100}%)` }}
                         >
-                            {item.type === 'image' ? (
-                            <LazyLoadImage
-                                src={item.src}
-                                alt={item.alt}
-                                loading={item.loading}
-                                className="carousel-media"
-                                effect="blur"
+                            {filteredItems.map((item, index) => (
+                            <div 
+                                key={item.id}
+                                className="carousel-slide"
+                            >
+                                {item.type === 'image' ? (
+                                <LazyLoadImage
+                                    src={item.src}
+                                    alt={item.alt}
+                                    loading={item.loading}
+                                    className="carousel-media"
+                                    effect="blur"
+                                    
+                                    height="100%"
+                                    placeholderSrc="/placeholder-small.jpg"
+                                    onClick={() => openLightbox(index)}
+                                />
+                                ) : (
+                                <video
+                                    src={item.src}
+                                    poster={item.poster}
+                                    className="carousel-media"
+                                    onClick={() => openLightbox(index)}
+                                    autoPlay
+                                    loop
+                                    muted
+                                />
+                                )}
                                 
-                                height="100%"
-                                placeholderSrc="/placeholder-small.jpg"
-                                onClick={() => openLightbox(index)}
-                            />
-                            ) : (
-                            <video
-                                src={item.src}
-                                poster={item.poster}
-                                className="carousel-media"
-                                onClick={() => openLightbox(index)}
-                                autoPlay
-                                loop
-                                muted
-                            />
-                            )}
-                            
-                            {/* Efecto de superposición */}
-                            <div className="slide-overlay">
-                            <div className="slide-caption">
-                                <h3>{item.alt}</h3>
-                                <p>{item.description}</p>
+                                
+                                <div className="slide-caption">
+                                    <h3>{item.alt}</h3>
+                                    <p>{item.description}</p>
+                                </div>
                             </div>
-                            </div>
+                            ))}
                         </div>
-                        ))}
-                    </div>
-                    
-                    {/* Flechas de navegación */}
-                    <button 
-                        onClick={goPrev}
-                        className="carousel-arrow carousel-arrow-prev"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-                    <button 
-                        onClick={goNext}
-                        className="carousel-arrow carousel-arrow-next"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
-                    
-                    {/* Indicadores */}
-                    <div className="carousel-indicators">
-                        {filteredItems.map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => goToSlide(index)}
-                            className={`carousel-indicator ${
-                            index === activeIndex ? 'carousel-indicator-active' : ''
-                            }`}
-                        />
-                        ))}
-                    </div>
+                        
+                        {/* Flechas de navegación */}
+                        <button 
+                            onClick={goPrev}
+                            className="carousel-arrow carousel-arrow-prev"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button 
+                            onClick={goNext}
+                            className="carousel-arrow carousel-arrow-next"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                        
+                        {/* Indicadores */}
+                        <div className="carousel-indicators">
+                            {filteredItems.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => goToSlide(index)}
+                                className={`carousel-indicator ${
+                                index === activeIndex ? 'carousel-indicator-active' : ''
+                                }`}
+                            />
+                            ))}
+                        </div>
                     </div>
                     
                     {/* Mini-slider secundario */}
@@ -569,75 +656,7 @@ const Nosotros = () => {
                     </div>
                 </div>
                 
-                {/* Lightbox */}
-                {lightboxOpen && (
-                    <div className="lightbox">
-                    <button 
-                        onClick={closeLightbox}
-                        className="lightbox-close"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                    
-                    <div className="lightbox-content">
-                        {filteredItems[activeIndex].type === 'image' ? (
-                        <img
-                            src={filteredItems[activeIndex].src}
-                            alt={filteredItems[activeIndex].alt}
-                            className="lightbox-media"
-                        />
-                        ) : (
-                        <video
-                            src={filteredItems[activeIndex].src}
-                            poster={filteredItems[activeIndex].poster}
-                            className="lightbox-media"
-                            controls
-                            autoPlay
-                        />
-                        )}
-                        
-                        <div className="lightbox-caption">
-                        <h3>{filteredItems[activeIndex].alt}</h3>
-                        <p>{filteredItems[activeIndex].description}</p>
-                        
-                        <div className="lightbox-actions">
-                            <button className="lightbox-action lightbox-action-share">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                            </svg>
-                            Compartir
-                            </button>
-                            <button className="lightbox-action lightbox-action-download">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                            </svg>
-                            Descargar
-                            </button>
-                        </div>
-                        </div>
-                    </div>
-                    
-                    {/* Flechas de navegación en lightbox */}
-                    <button 
-                        onClick={() => setActiveIndex(prev => prev === 0 ? filteredItems.length - 1 : prev - 1)}
-                        className="lightbox-arrow lightbox-arrow-prev"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-                    <button 
-                        onClick={() => setActiveIndex(prev => prev === filteredItems.length - 1 ? 0 : prev + 1)}
-                        className="lightbox-arrow lightbox-arrow-next"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
-                    </div>
-                )}
+                
             </section>
 
             

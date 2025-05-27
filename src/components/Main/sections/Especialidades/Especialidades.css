@@ -34,7 +34,6 @@
 }
 
 
-/* Resto de tus estilos... (mantén los mismos estilos para los demás elementos) */
 /* Contenedor principal */
 .es-container {
   position: relative;
@@ -152,274 +151,168 @@
   color: transparent;
 }
 
-/* Grid de especialidades */
-.especialidades-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  margin-bottom: 80px;
-}
-
-/* Tarjetas de especialidades */
-.especialidad-card {
-  border-radius: 24px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: var(--card-shadow);
-  transition: var(--transition);
-  opacity: 0;
-  padding: 70px 40px;
-  transform: translateY(40px);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.especialidades-premium.animate-in .especialidad-card {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.especialidad-card:nth-child(1) { transition-delay: 0.2s; }
-.especialidad-card:nth-child(2) { transition-delay: 0.3s; }
-.especialidad-card:nth-child(3) { transition-delay: 0.4s; }
-.especialidad-card:nth-child(4) { transition-delay: 0.5s; }
-
-.card-inner {
-  padding: 40px 30px;
-  position: relative;
-  z-index: 3;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: var(--white);
-}
-
-/* Animación de icono */
-.icon-animation-container {
-  margin-bottom: 30px;
-  position: relative;
-  width: 120px;
-  height: 120px;
-}
-
-.icon-orb {
-  position: relative;
+.specialties-section {
   width: 100%;
-  height: 100%;
+  padding: 4rem -2rem;
 }
 
-.icon-pulse {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  opacity: 0.1;
-  animation: pulse 3s infinite ease-out;
-}
-
-@keyframes pulse {
-  0% { transform: scale(0.8); opacity: 0.1; }
-  50% { transform: scale(1.2); opacity: 0.05; }
-  100% { transform: scale(0.8); opacity: 0.1; }
-}
-
-.icon-rings {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  opacity: 0;
-  animation: ring-expand 3s infinite linear;
-}
-
-.ring:nth-child(1) {
-  width: 100%;
-  height: 100%;
-  animation-delay: 0s;
-}
-
-.ring:nth-child(2) {
-  width: 120%;
-  height: 120%;
-  animation-delay: 1s;
-}
-
-@keyframes ring-expand {
-  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.8; }
-  100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
-}
-
-.especialidad-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
+.specialties-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-size: 30px;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: var(--transition);
-  z-index: 3;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
-.especialidad-card:hover .especialidad-icon {
-  transform: translate(-50%, -50%) rotate(15deg) scale(1.1);
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-/* Texto de la tarjeta */
-.especialidad-card h3 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  text-align: center;
+/* Honeycomb grid styles */
+.honeycomb-container {
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
-  padding-bottom: 8px;
+  width: 500px; /* Adjust based on your needs */
+  height: 500px;
+  margin: 0 auto;
 }
 
-.especialidad-card h3::after {
-  content: '';
+.honeycomb-cell {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 3px;
-  animation: 
-    linePulse 3s ease infinite,
-    gradientFlow 6s ease infinite;
-}
-
-@keyframes linePulse {
-  0%, 100% { width: 80px; }
-  50% { width: 100px; }
-}
-
-.especialidad-card p {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 30px;
-  text-align: center;
-  line-height: 1.7;
-  flex-grow: 1;
-}
-
-/* Botón Ver más */
-.btn-wrapper {
-  width: 100%;
-  margin-top: -50px;
-}
-
-.card-link {
-  display: inline-flex;
-  align-items: center;
+  width: 170px;
+  height: 150px;
+  display: flex;
   justify-content: center;
-  padding: 12px 28px;
-  border-radius: 50px;
-  color: var(--white);
+  align-items: center;
+  cursor: pointer;
+}
+
+.honeycomb-hexagon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #318dd8;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.honeycomb-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1rem;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.honeycomb-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff; /* Icon color */
+}
+
+.honeycomb-title {
+  font-size: 0.9rem;
   font-weight: 600;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  text-decoration: none;
-  position: relative;
+  margin: 0;
+}
+
+/* Position each hexagon */
+.honeycomb-cell-0 {
+  top: 13%;
+  left: 30%;
+  transform: translateX(-50%);
+}
+
+.honeycomb-cell-1 {
+  top: 30%;
+  left: 1%;
+}
+
+.honeycomb-cell-2 {
+  top: 30%;
+  right: 7%;
+}
+
+.honeycomb-cell-3 {
+  top: 47%;
+  left: 30%;
+}
+
+.honeycomb-cell-4 {
+  top: 64%;
+  left: 1%;
+}
+
+.honeycomb-cell-5 {
+  top: 64%;
+  right: 7%;
+}
+
+/* Hover effects */
+.honeycomb-cell:hover .honeycomb-hexagon {
+  background: #0078d7; /* Change to your primary color */
+  transform: scale(1.1);
+}
+
+.honeycomb-cell:hover .honeycomb-content {
+  color: white;
+}
+
+.honeycomb-cell:hover .honeycomb-icon {
+  color: white;
+}
+
+/* Image styles */
+.specialties-image-right {
+  flex: 1;
+  max-width: 500px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  transition: var(--transition);
-  z-index: 1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.card-link:hover {
-  background: rgba(255, 255, 255, 0.25);
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-}
-
-.card-link svg {
-  margin-left: 8px;
-  transition: transform 0.3s ease;
-}
-
-.card-link:hover svg {
-  transform: translateX(5px);
-}
-
-.btn-hover-effect {
-  position: absolute;
-  top: 0;
-  left: -100%;
+.specialties-image-right img {
   width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg, 
-    transparent, 
-    rgba(255, 255, 255, 0.3), 
-    transparent
-  );
-  transition: 0.6s;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
 }
 
-.card-link:hover .btn-hover-effect {
-  left: 100%;
+.specialties-image-right:hover img {
+  transform: scale(1.03);
 }
 
-/* Efectos de tarjeta */
-.card-glow {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at center, var(--primary-color) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  z-index: 1;
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .specialties-container {
+    flex-direction: column;
+  }
+  
+  .honeycomb-container {
+    margin-bottom: 3rem;
+  }
+  
+  .specialties-image-right {
+    max-width: 100%;
+  }
 }
 
-.especialidad-card:hover .card-glow {
-  opacity: 0.1;
+@media (max-width: 576px) {
+  .honeycomb-container {
+    width: 300px;
+    height: 350px;
+  }
+  
+  .honeycomb-cell {
+    width: 120px;
+    height: 104px;
+  }
+  
+  .honeycomb-title {
+    font-size: 0.8rem;
+  }
 }
 
-.card-particles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='1' fill='%23ffffff' fill-opacity='0.1'/%3E%3C/svg%3E");
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
-.especialidad-card:hover .card-particles {
-  opacity: 0.3;
-}
 
 /* Botón CTA */
 .cta-section {
