@@ -5,9 +5,9 @@ import './CarruselHero.css';
 
 const CarruselHero = () => {
     const imagenes = [
-        { id: 1, src: '/images/hero/fondo1.jpg', alt: 'Imagen 1' },
-        { id: 2, src: '/images/hero/fondo2.jpg', alt: 'Imagen 2' },
-        { id: 3, src: '/images/hero/fondo3.jpg', alt: 'Imagen 3' }
+        { id: 1, src: '/images/hero/fondo1.webp', alt: 'Imagen 1' },
+        { id: 2, src: '/images/hero/fondo2.webp', alt: 'Imagen 2' },
+        { id: 3, src: '/images/hero/fondo3.webp', alt: 'Imagen 3' }
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);

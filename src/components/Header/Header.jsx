@@ -159,7 +159,7 @@ const Header = () => {
                       <div className="contact-info-wrapper">
                         <div className="header-contact">
                           <FontAwesomeIcon icon={faPhone} className="phone-icon" />
-                          <p>(111) 111-1111 / (111) 111-1111</p>
+                          <p>(062)515063</p>
                         </div>
                         <div className="header-separator">
                           <div 

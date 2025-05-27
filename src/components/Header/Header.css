@@ -593,6 +593,10 @@ HEADER CONTACT STYLES
   display: flex;
   gap: 15px;
   z-index: 1001;
+  align-items: center;
+  margin-left: auto; /* Empuja los iconos a la derecha */
+  padding-right: 20px; /* Espacio antes del botón hamburguesa */
+  transition: all 0.3s ease;
 }
 
 .social-icon {
@@ -1235,6 +1239,10 @@ visibility: visible;
   display: none !important;
 }
 
+.whatsapp-btn {
+  display: none !important;
+}
+
 /* Muestra el botón hamburguesa */
 .nav-hamburger-btn {
   display: block;
@@ -1252,6 +1260,78 @@ visibility: visible;
 }
 }
 
+/* ---------------------------------- */
+/* 🔄 RESPONSIVE: Menor a 1260px */
+/* ---------------------------------- */
+@media (max-width: 1260px) {
+  .social-icons-container {
+    position: static; /* Elimina el posicionamiento absoluto */
+    transform: none;
+    margin-left: 10px;
+    padding-right: -100px;
+  }
+  
+  /* Asegura visibilidad */
+  .header-nav-combined {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+  
+  /* Espacio entre iconos y botón hamburguesa */
+  .nav-hamburger-btn {
+    margin-left: 100px;
+  }
+}
+
+@media (max-width: 1260px) {
+  .urbat-logo {
+    width: 70px; /* Contenedor mantiene su tamaño */
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible; /* Permitimos que la imagen escalada se vea */
+    margin-left: 10px;
+    position: relative; /* Necesario para ajustar la imagen */
+  }
+
+  .urbat-logo__icon-container {
+    width: 100%; /* Restauramos a 100% (no 200%) */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  /* Ajuste clave: Escala la imagen sin afectar el contenedor */
+  .urbat-logo__brain-icon {
+    width: auto; /* Ancho automático (no 100%) */
+    height: auto;
+    object-fit: contain;
+    transform: translateX(4px) translateY(-4px) scale(1.55);
+    position: relative;
+    z-index: 2; /* Asegura que esté por encima de otros elementos */
+  }
+
+  /* Ocultar efectos si interfieren */
+  .urbat-logo__icon-glow,
+  .urbat-logo__icon-particles,
+  .urbat-logo__hover-effect,
+  .urbat-logo__active-glow {
+    display: none;
+  }
+
+  /* Asegurarse de que el navbar no tenga padding que lo desplace */
+  .navbar-container {
+    padding-left: 0 !important; /* Importante para sobrescribir otros estilos */
+    justify-content: flex-start; /* Alinea todo a la izquierda */
+    overflow: hidden; /* Evita que el logo se salga */
+  }
+
+}
 /* ---------------------------------- */
 /* 📱 AJUSTES PARA MÓVIL (≤ 768px) */
 /* ---------------------------------- */

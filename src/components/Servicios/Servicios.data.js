@@ -1,5 +1,17 @@
 export const specialties = [
     {
+        name: "Hospitalización",
+        description: "Servicios de internamiento y cuidado hospitalario.",
+        url: "/servicios/hospitalizacion",
+        icon: "fas fa-procedures"
+    },
+    {
+    name: "Emergencias las 24 horas",
+    description: "Atención inmediata con equipo especializado.",
+    url: "/especialidades/cardiologia",
+    icon: "fas fa-heartbeat"
+    },
+    {
     name: "Consultas Externas",
     description: "Manejo del dolor durante procedimientos médicos.",
     url: "/especialidades/consultas",
@@ -11,13 +23,6 @@ export const specialties = [
     url: "/servicios/centro-quirurgico",
     icon: "fas fa-procedures"
     },
-    {
-    name: "Emergencias las 24 horas",
-    description: "Atención inmediata con equipo especializado.",
-    url: "/especialidades/cardiologia",
-    icon: "fas fa-heartbeat"
-    },
-    
     {
     name: "Diagnóstico por Imágenes",
     description: "Estudios y análisis mediante imágenes médicas.",
@@ -31,7 +36,7 @@ export const specialties = [
     icon: "fas fa-pills"
     },
     {
-    name: "Hemoterapia",
+    name: "Banco de Sangre",
     description: "Servicios de banco de sangre y transfusiones.",
     url: "/servicios/hemoterapia",
     icon: "fas fa-tint"
@@ -43,29 +48,12 @@ export const specialties = [
         icon: "fas fa-microscope"
     },
     {
-        name: "Nutrición",
-        description: "Servicios de alimentación y dietética hospitalaria.",
-        url: "/servicios/nutricion",
-        icon: "fas fa-utensils"
-    },
-    {
-        name: "Consultas Externas",
-        description: "Atención médica ambulatoria y especializada.",
-        url: "/servicios/consultas-externas",
-        icon: "fas fa-stethoscope"
-    },
-    {
         name: "Emergencias",
         description: "Atención médica urgente y de emergencia.",
         url: "/servicios/emergencias",
         icon: "fas fa-ambulance"
     },
-    {
-        name: "Hospitalización",
-        description: "Servicios de internamiento y cuidado hospitalario.",
-        url: "/servicios/hospitalizacion",
-        icon: "fas fa-procedures"
-    }
+    
 ];
 
 
