@@ -123,7 +123,7 @@ const PorQueElegirnos = () => {
                 <div className="razon-icon-wrapper">
                   <FontAwesomeIcon icon={faHeartbeat} className="razon-icon" />
                 </div>
-                <h3>Tecnología de Vanguardia</h3>
+                <h3>Tecnología de Alto nivel</h3>
                 <p>
                   Utilizamos equipos modernos y técnicas avanzadas para un
                   diagnóstico preciso y tratamientos efectivos.

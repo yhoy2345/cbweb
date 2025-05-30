@@ -581,12 +581,6 @@ const Nosotros = () => {
                                     muted
                                 />
                                 )}
-                                
-                                
-                                <div className="slide-caption">
-                                    <h3>{item.alt}</h3>
-                                    <p>{item.description}</p>
-                                </div>
                             </div>
                             ))}
                         </div>

@@ -59,8 +59,8 @@ export const specialties = [
 
 export const searchSectionData = {
     title: {
-        text: "Conectamos tu salud",
-        highlight: "con los mejores servicios"
+        text: "Conectamos tu salud con los  ",
+        highlight: "mejores servicios"
     },
     subtitle: "¿Problema de salud? Encuentra el servicio exacto que lo soluciona HOY",
     placeholder: "Ej: Cardiología, Pediatría..."

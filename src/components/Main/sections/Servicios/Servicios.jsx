@@ -31,28 +31,6 @@ const Servicios = () => {
   const cardsRef = useRef([]);
   const buttonRef = useRef(null);
 
-  // Intersection Observer setup
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    const elementsToObserve = [
-      sectionRef.current,
-      titleRef.current,
-      buttonRef.current,
-      ...cardsRef.current.filter(Boolean)
-    ];
-
-    elementsToObserve.forEach(element => element && observer.observe(element));
-
-    return () => observer.disconnect();
-  }, []);
-
   // Icon mapping utility
   const iconMap = {
     'fas fa-syringe': faSyringe,
@@ -78,59 +56,126 @@ const Servicios = () => {
 
   // Animation variants for consistent motion
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { 
-      opacity: 1, 
+    hidden: { opacity: 0, y: 20, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
       scale: 1,
-      transition: { 
-        duration: 0.5, 
-        ease: "backOut" 
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.1, 0.25, 1]
       }
     },
     hover: {
-      scale: 1.1,
-      zIndex: 10,
+      scale: 1.05,
+      y: -5,
+      boxShadow: "0 10px 25px -5px rgba(0, 118, 215, 0.3)",
       transition: { duration: 0.3 }
     }
   };
 
+  const sectionVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  // Intersection Observer setup
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const elementsToObserve = [
+      sectionRef.current,
+      titleRef.current,
+      buttonRef.current,
+      ...cardsRef.current.filter(Boolean)
+    ];
+
+    elementsToObserve.forEach(element => element && observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section 
+    <motion.section 
       className="servicios-section" 
       id="servicios" 
       ref={sectionRef}
+      initial="hidden"
+      whileInView="visible"
+      variants={sectionVariants}
+      viewport={{ once: true, margin: "-100px" }}
     >
       <div className="servicios-container">
-        
         {/* Header Section */}
         <div className="servicios-header">
-          <div className="servicios-title-wrapper">
-            <h2 className="servicios-title" ref={titleRef}>
+          <motion.div 
+            className="servicios-title-wrapper"
+            variants={titleVariants}
+            ref={titleRef}
+          >
+            <h2 className="servicios-title">
               NUESTROS SERVICIOS
             </h2>
             <div className="servicios-title-underline">
-              <div className="servicios-underline-animation" />
+              <motion.div 
+                className="servicios-underline-animation"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true }}
+              />
             </div>
-          </div>
+          </motion.div>
           
-          <p className="servicios-subtitle">
+          <motion.p 
+            className="servicios-subtitle"
+            variants={cardVariants}
+          >
             {searchSectionData.title.text}{' '}
             <span className="highlight-text">
               {searchSectionData.title.highlight}
             </span>
-          </p>
+          </motion.p>
         </div>
 
         <div className="molecule-premium-container">
-          {/* Imagen flotante a la izquierda con efecto de luz */}
+          {/* Contenedor de imagen izquierda */}
           <motion.div 
             className="medical-image-container"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            whileHover={{
+              scale: 1.02,
+              transition: { duration: 0.3 }
+            }}
           >
             <img
-              src="/images/hero/esp.webp"
+              src="/images/hero/servi.webp"
               alt="Medical professional"
               className="medical-image"
               loading="lazy"
@@ -138,63 +183,67 @@ const Servicios = () => {
             <div className="image-light-effect"></div>
           </motion.div>
 
-          {/* Estructura molecular derecha con conexiones dinámicas */}
+          {/* Estructura molecular derecha - Versión simplificada y profesional */}
           <div className="molecule-structure-wrapper">
-            <svg className="molecule-connectors" width="100%" height="100%" viewBox="0 0 500 500">
-              {/* Conexiones principales */}
-              <path className="bond" d="M250,100 L250,180" />
-              <path className="bond" d="M350,150 L290,200" />
-              <path className="bond" d="M350,350 L290,300" />
-              <path className="bond" d="M250,400 L250,320" />
-              <path className="bond" d="M150,350 L210,300" />
-              <path className="bond" d="M150,150 L210,200" />
-              {/* Conexiones secundarias */}
-              <path className="bond-secondary" d="M250,220 L280,250" />
-              <path className="bond-secondary" d="M250,280 L280,250" />
-              <path className="bond-secondary" d="M220,250 L210,200" />
-              <path className="bond-secondary" d="M220,250 L210,300" />
-            </svg>
 
-            {/* Nodos moleculares */}
+            {/* Nodos moleculares - versión profesional */}
             {specialties.slice(0, 6).map((specialty, index) => (
               <motion.div
-                key={`molecule-node-${index}`}
+                key={`node-${index}`}
                 className={`molecule-node node-${index + 1}`}
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 120,
-                  damping: 12,
-                  delay: index * 0.15
-                }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 whileHover={{
-                  scale: 1.15,
-                  boxShadow: "0 15px 35px -10px rgba(0, 118, 215, 0.4)"
+                  scale: 1.05,
+                  boxShadow: "0 10px 25px rgba(0, 120, 215, 0.2)"
                 }}
+                transition={{ 
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 150,
+                  damping: 10
+                }}
+                viewport={{ once: true, margin: "0px 0px -50px 0px" }}
               >
                 <div className="node-core">
-                  <div className="node-icon">
-                    <FontAwesomeIcon 
-                      icon={getIcon(specialty.icon)} 
-                      className="node-icon-svg"
-                    />
+                  <div className="node-icon-wrapper">
+                    <motion.div 
+                      className="node-icon"
+                      whileHover={{ rotate: 15, scale: 1.1 }}
+                    >
+                      <FontAwesomeIcon 
+                        icon={getIcon(specialty.icon)} 
+                        className="node-icon-svg"
+                      />
+                    </motion.div>
                   </div>
-                  <div className="node-label">{specialty.name}</div>
+                  <motion.p 
+                    className="node-label"
+                    whileHover={{ color: "#0078d7" }}
+                  >
+                    {specialty.name}
+                  </motion.p>
                 </div>
-                <div className="node-aura"></div>
               </motion.div>
             ))}
           </div>
         </div>
 
         {/* Footer CTA */}
-        <div className="cta-section" ref={buttonRef}>
+        <motion.div 
+          className="cta-section" 
+          ref={buttonRef}
+          variants={cardVariants}
+          transition={{ delay: 0.6 }}
+        >
           <motion.a
             href="/servicios"
             className="cta-button"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 5px 15px rgba(0, 118, 215, 0.4)"
+            }}
+            whileTap={{ scale: 0.98 }}
           >
             <span>Ver todos nuestros servicios</span>
             <FontAwesomeIcon 
@@ -202,9 +251,9 @@ const Servicios = () => {
               className="plus-icon" 
             />
           </motion.a>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
