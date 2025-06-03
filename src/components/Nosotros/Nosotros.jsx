@@ -326,7 +326,7 @@ const Nosotros = () => {
                     {/* Imagen */}
                     <div className="columna-imagen">
                         <img
-                            src="/images/hero/fondo1.jpg"
+                            src="/images/hero/nosotros.jpg"
                             alt="Profesionales médicos"
                             className="imagen-principal"
                             loading="lazy"
