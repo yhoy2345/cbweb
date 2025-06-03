@@ -50,7 +50,7 @@ const Radiologia = () => {
         container.addEventListener('mousemove', handleMouseMove);
 
         return () => {
-            container.removeEventListener('mousemove', handleMouseMove;
+            container.removeEventListener('mousemove', handleMouseMove);
         };
     }, []);
 

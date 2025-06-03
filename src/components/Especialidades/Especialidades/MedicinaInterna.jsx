@@ -164,7 +164,8 @@ const MedicinaInterna = () => {
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <ល
+                                            <span>Evaluación y tratamiento de enfermedades cardíacas.</span>
+                                        </li>
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
                                             <span>Control de diabetes mellitus.</span>
