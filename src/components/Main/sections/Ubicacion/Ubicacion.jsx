@@ -15,9 +15,8 @@ const Ubicacion = () => {
   const sectionRef = useRef(null);
   const [mapLoaded, setMapLoaded] = useState(false);
   const [activeMarker, setActiveMarker] = useState(null);
-  const [activeFacility, setActiveFacility] = useState(null); // Estado añadido para las instalaciones
+  const [activeFacility, setActiveFacility] = useState(null);
 
-  // Animaciones GSAP
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
@@ -39,7 +38,6 @@ const Ubicacion = () => {
       "-=0.5"
     );
 
-    // Animación para los elementos de referencia
     gsap.from(".cuadro-referencia", {
       y: 30,
       opacity: 0,
@@ -50,10 +48,20 @@ const Ubicacion = () => {
     });
 
     section.classList.add("animate-in");
-  }, []);
+
+    // Forzar mapLoaded después de 3 segundos si no carga
+    const timeout = setTimeout(() => {
+      if (!mapLoaded) {
+        console.warn("Mapa no cargado después de 3 segundos, forzando visibilidad");
+        setMapLoaded(true);
+      }
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, [mapLoaded]);
 
   const handleMapLoad = () => {
-    console.log("Mapa cargado"); 
+    console.log("Mapa cargado exitosamente");
     setMapLoaded(true);
     gsap.from(".mapa", {
       opacity: 0,
@@ -64,8 +72,8 @@ const Ubicacion = () => {
   };
 
   const markers = [
-    { id: 1, title: "Parque Amarilis", description: "A media cuadra de nuestra clínica", icon: <FaTree />  },
-    { id: 2, title: "Indecopi", description: "Frente a nuestras instalaciones", icon: <FaBuilding /> } 
+    { id: 1, title: "Parque Amarilis", description: "A media cuadra de nuestra clínica", icon: <FaTree /> },
+    { id: 2, title: "Indecopi", description: "Frente a nuestras instalaciones", icon: <FaBuilding /> }
   ];
 
   const facilities = [
@@ -74,7 +82,6 @@ const Ubicacion = () => {
     { id: 3, title: "Ambulancia", description: "Servicio de atención de emergencia disponible 24/7", icon: <FaAmbulance /> },
     { id: 4, title: "Urgencias", description: "Atención inmediata para casos de emergencia las 24 horas", icon: <FaMedkit /> }
   ];
-  
 
   const handleMarkerClick = (marker) => {
     setActiveMarker(marker);
@@ -100,7 +107,7 @@ const Ubicacion = () => {
     <section className="ubicacion" id="ubicacion" ref={sectionRef}>
       <div className="ubi-contenedor">
         <div className="ubi-title-wrapper">
-          <span className="ubi-title">UBÍCANOS EN:</span>
+          <span className="ubi-title titulo-ubi">UBÍCANOS EN:</span>
           <div className="ubi-title-underline">
             <div className="ubi-underline-animation"></div>
           </div>
@@ -113,12 +120,12 @@ const Ubicacion = () => {
           <div className="mapa-container">
             <div className={`mapa ${mapLoaded ? 'loaded' : ''}`}>
               <iframe
-                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.107059251303!2d-76.24199902623279!3d-9.92504120603042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a7c2e2d16086df%3A0x1c0d23e918e06aa0!2zQ2zDrW5pY2EgQm9sw612YXI!5e0!3m2!1ses-419!2spe!4v1742331745995!5m2!1ses-419!2spe&markers=color:red%7C-9.925041,-76.241999`}
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.1069957112477!2d-76.2394241!3d-9.925046499999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a7c2e2d16086df%3A0x1c0d23e918e06aa0!2zQ2zDrW5pY2EgQm9sw612YXI!5e0!3m2!1ses-419!2spe!4v1748991709290!5m2!1ses-419!2spe"
                 width="100%"
                 height="100%"
                 style={{ 
                   border: 0,
-                  minHeight: '400px', // Altura mínima garantizada
+                  minHeight: '300px',
                   filter: 'grayscale(20%) contrast(1.1) saturate(0.9)',
                   transition: 'filter 0.5s ease'
                 }}
@@ -127,6 +134,10 @@ const Ubicacion = () => {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Mapa de la clínica"
                 onLoad={handleMapLoad}
+                onError={() => {
+                  console.error("Error al cargar el mapa");
+                  setMapLoaded(true); // Forzar visibilidad en caso de error
+                }}
                 aria-label="Ubicación de la Clínica Bolívar en el mapa"
               />
               {!mapLoaded && (
@@ -158,7 +169,7 @@ const Ubicacion = () => {
 
               <div className="mapa-actions">
                 <a
-                  href="https://www.google.com/maps/dir//Clínica+Bolívar/data=!4m8!4m7!1m0!1m5!1m1!1s0x91a7c2e2d16086df:0x1c0d23e918e06aa0!2m2!1d-76.241999!2d-9.925041"
+                  href="https://www.google.com/maps/dir//Clínica+Bolívar/@-9.925046,-76.239424,17z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x91a7c2e2d16086df:0x1c0d23e918e06aa0!2m2!1d-76.239424!2d-9.925046"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mapa-button"
@@ -166,7 +177,7 @@ const Ubicacion = () => {
                   Cómo llegar
                 </a>
                 <a
-                  href="https://www.google.com/maps/place/Clínica+Bolívar/@-9.9250412,-76.241999,17z/data=!3m1!4b1!4m5!3m4!1s0x91a7c2e2d16086df:0x1c0d23e918e06aa0!8m2!3d-9.9250412!4d-76.241999"
+                  href="https://www.google.com/maps/place/Clínica+Bolívar/@-9.925046,-76.239424,17z/data=!3m1!4b1!4m5!3m4!1s0x91a7c2e2d16086df:0x1c0d23e918e06aa0!8m2!3d-9.925046!4d-76.239424"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mapa-button"
