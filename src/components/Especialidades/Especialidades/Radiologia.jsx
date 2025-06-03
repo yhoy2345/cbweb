@@ -7,10 +7,10 @@ import { faSyringe, faUserDoctor } from '@fortawesome/free-solid-svg-icons';
 import './EspecialidadDetalle.css';
 import './car.css';
 
-const CirugiaPediatrica = () => {
+const Radiologia = () => {
     const navigate = useNavigate();
-    const cirugiaPediatricaData = specialties.find(
-        esp => esp.url === "/especialidades/cirugiapediatrica"
+    const radiologiaData = specialties.find(
+        esp => esp.url === "/especialidades/radiologia"
     );
 
     const handleClick = () => {
@@ -27,30 +27,30 @@ const CirugiaPediatrica = () => {
             const offsetPosition = sectionPosition + window.pageYOffset - headerHeight;
             
             window.scrollTo({
-              top: offsetPosition,
-              behavior: 'auto'
+                top: offsetPosition,
+                behavior: 'auto'
             });
           }
-        }, 50);
+        }, 25);
     };
 
     useEffect(() => {
-        const container = document.querySelector('.derma-intro__content');
+        const container = document.querySelector('.derma-image__content');
         if (!container) return;
 
         const handleMouseMove = (e) => {
-        const rect = container.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        container.style.setProperty('--mouse-x', `${x - rect.width/2}px`);
-        container.style.setProperty('--mouse-y', `${y - rect.height/2}px`);
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            container.style.setProperty('--mouse-x', `${x - rect.width/2}px`);
+            container.style.setProperty('--mouse-y', `${y}px`);
         };
 
         container.addEventListener('mousemove', handleMouseMove);
-        
+
         return () => {
-        container.removeEventListener('mousemove', handleMouseMove);
+            container.removeEventListener('mousemove', handleMouseMove;
         };
     }, []);
 
@@ -61,45 +61,45 @@ const CirugiaPediatrica = () => {
                 {/* Hero Section */}
                 <div className="derma-hero">
                     <img
-                        src="/images/pediatric-surgery.jpg"
-                        alt="Quirófano de cirugía pediátrica"
+                        src="/images/radiology.jpg"
+                        alt="Estudio de radiología"
                         className="derma-hero__image"
                     />
                     <div className="derma-hero__overlay"></div>
-                    <h1 className="derma-hero__title">{cirugiaPediatricaData.name}</h1>
+                    <h1 className="derma-hero__title">{radiologiaData?.name}</h1>
                 </div>
 
                 {/* Main Content */}
                 <main className="derma-main">
-                    <div className="derma-intro__content">
+                    <div className="derma-image__content">
                         {/* Partículas */}
                         {[...Array(70)].map((_, i) => (
                             <div 
                                 key={`particle-${i}`}
                                 className="derma-particle"
                                 style={{
-                                '--size': `${Math.random() ** 3 * 15 + 3}px`,
-                                '--delay': `${Math.random() * 10}s`,
-                                '--duration': `${Math.random() * 25 + 20}s`,
-                                '--opacity': Math.random() ** 2 * 0.25 + 0.05,
-                                '--blur': `${Math.random() * 3 + 1}px`,
-                                '--color': Math.random() > 0.7 ? 'var(--derma-primary)' : 
-                                           Math.random() > 0.4 ? 'var(--derma-secondary)' :
-                                           `rgba(255, 255, 255, ${Math.random() * 0.4 + 0.1})`,
-                                '--startX': `${Math.random() * 120 - 10}%`,
-                                '--startY': `${Math.random() * 120 - 10}%`,
-                                '--moveX': `${(Math.random() - 0.5) * 60}px`,
-                                '--moveY': `${(Math.random() - 0.5) * 60}px`,
-                                '--rotate': `${Math.random() * 720 - 360}deg`,
-                                '--scale-end': `${Math.random() * 0.5 + 0.8}`,
-                                '--distance-factor': Math.random() * 0.5 + 0.5,
-                                '--mouse-influence-x': (Math.random() - 0.5) * 0.02,
-                                '--mouse-influence-y': (Math.random() - 0.5) * 0.02
+                                    '--size': `${Math.random() * 30 ** 3 * 15 + 3}px`,
+                                    '--delay': `${Math.random() * 10}s`,
+                                    '--duration': `${Math.random() * 25 + 20}s`,
+                                    '--opacity': Math.random() ** 2 * 0.25 + 0.05,
+                                    '--blur': `${Math.random() * 3 + 1}px`,
+                                    '--color': Math.random() > 0.7 ? 'var(--derma-primary)' : 
+                                        Math.random() > 0.4 ? 'var(--derma-secondary)' : 
+                                        `rgba(255, 255, 255, ${Math.random() * 0.4 + 0.1})`,
+                                    '--startX': `${Math.random() * 120 - 10}%`,
+                                    '--startY': `${Math.random() * 120 - 10}%`,
+                                    '--moveX': `${(Math.random() - 0.5) * 60}px`,
+                                    '--moveY': `${(Math.random() - 0.5)} * 60}px`,
+                                    '--rotate': `${Math.random() * 720 - 360}deg`,
+                                    '--scale-end': `${Math.random() * 0.5 + 0.8}`,
+                                    '--distance-factor': Math.random() * 0.5 + 0.5,
+                                    '--mouse-influence-x': (Math.random() - 0.5) * 0.02,
+                                    '--mouse-influence-y': (Math.random() - 0.5) * 0.02
                                 }}
                             />
                         ))}
-                        <p className="derma-intro__text">{cirugiaPediatricaData.description}</p>
-                        <div className="derma-intro__hover-effect"></div>
+                        <p className="derma-image__text">{radiologiaData.description}</p>
+                        <div className="derma-image__hover-effect"></div>
                     </div>
                 
                     {/* Breadcrumbs */}
@@ -110,7 +110,7 @@ const CirugiaPediatrica = () => {
                                     Nuestras Especialidades
                                 </button>
                                 <span>
-                                    > Cirugía Pediátrica
+                                    {'>'} Radiología
                                 </span>
                             </div>
                         </div>
@@ -120,37 +120,37 @@ const CirugiaPediatrica = () => {
                     <section className="">
                         <div className="container container-tags inner-service">
                             <aside className="d-flex tags">
-                                <ul className="list-tags">
+                                <ul className="list d-flex tags">
                                     <li><a href="#nuestra-especialidad">Nuestra Especialidad</a></li>
-                                    <li><a href="#nuestros-profesionales">Nuestros Profesionales</a></li>
+                                    <li><a href="#nuestros-profesional">Nuestros Profesionales</a></li>
                                     <li><a href="#procedimientos-frecuentes">Procedimientos</a></li>
                                     <li><a href="#presta-atencion">Presta Atención</a></li>
                                     <li><a href="#nuestro-staff">Nuestro Staff</a></li>
                                 </ul>
                             </aside>
-                            <div className="d-flex contenido-servicio bg-white">
-                                <div className="especialidad-container">
+                            <div className="d-flex contenido-servicio__bg-white">
+                                <div className="especialidad__container">
                                     <div className="texto-especialidad">
                                         <h4 id="nuestra-especialidad"><span>Nuestra Especialidad</span></h4>
-                                        <p>Especializados en procedimientos quirúrgicos para niños y adolescentes, abordamos malformaciones congénitas, lesiones traumáticas y enfermedades pediátricas con técnicas mínimamente invasivas adaptadas a la población infantil.</p>
-                                        <h4 id="nuestros-profesionales"><span>Nuestros Profesionales</span></h4>
-                                        <p>Cirujanos pediátricos con formación avanzada en técnicas quirúrgicas delicadas, enfocados en la seguridad y el cuidado integral de los pacientes más jóvenes, con un enfoque humano y personalizado.</p>
+                                        <p>Especializados en la obtención e interpretación de imágenes médicas, ofrecemos diagnósticos precisos para una amplia gama de condiciones utilizando tecnologías avanzadas como rayos X, ultrasonidos, tomografías y resonancias magnéticas.</p>
+                                        <h4 id="nuestros-profesional"><span>Nuestros Profesionales</span></h4>
+                                        <p>Radiólogos certificados y técnicos especializados con experiencia en la realización e interpretación de estudios de imagenológicos, comprometidos con la precisión y seguridad del paciente.</p>
                                     </div>
                                     
-                                    <div className="collage-profesionales">
+                                    <div className="collage-profesional">
                                         <img 
-                                            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200" 
-                                            alt="Cirujano Pediátrico 1" 
+                                            src="https://images.unsplash.com/photo-1580281658626-0f8a01ebb60e?w=200" 
+                                            alt="Radiólogo 1" 
                                             className="foto-profesional foto-1" 
                                         />
                                         <img 
-                                            src="https://images.unsplash.com/photo-1576765607924-3a7b848e2525?w=180" 
-                                            alt="Cirujano Pediátrico 2" 
+                                            src="https://images.unsplash.com/photo-1576091160550-2a6adeda52c0?w=180" 
+                                            alt="Radiólogo 2" 
                                             className="foto-profesional foto-2" 
                                         />
                                         <img 
-                                            src="https://images.unsplash.com/photo-1550831107-1553da8c8464?w=220" 
-                                            alt="Cirujano Pediátrico 3" 
+                                            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=220" 
+                                            alt="Radiólogo 3" 
                                             className="foto-profesional foto-3" 
                                         />
                                     </div>
@@ -160,52 +160,52 @@ const CirugiaPediatrica = () => {
                                     <ul className="list-tag">
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <span>Corrección de malformaciones congénitas.</span>
+                                            <span>Radiografías de tórax y extremidades.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <span>Cirugía de apendicitis pediátrica.</span>
+                                            <span>Ecografías abdominales y pélvicas.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <span>Herniorrafia inguinal y umbilical.</span>
+                                            <span>Tomografías computadas (TC).</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <span>Cirugía de fimosis.</span>
+                                            <span>Resonancias magnéticas (RM).</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
-                                            <span>Procedimientos laparoscópicos pediátricos.</span>
+                                            <span>Mamografías para detección de cáncer de mama.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
-                                            <span>Biopsias y resecciones de tumores benignos.</span>
+                                            <span>Estudios de densitometría ósea.</span>
                                         </li>
                                     </ul>
-                                    <p>Realizamos procedimientos quirúrgicos con un enfoque en la recuperación rápida y el bienestar emocional de los niños, utilizando tecnología de punta y un entorno seguro.</p>
+                                    <p>Utilizamos equipos de última generación para realizar estudios de imagenología, garantizando resultados precisos y seguros para apoyar el diagnóstico médico.</p>
                                 </div>
                                 <div className="atencion-container">
                                     <h4 id="presta-atencion"><span>Presta Atención</span></h4>
-                                    <p>Las afecciones quirúrgicas pediátricas más comunes incluyen apendicitis, hernias, malformaciones congénitas y traumatismos. Contamos con quirófanos especializados y un equipo multidisciplinario para el cuidado integral de los niños.</p>
+                                    <p>Los estudios radiológicos son esenciales para detectar afecciones como fracturas, tumores, infecciones y enfermedades crónicas. Contamos con tecnología avanzada y estrictos protocolos de seguridad.</p>
                                 </div>
                                 <div className="staff-container">
                                     <h4 id="nuestro-staff"><span>Nuestro Staff</span></h4>
-                                    <p>Nuestros cirujanos pediátricos están certificados y cuentan con experiencia en procedimientos quirúrgicos específicos para niños, garantizando un trato cálido y profesional.</p>
+                                    <p>Nuestros radiólogos y técnicos están certificados y cuentan con amplia experiencia en imagenología, asegurando resultados confiables y de alta calidad.</p>
                                     <div className="d-flex lista-resultado">
                                         <div className="d-flex lista">
                                             <div className="d-flex gap-3">
                                                 <div className="d-flex avatar">
-                                                    <img src="https://citaweb.clinicasanfelipe.com/Files/M3dicosX/Dr.EjemploPediatrico.jpg" alt="DR. EJEMPLO PEDIÁTRICO" />
+                                                    <img src="https://citaweb.clinicasanfelipe.com/Files/M3dicosX/Dr.EjemploRadiologo.jpg" alt="DR. EJEMPLO RADIÓLOGO" />
                                                 </div>
                                                 <div className="d-flex flex-column descripcion">
-                                                    <span className="area">Cirujano Pediátrico</span>
-                                                    <div className="nombre">DR. EJEMPLO PEDIÁTRICO</div>
+                                                    <span className="area">Radiólogo</span>
+                                                    <div className="nombre">DR. EJEMPLO RADIÓLOGO</div>
                                                     <span className="badge">CMD:</span>
                                                 </div>
                                             </div>
                                             <div className="d-flex ctas">
-                                                <a href="../medicos/ejemplo-pediatrico" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
+                                                <a href="../medicos/ejemplo-radiologo" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
                                             </div>
                                         </div>
                                     </div>
@@ -215,7 +215,7 @@ const CirugiaPediatrica = () => {
                     </section>
 
                     <section className="derma-cta">
-                        <h3 className="derma-cta__title">¿Tu hijo necesita evaluación quirúrgica?</h3>
+                        <h3 className="derma-cta__title">¿Necesitas un estudio de radiología?</h3>
                         <button className="derma-cta__button">
                             Agendar cita
                             <span className="derma-cta__button-effect"></span>
@@ -227,4 +227,4 @@ const CirugiaPediatrica = () => {
     );
 };
 
-export default CirugiaPediatrica;
+export default Radiologia;

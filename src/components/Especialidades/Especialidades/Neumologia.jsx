@@ -7,10 +7,10 @@ import { faSyringe, faUserDoctor } from '@fortawesome/free-solid-svg-icons';
 import './EspecialidadDetalle.css';
 import './car.css';
 
-const CirugiaPediatrica = () => {
+const Neumologia = () => {
     const navigate = useNavigate();
-    const cirugiaPediatricaData = specialties.find(
-        esp => esp.url === "/especialidades/cirugiapediatrica"
+    const neumologiaData = specialties.find(
+        esp => esp.url === "/especialidades/neumologia"
     );
 
     const handleClick = () => {
@@ -61,12 +61,12 @@ const CirugiaPediatrica = () => {
                 {/* Hero Section */}
                 <div className="derma-hero">
                     <img
-                        src="/images/pediatric-surgery.jpg"
-                        alt="Quirófano de cirugía pediátrica"
+                        src="/images/pulmonology.jpg"
+                        alt="Consulta de neumología"
                         className="derma-hero__image"
                     />
                     <div className="derma-hero__overlay"></div>
-                    <h1 className="derma-hero__title">{cirugiaPediatricaData.name}</h1>
+                    <h1 className="derma-hero__title">{neumologiaData.name}</h1>
                 </div>
 
                 {/* Main Content */}
@@ -98,7 +98,7 @@ const CirugiaPediatrica = () => {
                                 }}
                             />
                         ))}
-                        <p className="derma-intro__text">{cirugiaPediatricaData.description}</p>
+                        <p className="derma-intro__text">{neumologiaData.description}</p>
                         <div className="derma-intro__hover-effect"></div>
                     </div>
                 
@@ -110,7 +110,7 @@ const CirugiaPediatrica = () => {
                                     Nuestras Especialidades
                                 </button>
                                 <span>
-                                    > Cirugía Pediátrica
+                                    > Neumología
                                 </span>
                             </div>
                         </div>
@@ -132,25 +132,25 @@ const CirugiaPediatrica = () => {
                                 <div className="especialidad-container">
                                     <div className="texto-especialidad">
                                         <h4 id="nuestra-especialidad"><span>Nuestra Especialidad</span></h4>
-                                        <p>Especializados en procedimientos quirúrgicos para niños y adolescentes, abordamos malformaciones congénitas, lesiones traumáticas y enfermedades pediátricas con técnicas mínimamente invasivas adaptadas a la población infantil.</p>
+                                        <p>Especializados en el diagnóstico, tratamiento y manejo de enfermedades respiratorias, ofrecemos atención integral para afecciones pulmonares y del sistema respiratorio, con un enfoque en la prevención y rehabilitación.</p>
                                         <h4 id="nuestros-profesionales"><span>Nuestros Profesionales</span></h4>
-                                        <p>Cirujanos pediátricos con formación avanzada en técnicas quirúrgicas delicadas, enfocados en la seguridad y el cuidado integral de los pacientes más jóvenes, con un enfoque humano y personalizado.</p>
+                                        <p>Neumólogos certificados con experiencia en el manejo de enfermedades respiratorias crónicas y agudas, utilizando tecnología avanzada para diagnósticos precisos y tratamientos efectivos.</p>
                                     </div>
                                     
                                     <div className="collage-profesionales">
                                         <img 
-                                            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200" 
-                                            alt="Cirujano Pediátrico 1" 
+                                            src="https://images.unsplash.com/photo-1580281658626-0f8a01ebb60e?w=200" 
+                                            alt="Neumólogo 1" 
                                             className="foto-profesional foto-1" 
                                         />
                                         <img 
-                                            src="https://images.unsplash.com/photo-1576765607924-3a7b848e2525?w=180" 
-                                            alt="Cirujano Pediátrico 2" 
+                                            src="https://images.unsplash.com/photo-1576091160550-2a6adeda52c0?w=180" 
+                                            alt="Neumólogo 2" 
                                             className="foto-profesional foto-2" 
                                         />
                                         <img 
-                                            src="https://images.unsplash.com/photo-1550831107-1553da8c8464?w=220" 
-                                            alt="Cirujano Pediátrico 3" 
+                                            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=220" 
+                                            alt="Neumólogo 3" 
                                             className="foto-profesional foto-3" 
                                         />
                                     </div>
@@ -160,52 +160,52 @@ const CirugiaPediatrica = () => {
                                     <ul className="list-tag">
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <span>Corrección de malformaciones congénitas.</span>
+                                            <span>Espirometría y pruebas de función pulmonar.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <span>Cirugía de apendicitis pediátrica.</span>
+                                            <span>Broncoscopia diagnóstica.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <span>Herniorrafia inguinal y umbilical.</span>
+                                            <span>Tratamiento de asma y EPOC.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <span>Cirugía de fimosis.</span>
+                                            <span>Manejo de infecciones respiratorias.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
-                                            <span>Procedimientos laparoscópicos pediátricos.</span>
+                                            <span>Terapia de oxígeno y rehabilitación pulmonar.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
-                                            <span>Biopsias y resecciones de tumores benignos.</span>
+                                            <span>Diagnóstico de cáncer de pulmón.</span>
                                         </li>
                                     </ul>
-                                    <p>Realizamos procedimientos quirúrgicos con un enfoque en la recuperación rápida y el bienestar emocional de los niños, utilizando tecnología de punta y un entorno seguro.</p>
+                                    <p>Ofrecemos diagnóstico y tratamiento de enfermedades respiratorias con tecnología de punta, garantizando una atención integral y personalizada para cada paciente.</p>
                                 </div>
                                 <div className="atencion-container">
                                     <h4 id="presta-atencion"><span>Presta Atención</span></h4>
-                                    <p>Las afecciones quirúrgicas pediátricas más comunes incluyen apendicitis, hernias, malformaciones congénitas y traumatismos. Contamos con quirófanos especializados y un equipo multidisciplinario para el cuidado integral de los niños.</p>
+                                    <p>Las afecciones respiratorias más comunes incluyen asma, enfermedad pulmonar obstructiva crónica (EPOC), neumonía y fibrosis pulmonar. Contamos con un equipo especializado y tecnología avanzada para un diagnóstico y tratamiento precisos.</p>
                                 </div>
                                 <div className="staff-container">
                                     <h4 id="nuestro-staff"><span>Nuestro Staff</span></h4>
-                                    <p>Nuestros cirujanos pediátricos están certificados y cuentan con experiencia en procedimientos quirúrgicos específicos para niños, garantizando un trato cálido y profesional.</p>
+                                    <p>Nuestros neumólogos cuentan con certificaciones internacionales y experiencia en el manejo de enfermedades respiratorias, asegurando un cuidado integral y profesional.</p>
                                     <div className="d-flex lista-resultado">
                                         <div className="d-flex lista">
                                             <div className="d-flex gap-3">
                                                 <div className="d-flex avatar">
-                                                    <img src="https://citaweb.clinicasanfelipe.com/Files/M3dicosX/Dr.EjemploPediatrico.jpg" alt="DR. EJEMPLO PEDIÁTRICO" />
+                                                    <img src="https://citaweb.clinicasanfelipe.com/Files/M3dicosX/Dr.EjemploNeumologo.jpg" alt="DR. EJEMPLO NEUMÓLOGO" />
                                                 </div>
                                                 <div className="d-flex flex-column descripcion">
-                                                    <span className="area">Cirujano Pediátrico</span>
-                                                    <div className="nombre">DR. EJEMPLO PEDIÁTRICO</div>
+                                                    <span className="area">Neumólogo</span>
+                                                    <div className="nombre">DR. EJEMPLO NEUMÓLOGO</div>
                                                     <span className="badge">CMD:</span>
                                                 </div>
                                             </div>
                                             <div className="d-flex ctas">
-                                                <a href="../medicos/ejemplo-pediatrico" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
+                                                <a href="../medicos/ejemplo-neumologo" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
                                             </div>
                                         </div>
                                     </div>
@@ -215,7 +215,7 @@ const CirugiaPediatrica = () => {
                     </section>
 
                     <section className="derma-cta">
-                        <h3 className="derma-cta__title">¿Tu hijo necesita evaluación quirúrgica?</h3>
+                        <h3 className="derma-cta__title">¿Necesitas una consulta de neumología?</h3>
                         <button className="derma-cta__button">
                             Agendar cita
                             <span className="derma-cta__button-effect"></span>
@@ -227,4 +227,4 @@ const CirugiaPediatrica = () => {
     );
 };
 
-export default CirugiaPediatrica;
+export default Neumologia;

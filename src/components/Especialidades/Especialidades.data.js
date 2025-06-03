@@ -18,7 +18,7 @@
         icon: "fas fa-procedures"
         },
         {
-        name: "Cirugía Pediátrica",
+        name: "CirugiaPediatrica",
         description: "Cirugías especializadas para niños.",
         url: "/especialidades/cirugiapediatrica",
         icon: "fas fa-baby"

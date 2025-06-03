@@ -7,10 +7,10 @@ import { faSyringe, faUserDoctor } from '@fortawesome/free-solid-svg-icons';
 import './EspecialidadDetalle.css';
 import './car.css';
 
-const CirugiaPediatrica = () => {
+const MedicinaInterna = () => {
     const navigate = useNavigate();
-    const cirugiaPediatricaData = specialties.find(
-        esp => esp.url === "/especialidades/cirugiapediatrica"
+    const medicinaInternaData = specialties.find(
+        esp => esp.url === "/especialidades/medicina-interna"
     );
 
     const handleClick = () => {
@@ -61,12 +61,12 @@ const CirugiaPediatrica = () => {
                 {/* Hero Section */}
                 <div className="derma-hero">
                     <img
-                        src="/images/pediatric-surgery.jpg"
-                        alt="Quirófano de cirugía pediátrica"
+                        src="/images/internal-medicine.jpg"
+                        alt="Consulta de medicina interna"
                         className="derma-hero__image"
                     />
                     <div className="derma-hero__overlay"></div>
-                    <h1 className="derma-hero__title">{cirugiaPediatricaData.name}</h1>
+                    <h1 className="derma-hero__title">{medicinaInternaData.name}</h1>
                 </div>
 
                 {/* Main Content */}
@@ -98,7 +98,7 @@ const CirugiaPediatrica = () => {
                                 }}
                             />
                         ))}
-                        <p className="derma-intro__text">{cirugiaPediatricaData.description}</p>
+                        <p className="derma-intro__text">{medicinaInternaData.description}</p>
                         <div className="derma-intro__hover-effect"></div>
                     </div>
                 
@@ -110,7 +110,7 @@ const CirugiaPediatrica = () => {
                                     Nuestras Especialidades
                                 </button>
                                 <span>
-                                    > Cirugía Pediátrica
+                                    > Medicina Interna
                                 </span>
                             </div>
                         </div>
@@ -132,25 +132,25 @@ const CirugiaPediatrica = () => {
                                 <div className="especialidad-container">
                                     <div className="texto-especialidad">
                                         <h4 id="nuestra-especialidad"><span>Nuestra Especialidad</span></h4>
-                                        <p>Especializados en procedimientos quirúrgicos para niños y adolescentes, abordamos malformaciones congénitas, lesiones traumáticas y enfermedades pediátricas con técnicas mínimamente invasivas adaptadas a la población infantil.</p>
+                                        <p>Especializados en el diagnóstico, tratamiento y manejo de enfermedades crónicas y complejas en adultos, ofrecemos una atención integral para afecciones que afectan múltiples sistemas del cuerpo.</p>
                                         <h4 id="nuestros-profesionales"><span>Nuestros Profesionales</span></h4>
-                                        <p>Cirujanos pediátricos con formación avanzada en técnicas quirúrgicas delicadas, enfocados en la seguridad y el cuidado integral de los pacientes más jóvenes, con un enfoque humano y personalizado.</p>
+                                        <p>Internistas certificados con experiencia en el manejo de enfermedades cardiovasculares, endocrinas, pulmonares y renales, comprometidos con un enfoque integral y personalizado.</p>
                                     </div>
                                     
                                     <div className="collage-profesionales">
                                         <img 
-                                            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200" 
-                                            alt="Cirujano Pediátrico 1" 
+                                            src="https://images.unsplash.com/photo-1580281658626-0f8a01ebb60e?w=200" 
+                                            alt="Internista 1" 
                                             className="foto-profesional foto-1" 
                                         />
                                         <img 
-                                            src="https://images.unsplash.com/photo-1576765607924-3a7b848e2525?w=180" 
-                                            alt="Cirujano Pediátrico 2" 
+                                            src="https://images.unsplash.com/photo-1576091160550-2a6adeda52c0?w=180" 
+                                            alt="Internista 2" 
                                             className="foto-profesional foto-2" 
                                         />
                                         <img 
-                                            src="https://images.unsplash.com/photo-1550831107-1553da8c8464?w=220" 
-                                            alt="Cirujano Pediátrico 3" 
+                                            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=220" 
+                                            alt="Internista 3" 
                                             className="foto-profesional foto-3" 
                                         />
                                     </div>
@@ -160,52 +160,55 @@ const CirugiaPediatrica = () => {
                                     <ul className="list-tag">
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <span>Corrección de malformaciones congénitas.</span>
+                                            <span>Diagnóstico y manejo de hipertensión arterial.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <span>Cirugía de apendicitis pediátrica.</span>
+                                            <ល
+                                        <li>
+                                            <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
+                                            <span>Control de diabetes mellitus.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <span>Herniorrafia inguinal y umbilical.</span>
+                                            <span>Evaluación de enfermedades infecciosas.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <span>Cirugía de fimosis.</span>
+                                            <span>Tratamiento de enfermedades pulmonares.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
-                                            <span>Procedimientos laparoscópicos pediátricos.</span>
+                                            <span>Monitoreo de enfermedades renales.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
-                                            <span>Biopsias y resecciones de tumores benignos.</span>
+                                            <span>Electrocardiogramas y pruebas de esfuerzo.</span>
                                         </li>
                                     </ul>
-                                    <p>Realizamos procedimientos quirúrgicos con un enfoque en la recuperación rápida y el bienestar emocional de los niños, utilizando tecnología de punta y un entorno seguro.</p>
+                                    <p>Ofrecemos una atención integral para el manejo de enfermedades crónicas y agudas, utilizando tecnología diagnóstica avanzada y un enfoque centrado en el paciente.</p>
                                 </div>
                                 <div className="atencion-container">
                                     <h4 id="presta-atencion"><span>Presta Atención</span></h4>
-                                    <p>Las afecciones quirúrgicas pediátricas más comunes incluyen apendicitis, hernias, malformaciones congénitas y traumatismos. Contamos con quirófanos especializados y un equipo multidisciplinario para el cuidado integral de los niños.</p>
+                                    <p>Las afecciones más comunes tratadas en medicina interna incluyen diabetes, hipertensión, enfermedades cardíacas, pulmonares y renales. Contamos con un equipo especializado para un diagnóstico y tratamiento precisos.</p>
                                 </div>
                                 <div className="staff-container">
                                     <h4 id="nuestro-staff"><span>Nuestro Staff</span></h4>
-                                    <p>Nuestros cirujanos pediátricos están certificados y cuentan con experiencia en procedimientos quirúrgicos específicos para niños, garantizando un trato cálido y profesional.</p>
+                                    <p>Nuestros internistas cuentan con certificaciones internacionales y experiencia en el manejo de enfermedades complejas, asegurando un cuidado integral y profesional.</p>
                                     <div className="d-flex lista-resultado">
                                         <div className="d-flex lista">
                                             <div className="d-flex gap-3">
                                                 <div className="d-flex avatar">
-                                                    <img src="https://citaweb.clinicasanfelipe.com/Files/M3dicosX/Dr.EjemploPediatrico.jpg" alt="DR. EJEMPLO PEDIÁTRICO" />
+                                                    <img src="https://citaweb.clinicasanfelipe.com/Files/M3dicosX/Dr.EjemploInternista.jpg" alt="DR. EJEMPLO INTERNISTA" />
                                                 </div>
                                                 <div className="d-flex flex-column descripcion">
-                                                    <span className="area">Cirujano Pediátrico</span>
-                                                    <div className="nombre">DR. EJEMPLO PEDIÁTRICO</div>
+                                                    <span className="area">Internista</span>
+                                                    <div className="nombre">DR. EJEMPLO INTERNISTA</div>
                                                     <span className="badge">CMD:</span>
                                                 </div>
                                             </div>
                                             <div className="d-flex ctas">
-                                                <a href="../medicos/ejemplo-pediatrico" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
+                                                <a href="../medicos/ejemplo-internista" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
                                             </div>
                                         </div>
                                     </div>
@@ -215,7 +218,7 @@ const CirugiaPediatrica = () => {
                     </section>
 
                     <section className="derma-cta">
-                        <h3 className="derma-cta__title">¿Tu hijo necesita evaluación quirúrgica?</h3>
+                        <h3 className="derma-cta__title">¿Necesitas una consulta de medicina interna?</h3>
                         <button className="derma-cta__button">
                             Agendar cita
                             <span className="derma-cta__button-effect"></span>
@@ -227,4 +230,4 @@ const CirugiaPediatrica = () => {
     );
 };
 
-export default CirugiaPediatrica;
+export default MedicinaInterna;

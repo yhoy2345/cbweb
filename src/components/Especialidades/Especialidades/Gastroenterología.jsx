@@ -7,10 +7,10 @@ import { faSyringe, faUserDoctor } from '@fortawesome/free-solid-svg-icons';
 import './EspecialidadDetalle.css';
 import './car.css';
 
-const CirugiaPediatrica = () => {
+const Gastroenterologia = () => {
     const navigate = useNavigate();
-    const cirugiaPediatricaData = specialties.find(
-        esp => esp.url === "/especialidades/cirugiapediatrica"
+    const gastroenterologiaData = specialties.find(
+        esp => esp.url === "/especialidades/gastroenterologia"
     );
 
     const handleClick = () => {
@@ -61,12 +61,12 @@ const CirugiaPediatrica = () => {
                 {/* Hero Section */}
                 <div className="derma-hero">
                     <img
-                        src="/images/pediatric-surgery.jpg"
-                        alt="Quirófano de cirugía pediátrica"
+                        src="/images/gastroenterology.jpg"
+                        alt="Consulta de gastroenterología"
                         className="derma-hero__image"
                     />
                     <div className="derma-hero__overlay"></div>
-                    <h1 className="derma-hero__title">{cirugiaPediatricaData.name}</h1>
+                    <h1 className="derma-hero__title">{gastroenterologiaData.name}</h1>
                 </div>
 
                 {/* Main Content */}
@@ -98,7 +98,7 @@ const CirugiaPediatrica = () => {
                                 }}
                             />
                         ))}
-                        <p className="derma-intro__text">{cirugiaPediatricaData.description}</p>
+                        <p className="derma-intro__text">{gastroenterologiaData.description}</p>
                         <div className="derma-intro__hover-effect"></div>
                     </div>
                 
@@ -110,7 +110,7 @@ const CirugiaPediatrica = () => {
                                     Nuestras Especialidades
                                 </button>
                                 <span>
-                                    > Cirugía Pediátrica
+                                    > Gastroenterología
                                 </span>
                             </div>
                         </div>
@@ -132,25 +132,25 @@ const CirugiaPediatrica = () => {
                                 <div className="especialidad-container">
                                     <div className="texto-especialidad">
                                         <h4 id="nuestra-especialidad"><span>Nuestra Especialidad</span></h4>
-                                        <p>Especializados en procedimientos quirúrgicos para niños y adolescentes, abordamos malformaciones congénitas, lesiones traumáticas y enfermedades pediátricas con técnicas mínimamente invasivas adaptadas a la población infantil.</p>
+                                        <p>Especializados en el diagnóstico y tratamiento de enfermedades del sistema digestivo, ofrecemos soluciones integrales para trastornos gastrointestinales, hepáticos y pancreáticos, utilizando tecnología avanzada y procedimientos mínimamente invasivos.</p>
                                         <h4 id="nuestros-profesionales"><span>Nuestros Profesionales</span></h4>
-                                        <p>Cirujanos pediátricos con formación avanzada en técnicas quirúrgicas delicadas, enfocados en la seguridad y el cuidado integral de los pacientes más jóvenes, con un enfoque humano y personalizado.</p>
+                                        <p>Gastroenterólogos certificados con experiencia en endoscopias, colonoscopias y manejo de enfermedades digestivas complejas, comprometidos con la atención personalizada y la salud integral del paciente.</p>
                                     </div>
                                     
                                     <div className="collage-profesionales">
                                         <img 
-                                            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200" 
-                                            alt="Cirujano Pediátrico 1" 
+                                            src="https://images.unsplash.com/photo-1580281658626-0f8a01ebb60e?w=200" 
+                                            alt="Gastroenterólogo 1" 
                                             className="foto-profesional foto-1" 
                                         />
                                         <img 
-                                            src="https://images.unsplash.com/photo-1576765607924-3a7b848e2525?w=180" 
-                                            alt="Cirujano Pediátrico 2" 
+                                            src="https://images.unsplash.com/photo-1576091160550-2a6adeda52c0?w=180" 
+                                            alt="Gastroenterólogo 2" 
                                             className="foto-profesional foto-2" 
                                         />
                                         <img 
-                                            src="https://images.unsplash.com/photo-1550831107-1553da8c8464?w=220" 
-                                            alt="Cirujano Pediátrico 3" 
+                                            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=220" 
+                                            alt="Gastroenterólogo 3" 
                                             className="foto-profesional foto-3" 
                                         />
                                     </div>
@@ -160,52 +160,52 @@ const CirugiaPediatrica = () => {
                                     <ul className="list-tag">
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <span>Corrección de malformaciones congénitas.</span>
+                                            <span>Endoscopia digestiva alta.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <span>Cirugía de apendicitis pediátrica.</span>
+                                            <span>Colonoscopia diagnóstica y terapéutica.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <span>Herniorrafia inguinal y umbilical.</span>
+                                            <span>Biopsias gastrointestinales.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faUserDoctor} className="icon-spacing"/>
-                                            <span>Cirugía de fimosis.</span>
+                                            <span>Tratamiento de reflujo gastroesofágico.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
-                                            <span>Procedimientos laparoscópicos pediátricos.</span>
+                                            <span>Manejo de enfermedades hepáticas.</span>
                                         </li>
                                         <li>
                                             <FontAwesomeIcon icon={faSyringe} className="icon-spacing"/>
-                                            <span>Biopsias y resecciones de tumores benignos.</span>
+                                            <span>Extracción de pólipos intestinales.</span>
                                         </li>
                                     </ul>
-                                    <p>Realizamos procedimientos quirúrgicos con un enfoque en la recuperación rápida y el bienestar emocional de los niños, utilizando tecnología de punta y un entorno seguro.</p>
+                                    <p>Realizamos procedimientos endoscópicos y diagnósticos con equipos de última generación, asegurando diagnósticos precisos y tratamientos efectivos para trastornos digestivos.</p>
                                 </div>
                                 <div className="atencion-container">
                                     <h4 id="presta-atencion"><span>Presta Atención</span></h4>
-                                    <p>Las afecciones quirúrgicas pediátricas más comunes incluyen apendicitis, hernias, malformaciones congénitas y traumatismos. Contamos con quirófanos especializados y un equipo multidisciplinario para el cuidado integral de los niños.</p>
+                                    <p>Las afecciones gastrointestinales más comunes incluyen reflujo gastroesofágico, enfermedad inflamatoria intestinal, hepatitis, y pólipos colónicos. Contamos con tecnología avanzada y un equipo multidisciplinario para un diagnóstico y tratamiento integrales.</p>
                                 </div>
                                 <div className="staff-container">
                                     <h4 id="nuestro-staff"><span>Nuestro Staff</span></h4>
-                                    <p>Nuestros cirujanos pediátricos están certificados y cuentan con experiencia en procedimientos quirúrgicos específicos para niños, garantizando un trato cálido y profesional.</p>
+                                    <p>Nuestros gastroenterólogos cuentan con certificaciones internacionales y amplia experiencia en el manejo de enfermedades digestivas, garantizando un enfoque profesional y humano.</p>
                                     <div className="d-flex lista-resultado">
                                         <div className="d-flex lista">
                                             <div className="d-flex gap-3">
                                                 <div className="d-flex avatar">
-                                                    <img src="https://citaweb.clinicasanfelipe.com/Files/M3dicosX/Dr.EjemploPediatrico.jpg" alt="DR. EJEMPLO PEDIÁTRICO" />
+                                                    <img src="https://citaweb.clinicasanfelipe.com/Files/M3dicosX/Dr.EjemploGastroenterologo.jpg" alt="DR. EJEMPLO GASTROENTERÓLOGO" />
                                                 </div>
                                                 <div className="d-flex flex-column descripcion">
-                                                    <span className="area">Cirujano Pediátrico</span>
-                                                    <div className="nombre">DR. EJEMPLO PEDIÁTRICO</div>
+                                                    <span className="area">Gastroenterólogo</span>
+                                                    <div className="nombre">DR. EJEMPLO GASTROENTERÓLOGO</div>
                                                     <span className="badge">CMD:</span>
                                                 </div>
                                             </div>
                                             <div className="d-flex ctas">
-                                                <a href="../medicos/ejemplo-pediatrico" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
+                                                <a href="../medicos/ejemplo-gastroenterologo" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
                                             </div>
                                         </div>
                                     </div>
@@ -215,7 +215,7 @@ const CirugiaPediatrica = () => {
                     </section>
 
                     <section className="derma-cta">
-                        <h3 className="derma-cta__title">¿Tu hijo necesita evaluación quirúrgica?</h3>
+                        <h3 className="derma-cta__title">¿Necesitas una consulta gastroenterológica?</h3>
                         <button className="derma-cta__button">
                             Agendar cita
                             <span className="derma-cta__button-effect"></span>
@@ -227,4 +227,4 @@ const CirugiaPediatrica = () => {
     );
 };
 
-export default CirugiaPediatrica;
+export default Gastroenterologia;
