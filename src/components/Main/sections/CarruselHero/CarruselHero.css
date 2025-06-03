@@ -250,8 +250,8 @@
 @media (max-width: 768px) {
     .carrusel-indicadores {
         padding: 5px 10px;
-        gap: 8px;
-        bottom: 12px;
+        gap: 6px;
+        bottom: 10px;
     }
     .indicador {
         width: 8px;

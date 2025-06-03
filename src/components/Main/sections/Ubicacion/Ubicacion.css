@@ -886,3 +886,126 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Desktop grande (1440px - 1899px) */
+@media (min-width: 1440px) and (max-width: 1899px) {
+  .ubi-title {
+    font-size: 2.8rem;
+    padding-bottom: 12px;
+  }
+  .ubi-subtitle {
+    font-size: 1.3rem;
+  }
+  .ubi-title-underline {
+    height: 4px;
+    width: 80%;
+  }
+}
+
+/* Desktop estándar (1200px - 1439px) */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .ubi-title {
+    font-size: 2.5rem;
+    padding-bottom: 12px;
+  }
+  .ubi-subtitle {
+    font-size: 1.2rem;
+  }
+  .ubi-title-underline {
+    height: 4px;
+    width: 80%;
+  }
+}
+
+/* Tablets grandes y laptops pequeñas (1024px - 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .ubi-title {
+    font-size: 2.3rem;
+    padding-bottom: 10px;
+  }
+  .ubi-subtitle {
+    font-size: 1.1rem;
+  }
+  .ubi-title-underline {
+    height: 4px;
+    width: 75%;
+  }
+}
+
+/* Tablets medianas (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .ubi-title {
+    font-size: 2.1rem;
+    padding-bottom: 8px;
+  }
+  .ubi-subtitle {
+    font-size: 1rem;
+  }
+  .ubi-title-underline {
+    height: 3px;
+    width: 70%;
+  }
+}
+
+/* Móviles grandes (480px - 767px) */
+@media (min-width: 480px) and (max-width: 767px) {
+  .ubi-title-wrapper {
+    padding: 0 15px; /* Padding lateral para pantallas móviles */
+  }
+  .ubi-title {
+    font-size: 1.9rem;
+    padding-bottom: 7px;
+    width: 100%; /* Asegura que el título ocupe el ancho disponible */
+    margin: 0 auto; /* Centrado adicional */
+  }
+  .ubi-subtitle {
+    font-size: 0.9rem;
+    width: 100%; /* Asegura que el subtítulo ocupe el ancho disponible */
+  }
+  .ubi-title-underline {
+    height: 3px;
+    width: 70%;
+  }
+}
+
+/* Móviles medianos (376px - 479px) */
+@media (min-width: 376px) and (max-width: 479px) {
+  .ubi-title-wrapper {
+    padding: 0 12px; /* Padding lateral para pantallas móviles */
+  }
+  .ubi-title {
+    font-size: 1.7rem;
+    padding-bottom: 6px;
+    width: 100%; /* Asegura que el título ocupe el ancho disponible */
+    margin: 0 auto; /* Centrado adicional */
+  }
+  .ubi-subtitle {
+    font-size: 0.85rem;
+    width: 100%; /* Asegura que el subtítulo ocupe el ancho disponible */
+  }
+  .ubi-title-underline {
+    height: 3px;
+    width: 65%;
+  }
+}
+
+/* Móviles pequeños (hasta 375px) */
+@media (max-width: 375px) {
+  .ubi-title-wrapper {
+    padding: 0 10px; /* Padding lateral para evitar que el contenido toque los bordes */
+  }
+  .ubi-title {
+    font-size: 1.5rem;
+    padding-bottom: 5px;
+    width: 100%; /* Asegura que el título ocupe el ancho disponible */
+    margin: 0 auto; /* Centrado adicional */
+  }
+  .ubi-subtitle {
+    font-size: 0.8rem;
+    width: 100%; /* Asegura que el subtítulo ocupe el ancho disponible */
+  }
+  .ubi-title-underline {
+    height: 2px;
+    width: 60%;
+  }
+}

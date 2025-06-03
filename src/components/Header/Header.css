@@ -21,7 +21,7 @@
 /* Contenedor interno para el contenido */
 .header-container {
 width: 100%;
-max-width: 1200px;
+max-width: 100px;
 margin: 0 auto;
 display: flex;
 justify-content: space-between;
@@ -55,7 +55,6 @@ z-index: 2;
   transform: translateX(-50%); /* centrado */
   width: 76.5%;
   z-index: 9999;
-  background: rgba(224, 223, 223, 0.4); /* si quieres fondo */
   backdrop-filter: blur(10px); /* opcional, glassmorphism */
   border-radius: 25px; /* opcional, bordes redondeados */
   padding: 10px -10px; /* opcional, separación interna */
@@ -200,8 +199,8 @@ UR BAT  Logo
   width: auto; /* No ocupa todo el ancho */
   margin: 0 auto; /* Centrado horizontal */
   flex-shrink: 0;
-  
 }
+
 
 /* Animación de entrada */
 @keyframes urbat-logo-entrance {
@@ -969,7 +968,7 @@ height: 3px;
 }
 
 /* ===============================
- Botones 
+Botones 
 ================================== */
 /* Contenedor vertical */
 .header-buttons-vertical {
@@ -978,17 +977,16 @@ height: 3px;
   flex-direction: column;
   gap: 12px; /* Mayor separación entre botones */
   align-items: center;
-  
 }
 
 /* Estilos base mejorados para botones  */
 .header-buttons-vertical a {
-  font-size: 17px; 
+  font-size: 15px; 
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 4px; /* Más padding para mayor presencia */
+  padding: 16px 1px; /* Más padding para mayor presencia */
   border-radius: 26px; /* Bordes más redondeados */
   font-weight: 600;
   text-decoration: none;
@@ -1115,7 +1113,7 @@ height: 3px;
  Mobile Navigation Styles 
 ================================== */
 :root {
-  --color-accent: #FFD700;
+  --color-accent: #0078d7;
   --color-highlight: #7EC8FF;
   --color-light: rgba(255, 255, 255, 0.95);
   --color-dark: rgba(10, 10, 20, 0.8);
@@ -1133,6 +1131,7 @@ height: 3px;
   position: relative;
   z-index: 100;
   transition: transform 0.3s ease;
+  flex-shrink: 0;
 }
 
 .nav-hamburger-box {
@@ -1167,702 +1166,862 @@ height: 3px;
   position: fixed;
   top: 0;
   right: -100%;
-  width: 50%;
-  height: 100%;
+  width: 280px;
+  max-width: 80vw;
+  height: 100vh;
   background: var(--color-dark);
   backdrop-filter: blur(10px);
   transition: right 0.5s ease;
   z-index: 90;
-  padding: 2rem;
+  padding: 3rem 2rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  overflow-y: auto;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .nav-mobile-menu--visible {
   right: 0;
   opacity: 1;
-visibility: visible;
+  visibility: visible;
 }
 
 .nav-mobile-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  text-align: left;
+  width: 100%;
 }
 
 .nav-mobile-item {
-  margin: 20px 0;
+  margin: 1.5rem 0;
+  width: 100%;
 }
 
 .nav-mobile-link {
   display: flex;
   align-items: center;
   color: var(--color-light);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-decoration: none;
-  transition: color 0.3s ease;
-  gap: 12px;
-  justify-content: left;
+  transition: all 0.3s ease;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-mobile-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-accent);
 }
 
 .nav-mobile-icon {
   color: var(--color-highlight);
-  margin-right: 0.5rem;
-  font-size: 1.4em;
+  font-size: 1.2em;
+  flex-shrink: 0;
 }
 
 .nav-mobile-text {
-  margin-left: 0.5rem;
+  flex: 1;
 }
 
 .nav-mobile-badge {
-  margin-left: auto;
   background: var(--color-accent);
   color: var(--color-dark);
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.5rem;
-  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  flex-shrink: 0;
 }
 
-/* ---------------------------------- */
-/* 🔄 CAMBIO EN 1260px */
-/* ---------------------------------- */
-@media (max-width: 1260px) {
-/* Oculta el menú horizontal */
-.urbat-nav__horizontal {
-  display: none !important;
-}
-.header-contact,
-.header-separator,.header-address{
-  display: none !important;
+/* Mobile Contact Info */
+.mobile-contact-info {
+  width: 100%;
+  padding: 1.5rem 0.75rem;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.whatsapp-btn {
-  display: none !important;
+.mobile-header-contact,
+.mobile-header-address {
+  display: flex;
+  align-items: center;
+  color: var(--color-light);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
 }
 
-/* Muestra el botón hamburguesa */
-.nav-hamburger-btn {
-  display: block;
+.mobile-header-address {
+  position: relative;
+  cursor: pointer;
 }
 
-/* Ajustes adicionales para el navbar */
-.navbar-content {
-  justify-content: space-between; /* Logo a la izquierda, hamburguesa a la derecha */
+.mobile-header-address:hover {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Reduce más los botones si es necesario */
-.urbat-buttons-container {
-  margin-left: auto; /* Empuja los botones a la derecha */
-  margin-right: 15px; /* Espacio antes del hamburguesa */
-}
-}
-
-/* ---------------------------------- */
-/* 🔄 RESPONSIVE: Menor a 1260px */
-/* ---------------------------------- */
-@media (max-width: 1260px) {
-  .social-icons-container {
-    position: static; /* Elimina el posicionamiento absoluto */
-    transform: none;
-    margin-left: 10px;
-    padding-right: -100px;
-  }
-  
-  /* Asegura visibilidad */
-  .header-nav-combined {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-grow: 1;
-  }
-  
-  /* Espacio entre iconos y botón hamburguesa */
-  .nav-hamburger-btn {
-    margin-left: 100px;
-  }
+.mobile-phone-icon,
+.mobile-address-icon {
+  color: var(--color-highlight);
+  margin-right: 0.75rem;
+  font-size: 1rem;
+  flex-shrink: 0;
 }
 
-@media (max-width: 1260px) {
-  .urbat-logo {
-    width: 70px; /* Contenedor mantiene su tamaño */
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: visible; /* Permitimos que la imagen escalada se vea */
-    margin-left: 10px;
-    position: relative; /* Necesario para ajustar la imagen */
-  }
-
-  .urbat-logo__icon-container {
-    width: 100%; /* Restauramos a 100% (no 200%) */
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-
-  /* Ajuste clave: Escala la imagen sin afectar el contenedor */
-  .urbat-logo__brain-icon {
-    width: auto; /* Ancho automático (no 100%) */
-    height: auto;
-    object-fit: contain;
-    transform: translateX(4px) translateY(-4px) scale(1.55);
-    position: relative;
-    z-index: 2; /* Asegura que esté por encima de otros elementos */
-  }
-
-  /* Ocultar efectos si interfieren */
-  .urbat-logo__icon-glow,
-  .urbat-logo__icon-particles,
-  .urbat-logo__hover-effect,
-  .urbat-logo__active-glow {
-    display: none;
-  }
-
-  /* Asegurarse de que el navbar no tenga padding que lo desplace */
-  .navbar-container {
-    padding-left: 0 !important; /* Importante para sobrescribir otros estilos */
-    justify-content: flex-start; /* Alinea todo a la izquierda */
-    overflow: hidden; /* Evita que el logo se salga */
-  }
-
-}
-/* ---------------------------------- */
-/* 📱 AJUSTES PARA MÓVIL (≤ 768px) */
-/* ---------------------------------- */
-@media (max-width: 768px) {
-.nav-mobile-link {
+.mobile-address-spinner {
+  position: absolute;
+  left: 0.5rem;
+  color: var(--color-highlight);
   font-size: 1rem;
 }
 
-.nav-hamburger-box {
-  width: 24px;
-}
-}
-
-/*═══════════════════════════════════════════════╗
-✨  RESPONSIVE DESIGN — ICON ONLY ≤ 1800px   ✨
-═══════════════════════════════════════════════*/
-@media screen and (max-width: 1799px) {
-.urbat-logo__text-container {
-  display: none;
-}
-}
-
-@media (max-width: 1815px) {
-  .urbat-logo__icon-container {
-    width: 160px; /* Reducción desde 300px */
-  }
+.mobile-geo-error-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ff4d4f;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
 }
 
-@media (max-width: 1710px) {
+/* ================================== */
+/* RESPONSIVE BREAKPOINTS OPTIMIZADOS */
+/* ================================== */
+
+/* Extra Large Screens */
+@media (max-width: 1891px) {
   .urbat-logo__icon-container {
     width: 100px;
-  }
-}
-
-@media (max-width: 1500px) {
-  .urbat-logo__icon-container {
     min-width: 100px;
   }
-}
-
-@media (max-width: 1260px) {
-  .urbat-logo__icon-container {
-    min-width: 70px;
+  .urbat-logo__brain-icon {
+    transform: translateX(4px) scale(1.7);
   }
 }
 
-/* Tablets pequeñas / Móviles grandes (horizontal) */
-@media (max-width: 768px) {
-  .urbat-logo__icon-container {
-    width: 80px;
-    min-width: 80px;
+/* Large Screens */
+@media (max-width: 1750px) {
+  .nav-right {
+    gap: 10px;
+  }
+  .header-contact-container {
+    font-size: 0.93rem;
+  }
+  .social-icons-container {
+    gap: 10px;
+  }
+  .social-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+  .header-contact,
+  .header-address {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+    gap: 12px;
+  }
+  .header-separator::before {
+    height: 25px;
+    margin: 0 10px;
+  }
+  .urbat-nav__horizontal {
+    gap: 1rem;
+  }
+  .urbat-nav__link {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+  .urbat-nav__icon {
+    font-size: 0.95em;
+  }
+  .urbat-nav__badge {
+    font-size: 0.55rem;
+    min-width: 13px;
+    height: 13px;
+    padding: 1.5px 4px;
   }
 }
 
-/* Móviles medianos (ej: iPhone estándar) */
-@media (max-width: 576px) {
-  .urbat-logo__icon-container {
-    width: 70px;
-    min-width: 70px; /* Tamaño mínimo absoluto */
+@media (max-width: 1650px) {
+  .urbat-buttons-container {
+    gap: 15px;
+    transform: scale(0.95);
+    transform-origin: left center;
+  }
+  .urbat-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+  .urbat-btn__icon svg {
+    width: 16px;
+    height: 16px;
   }
 }
 
-/* Móviles pequeños (opcional) */
-@media (max-width: 400px) {
-  .urbat-logo__icon-container {
-    width: 60px;
-    min-width: 60px; /* No se reduce más */
-  }
-}
-
-
-
-/* Reducción de tamaño cuando la pantalla es menor a 1560px */
 @media (max-width: 1565px) {
   .header-buttons-vertical {
-    margin-left: 6px;}
+    margin-left: 6px;
+    gap: 8px;
+  }
   .header-buttons-vertical a {
     font-size: 15px; 
   }
   .emergency-btn, 
   .whatsapp-btn {
-    width: 100px; /* Reducción del ancho */
-    padding: 1px 10px;
-    font-size: 1px;
+    width: 100px;
+    padding: 8px 10px;
+    font-size: 14px;
   }
-  
   .btn-icon {
-    margin-right: 8px;
-  }
-  
-  .header-buttons-vertical {
-    gap: 8px; /* Reducción del espacio entre botones */
+    margin-right: 6px;
   }
 }
 
 @media (max-width: 1525px) {
   .header-buttons-vertical {
-    margin-left: 2px;}
+    margin-left: 2px;
+  }
   .header-buttons-vertical a {
     font-size: 14px; 
   }
   .emergency-btn, 
   .whatsapp-btn {
-    width: 100px; /* Reducción del ancho */
-    padding: 1px 1px;
-    font-size: 1px;
+    width: 95px;
+    padding: 6px 8px;
+    font-size: 13px;
   }
-  
   .btn-icon {
-    margin-right: 2px;
-  }
-  
-  .header-buttons-vertical {
-    gap: 8px; /* Reducción del espacio entre botones */
+    margin-right: 4px;
   }
 }
 
 @media (max-width: 1500px) {
   .social-icons-container {
-    left: 50px;}
+    left: 50px;
+  }
+  
+  .urbat-logo {
+    font-size: 1.2rem !important;
+    padding: 8px 12px !important;
+  }
+  .urbat-logo__icon-container {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  .urbat-logo__text {
+    transform: scale(0.9);
+  }
+  
+  .urbat-buttons-container {
+    gap: 10px;
+    transform: scale(0.85);
+  }
+  .urbat-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  .urbat-btn__icon svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .urbat-nav__horizontal {
+    gap: 12px !important;
+  }
+  .urbat-nav__link {
+    padding: 8px 12px !important;
+  }
+  .urbat-nav__icon {
+    font-size: 1em !important;
+  }
+  .urbat-nav__text {
+    font-size: 0.85rem !important;
+  }
 }
-
 
 @media (max-width: 1360px) {
   .social-icons-container {
-    left: 40px;}
+    left: 40px;
+  }
   .header-buttons-vertical {
-    margin-left: -10px;}  
+    margin-left: -5px;
+  }  
+}
+
+@media (max-width: 1350px) {
+  .urbat-logo {
+    font-size: 1.1rem !important;
+    padding: 6px 10px !important;
+  }
+  .urbat-logo__icon-container {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  .urbat-logo__text {
+    transform: scale(0.85);
+  }
+  
+  .urbat-nav__horizontal {
+    gap: 10px !important;
+  }
+  .urbat-nav__link {
+    padding: 6px 10px !important;
+    font-size: 0.8rem !important;
+  }
+  .urbat-nav__icon {
+    font-size: 0.9em !important;
+  }
+  .urbat-nav__badge {
+    transform: scale(0.8);
+  }
+  
+  .urbat-buttons-container {
+    gap: 8px !important;
+  }
+  .urbat-btn {
+    padding: 8px 14px !important;
+    font-size: 0.85rem !important;
+  }
+  .urbat-btn__icon svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
 }
 
 @media (max-width: 1300px) {
   .header-buttons-vertical {
-    margin-left: -15px;
-    width: fit-content; /* Ancho reducido del contenedor */
+    margin-left: -10px;
+    width: fit-content;
+    gap: 6px;
   } 
   .header-buttons-vertical a {
     font-size: 13px; 
   }
   .emergency-btn, 
   .whatsapp-btn {
-    padding: 14px 2px !important;
-    font-size: 1px;
+    padding: 10px 6px;
+    font-size: 12px;
+    min-width: 80px;
   }
-  
   .btn-icon { 
-    margin-right: -4px;
-    margin-left: -28px;
+    margin-right: 4px;
   }
-  
-  .header-buttons-vertical {
-    gap: 8px; /* Reducción del espacio entre botones */
-  }
-  /* Elimina espacio residual en el texto */
   .header-buttons-vertical a span {
-    padding-left: 0;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.3px;
   }
 }
 
-/* Versión aún más compacta para móviles */
-@media (max-width: 768px) {
-  .emergency-btn, 
-  .whatsapp-btn {
-    width: 130px;
-    padding: 8px 12px;
+/* ================================== */
+/* MOBILE NAVIGATION BREAKPOINT */
+/* ================================== */
+@media (max-width: 1260px) {
+  /* Ocultar elementos desktop */
+  .urbat-nav__horizontal,
+  .header-contact,
+  .header-separator,
+  .header-address {
+    display: none !important;
+  }
+  
+  /* Mostrar hamburger */
+  .nav-hamburger-btn {
+    display: flex !important;
+    position: static;
+    margin-left: auto;
+    order: 4;
+  }
+  
+  /* Reorganizar navbar */
+  .navbar-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding: 0 15px !important;
+    box-sizing: border-box;
+  }
+  
+  .urbat-logo {
+    order: 0;
+    margin: 0;
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+  }
+  
+  .urbat-logo__icon-container {
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px;
+  }
+  
+  .urbat-logo__brain-icon {
+    transform: translateX(2px) translateY(-2px) scale(1.4);
+  }
+  
+  /* Ocultar efectos visuales innecesarios */
+  .urbat-logo__icon-glow,
+  .urbat-logo__icon-particles,
+  .urbat-logo__hover-effect,
+  .urbat-logo__active-glow {
+    display: none;
+  }
+  
+  /* Social icons container */
+  .social-icons-container {
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    order: 1;
+    flex-shrink: 0;
+    display: flex !important;
+    background: rgba(255,255,255,0.1);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+  }
+  
+  .social-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    margin: 0 2px;
+  }
+  
+  /* Header buttons */
+  .header-buttons-vertical {
+    order: 2;
+    flex-direction: row !important;
+    gap: 8px;
+    margin: 0 10px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  
+  .emergency-btn {
+    background: linear-gradient(135deg, #ff3a3a, #c91e1e);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 25px;
     font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(255, 58, 58, 0.3);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    min-width: auto;
+    width: auto;
+  }
+  
+  .emergency-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 58, 58, 0.4);
+  }
+  
+  .whatsapp-btn {
+    display: none !important;
+  }
+  
+  /* Header contact top */
+  .header-contact-top {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    order: 3;
+    margin: 0 5px;
+    flex-shrink: 0;
+  }
+}
+
+/* ================================== */
+/* TABLET STYLES */
+/* ================================== */
+@media (max-width: 1000px) {
+  .emergency-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    min-width: 80px;
+  }
+  
+  .header-contact-top {
+    padding: 4px 8px;
+    font-size: 0.85rem;
+  }
+  
+  .social-icon {
+    width: 26px;
+    height: 26px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar-container {
+    padding: 0 10px !important;
+  }
+  
+  .emergency-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+    min-width: 70px;
+  }
+  
+  .header-contact-top {
+    display: none !important;
+  }
+  
+  .urbat-logo__icon-container {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px;
+  }
+}
+
+@media (max-width: 800px) {
+  .emergency-btn {
+    padding: 6px 8px;
+    font-size: 10px;
+    min-width: 60px;
+  }
+  
+  .social-icons-container {
+    padding: 6px 8px !important;
+  }
+  
+  .social-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    margin: 0 1px;
+  }
+}
+
+/* ================================== */
+/* MOBILE STYLES */
+/* ================================== */
+@media (max-width: 768px) {
+  .navbar {
+    width: 95% !important;
+    top: 10px !important;
+    padding: 8px 12px !important;
+    border-radius: 25px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-container {
+    padding: 0 !important;
+  }
+  
+  .urbat-logo {
+    padding: 4px 8px !important;
+  }
+  
+  .urbat-logo__text-container {
+    display: none !important;
+  }
+  
+  .urbat-logo__icon-container {
+    width: 45px !important;
+    height: 45px !important;
+    min-width: 45px;
+  }
+  
+  .urbat-logo__brain-icon {
+    transform: translateX(1px) translateY(-1px) scale(1.2);
+  }
+  
+  .emergency-btn {
+    display: none !important;
   }
   
   .btn-icon {
-    font-size: 14px;
+    font-size: 12px;
+  }
+  
+  .social-icons-container {
+    padding: 4px 6px !important;
+  }
+  
+  .social-icon {
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
+  
+  .nav-hamburger-box {
+    width: 20px;
+    height: 15px;
+  }
+  
+  .nav-hamburger-line {
+    height: 2px;
+  }
+  
+  /* Mobile menu adjustments */
+  .nav-mobile-menu {
+    width: 250px;
+    padding: 2.5rem 1.5rem 2rem;
+  }
+  
+  .nav-mobile-link {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+  
+  .nav-mobile-icon {
+    font-size: 1.1em;
   }
 }
 
-
-
-
-
-/*═══════════════════════════════════════════════╗
-✨  RESPONSIVE DESIGN  ≤ 1650px   ✨
-═══════════════════════════════════════════════*/
-
-
-/* 📱 Media Queries para RESPONSIVE */
-/* Escalado SUAVE (1600px → 1500px) */
-@media (max-width: 1650px) {
-.urbat-buttons-container {
-  gap: 15px;
-  transform: scale(0.95); /* Reducción del 5% */
-  transform-origin: left center;
-}
-.urbat-btn {
-  padding: 12px 24px;
-  font-size: 16px;
-}
-.urbat-btn__icon svg {
-  width: 16px;
-  height: 16px;
-}
-}
-
-/* Escalado NOTORIO (< 1500px) */
-@media (max-width: 1500px) {
-.urbat-buttons-container {
-  gap: 10px;
-  transform: scale(0.85); /* Reducción del 15% */
-}
-.urbat-btn {
-  padding: 10px 20px;
-  font-size: 14px;
-}
-.urbat-btn__icon svg {
-  width: 14px;
-  height: 14px;
-}
-}
-
-
-@media (max-width: 1650px) {
-.navbar {
-    width: 90%;
-    height: auto; /* Altura flexible */
-    min-height: 80px; /* Altura mínima */
-    padding: 15px 20px; /* Más padding para móviles */
-}
-
-.navbar-content {
-    flex-direction: column; /* Apila logo y botones */
-    gap: 15px;
-}
-}
-
-/* Pantallas medianas (≤ 1200px) */
-@media (max-width: 1200px) {
-.navbar {
-    width: 95%;
-    top: 20px; /* Más cerca del borde superior */
-}
-}
-
-/* Tablets (≤ 992px) */
-@media (max-width: 992px) {
-.navbar {
-    border-radius: 15px;
-    backdrop-filter: blur(8px);
-}
-}
-
-/* Móviles (≤ 768px) */
-@media (max-width: 768px) {
-.navbar {
-    width: 98%;
-    top: 10px;
-    min-height: 70px;
-    padding: 10px 15px;
-}
-}
-
-/* Móviles pequeños (≤ 576px) */
-@media (max-width: 576px) {
-.navbar {
-    border-radius: 12px;
-}
-}
-/*═══════════════════════════════════════════════╗
-✨  RESPONSIVE DESIGN  ≤ 1500px   ✨
-═══════════════════════════════════════════════*/
-@media (max-width: 1500px) {
-.urbat-logo {
-    font-size: 1.2rem !important; /* Texto más pequeño */
-    padding: 8px 12px !important;
-}
-
-.urbat-logo__icon-container {
-    width: 28px !important; /* Icono más compacto */
-    height: 28px !important;
-}
-
-.urbat-logo__text {
-    transform: scale(0.9); /* Opcional: suaviza reducción */
-}
-}
-
-/* Móviles (≤ 768px) */
-@media (max-width: 768px) {
-.urbat-logo {
-    font-size: 1rem !important;
-    padding: 6px 10px !important;
-}
-
-.urbat-logo__icon-container {
-    width: 24px !important;
-    height: 24px !important;
-}
-}
-
-/* Ajustes para ≤ 1500px */
-@media (max-width: 1500px) {
-.urbat-nav__horizontal {
-    gap: 12px !important; /* Menor espacio entre ítems */
-}
-
-.urbat-nav__link {
-    padding: 8px 12px !important;
-}
-
-.urbat-nav__icon {
-    font-size: 1em !important; /* Íconos más pequeños */
-}
-
-.urbat-nav__text {
-    font-size: 0.85rem !important;
-}
-}
-
-/* Móviles (≤ 768px) - Menú ultracompacto */
-@media (max-width: 768px) {
-.urbat-nav__horizontal {
-    gap: 8px !important;
-}
-
-.urbat-nav__link {
-    padding: 6px 8px !important;
-}
-
-.urbat-nav__text {
-    display: none !important; /* Oculta texto en móviles */
-}
-
-.urbat-nav__icon {
-    font-size: 1.1em !important; /* Íconos ligeramente más grandes para táctil */
-}
-}
-/*═══════════════════════════════════════════════╗
-✨  RESPONSIVE DESIGN  ≤ 1350px   ✨
-═══════════════════════════════════════════════*/
-@media (max-width: 1350px) {
-/* 🔹 LOGO (Más pequeño) */
-.urbat-logo {
-    font-size: 1.1rem !important;
-    padding: 6px 10px !important;
-}
-.urbat-logo__icon-container {
-    width: 24px !important;
-    height: 24px !important;
-}
-.urbat-logo__text {
-    transform: scale(0.85);
-}
-
-/* 🔹 MENÚ HORIZONTAL (Compacto) */
-.urbat-nav__horizontal {
-    gap: 10px !important;
-}
-.urbat-nav__link {
-    padding: 6px 10px !important;
-    font-size: 0.8rem !important;
-}
-.urbat-nav__icon {
-    font-size: 0.9em !important;
-}
-.urbat-nav__badge {
-    transform: scale(0.8);
-}
-
-/* 🔹 BOTONES (Reducción proporcional) */
-.urbat-buttons-container {
-    gap: 10px !important;
-}
-.urbat-btn {
-    padding: 8px 14px !important;
-    font-size: 0.85rem !important;
-}
-.urbat-btn__icon svg {
-    width: 14px !important;
-    height: 14px !important;
-}
-}
-
-/* ---------------------------------- */
-/* 📱 AJUSTES PARA MÓVIL (≤ 768px) */
-/* ---------------------------------- */
-@media (max-width: 768px) {
-.navbar {
-    width: 95%;
-    top: 15px;
-    padding: 8px 12px;
-}
-
-/* Logo: Versión mini */
-.urbat-logo__text-container {
-    display: none !important; /* Oculta texto */
-}
-.urbat-logo {
-    padding: 5px 8px !important;
-}
-
-/* Menú: Solo íconos */
-.urbat-nav__text {
-    display: none !important;
-}
-.urbat-nav__link {
-    padding: 8px !important; /* Cuadrados perfectos */
-}
-
-/* Botones: Más compactos */
-.urbat-btn__text {
-    font-size: 0.75rem !important;
-}
-}
-/*═══════════════════════════════════════════════╗
-✨  RESPONSIVE DESIGN  ≤ 600px   ✨
-═══════════════════════════════════════════════*/
 @media (max-width: 600px) {
-.urbat-buttons-container {
-  gap: 8px; /* Reduce espacio entre botones */
+  .navbar {
+    width: 90% !important;
+    padding: 6px 10px !important;
+  }
+  
+  .navbar-container {
+    gap: 8px;
+  }
+  
+  .urbat-logo__icon-container {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px;
+  }
+  
+  .emergency-btn {
+    padding: 5px 6px;
+    font-size: 9px;
+    min-width: 45px;
+  }
+  
+  .social-icons-container {
+    padding: 3px 5px !important;
+  }
+  
+  .social-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+  
+  .nav-hamburger-box {
+    width: 18px;
+    height: 14px;
+  }
 }
 
-.urbat-btn {
-  width: 40px !important;
-  min-width: 40px !important;
-  padding: 0 !important;
+@media (max-width: 480px) {
+  .navbar {
+    width: 85% !important;
+    padding: 5px 8px !important;
+  }
+  
+  .urbat-logo__icon-container {
+    width: 35px !important;
+    height: 35px !important;
+    min-width: 35px;
+  }
+  
+  .emergency-btn {
+    padding: 4px 5px;
+    font-size: 8px;
+    min-width: 40px;
+  }
+  
+  .social-icon {
+    width: 18px;
+    height: 18px;
+    font-size: 9px;
+  }
+  
+  .nav-hamburger-box {
+    width: 16px;
+    height: 12px;
+  }
+  
+  .nav-hamburger-line {
+    height: 1.5px;
+  }
+  
+  /* Mobile menu for small screens */
+  .nav-mobile-menu {
+    width: 220px;
+    padding: 2rem 1.2rem 1.5rem;
+  }
+  
+  .nav-mobile-link {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+  
+  .nav-mobile-icon {
+    font-size: 1em;
+  }
 }
 
-.urbat-btn__text {
-  display: none !important; /* Oculta texto */
+@media (max-width: 400px) {
+  .navbar {
+    width: 80% !important;
+    padding: 4px 6px !important;
+  }
+  
+  .urbat-logo__icon-container {
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px;
+  }
+  
+  .emergency-btn {
+    padding: 3px 4px;
+    font-size: 7px;
+    min-width: 35px;
+  }
+  
+  .social-icon {
+    width: 16px;
+    height: 16px;
+    font-size: 8px;
+  }
+  
+  .nav-hamburger-box {
+    width: 14px;
+    height: 10px;
+  }
+  
+  .nav-hamburger-line {
+    height: 1px;
+  }
 }
 
-.urbat-btn__icon {
-  margin: 0 !important;
-  font-size: 1rem !important;
+@media (max-width: 350px) {
+  .navbar {
+    width: 75% !important;
+    padding: 3px 5px !important;
+  }
+  
+  .urbat-logo__icon-container {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px;
+  }
+  
+  .emergency-btn {
+    display: none !important;
+  }
+  
+  .social-icon {
+    width: 14px;
+    height: 14px;
+    font-size: 7px;
+  }
+  
+  .nav-mobile-menu {
+    width: 200px;
+    padding: 1.5rem 1rem;
+  }
 }
 
-.nav-hamburger-btn {
-  margin-left: -45px !important;
-}
-}
-/*═══════════════════════════════════════════════╗
-✨  RESPONSIVE DESIGN  ≤ 450px   ✨
-═══════════════════════════════════════════════*/
-@media (max-width: 450px) {
-.nav-mobile-menu {
-  padding: 4rem 1rem 1rem; /* Reduce padding */
+/* ================================== */
+/* UTILITY CLASSES */
+/* ================================== */
+.hidden-mobile {
+  display: block;
 }
 
-.nav-mobile-list {
-  gap: 0.5rem; /* Menor espacio entre ítems */
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
 }
 
-.nav-mobile-item {
-  margin: 0.5rem 0; /* Reduce margen vertical */
+.visible-mobile {
+  display: none;
 }
 
-.nav-mobile-link {
-  padding: 0.6rem 0.8rem; /* Más compacto */
-  font-size: 0.95rem; /* Texto más pequeño */
-  border-radius: 6px; /* Bordes menos redondeados */
+@media (max-width: 768px) {
+  .visible-mobile {
+    display: block !important;
+  }
 }
 
-.nav-mobile-icon {
-  font-size: 1rem !important; /* Íconos más pequeños */
-  min-width: 1.4rem; /* Espacio reducido */
+/* Prevent horizontal scroll */
+* {
+  box-sizing: border-box;
 }
 
-.nav-mobile-badge {
-  font-size: 0.6rem !important;
-  padding: 0.15rem 0.4rem !important;
-  margin-left: 0.3rem !important;
+body {
+  overflow-x: hidden;
 }
 
-/* Efecto hover ajustado */
-.nav-mobile-link:hover {
-  transform: translateX(3px) !important; /* Movimiento más sutil */
-}
-}
-@media (max-width: 500px) {
-.nav-mobile-badge {
-  transform: scale(0.8);
-  margin-left: 0.2rem !important;
-}
+/* Smooth transitions for all elements */
+* {
+  transition: all 0.3s ease;
 }
 
-@media (max-width: 450px) {
-.nav-mobile-badge {
-  display: none !important;
-}
-}
-
-
-/*═══════════════════════════════════════════════╗
-DEL LOGEO INICIO SESSION
-═══════════════════════════════════════════════*/
-/* Estilos para el usuario logueado */
-.user-logged-container {
-display: flex;
-align-items: center;
-gap: 12px;
+/* Ensure mobile menu overlay */
+.nav-mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 85;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
 }
 
-.user-greeting {
-display: flex;
-align-items: center;
-gap: 8px;
-padding: 0 12px;
+.nav-mobile-menu-overlay--visible {
+  opacity: 1;
+  visibility: visible;
 }
 
-.user-icon {
-color: #4fc3f7;
-font-size: 1.2rem;
+/* Accessible focus states */
+.nav-hamburger-btn:focus,
+.nav-mobile-link:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
-.welcome-message {
-color: #e0e0e0;
-font-size: 0.95rem;
-font-weight: 500;
-}
-
-.user-name {
-color: #4fc3f7;
-font-weight: 600;
-}
-
-.urbat-btn--logout {
-background: linear-gradient(135deg, #ff5252, #d32f2f);
-min-width: 100px;
-padding: 0.5rem 1rem;
-}
-
-.urbat-btn--logout:hover {
-background: linear-gradient(135deg, #d32f2f, #b71c1c);
-}
-
-.urbat-btn--logout .urbat-btn__text {
-font-size: 0.9rem;
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .nav-mobile-menu {
+    background: #000;
+    border: 2px solid #fff;
+  }
+  
+  .nav-mobile-link {
+    border: 1px solid transparent;
+  }
+  
+  .nav-mobile-link:hover,
+  .nav-mobile-link:focus {
+    border-color: #fff;
+  }
 }

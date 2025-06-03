@@ -574,86 +574,159 @@
   transform: scaleX(1);
 }
 
+/* ELEGIRNOS - RESPONSIVE PREMIUM (max-width: 1899px) */
 /* ================================================== */
-/* Responsive Design */
+/* Sistema de breakpoints profesional */
 /* ================================================== */
 
-@media (max-width: 1200px) {
-  .razon-card {
-    padding: 2.2rem;
+@media (max-width: 1899px) {
+  .por-que-elegirnos {
+    padding: clamp(2rem, 5vw, 4rem) 0;
   }
-  
-  .razon-card h3 {
-    font-size: 1.6rem;
-  }
-}
 
-@media (max-width: 1024px) {
+  /* Sistema tipográfico responsive premium */
+  .elegirnos-title {
+    font-size: clamp(1.75rem, 6vw, 2.8rem);
+    padding-bottom: clamp(8px, 1.2vw, 14px);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+  }
+
+  .elegirnos-title-underline {
+    width: min(100%, 500px);
+    height: clamp(3px, 0.4vw, 4px);
+  }
+
+  .elegirnos-subtitle {
+    font-size: clamp(1rem, 1.25vw, 1.3rem);
+    max-width: min(90%, 700px);
+    margin: clamp(0.5rem, 1.5vw, 1rem) auto clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  /* Layout adaptativo premium */
+  .elegirnos-flex {
+    flex-direction: column-reverse;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
   .razones {
-    max-width: 100%;
-    margin-top: 4rem;
+    width: min(100%, 600px);
   }
-  
-  .razones-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-  }
-  
-  .razon-card {
-    flex: 1 1 400px;
-    max-width: 100%;
-  }
-}
 
-@media (max-width: 768px) {
+  .razones-container {
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+
   .razon-card {
-    padding: 2rem;
+    padding: clamp(1.25rem, 2.5vw, 1.75rem);
   }
-  
-  .razon-icon-wrapper {
-    width: 60px;
-    height: 60px;
-    font-size: 1.6rem;
-  }
-  
+
   .razon-card h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
   }
-  
+
   .razon-card p {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.15vw, 1.15rem);
   }
-}
 
-@media (max-width: 576px) {
-  .razones-container {
-    flex-direction: column;
-    gap: 2.5rem;
+  .carrusel-razones {
+    height: clamp(350px, 55vw, 500px);
+    max-width: min(100%, 700px);
+    border-radius: clamp(10px, 1.5vw, 12px);
   }
-  
-  .razon-card {
-    padding: 1.8rem;
-  }
-  
-  .elegirnos-btn-conoce-mas {
-    font-size: 1rem;
-  }
-}
 
-@media (max-width: 400px) {
-  .razon-card {
-    padding: 1.6rem;
+  /* Botones de navegación adaptativos */
+  .carrusel-btn-razones {
+    width: clamp(40px, 6vw, 50px);
+    height: clamp(40px, 6vw, 50px);
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
   }
-  
-  .razon-icon-wrapper {
-    width: 55px;
-    height: 55px;
-    font-size: 1.4rem;
+
+  .prev-btn-razones {
+    left: clamp(15px, 3vw, 25px);
   }
-  
-  .razon-card h3 {
-    font-size: 1.4rem;
+
+  .next-btn-razones {
+    right: clamp(15px, 3vw, 25px);
+  }
+
+  /* Indicadores responsivos */
+  .carrusel-indicadores-razones {
+    padding: clamp(6px, 1vw, 10px) clamp(15px, 2vw, 20px);
+    bottom: clamp(10px, 2vw, 15px);
+  }
+
+  .indicador-razones {
+    width: clamp(10px, 1.5vw, 12px);
+    height: clamp(10px, 1.5vw, 12px);
+  }
+
+  /* ================================================== */
+  /* Breakpoints específicos para ajustes premium */
+  /* ================================================== */
+
+  @media (min-width: 768px) {
+    .elegirnos-flex {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    .razones {
+      max-width: 48%;
+      margin: 0;
+    }
+
+    .carrusel-razones {
+      max-width: 50%;
+      height: clamp(450px, 40vw, 550px);
+    }
+
+    .razon-card-header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .razon-icon-wrapper {
+      position: static;
+      margin-bottom: 0;
+    }
+
+    .razon-card h3 {
+      text-align: left;
+      margin-right: 1rem;
+    }
+
+    .razon-card p {
+      text-align: left;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .elegirnos-title {
+      letter-spacing: -0.8px;
+    }
+
+    .elegirnos-flex {
+      gap: clamp(2rem, 4vw, 3rem);
+    }
+
+    .razones {
+      max-width: 45%;
+    }
+
+    .carrusel-razones {
+      max-width: 52%;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .elegirnos-title {
+      font-size: clamp(2.5rem, 2.8vw, 2.8rem);
+    }
+
+    .carrusel-razones {
+      height: clamp(500px, 35vw, 600px);
+    }
   }
 }

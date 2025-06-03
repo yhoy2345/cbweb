@@ -505,3 +505,435 @@
   }
 }
 
+/* Estilos base (1900px - 1441px) - Pantallas muy grandes */
+@media (min-width: 1441px) and (max-width: 1900px) {
+  .servicios-container {
+    max-width: 1200px;
+  }
+  
+  .medical-image {
+    max-width: 650px;
+  }
+  
+  .molecule-node {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+/* Desktop grande (1440px - 1201px) */
+@media (min-width: 1201px) and (max-width: 1440px) {
+  .servicios-container {
+    max-width: 1100px;
+  }
+  
+  .servicios-title {
+    font-size: 2.7rem;
+  }
+  
+  .medical-image {
+    max-width: 600px;
+  }
+  
+  .molecule-node {
+    width: 125px;
+    height: 125px;
+    left: auto !important;
+    right: 5% !important;
+  }
+  
+  .node-1 { top: 15%; right: 10%; }
+  .node-2 { top: 15%; right: 20%; }
+  .node-3 { top: 38%; right: 10%; }
+  .node-4 { top: 38%; right: 20%; }
+  .node-5 { top: 61%; right: 10%; }
+  .node-6 { top: 61%; right: 20%; }
+}
+
+/* Desktop estándar (1200px - 1025px) */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .servicios-container {
+    max-width: 1000px;
+  }
+  
+  .servicios-title {
+    font-size: 2.5rem;
+  }
+  
+  .servicios-title-underline {
+    width: 500px;
+  }
+  
+  .medical-image {
+    max-width: 550px;
+  }
+  
+  .molecule-node {
+    width: 120px;
+    height: 120px;
+    right: 3% !important;
+  }
+  
+  .node-icon {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* Tablets grandes y laptops pequeñas (1024px - 901px) */
+@media (min-width: 901px) and (max-width: 1024px) {
+  .servicios-container {
+    max-width: 900px;
+  }
+  
+  .servicios-section {
+    padding: 100px 0;
+  }
+  
+  .servicios-title {
+    font-size: 2.3rem;
+  }
+  
+  .servicios-title-underline {
+    width: 450px;
+  }
+  
+  .medical-image {
+    max-width: 500px;
+  }
+  
+  .molecule-node {
+    width: 110px;
+    height: 110px;
+    right: 2% !important;
+  }
+  
+  .node-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .node-label {
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablets medianas (900px - 769px) */
+@media (min-width: 769px) and (max-width: 900px) {
+  .servicios-container {
+    max-width: 800px;
+  }
+  
+  .servicios-section {
+    padding: 80px 0;
+  }
+  
+  .servicios-title {
+    font-size: 2.1rem;
+  }
+  
+  .servicios-title-underline {
+    width: 400px;
+  }
+  
+  .servicios-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 60px;
+  }
+  
+  .medical-image {
+    max-width: 450px;
+  }
+  
+  .molecule-structure-wrapper {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
+    height: auto;
+    margin-top: 40px;
+  }
+  
+  .molecule-node {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    margin: 15px;
+    width: 130px;
+    height: 130px;
+  }
+}
+
+/* Tablet Pequeña (768px - 641px) - Versión Mejorada */
+@media (max-width: 768px) {
+  .servicios-section {
+    padding: 4.5rem 0;
+  }
+  
+  .servicios-container {
+    width: 92%;
+    max-width: 640px;
+  }
+  
+  .servicios-title-wrapper {
+    margin-bottom: 3.5rem;
+    text-align: center;
+  }
+  
+  .servicios-title {
+    font-size: 2.1rem;
+    line-height: 1.2;
+    transform: none;
+    opacity: 1;
+    padding-bottom: 1rem;
+  }
+  
+  .servicios-title-underline {
+    width: 18rem;
+    height: 0.25rem;
+    margin: 0 auto;
+  }
+  
+  .servicios-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+  
+  .molecule-premium-container {
+    flex-direction: column;
+    padding: 0;
+    gap: 2.5rem;
+  }
+  
+  .medical-image-container {
+    order: 1;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    max-width: 28rem;
+  }
+  
+  .medical-image {
+    margin: 0 auto;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  }
+  
+  .molecule-structure-wrapper {
+    order: 2;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    width: 100%;
+    height: auto;
+    padding: 0 1rem;
+    margin: 0 auto;
+  }
+  
+  .molecule-node {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    width: 100%;
+    height: 9.5rem;
+    margin: 0;
+    perspective: 1000px;
+  }
+  
+  .node-core {
+    height: 100%;
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+  
+  .node-icon-wrapper {
+    margin-bottom: 0.75rem;
+  }
+  
+  .node-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+  }
+  
+  .node-icon-svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  .node-label {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  
+  .servicios-btn-todos-container {
+    margin-top: 3rem;
+  }
+  
+  .servicios-btn-todos {
+    padding: 1rem 2.5rem;
+    font-size: 0.95rem;
+    border-radius: 2.5rem;
+  }
+}
+
+/* Móvil Grande (640px - 481px) - Versión Mejorada */
+@media (max-width: 640px) {
+  .servicios-section {
+    padding: 4rem 0;
+  }
+  
+  .servicios-title {
+    font-size: 1.9rem;
+  }
+  
+  .servicios-title-underline {
+    width: 16rem;
+  }
+  
+  .servicios-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+    padding: 0 1.25rem;
+  }
+  
+  .molecule-structure-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 28rem;
+  }
+  
+  .molecule-node {
+    height: 8.5rem;
+  }
+  
+  .node-core {
+    padding: 0.85rem;
+  }
+  
+  .node-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .node-label {
+    font-size: 0.82rem;
+  }
+  
+  .servicios-btn-todos {
+    padding: 0.9rem 2.25rem;
+    font-size: 0.92rem;
+  }
+}
+
+/* Móvil Mediano (480px - 376px) - Versión Mejorada */
+@media (max-width: 480px) {
+  .servicios-section {
+    padding: 4rem 0;
+  }
+  
+  .servicios-title {
+    font-size: 1.75rem;
+  }
+  
+  .servicios-title-underline {
+    width: 14rem;
+    height: 0.2rem;
+  }
+  
+  .servicios-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2.25rem;
+    padding: 0 1rem;
+  }
+  
+  .molecule-structure-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 28rem;
+  }
+  
+  .molecule-node {
+    height: 7.5rem;
+    max-width: 18rem;
+    margin: 0 auto;
+  }
+  
+  .node-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+  
+  .node-label {
+    font-size: 0.8rem;
+  }
+  
+  .servicios-btn-todos {
+    width: 85%;
+    max-width: 18rem;
+    padding: 0.85rem 2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Móvil Pequeño (375px y menos) - Versión Mejorada */
+@media (max-width: 375px) {
+  .servicios-section {
+    padding: 3rem 0;
+  }
+  
+  .servicios-container {
+    width: 94%;
+  }
+  
+  .servicios-title {
+    font-size: 1.6rem;
+  }
+  
+  .servicios-title-underline {
+    width: 12rem;
+  }
+  
+  .servicios-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 2rem;
+    padding: 0 0.75rem;
+  }
+  
+  .molecule-node {
+    height: 7rem;
+    max-width: 16rem;
+  }
+  
+  .node-core {
+    padding: 0.75rem;
+  }
+  
+  .node-icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+  }
+  
+  .node-icon-svg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+  
+  .node-label {
+    font-size: 0.78rem;
+  }
+  
+  .servicios-btn-todos {
+    font-size: 0.85rem;
+    padding: 0.8rem 1.8rem;
+  }
+}
