@@ -4,13 +4,31 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import './CarruselHero.css';
 
 const CarruselHero = () => {
-    const imagenes = [
-        { id: 1, src: '/images/hero/fondo1.webp', alt: 'Imagen 1' },
-        { id: 2, src: '/images/hero/fondo2.webp', alt: 'Imagen 2' },
-        { id: 3, src: '/images/hero/fondo3.webp', alt: 'Imagen 3' }
+    const imagenesPC = [
+        { id: 1, src: '/images/hero/fondo1.webp', alt: 'Imagen 1 PC' },
+        { id: 2, src: '/images/hero/fondo2.webp', alt: 'Imagen 2 PC' },
+        { id: 3, src: '/images/hero/fondo3.webp', alt: 'Imagen 3 PC' }
+    ];
+
+    const imagenesMobile = [
+        { id: 1, src: '/images/hero/fondocel1.webp', alt: 'Imagen 1 Mobile' },
+        { id: 2, src: '/images/hero/fondocel2.webp', alt: 'Imagen 2 Mobile' },
+        { id: 3, src: '/images/hero/fondocel3.webp', alt: 'Imagen 3 Mobile' }
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    const updateMediaQuery = useCallback(() => {
+        setIsMobile(window.innerWidth < 768);
+    }, []);
+
+    useEffect(() => {
+        window.addEventListener('resize', updateMediaQuery);
+        return () => window.removeEventListener('resize', updateMediaQuery);
+    }, [updateMediaQuery]);
+
+    const imagenes = isMobile ? imagenesMobile : imagenesPC;
 
     const nextSlide = useCallback(() => {
         setCurrentIndex(prev => (prev === imagenes.length - 1 ? 0 : prev + 1));

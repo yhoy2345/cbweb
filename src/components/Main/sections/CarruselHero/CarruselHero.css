@@ -274,7 +274,14 @@
 /* Versión móvil */
 @media (max-width: 768px) {
     .carrusel-container {
-        height: 350px;
+        height: 60vh; /* Ajusta este valor para hacerlo más alto */
+        min-height: 500px; /* Altura mínima para que no quede muy pequeño */
+    }
+    
+    .carrusel-slide img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
     }
     
     .animated-border {

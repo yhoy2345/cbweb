@@ -124,7 +124,7 @@ const Header = () => {
               <span className="urbat-logo__icon-container">
                 <span className="urbat-logo__icon">
                   <img 
-                    src="/images/logo.png" 
+                    src="/images/logo.webp" 
                     alt="Logo Clínica Bolívar" 
                     className="urbat-logo__brain-icon" 
                   />

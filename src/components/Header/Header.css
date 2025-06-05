@@ -224,7 +224,6 @@ UR BAT  Logo
   height: auto;
   transition: transform 0.3s ease; /* Suaviza el cambio de tamaño */
   flex-shrink: 0; /* Evita compresión */
-  margin-right: 10px;
 }
 
 /* Icono principal - Ocupa todo el contenedor */
@@ -232,6 +231,7 @@ UR BAT  Logo
   position: relative;
   z-index: 4;
   width: 169px;
+  transform: scale(1) translateX(-5px) translateY(10px); /* Escala, mueve a la izquierda y baja */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -242,7 +242,6 @@ UR BAT  Logo
   height: auto;
   max-width: 100%;
   object-fit: contain;
-  transform: scale(1.15); /* Escala adicional para más tamaño */
   transition: transform 0.3s ease; /* Suaviza el efecto al interactuar */
 }
 
@@ -1724,9 +1723,9 @@ Botones
 /* ================================== */
 @media (max-width: 768px) {
   .navbar {
-    width: 95% !important;
+    width: 90% !important;
     top: 10px !important;
-    padding: 8px 12px !important;
+    padding: 4px 14px !important;
     border-radius: 25px;
     backdrop-filter: blur(20px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -1734,10 +1733,11 @@ Botones
   
   .navbar-container {
     padding: 0 !important;
+    margin: 0 !important;
   }
   
   .urbat-logo {
-    padding: 4px 8px !important;
+    padding: 4px 7px !important;
   }
   
   .urbat-logo__text-container {
@@ -1745,13 +1745,14 @@ Botones
   }
   
   .urbat-logo__icon-container {
-    width: 45px !important;
-    height: 45px !important;
-    min-width: 45px;
+    width: 55px !important;
+    height: 55px !important;
+    min-width: 55px;
+
   }
   
   .urbat-logo__brain-icon {
-    transform: translateX(1px) translateY(-1px) scale(1.2);
+    transform: translateX(4.2px) translateY(-6.5px) scale(1.6);
   }
   
   .emergency-btn {
