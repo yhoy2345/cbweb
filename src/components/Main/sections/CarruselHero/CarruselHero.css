@@ -274,7 +274,7 @@
 /* Versión móvil */
 @media (max-width: 768px) {
     .carrusel-container {
-        height: 50vh; /* Ajusta este valor para hacerlo más alto */
+        height: 40vh; /* Ajusta este valor para hacerlo más alto */
         min-height: 500px; /* Altura mínima para que no quede muy pequeño */
     }
     
