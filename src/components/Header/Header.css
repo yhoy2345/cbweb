@@ -2472,7 +2472,7 @@ Mobile Navigation Styles
 
 @media (max-width: 439px) {
   .nav-hamburger-box {
-    margin-right: -2px 
+    margin-right: -80px 
     !important; /* Lo mantiene pegado a la derecha */
   }
   .emergency-btn {
@@ -2480,6 +2480,36 @@ Mobile Navigation Styles
   }
 }
 
+
+@media (max-width: 345px) {
+  .nav-hamburger-box {
+    margin-right: -60px 
+    !important; /* Lo mantiene pegado a la derecha */
+  }
+  .emergency-btn {
+    display: none !important; /* Oculta el botón de emergencia */
+  }
+}
+
+@media (max-width: 331px) {
+  .nav-hamburger-box {
+    margin-right: -50px 
+    !important; /* Lo mantiene pegado a la derecha */
+  }
+  .emergency-btn {
+    display: none !important; /* Oculta el botón de emergencia */
+  }
+}
+
+@media (max-width: 321px) {
+  .nav-hamburger-box {
+    margin-right: -40px 
+    !important; /* Lo mantiene pegado a la derecha */
+  }
+  .emergency-btn {
+    display: none !important; /* Oculta el botón de emergencia */
+  }
+}
 
 /* ================================== */
 /* UTILITY CLASSES */
@@ -2537,12 +2567,7 @@ body {
   visibility: visible;
 }
 
-/* Accessible focus states */
-.nav-hamburger-btn:focus,
-.nav-mobile-link:focus {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
+
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
