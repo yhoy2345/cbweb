@@ -193,3 +193,123 @@
     transform: scale(0.95);
     box-shadow: 0 5px 15px rgba(37, 211, 102, 0.8);
   }
+
+  @media (max-width: 768px) {
+  .floating-button-container {
+    bottom: 15px;
+    right: 10px;
+  }
+
+  .floating-button {
+    padding: 10px 12px;
+    font-size: 14px;
+    border-radius: 40px;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+  }
+
+  .whatsapp-icon {
+    font-size: 24px;
+    margin-right: 8px;
+  }
+
+  .bu-icon-container {
+    margin-right: 10px;
+  }
+
+  .floating-button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6);
+  }
+
+  .floating-button:hover .whatsapp-icon {
+    transform: rotate(10deg) scale(1.05);
+  }
+
+  .floating-button:hover .button-text {
+    letter-spacing: 1.2px;
+  }
+
+  .halo {
+    width: 120%;
+    height: 120%;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-button-container {
+    bottom: 10px;
+    right: 8px;
+  }
+
+  .floating-button {
+    padding: 8px 10px;
+    font-size: 12px;
+    border-radius: 35px;
+  }
+
+  .whatsapp-icon {
+    font-size: 20px;
+    margin-right: 6px;
+  }
+
+  .bu-icon-container {
+    margin-right: 8px;
+  }
+
+  .button-text {
+    font-size: 12px;
+  }
+
+  .floating-button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
+  }
+
+  .floating-button:hover .button-text {
+    letter-spacing: 1px;
+  }
+
+  .liquid-effect {
+    height: 50px;
+    top: -50px;
+  }
+
+  .reflection {
+    width: 15%;
+    height: 25%;
+  }
+
+  .particles {
+    background-size: 8px 8px;
+  }
+}
+
+@media (max-height: 600px) {
+  .floating-button-container {
+    bottom: 8px;
+  }
+
+  .floating-button {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+}
+
+/* High-density displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .floating-button {
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+  }
+
+  .floating-button:hover {
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.7);
+  }
+
+  .liquid-effect {
+    filter: blur(3px);
+  }
+
+  .reflection {
+    filter: blur(1.5px);
+  }
+}
