@@ -701,6 +701,12 @@
       text-align: left;
     }
   }
+  @media (max-width: 475px) {
+    .razon-icon-wrapper{
+      display: none !important;
+    }
+
+  }
 
   @media (min-width: 1024px) {
     .elegirnos-title {
