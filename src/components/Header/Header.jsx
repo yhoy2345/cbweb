@@ -159,8 +159,12 @@ const Header = () => {
                       <div className="contact-info-wrapper">
                         <div className="header-contact">
                           <FontAwesomeIcon icon={faPhone} className="phone-icon" />
-                          <p>(062)515063</p>
+                          <p>+51 962 225 881</p>
+                          <p>/</p>
+                          <p>(062) 515063</p>
                         </div>
+                        
+                        
                         <div className="header-separator">
                           <div 
                             className="header-address"
@@ -171,7 +175,7 @@ const Header = () => {
                               <FontAwesomeIcon icon={faSpinner} className="address-spinner" spin />
                             )}
                             <FontAwesomeIcon icon={faMapMarkerAlt} className="address-icon" />
-                            <p>Jirón Progreso 351, Huánuco - Perú</p>
+                            <p>Jirón Progreso 351, Huánuco</p>
                             {geoError && <span className="geo-error-tooltip">{geoError}</span>}
                           </div>
                         </div>
