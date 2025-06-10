@@ -259,40 +259,7 @@ const Nosotros = () => {
             </div>
             {/* Descripcion */}
             <section class="esp-intro"> 
-                <div class="esp-intro-content">
-                    <h1 class="health-passion-title">
-                        <span class="health-line health-line--1">
-                            <span class="health-text">Pasión por </span>
-                            <span class="health-highlight health-highlight--care">Cuidar tu salud</span>
-                        </span>
-                        <span class="health-line health-line--2">
-                            <span class="health-highlight health-highlight--responsibility">Con Responsabilidad</span>
-                            <span class="health-text"> y</span>
-                        </span>
-                        <span class="health-line health-line--3">
-                            <span class="health-highlight health-highlight--trust">Confianza</span>
-                        </span>
-                    </h1>
-                    <div class="health-divider">
-                        <div class="health-divider__line health-divider__line--left"></div>
-                        <div class="health-divider__heart">
-                            <svg class="health-divider__icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.03L12 21.35Z"/>
-                            </svg>
-                        </div>
-                        <div class="health-divider__line health-divider__line--right"></div>
-                    </div>
-                    <div class="medical-premium-subtitle">
-                        <p class="medical-premium-subtitle__content">
-                            <span class="medical-premium-subtitle__intro">En </span>
-                            <span class="medical-premium-subtitle__highlight medical-premium-subtitle__highlight--clinic">Clínica Bolívar</span>
-                            <span class="medical-premium-subtitle__text">, nos dedicamos a brindar</span>
-                            <span class="medical-premium-subtitle__highlight medical-premium-subtitle__highlight--care">atención médica de calidad </span>
-                            <span class="medical-premium-subtitle__text">con un enfoque humano y profesional</span>
-                            <span class="medical-premium-subtitle__highlight medical-premium-subtitle__highlight--legacy">que nos ha caracterizado por más de 15 años.</span>
-                        </p>
-                    </div>
-                </div>
+                
                 <div className="medical-highlights-container"> 
                     <div className="medical-card medical-card-specialists">
                         <div className="medical-icon medical-icon-doctors">
@@ -300,21 +267,13 @@ const Nosotros = () => {
                         </div>
                         <h3>Cuerpo Médico Especializado</h3>
                         <p>Contamos con profesionales altamente calificados en cada área médica, con certificaciones nacionales e internacionales.</p>
-                        <a href="#especialistas" className="medical-button medical-button-doctors">
-                        <span></span>
-                        Ver Médicos<i className="fas fa-arrow-right medical-button-icon"></i>
-                        </a>
                     </div>
                     <div className="medical-card medical-card-infrastructure">
                         <div className="medical-icon medical-icon-facility">
                         <i className="fas fa-hospital medical-feature-icon"></i>
                         </div>
-                        <h3>Infraestructura de Vanguardia</h3>
-                        <p>Instalaciones diseñadas para tu comodidad y seguridad, equipadas con tecnología médica de última generación.</p>
-                        <a href="#especialistas" className="medical-button medical-button-facility">
-                        <span></span>
-                        Ver Infraestructura<i className="fas fa-arrow-right medical-button-icon"></i>
-                        </a>
+                        <h3>Infraestructura de la mejor Calidad</h3>
+                        <p>Instalaciones diseñadas para tu comodidad y seguridad, equipadas con tecnología médica de última generación.</p> 
                     </div> 
                     <div className="medical-card medical-card-technology">
                         <div className="medical-icon medical-icon-tech">
@@ -322,10 +281,7 @@ const Nosotros = () => {
                         </div>
                         <h3>Tecnología de Diagnóstico</h3>
                         <p>Equipos de precisión para diagnósticos oportunos y tratamientos efectivos en todas nuestras especialidades.</p>
-                        <a href="#especialistas" className="medical-button medical-button-tech">
-                        <span></span>
-                        Ver Tecnología<i className="fas fa-arrow-right medical-button-icon"></i>
-                        </a>
+
                     </div>   
                 </div> 
             </section>
@@ -567,123 +523,152 @@ const Nosotros = () => {
                 
                 {/* Carrusel principal - Estructura mejorada */}
                 <div className="carousel-wrapper">
-                <div className="main-carousel">
-                    <div 
-                    className="carousel-track"
-                    style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-                    aria-live="polite"
-                    >
-                    {filteredItems.map((item, index) => (
+                    <div className="main-carousel">
                         <div 
-                        key={item.id}
-                        className="carousel-slide"
-                        aria-hidden={index !== activeIndex}
+                        className="carousel-track"
+                        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+                        aria-live="polite"
                         >
-                        {item.type === 'image' ? (
-                            <LazyLoadImage
-                            src={item.src}
-                            alt={item.alt}
-                            loading="lazy"
-                            className="carousel-media"
-                            effect="blur"
-                            width="100%"
-                            height="auto"
-                            placeholderSrc="/placeholder-small.jpg"
-                            onClick={() => openLightbox(index)}
-                            />
-                        ) : (
-                            <video
-                            src={item.src}
-                            poster={item.poster}
-                            className="carousel-media"
-                            onClick={() => openLightbox(index)}
-                            autoPlay
-                            loop
-                            muted
-                            aria-label={`Video ${index + 1}`}
-                            />
-                        )}
+                        {filteredItems.map((item, index) => (
+                            <div 
+                            key={item.id}
+                            className="carousel-slide"
+                            aria-hidden={index !== activeIndex}
+                            >
+                            {item.type === 'image' ? (
+                                <LazyLoadImage
+                                src={item.src}
+                                alt={item.alt}
+                                loading="lazy"
+                                className="carousel-media"
+                                effect="blur"
+                                width="100%"
+                                height="auto"
+                                placeholderSrc="/placeholder-small.jpg"
+                                onClick={() => openLightbox(index)}
+                                />
+                            ) : (
+                                <video
+                                src={item.src}
+                                poster={item.poster}
+                                className="carousel-media"
+                                onClick={() => openLightbox(index)}
+                                autoPlay
+                                loop
+                                muted
+                                aria-label={`Video ${index + 1}`}
+                                />
+                            )}
+                            </div>
+                        ))}
                         </div>
-                    ))}
+                        
+                        {/* Controles de navegación */}
+                        <div className="carousel-controls">
+                        <button 
+                            onClick={goPrev}
+                            className="carousel-arrow carousel-arrow-prev"
+                            aria-label="Anterior"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button 
+                            onClick={goNext}
+                            className="carousel-arrow carousel-arrow-next"
+                            aria-label="Siguiente"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                        </div>
+                        
+                        {/* Indicadores - Mejor accesibilidad */}
+                        <div className="carousel-indicators" role="tablist">
+                        {filteredItems.map((_, index) => (
+                            <button
+                            key={index}
+                            onClick={() => goToSlide(index)}
+                            className={`carousel-indicator ${
+                                index === activeIndex ? 'carousel-indicator-active' : ''
+                            }`}
+                            role="tab"
+                            aria-label={`Ir a diapositiva ${index + 1}`}
+                            aria-selected={index === activeIndex}
+                            tabIndex={index === activeIndex ? 0 : -1}
+                            />
+                        ))}
+                        </div>
                     </div>
-                    
-                    {/* Controles de navegación */}
-                    <div className="carousel-controls">
-                    <button 
-                        onClick={goPrev}
-                        className="carousel-arrow carousel-arrow-prev"
-                        aria-label="Anterior"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-                    <button 
-                        onClick={goNext}
-                        className="carousel-arrow carousel-arrow-next"
-                        aria-label="Siguiente"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
-                    </div>
-                    
-                    {/* Indicadores - Mejor accesibilidad */}
-                    <div className="carousel-indicators" role="tablist">
-                    {filteredItems.map((_, index) => (
-                        <button
-                        key={index}
-                        onClick={() => goToSlide(index)}
-                        className={`carousel-indicator ${
-                            index === activeIndex ? 'carousel-indicator-active' : ''
-                        }`}
-                        role="tab"
-                        aria-label={`Ir a diapositiva ${index + 1}`}
-                        aria-selected={index === activeIndex}
-                        tabIndex={index === activeIndex ? 0 : -1}
-                        />
-                    ))}
-                    </div>
-                </div>
                 </div>
                 
                 {/* Mini-slider secundario - Scroll horizontal mejorado */}
                 <div className="thumbnail-carousel-container">
-                <div className="thumbnail-carousel">
-                    <div className="thumbnails-track">
-                    {filteredItems.map((item, index) => (
-                        <button
-                        key={item.id}
-                        onClick={() => goToSlide(index)}
-                        className={`thumbnail ${
-                            index === activeIndex ? 'thumbnail-active' : ''
-                        }`}
-                        aria-label={`Ver imagen ${index + 1}`}
-                        >
-                        {item.type === 'image' ? (
-                            <LazyLoadImage
-                            src={item.src}
-                            alt={`Miniatura ${item.alt}`}
-                            effect="opacity"
-                            className="thumbnail-media"
-                            width="100%"
-                            height="100%"
-                            />
-                        ) : (
-                            <video
-                            src={item.src}
-                            poster={item.poster}
-                            className="thumbnail-media"
-                            muted
-                            aria-hidden="true"
-                            />
-                        )}
-                        <div className="thumbnail-overlay"></div>
-                        </button>
-                    ))}
+                    <div className="thumbnail-carousel">
+                        <div className="thumbnails-track">
+                            {filteredItems.map((item, index) => {
+                                // Determinar si el thumbnail debe mostrarse según el activeIndex
+                                const isMobile = window.innerWidth < 768; // Puedes ajustar este breakpoint
+                                const visibleThumbnails = isMobile ? 3 : 5;
+                                const halfVisible = Math.floor(visibleThumbnails / 2);
+                                
+                                // Calcular el rango de thumbnails visibles
+                                let startIndex = activeIndex - halfVisible;
+                                let endIndex = activeIndex + halfVisible;
+                                
+                                // Ajustar para los extremos
+                                if (startIndex < 0) {
+                                    startIndex = 0;
+                                    endIndex = visibleThumbnails - 1;
+                                }
+                                
+                                if (endIndex >= filteredItems.length) {
+                                    endIndex = filteredItems.length - 1;
+                                    startIndex = endIndex - visibleThumbnails + 1;
+                                }
+                                
+                                // Determinar si este item debe mostrarse
+                                const isVisible = index >= startIndex && index <= endIndex;
+                                
+                                return isVisible ? (
+                                    <button
+                                        key={item.id}
+                                        onClick={() => goToSlide(index)}
+                                        className={`thumbnail ${
+                                            index === activeIndex ? 'thumbnail-active' : ''
+                                        }`}
+                                        aria-label={`Ver imagen ${index + 1}`}
+                                        style={{
+                                            transform: `translateX(${(index - activeIndex) * 10}px)`,
+                                            transition: 'transform 0.3s ease'
+                                        }}
+                                    >
+                                        {item.type === 'image' ? (
+                                            <LazyLoadImage
+                                                src={item.src}
+                                                alt={`Miniatura ${item.alt}`}
+                                                effect="opacity"
+                                                className="thumbnail-media"
+                                                width="100%"
+                                                height="100%"
+                                            />
+                                        ) : (
+                                            <video
+                                                src={item.src}
+                                                poster={item.poster}
+                                                className="thumbnail-media"
+                                                muted
+                                                aria-hidden="true"
+                                            />
+                                        )}
+                                        <div className="thumbnail-overlay"></div>
+                                    </button>
+                                ) : null;
+                            })}
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </section>
