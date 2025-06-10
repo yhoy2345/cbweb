@@ -153,7 +153,7 @@ const Footer = () => {
             <p className="footer__social-text">Mantente conectado con nosotros a través de nuestras redes sociales</p>
             
             <div className="footer__social-grid">
-              <a href="https://www.facebook.com/share/12KZfceMzjP/" 
+              <a href="https://www.facebook.com/clinicabolivarhco" 
                  className="footer__social-link footer__social-fb"
                  target="_blank" 
                  rel="noopener noreferrer"
@@ -162,7 +162,7 @@ const Footer = () => {
                 <span>Facebook</span>
               </a>
               
-              <a href="https://instagram.com" 
+              <a href="https://www.instagram.com/clinicabolivarhco/" 
                  className="footer__social-link footer__social-ig"
                  target="_blank" 
                  rel="noopener noreferrer"
@@ -171,22 +171,13 @@ const Footer = () => {
                 <span>Instagram</span>
               </a>
               
-              <a href="https://tiktok.com" 
+              <a href="https://www.tiktok.com/@clinicabolivarhco" 
                  className="footer__social-link footer__social-tt"
                  target="_blank" 
                  rel="noopener noreferrer"
                  aria-label="TikTok">
                 <FontAwesomeIcon icon={faTiktok} className="footer__social-icon" />
                 <span>TikTok</span>
-              </a>
-
-              <a href="https://linkedin.com" 
-                 className="footer__social-link footer__social-li"
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 aria-label="LinkedIn">
-                <FontAwesomeIcon icon={faLinkedinIn} className="footer__social-icon" />
-                <span>LinkedIn</span>
               </a>
             </div>
 

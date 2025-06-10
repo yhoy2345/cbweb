@@ -145,13 +145,13 @@ const Header = () => {
                   <div className="header-contact-top">
                     {/* Contenedor de iconos sociales */}
                     <div className="social-icons-container">
-                      <a href="https://www.facebook.com/share/12KZfceMzjP/" className="social-icon facebook" target="_blank" rel="noopener noreferrer">
+                      <a href="https://www.facebook.com/clinicabolivarhco" className="social-icon facebook" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faFacebookF} />
                       </a>
-                      <a href="https://tiktok.com" className="social-icon tiktok" target="_blank" rel="noopener noreferrer">
+                      <a href="https://www.tiktok.com/@clinicabolivarhco" className="social-icon tiktok" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faTiktok} />
                       </a>
-                      <a href="https://instagram.com" className="social-icon instagram" target="_blank" rel="noopener noreferrer">
+                      <a href="https://www.instagram.com/clinicabolivarhco/" className="social-icon instagram" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faInstagram} />
                       </a>
                     </div>
