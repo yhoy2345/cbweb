@@ -53,6 +53,13 @@
   position: relative;
 }
 
+/* Centrar el título en pantallas pequeñas */
+@media (max-width: 767px) {
+  .elegirnos-title {
+    text-align: center;
+  }
+}
+
 .elegirnos-title-underline {
   width: 603px;
   height: 4px;

@@ -1,142 +1,168 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { gsap } from "gsap";
-import "./Ubicacion.css";
-import { 
-  FaBuilding, 
+import { gsap } from 'gsap';
+import './Ubicacion.css';
+import {
+  FaBuilding,
   FaAmbulance,
   FaClock,
   FaWifi,
   FaMedkit,
   FaTree,
-  FaHandHoldingHeart
+  FaHandHoldingHeart,
 } from 'react-icons/fa';
 
 const Ubicacion = () => {
   const sectionRef = useRef(null);
-  const [mapLoaded, setMapLoaded] = useState(false);
+  const [mapLoaded, setMapLoaded] = useState(true );
   const [activeMarker, setActiveMarker] = useState(null);
   const [activeFacility, setActiveFacility] = useState(null);
 
   useEffect(() => {
+    setActiveMarker(markers[0]);
+    setActiveFacility(facilities[0]);
+  }, []);
+
+  useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
-    
-    const titleEl = section.querySelector(".titulo-ubi");
-    const underlineEl = section.querySelector(".ubi-underline-animation");
-    if (!titleEl || !underlineEl) return;
+
+    const elements = {
+      titleEl: section.querySelector('.ubi-title'),
+      underlineEl: section.querySelector('.ubi-underline'),
+      facilityItems: section.querySelectorAll('.facility-item'),
+      markerItems: section.querySelectorAll('.marker-item')
+    };
+
+    // Verificar que todos los elementos existen
+    if (!elements.titleEl || !elements.underlineEl) return;
 
     const tl = gsap.timeline();
-    
     tl.fromTo(
-      titleEl,
+      elements.titleEl,
       { x: -20, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
+      { x: 0, opacity: 1, duration: 0.8, ease: 'power2.out' }
     ).fromTo(
-      underlineEl,
-      { width: 0 },
-      { width: "100%", duration: 1.2, ease: "power2.out" },
-      "-=0.5"
+      elements.underlineEl,
+      { scaleX: 0, transformOrigin: 'left' },
+      { scaleX: 1, duration: 1, ease: 'power2.out' },
+      '-=0.5'
     );
 
-    gsap.from(".cuadro-referencia", {
-      y: 30,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.15,
-      delay: 0.8,
-      ease: "back.out(1.7)"
-    });
-
-    section.classList.add("animate-in");
-
-    // Forzar mapLoaded después de 3 segundos si no carga
-    const timeout = setTimeout(() => {
-      if (!mapLoaded) {
-        console.warn("Mapa no cargado después de 3 segundos, forzando visibilidad");
-        setMapLoaded(true);
-      }
-    }, 3000);
-
-    return () => clearTimeout(timeout);
-  }, [mapLoaded]);
+    // Animación más robusta para los items
+    if (elements.facilityItems.length && elements.markerItems.length) {
+      gsap.from([...elements.facilityItems, ...elements.markerItems], {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        delay: 0.8,
+        ease: 'back.out(1.7)',
+      });
+    }
+  }, []);
 
   const handleMapLoad = () => {
-    console.log("Mapa cargado exitosamente");
+    console.log('Mapa cargado exitosamente');
     setMapLoaded(true);
-    gsap.from(".mapa", {
+    gsap.from('.mapa-iframe', {
       opacity: 0,
       y: 20,
       duration: 1,
-      ease: "power2.out"
+      ease: 'power2.out',
     });
   };
 
-  const markers = [
-    { id: 1, title: "Parque Amarilis", description: "A media cuadra de nuestra clínica", icon: <FaTree /> },
-    { id: 2, title: "Indecopi", description: "Frente a nuestras instalaciones", icon: <FaBuilding /> }
-  ];
-
-  const facilities = [
-    { id: 1, title: "Sala de Espera", description: "Área cómoda con TV, aire acondicionado y revistas", icon: <FaClock /> },
-    { id: 2, title: "Zona Wi-Fi", description: "Conexión gratuita y rápida para todos nuestros pacientes", icon: <FaWifi /> },
-    { id: 3, title: "Ambulancia", description: "Servicio de atención de emergencia disponible 24/7", icon: <FaAmbulance /> },
-    { id: 4, title: "Urgencias", description: "Atención inmediata para casos de emergencia las 24 horas", icon: <FaMedkit /> }
-  ];
-
   const handleMarkerClick = (marker) => {
     setActiveMarker(marker);
-    gsap.to(".mapa iframe", {
+    gsap.to('.mapa-iframe', {
       scale: 1.02,
       duration: 0.3,
       yoyo: true,
-      repeat: 1
+      repeat: 1,
     });
   };
 
   const handleFacilityClick = (facility) => {
     setActiveFacility(facility);
-    gsap.to(".facility-highlight", {
+    gsap.to('.facility-item.active', {
       scale: 1.05,
       duration: 0.3,
       yoyo: true,
-      repeat: 1
+      repeat: 1,
     });
   };
 
+  const iconMap = {
+    tree: <FaTree />,
+    building: <FaBuilding />,
+    clock: <FaClock />,
+    wifi: <FaWifi />,
+    ambulance: <FaAmbulance />,
+    medkit: <FaMedkit />,
+  };
+
+  const markers = [
+  { id: 1, title: 'Parque Amarilis', description: 'A media cuadra de nuestra clínica', icon: 'tree' },
+  { id: 2, title: 'Indecopi', description: 'Frente a nuestras instalaciones', icon: 'building' },
+  ];
+
+
+  const facilities = [
+    {
+      id: 1,
+      title: 'Sala de Espera',
+      description: 'Área cómoda con TV, aire acondicionado y revistas',
+      icon: 'clock',
+    },
+    {
+      id: 2,
+      title: 'Zona Wi-Fi',
+      description: 'Conexión gratuita y rápida para todos nuestros pacientes',
+      icon: 'wifi',
+    },
+    {
+      id: 3,
+      title: 'Ambulancia',
+      description: 'Servicio de atención de emergencia disponible 24/7',
+      icon: 'ambulance',
+    },
+    {
+      id: 4,
+      title: 'Urgencias',
+      description: 'Atención inmediata para casos de emergencia las 24 horas',
+      icon: 'medkit',
+    },
+  ];
+
+
   return (
     <section className="ubicacion" id="ubicacion" ref={sectionRef}>
-      <div className="ubi-contenedor">
-        <div className="ubi-title-wrapper">
-          <span className="ubi-title titulo-ubi">UBÍCANOS EN:</span>
-          <div className="ubi-title-underline">
+      <div className="ubi-container">
+        <header className="ubi-header">
+          <h2 className="ubi-title">UBÍCANOS EN:</h2>
+          <div className="ubi-underline">
             <div className="ubi-underline-animation"></div>
           </div>
           <p className="ubi-subtitle">
-            Visítanos y experimenta atención de primer nivel<span> diseñada para ti</span>
+            Visítanos y experimenta atención de primer nivel <span>diseñada para ti</span>
           </p>
-        </div>
+        </header>
 
-        <div className="ubicacion-contenido">
-          <div className="mapa-container">
-            <div className={`mapa ${mapLoaded ? 'loaded' : ''}`}>
+        <div className="ubi-content">
+          <div className="mapa-section">
+            <div className={`mapa-wrapper ${mapLoaded ? 'loaded' : ''}`}>
               <iframe
+                className="mapa-iframe"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.1069957112477!2d-76.2394241!3d-9.925046499999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a7c2e2d16086df%3A0x1c0d23e918e06aa0!2zQ2zDrW5pY2EgQm9sw612YXI!5e0!3m2!1ses-419!2spe!4v1748991709290!5m2!1ses-419!2spe"
-                width="100%"
-                height="100%"
-                style={{ 
-                  border: 0,
-                  minHeight: '300px',
-                  filter: 'grayscale(20%) contrast(1.1) saturate(0.9)',
-                  transition: 'filter 0.5s ease'
-                }}
-                allowFullScreen=""
+                style={{ border: 0 }}
+                allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Mapa de la clínica"
+                title="Mapa de la Clínica Bolívar"
                 onLoad={handleMapLoad}
                 onError={() => {
-                  console.error("Error al cargar el mapa");
-                  setMapLoaded(true); // Forzar visibilidad en caso de error
+                  console.error('Error al cargar el mapa');
+                  setMapLoaded(true);
                 }}
                 aria-label="Ubicación de la Clínica Bolívar en el mapa"
               />
@@ -149,24 +175,19 @@ const Ubicacion = () => {
             </div>
             <div className="mapa-controls">
               <div className="mapa-markers">
-                <h3>Referencias:</h3>
+                <h3 className="markers-title">Referencias:</h3>
                 <ul className="markers-list">
-                  {markers.map(marker => (
-                    <li 
-                      key={marker.id} 
-                      className={`marker-item ${activeMarker?.id === marker.id ? 'active' : ''}`}
-                      onClick={() => handleMarkerClick(marker)}
-                    >
-                      <div className="marker-icon">{marker.icon}</div>
-                      <div className="marker-info">
-                        <span className="marker-title">{marker.title}</span>
-                        <span className="marker-description"> - {marker.description}</span>
+                  {markers.map(({ id, title, description, icon }) => (
+                    <li key={id} className="marker-item">
+                      <div className="marker-icon">{iconMap[icon]}</div>
+                      <div className="marker-content">
+                        <h4 className="marker-title">{title}</h4>
+                        <p className="marker-description">{description}</p>
                       </div>
                     </li>
                   ))}
                 </ul>
               </div>
-
               <div className="mapa-actions">
                 <a
                   href="https://www.google.com/maps/dir//Clínica+Bolívar/@-9.925046,-76.239424,17z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x91a7c2e2d16086df:0x1c0d23e918e06aa0!2m2!1d-76.239424!2d-9.925046"
@@ -188,58 +209,47 @@ const Ubicacion = () => {
             </div>
           </div>
 
-          <div className="imagen-clinica-container">
+          <div className="clinica-section">
             <div className="clinica-card">
-              <div className="imagen-clinica">
-                <img 
-                  src="/images/hero/fondo1.jpg" 
-                  alt="Imagen de la clínica" 
+              <div className="clinica-image">
+                <img
+                  src="/images/hero/fondo1.jpg"
+                  alt="Imagen de la clínica"
                   onLoad={() => {
-                    gsap.from(".imagen-clinica", {
+                    gsap.from('.clinica-image', {
                       opacity: 0,
                       x: 20,
                       duration: 1,
-                      delay: 0.3,
-                      ease: "power2.out"
+                      ease: 'power2.out',
                     });
                   }}
                 />
-                <div className="imagen-overlay">
-                  <h3>Nuestra Instalación</h3>
+                <div className="image-overlay">
                   <p>Ambiente diseñado para su comodidad y bienestar</p>
                 </div>
               </div>
-
               <div className="facilities-container">
                 <ul className="facilities-list">
-                  {facilities.map((facility) => (
-                    <li
-                      key={facility.id}
-                      className={`facility-item ${activeFacility?.id === facility.id ? 'active facility-highlight' : ''}`}
-                      onClick={() => handleFacilityClick(facility)}
-                    >
-                      <div className="facility-icon">{facility.icon}</div>
-                      <div className="facility-info">
-                        <span className="facility-title">{facility.title}</span>
-                        <span className="facility-description"> - {facility.description}</span>
+                  {facilities.map(({ id, title, description, icon }) => (
+                    <li key={id} className="facility-card">
+                      <div className="facility-icon">{iconMap[icon]}</div>
+                      <div className="facility-content">
+                        <h4 className="facility-title">{title}</h4>
+                        <p className="facility-description">{description}</p>
                       </div>
                     </li>
                   ))}
                 </ul>
               </div>
-            </div> 
+            </div>
           </div>
         </div>
 
-        <section className="mensaje-final-contenedor">
-          <div className="blob"></div>
-          <div className="icono-container">
-            <FaHandHoldingHeart className="icono-mensaje" />
-          </div>
-          <p className="mensaje-final">
-            ¡Te esperamos para darte la mejor atención!
-          </p>
-        </section>
+        <footer className="mensaje-final">
+          <div className="mensaje-blob"></div>
+          <FaHandHoldingHeart className="mensaje-icon" />
+          <p>¡Te esperamos para darte la mejor atención!</p>
+        </footer>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import BackgroundHome from '../Background/BackgroundHome';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useState, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Nosotros.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartLine, faHandHoldingMedical } from '@fortawesome/free-solid-svg-icons';
@@ -139,6 +140,7 @@ const Nosotros = () => {
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [isVisible, setIsVisible] = useState(false);
     const galleryRef = useRef(null);
+    const location = useLocation();
 
     // Filtramos los items según la categoría seleccionada
     const filteredItems = selectedCategory === 'all' 
@@ -199,7 +201,15 @@ const Nosotros = () => {
 
     // Extraer categorías únicas
     const categories = ['all', ...new Set(items.map(item => item.category))];
-
+    
+    useEffect(() => {
+        if (location.state?.scrollToGallery) {
+            const gallery = document.getElementById('galeria');
+            if (gallery) {
+            gallery.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        }, [location.state]);
     return (
         <BackgroundHome>
         <div>
@@ -520,6 +530,7 @@ const Nosotros = () => {
             </section>
             {/* Sección Galería Responsive */}
             <section 
+            id="galeria"
             ref={galleryRef}
             className={`gallery-section ${isVisible ? 'gallery-visible' : ''}`}
             aria-label="Galería de imágenes"

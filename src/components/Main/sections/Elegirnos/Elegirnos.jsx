@@ -1,4 +1,6 @@
 import React, { useRef, useEffect } from "react";
+import { Link } from 'react-router-dom';
+
 import { gsap } from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -113,7 +115,7 @@ const PorQueElegirnos = () => {
                   Médicos de primer nivel y tecnólogos especializados,
                   capacitados en las más modernas aplicaciones del sector salud.
                 </p>
-                <a href="/" className="elegirnos-btn-conoce-mas">
+                <a href="/staff" className="elegirnos-btn-conoce-mas">
                   <span>CONOCE AL STAFF</span>
                   <div className="elegirnos-btn-underline"></div>
                 </a>
@@ -128,10 +130,7 @@ const PorQueElegirnos = () => {
                   Utilizamos equipos modernos y técnicas avanzadas para un
                   diagnóstico preciso y tratamientos efectivos.
                 </p>
-                <a href="/" className="elegirnos-btn-conoce-mas">
-                  <span>VER TECNOLOGÍA</span>
-                  <div className="elegirnos-btn-underline"></div>
-                </a>
+                
               </div>
 
               <div className="razon-card">
@@ -146,10 +145,7 @@ const PorQueElegirnos = () => {
                   Nos preocupamos por cada paciente, brindando un trato humano y
                   profesional en todo momento.
                 </p>
-                <a href="/" className="elegirnos-btn-conoce-mas">
-                  <span>DESCUBRE NUESTRA ATENCIÓN</span>
-                  <div className="elegirnos-btn-underline"></div>
-                </a>
+                
               </div>
             </div>
           </div>

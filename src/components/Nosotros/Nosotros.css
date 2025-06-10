@@ -2165,6 +2165,7 @@ opacity: 1;
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  min-height: 100vh
 }
 
 .gallery-section.gallery-visible {

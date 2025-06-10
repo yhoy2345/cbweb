@@ -1,60 +1,219 @@
-import React from 'react';
-import './Footer.css';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faTiktok, faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faInstagram, faTiktok, faWhatsapp, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faMapMarkerAlt, faPhoneAlt, faEnvelope, faClock, faChevronUp, faUserMd, faAmbulance, faCalendarAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import './Footer.css';
 
 const Footer = () => {
+  const [currentYear] = useState(new Date().getFullYear());
+  const [isVisible, setIsVisible] = useState(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
   return (
-    <footer className="footer-container">
-      <div className="footer-content">
-        <div className="footer-section">
-          <h3 className="footer-title">Contacto</h3>
-          <p className="footer-text">
-            <i className="fas fa-map-marker-alt footer-icon"></i> Dirección: Jirón Progreso 351, Huánuco
-          </p>
-          <p className="footer-text">
-            <i className="fas fa-phone-alt footer-icon"></i> Teléfono:(111) 111-1111 / (111) 111-1111
-
-          </p>
-          <p className="footer-text">
-            <i className="fas fa-envelope footer-icon"></i> Email: clinicabolivar@gmail.com
-          </p>
-        </div>
-
-        <div className="footer-section">
-          <h3 className="footer-title">Horario</h3>
-          <p className="footer-text">Lunes a Viernes: 8:00 - 20:00</p>
-          <p className="footer-text">Sábado: 9:00 - 14:00</p>
-          <p className="footer-text">Domingo: Cerrado</p>
-        </div>
-
-        <div className="footer-section">
-          <h3 className="footer-title">Síguenos</h3>
-          <div className="footer-social-icons">
-            {/* Facebook */}
-            <a href="https://www.facebook.com/share/12KZfceMzjP/" className="footer-social-btn footer-social-fb" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faFacebookF} className="footer-social-ico" />
-              <span className="footer-social-txt">Facebook</span>
-            </a>
-
-            {/* TikTok */}
-            <a href="https://tiktok.com" className="footer-social-btn footer-social-tt" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faTiktok} className="footer-social-ico" />
-              <span className="footer-social-txt">TikTok</span>
-            </a>
-
-            {/* Instagram */}
-            <a href="https://instagram.com" className="footer-social-btn footer-social-ig" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faInstagram} className="footer-social-ico" />
-              <span className="footer-social-txt">Instagram</span>
-            </a>
+    <footer className="footer">
+      {/* Main footer content */}
+      <div className="footer__main container">
+        <div className="footer__grid">
+          {/* Contact Section */}
+          <div className="footer__section">
+            <div className="footer__section-header">
+              <FontAwesomeIcon icon={faMapMarkerAlt} className="footer__heading-icon" />
+              <h3 className="footer__heading">Contacto</h3>
+            </div>
+            <ul className="footer__list">
+              <li className="footer__item">
+                <div className="footer__info">
+                  <FontAwesomeIcon icon={faMapMarkerAlt} className="footer__icon" />
+                  <div className="footer__text">
+                    <p className="footer__label">Dirección:</p>
+                    <p>Jr. Progreso 351, Huánuco, Perú</p>
+                  </div>
+                </div>
+              </li>
+              <li className="footer__item">
+                <div className="footer__info">
+                  <FontAwesomeIcon icon={faPhoneAlt} className="footer__icon" />
+                  <div className="footer__text">
+                    <p className="footer__label">Teléfono:</p>
+                    <a href="tel:+51062515063" className="footer__link">(062) 515063</a>
+                  </div>
+                </div>
+              </li>
+              <li className="footer__item">
+                <div className="footer__info">
+                  <FontAwesomeIcon icon={faWhatsapp} className="footer__icon" />
+                  <div className="footer__text">
+                    <p className="footer__label">WhatsApp:</p>
+                    <a href="https://wa.me/51962225881" target="_blank" rel="noopener noreferrer" className="footer__link">+51 962 225 881</a>
+                  </div>
+                </div>
+              </li>
+              <li className="footer__item">
+                <div className="footer__info">
+                  <FontAwesomeIcon icon={faEnvelope} className="footer__icon" />
+                  <div className="footer__text">
+                    <p className="footer__label">Email:</p>
+                    <a href="mailto:clinicabolivar@gmail.com" className="footer__link">clinicabolivar@gmail.com</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
-         </div> 
+
+          {/* Hours Section */}
+          <div className="footer__section">
+            <div className="footer__section-header">
+              <FontAwesomeIcon icon={faClock} className="footer__heading-icon" />
+              <h3 className="footer__heading">Horario de Atención</h3>
+            </div>
+            <ul className="footer__list">
+              <li className="footer__item">
+                <div className="footer__info">
+                  <FontAwesomeIcon icon={faCalendarAlt} className="footer__icon" />
+                  <div className="footer__text">
+                    <p className="footer__label">Lunes - Viernes</p>
+                    <p>8:00 AM - 8:00 PM</p>
+                  </div>
+                </div>
+              </li>
+              <li className="footer__item">
+                <div className="footer__info">
+                  <FontAwesomeIcon icon={faCalendarAlt} className="footer__icon" />
+                  <div className="footer__text">
+                    <p className="footer__label">Sábados y Domingos</p>
+                    <p>9:00 AM - 2:00 PM</p>
+                  </div>
+                </div>
+              </li>
+              <li className="footer__item">
+                <div className="footer__info">
+                  <FontAwesomeIcon icon={faAmbulance} className="footer__icon" />
+                  <div className="footer__text">
+                    <p className="footer__label">Emergencias</p>
+                    <p>24 Horas</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          {/* Services Section */}
+          <div className="footer__section">
+            <div className="footer__section-header">
+              <FontAwesomeIcon icon={faUserMd} className="footer__heading-icon" />
+              <h3 className="footer__heading">Enlaces Importantes</h3>
+            </div>
+            <ul className="footer__list">
+              <li className="footer__item">
+                <a href="#" className="footer__service-link">Especialidades</a>
+              </li>
+              <li className="footer__item">
+                <a href="#" className="footer__service-link">Servicios</a>
+              </li>
+              <li className="footer__item">
+                <a href="#" className="footer__service-link">Staff Medico</a>
+              </li>
+              <li className="footer__item">
+                <a href="#" className="footer__service-link">Valores</a>
+              </li>
+              <li className="footer__item">
+                <a href="#" className="footer__service-link">Galeria</a>
+              </li>
+              <li className="footer__item">
+                <a href="#" className="footer__service-link">Convenios</a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Social Media Section */}
+          <div className="footer__section">
+            <div className="footer__section-header">
+              <FontAwesomeIcon icon={faUserPlus} className="footer__heading-icon" />
+              <h3 className="footer__heading">Síguenos</h3>
+            </div>
+            <p className="footer__social-text">Mantente conectado con nosotros a través de nuestras redes sociales</p>
+            
+            <div className="footer__social-grid">
+              <a href="https://www.facebook.com/share/12KZfceMzjP/" 
+                 className="footer__social-link footer__social-fb"
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 aria-label="Facebook">
+                <FontAwesomeIcon icon={faFacebookF} className="footer__social-icon" />
+                <span>Facebook</span>
+              </a>
+              
+              <a href="https://instagram.com" 
+                 className="footer__social-link footer__social-ig"
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 aria-label="Instagram">
+                <FontAwesomeIcon icon={faInstagram} className="footer__social-icon" />
+                <span>Instagram</span>
+              </a>
+              
+              <a href="https://tiktok.com" 
+                 className="footer__social-link footer__social-tt"
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 aria-label="TikTok">
+                <FontAwesomeIcon icon={faTiktok} className="footer__social-icon" />
+                <span>TikTok</span>
+              </a>
+
+              <a href="https://linkedin.com" 
+                 className="footer__social-link footer__social-li"
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 aria-label="LinkedIn">
+                <FontAwesomeIcon icon={faLinkedinIn} className="footer__social-icon" />
+                <span>LinkedIn</span>
+              </a>
+            </div>
+
+            
+          </div>
+        </div>
       </div>
 
-      <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} Clínica Bolivar. Todos los derechos reservados.</p>
+      {/* Footer bottom */}
+      <div className="footer__bottom">
+        <div className="container footer__bottom-content">
+          <p className="footer__copyright">
+            &copy; {currentYear} <span className="footer__clinic-name">Clínica Bolivar</span>. Todos los derechos reservados.
+          </p>
+          <div className="footer__badges">
+            <span className="footer__badge">Certificado por MINSA</span>
+            <span className="footer__badge">Acreditación Internacional</span>
+          </div>
+        </div>
       </div>
+
+      {/* Back to Top Button */}
+      {isVisible && (
+        <button onClick={scrollToTop} className="footer__back-to-top" aria-label="Volver arriba">
+          <FontAwesomeIcon icon={faChevronUp} />
+        </button>
+      )}
     </footer>
   );
 };
