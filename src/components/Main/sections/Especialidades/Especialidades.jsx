@@ -101,7 +101,7 @@ const Especialidades = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Especialistas altamente calificados y <span>tecnología de vanguardia</span>
+            Especialistas altamente calificados y <span>tecnología de mejor calidad</span>
           </motion.p>
         </div>
 

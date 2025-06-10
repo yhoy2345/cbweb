@@ -128,19 +128,6 @@ const Staff = () => {
       </section>
       <section className="staff-section">
         <div className="staff-container"> 
-          <h1 className="medical-excellence-title">
-            <span class="medical-line medical-line--1">
-              <span class="medical-text">Donde la</span>
-              <span class="medical-highlight medical-highlight--excellence">Excelencia</span>
-            </span>
-            <span class="medical-line medical-line--2">
-              <span class="medical-highlight medical-highlight--medical">Médica</span>
-              <span class="medical-text">Se Convierte en</span>
-            </span>
-            <span class="medical-line medical-line--3">
-              <span class="medical-highlight medical-highlight--trust">Confianza</span>
-            </span>
-          </h1>
           {/* Sección premium añadida */}
           <div className="medical-excellence">
             <div className="excellence-card">
