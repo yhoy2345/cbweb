@@ -38,7 +38,7 @@ const FloatingButton = () => {
   const handleClick = () => {
     setIsPulsing(true);
     setTimeout(() => {
-      window.open('https://wa.me/TUNUMERODEWHATSAPP', '_blank');
+      window.open('https://wa.me/51962225881', '_blank');
     }, 300);
   };
 
