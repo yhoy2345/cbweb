@@ -14,9 +14,9 @@ import { useCarrusel } from '../CarruselHero/useCarrusel';
 import "./Elegirnos.css";
 
 const slides = [
-  { id: 1, src: "/images/hero/fondo1.jpg", alt: "Slide 1" },
-  { id: 2, src: "/images/hero/fondo2.jpg", alt: "Slide 2" },
-  { id: 3, src: "/images/hero/fondo3.jpg", alt: "Slide 3" },
+  { id: 1, src: "/images/hero/fenfermero.webp", alt: "Slide 1" },
+  { id: 2, src: "/images/hero/tecnologia.webp", alt: "Slide 2" },
+  { id: 3, src: "/images/hero/atencion.webp", alt: "Slide 3" },
 ];
 
 const PorQueElegirnos = () => {

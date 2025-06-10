@@ -213,7 +213,7 @@ const Ubicacion = () => {
             <div className="clinica-card">
               <div className="clinica-image">
                 <img
-                  src="/images/hero/fondo1.jpg"
+                  src="/images/hero/entrada.webp"
                   alt="Imagen de la clínica"
                   onLoad={() => {
                     gsap.from('.clinica-image', {
