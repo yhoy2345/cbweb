@@ -209,7 +209,7 @@ const Header = () => {
               
               <div className="header-buttons-vertical">
                 <a 
-                  href="tel:116" 
+                  href="tel:(062) 515063" 
                   className="emergency-btn"
                   aria-label="Emergencias médicas"
                 >
@@ -219,7 +219,7 @@ const Header = () => {
                 </a>
                 
                 <a 
-                  href="https://wa.me/949806989" 
+                  href="https://wa.me/51962225881" 
                   className="whatsapp-btn"
                   target="_blank" 
                   rel="noopener noreferrer"

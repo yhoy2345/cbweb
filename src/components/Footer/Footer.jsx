@@ -54,7 +54,7 @@ const Footer = () => {
                   <FontAwesomeIcon icon={faPhoneAlt} className="footer__icon" />
                   <div className="footer__text">
                     <p className="footer__label">Teléfono:</p>
-                    <a href="tel:+51062515063" className="footer__link">(062) 515063</a>
+                    <a href="tel:(062) 515063" className="footer__link">(062) 515063</a>
                   </div>
                 </div>
               </li>
@@ -72,7 +72,7 @@ const Footer = () => {
                   <FontAwesomeIcon icon={faEnvelope} className="footer__icon" />
                   <div className="footer__text">
                     <p className="footer__label">Email:</p>
-                    <a href="mailto:clinicabolivar@gmail.com" className="footer__link">clinicabolivar@gmail.com</a>
+                    <a href="mailto:clinicabolivar.hco@gmail.com" className="footer__link">clinicabolivar.hco@gmail.com</a>
                   </div>
                 </div>
               </li>
@@ -91,7 +91,7 @@ const Footer = () => {
                   <FontAwesomeIcon icon={faCalendarAlt} className="footer__icon" />
                   <div className="footer__text">
                     <p className="footer__label">Lunes - Viernes</p>
-                    <p>8:00 AM - 8:00 PM</p>
+                    <p>24 Horas</p>
                   </div>
                 </div>
               </li>
@@ -100,7 +100,7 @@ const Footer = () => {
                   <FontAwesomeIcon icon={faCalendarAlt} className="footer__icon" />
                   <div className="footer__text">
                     <p className="footer__label">Sábados y Domingos</p>
-                    <p>9:00 AM - 2:00 PM</p>
+                    <p>24 Horas</p>
                   </div>
                 </div>
               </li>
@@ -124,22 +124,22 @@ const Footer = () => {
             </div>
             <ul className="footer__list">
               <li className="footer__item">
-                <a href="#" className="footer__service-link">Especialidades</a>
+                <a href="/especialidades" className="footer__service-link">Especialidades</a>
               </li>
               <li className="footer__item">
-                <a href="#" className="footer__service-link">Servicios</a>
+                <a href="/servicios" className="footer__service-link">Servicios</a>
               </li>
               <li className="footer__item">
-                <a href="#" className="footer__service-link">Staff Medico</a>
+                <a href="/staff" className="footer__service-link">Staff Medico</a>
               </li>
               <li className="footer__item">
-                <a href="#" className="footer__service-link">Valores</a>
+                <a href="/nosotros" className="footer__service-link">Valores</a>
               </li>
               <li className="footer__item">
-                <a href="#" className="footer__service-link">Galeria</a>
+                <a href="/nosotros" className="footer__service-link">Galeria</a>
               </li>
               <li className="footer__item">
-                <a href="#" className="footer__service-link">Convenios</a>
+                <a href="/convenios" className="footer__service-link">Convenios</a>
               </li>
             </ul>
           </div>
