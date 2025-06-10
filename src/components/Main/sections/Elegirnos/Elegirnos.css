@@ -119,7 +119,6 @@
 /* ================================================== */
 /* Carrusel de imágenes - Parte izquierda */
 /* ================================================== */
-
 .carrusel-razones {
   flex: 1;
   position: relative;
@@ -132,6 +131,11 @@
   perspective: 1200px;
   transform-style: preserve-3d;
   transition: var(--transition);
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carrusel-wrapper {
@@ -140,6 +144,9 @@
   position: relative;
   overflow: hidden;
   border-radius: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carrusel-slide-razones {
@@ -151,6 +158,9 @@
   opacity: 0;
   transition: opacity 1s ease, transform 1s ease;
   transform: scale(0.98);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carrusel-slide-razones.active {
@@ -185,6 +195,40 @@
     rgba(0, 204, 153, 0.1) 100%
   );
   mix-blend-mode: soft-light;
+}
+
+/* Responsive: centrar horizontal y ajustar tamaño */
+@media (max-width: 1400px) {
+  .carrusel-razones {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .carrusel-razones {
+    max-width: 100%;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 600px) {
+  .carrusel-razones {
+    height: 220px;
+    min-height: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 /* ================================================== */

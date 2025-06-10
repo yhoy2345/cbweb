@@ -462,7 +462,7 @@
   }
 }
 /* Estilos base (1900px - 1441px) - Pantallas muy grandes */
-@media (min-width: 1441px) and (max-width: 1900px) {
+@media (min-width: 1201px) and (max-width: 1900px) {
   .especialidades-container {
     max-width: 1300px;
   }
@@ -477,38 +477,6 @@
   }
 }
 
-/* Desktop grande (1440px - 1201px) */
-@media (min-width: 1201px) and (max-width: 1440px) {
-  .especialidades-container {
-    max-width: 1200px;
-  }
-  
-  .section-title {
-    font-size: 2.7rem;
-  }
-  
-  .specialties-image-right {
-    max-width: 500px;
-  }
-  
-  .honeycomb-container {
-    width: 450px;
-    height: 450px;
-  }
-  
-  .honeycomb-cell {
-    width: 150px;
-    height: 130px;
-  }
-  
-  /* Ajuste posiciones hexagonales */
-  .honeycomb-cell-0 { top: 12%; left: 30%; }
-  .honeycomb-cell-1 { top: 28%; left: 5%; }
-  .honeycomb-cell-2 { top: 28%; right: 5%; }
-  .honeycomb-cell-3 { top: 45%; left: 30%; }
-  .honeycomb-cell-4 { top: 62%; left: 5%; }
-  .honeycomb-cell-5 { top: 62%; right: 5%; }
-}
 
 /* Desktop estándar (1200px - 1025px) */
 @media (min-width: 1025px) and (max-width: 1200px) {

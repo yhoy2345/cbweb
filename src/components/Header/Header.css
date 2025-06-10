@@ -1751,7 +1751,7 @@ Mobile Navigation Styles
 
 @media (max-width: 1400px) {
   .navbar {
-    width: 72% !important;
+    width: 73% !important;
     top: 10px !important;
     padding: 4px 8px !important;
     border-radius: 25px;
@@ -1767,7 +1767,7 @@ Mobile Navigation Styles
 
 @media (max-width: 1355px) {
   .navbar {
-    width: 74% !important;
+    width: 78% !important;
     top: 10px !important;
     padding: 4px 8px !important;
     border-radius: 25px;
@@ -1783,7 +1783,7 @@ Mobile Navigation Styles
 
 @media (max-width: 1319px) {
   .navbar {
-    width: 76% !important;
+    width: 78% !important;
     top: 10px !important;
     padding: 4px 6px !important;
     border-radius: 25px;
@@ -1799,7 +1799,7 @@ Mobile Navigation Styles
 
 @media (max-width: 1279px) {
   .navbar {
-    width: 78% !important;
+    width: 80% !important;
     top: 10px !important;
     padding: 4px 6px !important;
     border-radius: 25px;

@@ -204,9 +204,11 @@ const Anestesiologia = () => {
                                                     <span className="badge">CMD:</span>
                                                 </div>
                                             </div>
+                                            {/* future 
                                             <div className="d-flex ctas">
                                                 <a href="../medicos/ejemplo" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
-                                            </div>
+                                            </div>*/}
+
                                         </div>
                                     </div>
                                 </div>    
