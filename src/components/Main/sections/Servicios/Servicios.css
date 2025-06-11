@@ -105,9 +105,6 @@
 }
 
 
-/* Fuente Montserrat */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-
 :root {
   --primary-blue: #0078d7;
   --primary-green: #48c774;

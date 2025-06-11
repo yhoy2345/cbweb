@@ -88,10 +88,7 @@
   /* ================================================== */
   /* ============ Descripcion esp  ====== */
   /* ================================================== */
-  
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
-  
+
   /* Sección de Introducción */
   .esp-intro {
       font-family: 'Montserrat', sans-serif;
@@ -964,10 +961,7 @@
   /* ================================================== */
   /* ============== BUSCADOR DE ESPECIALIDADES ======== */
   /* ================================================== */
-  
-  /* Fuente principal */
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-  
+
   /* Contenedor principal del buscador */
   .specialty-search {
     padding: 5rem 2rem;
