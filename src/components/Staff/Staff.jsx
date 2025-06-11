@@ -6,48 +6,107 @@ import './Staff.css';
 const medicalStaff = [
   {
     id: 1,
-    name: 'Dra. Ana López',
-    specialty: 'Cardiología',
-    summary: 'Especialista en enfermedades cardiovasculares y rehabilitación cardíaca con más de 15 años de experiencia.',
-    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-    experience: 15,
-    cmp:  666,
-    rne:  666
+    name: "Isabel Tolentino Ordóñez",
+    specialty: "Enfermería en Centro Quirúrgico",
+    summary: "Profesional en enfermería especializada en atención en centro quirúrgico.",
+    image: "/images/Staff/doctor.webp",
+    cep: "077278"
   },
   {
     id: 2,
-    name: 'Dr. Carlos Mendez',
-    specialty: 'Neurología',
-    summary: 'Experto en trastornos del sistema nervioso y tratamiento de enfermedades neurodegenerativas.',
-    image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    name: "Betzaida Robles Ponciano",
+    specialty: "Enfermería en Centro Quirúrgico",
+    summary: "Profesional en enfermería especializada en atención en centro quirúrgico.",
+    image: "/images/Staff/doctor.webp",
+    cep: "083997"
   },
   {
     id: 3,
-    name: 'Dra. Sofía Ramírez',
-    specialty: 'Pediatría',
-    summary: 'Pediatra especializada en atención neonatal y seguimiento del desarrollo infantil.',
-    image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    name: "Italo Mario Guzmán Cadiz",
+    specialty: "Anestesiología",
+    summary: "Especialista en anestesiología con amplia experiencia en procedimientos quirúrgicos.",
+    image: "/images/Staff/doctor.webp",
+    cmp: "054817"
   },
   {
     id: 4,
-    name: 'Dr. Javier Torres',
-    specialty: 'Ortopedia',
-    summary: 'Cirujano ortopédico con enfoque en traumatología deportiva y reemplazos articulares.',
-    image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    name: "Olga Tucto López",
+    specialty: "Anatomía Patológica - Patología Clínica",
+    summary: "Especialista en diagnóstico mediante estudios anatomopatológicos y patología.",
+    image: "/images/Staff/doctor.webp",
+    cmp: "067749"
   },
   {
     id: 5,
-    name: 'Dra. Patricia Gómez',
-    specialty: 'Dermatología',
-    summary: 'Dermatóloga cosmética y clínica, especialista en cáncer de piel y trastornos cutáneos complejos.',
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    name: "Víctor Hugo Segura López",
+    specialty: "Anatomía Patológica - Patología Clínica",
+    summary: "Especialista en diagnóstico mediante estudios anatomopatológicos y patología.",
+    image: "/images/Staff/doctor.webp",
+    cmp: "046589"
   },
   {
     id: 6,
-    name: 'Dr. Luis Herrera',
-    specialty: 'Oncología',
-    summary: 'Oncólogo médico con experiencia en terapias dirigidas y tratamiento multidisciplinario del cáncer.',
-    image: 'https://images.unsplash.com/photo-1651008376811-b90baee60c1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    name: "Jahayra  Toledo Cheppe",
+    specialty: "Oratorio Clínico y Anatomía Patológica",
+    summary: "Profesional especializado en oratorio clínico y anatomía patológica.",
+    image: "/images/Staff/doctor.webp",
+    ctmp: "012005"
+  },
+  {
+    id: 7,
+    name: "Luis Wilfredo Meza Pagano",
+    specialty: "Oratorio Clínico y Anatomía Patológica",
+    summary: "Profesional especializado en oratorio clínico y anatomía patológica.",
+    image: "/images/Staff/doctor.webp",
+    ctmp: "018885"
+  },
+  {
+    id: 8,
+    name: "Shirly Sandy Ortiz Pérez",
+    specialty: "Oratorio Clínico y Anatomía Patológica",
+    summary: "Profesional especializado en oratorio clínico y anatomía patológica.",
+    image: "/images/Staff/doctor.webp",
+    ctmp: "017304"
+  },
+  {
+    id: 9,
+    name: "Guido Encarnación Marino",
+    specialty: "Cirugía General",
+    summary: "Cirujano general con amplia experiencia en procedimientos quirúrgicos.",
+    image: "/images/Staff/doctor.webp",
+    cmp: "037489"
+  },
+  {
+    id: 10,
+    name: "Andrei Alekseevich Kochube",
+    specialty: "Dermatología",
+    summary: "Especialista en diagnóstico y tratamiento de enfermedades de la piel.",
+    image: "/images/Staff/doctor.webp",
+    cmp: "053248"
+  },
+  {
+    id: 11,
+    name: "Violeta Alva Díaz de Navarro",
+    specialty: "Ginecología y Obstetricia",
+    summary: "Especialista en salud femenina, embarazo y partos.",
+    image: "/images/Staff/doctor.webp",
+    cmp: "015771"
+  },
+  {
+    id: 12,
+    name: "Walter Román Quiñones Vera",
+    specialty: "Pediatría",
+    summary: "Especialista en salud infantil y desarrollo pediátrico.",
+    image: "/images/Staff/doctor.webp",
+    cmp: "033091"
+  },
+  {
+    id: 13,
+    name: "Usaniber Chávez Gonzales",
+    specialty: "Traumatología",
+    summary: "Especialista en tratamiento de lesiones del sistema musculoesquelético.",
+    image: "/images/Staff/doctor.webp",
+    cmp: "042181"
   }
 ];
 
@@ -172,13 +231,10 @@ const Staff = () => {
               <div className="stat-label">Especialistas</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number" data-count="40">30</div>
+              <div className="stat-number" data-count="40">22</div>
               <div className="stat-label">Especialidades</div>
             </div>
-            <div className="stat-item">
-              <div className="stat-number" data-count="98">98</div>
-              <div className="stat-label">% Satisfacción</div>
-            </div>
+            
           </div>
 
           <div className="search-container" data-is-searching={isSearching}>
@@ -250,31 +306,37 @@ const Staff = () => {
             </div>
           )}
           
-          {!searchTerm && (
-            <div className="staff-grid">
-              {medicalStaff.map(staff => (
-                <div key={staff.id} className="staff-card">
-                  <div className="staff-image-container">
-                    <img src={staff.image} alt={staff.name} className="staff-image" />
-                    <div className="staff-specialty-badge">{staff.specialty}</div>
-                  </div>
-                  <div className="staff-info">
-                    <h3 className="staff-name">{staff.name}</h3>
-                    <p className="staff-summary">{staff.summary}</p>
-                  </div>
-                  <div className="staff-credentials-container">
-                    <div className="staff-experience">
-                      <span className="credential-experience">Experiencia: {staff.experience}</span>
+          <div className="staff-grid-container">
+            {!searchTerm && (
+              <div className="staff-grid">
+                {medicalStaff.map(staff => (
+                  <div key={staff.id} className="staff-card">
+                    <div className="staff-image-container">
+                      <img src={staff.image} alt={staff.name} className="staff-image" />
+                      <div className="staff-specialty-badge">{staff.specialty}</div>
                     </div>
-                    <div className="staff-badges">
-                      <span className="credential-badge cmp-badge">CMP: {staff.cmp}</span>
-                      <span className="credential-badge rne-badge">RNE: {staff.rne}</span>
+                    <div className="staff-info">
+                      <h3 className="staff-name">{staff.name}</h3>
+                      <p className="staff-summary">{staff.summary}</p>
+                    </div>
+                    <div className="staff-credentials-container">
+                      <div className="staff-badges">
+                        {staff.cmp && (
+                          <span className="credential-badge cmp-badge">CMP: {staff.cmp}</span>
+                        )}
+                        {staff.cep && (
+                          <span className="credential-badge cep-badge">CEP: {staff.cep}</span>
+                        )}
+                        {staff.ctmp && (
+                          <span className="credential-badge ctmp-badge">CTMP: {staff.ctmp}</span>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          )}
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </section>
     </BackgroundHome>

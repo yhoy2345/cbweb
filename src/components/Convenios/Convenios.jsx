@@ -5,55 +5,33 @@ import BackgroundHome from '../Background/BackgroundHome';
 const Convenios = () => {
   const convenios = [
     {
-      logo: "/uploads/convenios/rimac-logo-gris.png",
+      logo: "/images/Convenios/amarilis.webp",
       alt: " logo ",
-      items: ["Rimac EPS", "Rimac Seguros"]
+      items: [
+      "Municipalidad Distrital de Amarilis",
+      "Atención médica preferencial",
+      
+      ]
     },
     {
-      logo: "/uploads/convenios/pacifico-logo-gris.png",
+      logo: "/images/Convenios/santaAna.webp",
       alt: " logo ",
-      items: ["Pacifico EPS", "Pacifico Seguros"]
+      items: [
+      "Santa Ana Centro Odontológico",
+      "Emergencias odontológicas cubiertas",
+        
+        ]
     },
     {
-      logo: "/uploads/convenios/mapfre-logo-gris.png",
+      logo: "/images/Convenios/newton.webp",
       alt: " logo ",
-      items: ["Mapfre EPS", "Mapfre Seguros"]
+      items: [
+        "Colegio Isaac Newton",
+        "Emergencias cubiertas en horario escolar",
+       
+        ]
     },
-    {
-      logo: "/uploads/convenios/positiva-logo-gris.png",
-      alt: " logo ",
-      items: ["La Positiva", "La Positiva Sanitas EPS"]
-    },
-    {
-      logo: "/uploads/sanitas-bw.png",
-      alt: "logo",
-      items: ["Sanitas EPS"]
-    },
-    {
-      logo: "/uploads/convenios/banco-central-reserva-logo.png",
-      alt: " logo",
-      items: ["Fondo BCR"]
-    },
-    {
-      logo: "/uploads/convenios/interseguro-logo.png",
-      alt: " logo",
-      items: ["Interseguro"]
-    },
-    {
-      logo: "/uploads/la-protectora-logo.jpg",
-      alt: "la protectora logo",
-      items: ["La Protectora"]
-    },
-    {
-      logo: "/uploads/protecta-logo2.jpg",
-      alt: " logo",
-      items: ["Protecta Security"]
-    },
-    {
-      logo: "/uploads/convenios/bnp-paribas-cardif-logo.png",
-      alt: "logo",
-      items: ["Cardif"]
-    }
+    
   ];
 
   return (
@@ -105,25 +83,38 @@ const Convenios = () => {
                     contigo.
                 </p>
             </div>
-            <div className="convenios-grid">
-                {convenios.map((convenio, index) => (
-                <div className="convenio-item" key={index}>
-                    <figure className="convenio-figure">
-                    <img 
-                        src={convenio.logo} 
-                        alt={convenio.alt} 
-                        width="245" 
-                        height="245"
-                        className="convenio-img"
-                    />
-                    </figure>
-                    <ul className="convenio-list">
-                    {convenio.items.map((item, i) => (
-                        <li key={i}>{item}</li>
-                    ))}
-                    </ul>
+            <div className="convenios-section">
+              <div className="convenios-container">
+                <div className="convenios-grid">
+                  {convenios.map((convenio, index) => (
+                    <div className="convenio-card" key={index}>
+                      <div className="convenio-logo-wrapper">
+                        <div className="convenio-logo-container">
+                          <img 
+                            src={convenio.logo} 
+                            alt={convenio.alt} 
+                            className="convenio-logo"
+                            loading="lazy"
+                            onError={(e) => {
+                              e.target.src = '/images/placeholder-logo.svg';
+                              e.target.alt = 'Logo no disponible';
+                            }}
+                          />
+                        </div>
+                      </div>
+                      <div className="convenio-content">
+                        <ul className="convenio-benefits">
+                          {convenio.items.map((item, i) => (
+                            <li key={i} className={i === 0 ? "benefit-main" : "benefit-secondary"}>
+                              {i === 0 ? `${item}` : item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                ))}
+              </div>
             </div>
         </section>
     </BackgroundHome>

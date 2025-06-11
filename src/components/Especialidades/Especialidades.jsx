@@ -7,6 +7,9 @@ import BackgroundHome from '../Background/BackgroundHome';
 import useScrollAnimation from './scroll';
 import { specialties, searchSectionData } from '../Especialidades/Especialidades.data';
 import './Especialidades.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserMd } from '@fortawesome/free-solid-svg-icons';
+
 
 const Especialidades = () => {
   useScrollAnimation();

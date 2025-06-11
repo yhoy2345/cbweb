@@ -115,10 +115,6 @@ const PorQueElegirnos = () => {
                   Médicos de primer nivel y tecnólogos especializados,
                   capacitados en las más modernas aplicaciones del sector salud.
                 </p>
-                <a href="/staff" className="elegirnos-btn-conoce-mas">
-                  <span>CONOCE AL STAFF</span>
-                  <div className="elegirnos-btn-underline"></div>
-                </a>
               </div>
 
               <div className="razon-card">

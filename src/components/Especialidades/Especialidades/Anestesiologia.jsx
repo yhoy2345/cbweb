@@ -196,7 +196,7 @@ const Anestesiologia = () => {
                                         <div className="d-flex lista">
                                             <div className="d-flex gap-3">
                                                 <div className="d-flex avatar">
-                                                    <img src="https://citaweb.clinicasanfelipe.com/Files/M3dicosX/Dr.Ejemplo.jpg" alt="DR. EJEMPLO" />
+                                                    <img src="/images/Staff/doctor.webp" alt="DR. EJEMPLO" />
                                                 </div>
                                                 <div className="d-flex flex-column descripcion">
                                                     <span className="area">Anestesiólogo</span>
@@ -215,14 +215,14 @@ const Anestesiologia = () => {
                             </div>
                         </div>
                     </section>
-
+                    {/* future
                     <section className="derma-cta">
                         <h3 className="derma-cta__title">¿Necesitas evaluación anestésica para un procedimiento?</h3>
                         <button className="derma-cta__button">
                             Agendar cita
                             <span className="derma-cta__button-effect"></span>
                         </button>
-                    </section>
+                    </section>*/}
                 </main>
             </div>
         </Background>
