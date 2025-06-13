@@ -110,7 +110,7 @@ const CirugiaPediatrica = () => {
                                     Nuestras Especialidades
                                 </button>
                                 <span>
-                                    > Cirugía Pediátrica
+                                    &gt; Cirugía Pediátrica
                                 </span>
                             </div>
                         </div>
@@ -204,23 +204,24 @@ const CirugiaPediatrica = () => {
                                                     <span className="badge">CMD:</span>
                                                 </div>
                                             </div>
+                                            {/* Call to Action 
                                             <div className="d-flex ctas">
                                                 <a href="../medicos/ejemplo-pediatrico" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
-                                            </div>
+                                            </div>*/}
                                         </div>
                                     </div>
                                 </div>    
                             </div>
                         </div>
                     </section>
-
+                    {/* Call to Action 
                     <section className="derma-cta">
                         <h3 className="derma-cta__title">¿Tu hijo necesita evaluación quirúrgica?</h3>
                         <button className="derma-cta__button">
                             Agendar cita
                             <span className="derma-cta__button-effect"></span>
                         </button>
-                    </section>
+                    </section>*/}
                 </main>
             </div>
         </Background>

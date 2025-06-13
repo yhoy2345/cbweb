@@ -10,7 +10,7 @@ import './car.css';
 const LaboratorioClinicoAnatomiaPatologica = () => {
     const navigate = useNavigate();
     const laboratorioData = specialties.find(
-        esp => esp.url === "/especialidades/laboratorio-clinico-anatomia-patologica"
+        esp => esp.url === "/especialidades/laboratorio-clinico"
     );
 
     const handleClick = () => {
@@ -110,7 +110,7 @@ const LaboratorioClinicoAnatomiaPatologica = () => {
                                     Nuestras Especialidades
                                 </button>
                                 <span>
-                                    > Laboratorio Clínico y Anatomía Patológica
+                                    &gt; Laboratorio Clínico y Anatomía Patológica
                                 </span>
                             </div>
                         </div>
@@ -204,23 +204,24 @@ const LaboratorioClinicoAnatomiaPatologica = () => {
                                                     <span className="badge">CMD:</span>
                                                 </div>
                                             </div>
+                                            {/* Call to Action 
                                             <div className="d-flex ctas">
                                                 <a href="../medicos/ejemplo-patologo" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
-                                            </div>
+                                            </div>*/}
                                         </div>
                                     </div>
                                 </div>    
                             </div>
                         </div>
                     </section>
-
+                    {/* Call to Action 
                     <section className="derma-cta">
                         <h3 className="derma-cta__title">¿Necesitas un análisis de laboratorio o estudio patológico?</h3>
                         <button className="derma-cta__button">
                             Agendar cita
                             <span className="derma-cta__button-effect"></span>
                         </button>
-                    </section>
+                    </section>*/}
                 </main>
             </div>
         </Background>

@@ -45,7 +45,7 @@ const Footer = () => {
                   <FontAwesomeIcon icon={faMapMarkerAlt} className="footer__icon" />
                   <div className="footer__text">
                     <p className="footer__label">Dirección:</p>
-                    <p>Jr. Progreso 351, Huánuco, Perú</p>
+                    <p>Jr. Progreso N°351, Huánuco, Perú</p>
                   </div>
                 </div>
               </li>

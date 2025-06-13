@@ -110,7 +110,7 @@ const Gastroenterologia = () => {
                                     Nuestras Especialidades
                                 </button>
                                 <span>
-                                    > Gastroenterología
+                                    &gt; Gastroenterología
                                 </span>
                             </div>
                         </div>
@@ -204,23 +204,24 @@ const Gastroenterologia = () => {
                                                     <span className="badge">CMD:</span>
                                                 </div>
                                             </div>
+                                            {/* CTA Section 
                                             <div className="d-flex ctas">
                                                 <a href="../medicos/ejemplo-gastroenterologo" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
-                                            </div>
+                                            </div>*/}
                                         </div>
                                     </div>
                                 </div>    
                             </div>
                         </div>
                     </section>
-
+                    {/* CTA Section 
                     <section className="derma-cta">
                         <h3 className="derma-cta__title">¿Necesitas una consulta gastroenterológica?</h3>
                         <button className="derma-cta__button">
                             Agendar cita
                             <span className="derma-cta__button-effect"></span>
                         </button>
-                    </section>
+                    </section>*/}
                 </main>
             </div>
         </Background>

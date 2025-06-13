@@ -110,7 +110,7 @@ const Otorrinolaring = () => {
                                     Nuestras Especialidades
                                 </button>
                                 <span>
-                                    > Otorrinolaringología
+                                    &gt; Otorrinolaringología
                                 </span>
                             </div>
                         </div>
@@ -196,7 +196,7 @@ const Otorrinolaring = () => {
                                         <div className="d-flex lista">
                                             <div className="d-flex gap-3">
                                                 <div className="d-flex avatar">
-                                                    <img src="https://citaweb.clinicasanfelipe.com/Files/M3dicosX/Dr.EjemploOtorrinolaringologo.jpg" alt="DR. EJEMPLO OTORRINOLARINGÓLOGO" />
+                                                    <img src="https://citaweb.clinicasanfelipe.com/Files/M3dicosX/Dr.EjemploOtorrinolaringologo.jpg" alt="DR. EJEMPLO" />
                                                 </div>
                                                 <div className="d-flex flex-column descripcion">
                                                     <span className="area">Otorrinolaringólogo</span>
@@ -204,23 +204,24 @@ const Otorrinolaring = () => {
                                                     <span className="badge">CMD:</span>
                                                 </div>
                                             </div>
+                                            {/* CTA Section 
                                             <div className="d-flex ctas">
                                                 <a href="../medicos/ejemplo-otorrinolaringologo" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
-                                            </div>
+                                            </div>*/}
                                         </div>
                                     </div>
                                 </div>    
                             </div>
                         </div>
                     </section>
-
+                    {/* CTA Section 
                     <section className="derma-cta">
                         <h3 className="derma-cta__title">¿Necesitas una consulta de otorrinolaringología?</h3>
                         <button className="derma-cta__button">
                             Agendar cita
                             <span className="derma-cta__button-effect"></span>
                         </button>
-                    </section>
+                    </section>*/}
                 </main>
             </div>
         </Background>

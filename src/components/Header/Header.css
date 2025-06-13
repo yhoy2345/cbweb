@@ -621,12 +621,12 @@ HEADER CONTACT STYLES
 }
 /* Contenedor de información de contacto*/
 .contact-info-container {
-  width: 2%;
+  width: 1%;
   display: block;
   align-items: center;
   gap: 1px; /* Espacio entre elementos aumentado */
   padding: -10px 12px;
-  margin-left: 30%;
+  margin-left: 28%;
 }
 
 /* Contenedor interno para alinear contactos y dirección */

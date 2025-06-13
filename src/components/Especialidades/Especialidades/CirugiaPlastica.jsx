@@ -10,7 +10,7 @@ import './car.css';
 const CirugiaPlasticaReconstructiva = () => {
     const navigate = useNavigate();
     const cirugiaPlasticaData = specialties.find(
-        esp => esp.url === "/especialidades/cirugia-plastica-reconstructiva"
+        esp => esp.url === "/especialidades/cirugia-plastica"
     );
 
     const handleClick = () => {
@@ -110,7 +110,7 @@ const CirugiaPlasticaReconstructiva = () => {
                                     Nuestras Especialidades
                                 </button>
                                 <span>
-                                    > Cirugía Plástica y Reconstructiva
+                                    &gt; Cirugía Plástica y Reconstructiva
                                 </span>
                             </div>
                         </div>
@@ -204,23 +204,24 @@ const CirugiaPlasticaReconstructiva = () => {
                                                     <span className="badge">CMD:</span>
                                                 </div>
                                             </div>
+                                            {/* CTA Section 
                                             <div className="d-flex ctas">
                                                 <a href="../medicos/ejemplo-cirujano-plastico" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
-                                            </div>
+                                            </div>*/}
                                         </div>
                                     </div>
                                 </div>    
                             </div>
                         </div>
                     </section>
-
+                    {/* CTA Section 
                     <section className="derma-cta">
                         <h3 className="derma-cta__title">¿Necesitas una consulta de cirugía plástica o reconstructiva?</h3>
                         <button className="derma-cta__button">
                             Agendar cita
                             <span className="derma-cta__button-effect"></span>
                         </button>
-                    </section>
+                    </section>*/}
                 </main>
             </div>
         </Background>

@@ -10,7 +10,7 @@ import './car.css';
 const EnfermeriaPediatrica = () => {
     const navigate = useNavigate();
     const enfermeriaData = specialties.find(
-        esp => esp.url === "/especialidades/enfermeriapediatrica"
+        esp => esp.url === "/especialidades/enfermeria-pediatrica"
     );
 
     const handleClick = () => {
@@ -204,23 +204,24 @@ const EnfermeriaPediatrica = () => {
                                                     <span className="badge">Certificada:</span>
                                                 </div>
                                             </div>
+                                            {/* Call to Action 
                                             <div className="d-flex ctas">
                                                 <a href="../medicos/ejemplo" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
-                                            </div>
+                                            </div>*/}
                                         </div>
                                     </div>
                                 </div>    
                             </div>
                         </div>
                     </section>
-
+                    {/* Call to Action 
                     <section className="derma-cta">
                         <h3 className="derma-cta__title">¿Necesitas cuidados especializados para tu hijo?</h3>
                         <button className="derma-cta__button">
                             Solicitar atención
                             <span className="derma-cta__button-effect"></span>
                         </button>
-                    </section>
+                    </section>*/}
                 </main>
             </div>
         </Background>

@@ -10,7 +10,7 @@ import './car.css';
 const AnatomiaPatologica = () => {
     const navigate = useNavigate();
     const anatomiaData = specialties.find(
-        esp => esp.url === "/especialidades/anatomiapatologica"
+        esp => esp.url === "/especialidades/patologica"
     );
 
     const handleClick = () => {
@@ -204,23 +204,24 @@ const AnatomiaPatologica = () => {
                                                     <span className="badge">Subespecialidad:</span>
                                                 </div>
                                             </div>
+                                            {/* CTA Section 
                                             <div className="d-flex ctas">
                                                 <a href="../medicos/ejemplo" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
-                                            </div>
+                                            </div>*/}
                                         </div>
                                     </div>
                                 </div>    
                             </div>
                         </div>
                     </section>
-
+                    {/* CTA Section 
                     <section className="derma-cta">
                         <h3 className="derma-cta__title">¿Requieres un diagnóstico histopatológico?</h3>
                         <button className="derma-cta__button">
                             Solicitar estudio
                             <span className="derma-cta__button-effect"></span>
                         </button>
-                    </section>
+                    </section>*/}
                 </main>
             </div>
         </Background>

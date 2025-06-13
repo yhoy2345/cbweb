@@ -10,7 +10,7 @@ import './car.css';
 const FarmaciaClinica = () => {
     const navigate = useNavigate();
     const farmaciaData = specialties.find(
-        esp => esp.url === "/especialidades/farmaciaclinica"
+        esp => esp.url === "/especialidades/farmacia-clinica"
     );
 
     const handleClick = () => {
@@ -204,23 +204,24 @@ const FarmaciaClinica = () => {
                                                     <span className="badge">Certificado:</span>
                                                 </div>
                                             </div>
+                                            {/* CTA Section 
                                             <div className="d-flex ctas">
                                                 <a href="../medicos/ejemplo" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
-                                            </div>
+                                            </div>*/}
                                         </div>
                                     </div>
                                 </div>    
                             </div>
                         </div>
                     </section>
-
+                    {/* CTA Section 
                     <section className="derma-cta">
                         <h3 className="derma-cta__title">¿Necesitas asesoría farmacéutica?</h3>
                         <button className="derma-cta__button">
                             Agendar consulta
                             <span className="derma-cta__button-effect"></span>
                         </button>
-                    </section>
+                    </section>*/}
                 </main>
             </div>
         </Background>

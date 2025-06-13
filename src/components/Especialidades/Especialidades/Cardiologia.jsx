@@ -215,23 +215,25 @@ const Dermatologia = () => {
                                                     <span className="badge">CMD:</span>
                                                 </div>
                                             </div>
+                                            {/*despues
                                             <div className="d-flex ctas">
                                                 <a href="../medicos/aldo-daniel-galvez-canseco" className="btn btn-primary-outline px-4 py-2">Conócelo aquí</a>
-                                            </div>
+                                            </div>*/}
+                                            
                                         </div>
                                     </div>
                                 </div>    
                             </div>
                         </div>
                     </section>
-
+                    {/*despues 
                     <section className="derma-cta">
                         <h3 className="derma-cta__title">¿Necesitas una evaluación dermatológica?</h3>
                         <button className="derma-cta__button">
                             Agendar cita
                             <span className="derma-cta__button-effect"></span>
                         </button>
-                    </section>
+                    </section>*/}
                 </main>
             </div>
         </Background>
